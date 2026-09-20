@@ -17,6 +17,11 @@
     {
       "email": "eric.lara@axa.com",
       "name": "Eric Lara"
+    },
+    {
+      "name": "Igor Savin",
+      "email": "kibertoad@gmail.com",
+      "url": "https://github.com/kibertoad"
     }
   ],
   "license": "MIT",

@@ -24,6 +24,11 @@
     {
       "email": "opensource@axa.com",
       "name": "Jesus Seijas"
+    },
+    {
+      "name": "Igor Savin",
+      "email": "kibertoad@gmail.com",
+      "url": "https://github.com/kibertoad"
     }
   ],
   "license": "MIT",

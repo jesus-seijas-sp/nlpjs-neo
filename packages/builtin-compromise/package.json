@@ -17,6 +17,11 @@
     {
       "email": "syntithenai@gmail.com",
       "name": "Steve Ryan"
+    },
+    {
+      "name": "Igor Savin",
+      "email": "kibertoad@gmail.com",
+      "url": "https://github.com/kibertoad"
     }
   ],
   "license": "MIT",
