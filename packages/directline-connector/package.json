@@ -53,7 +53,9 @@
   "dependencies": {
     "@nlpjs-neo/connector": "workspace:^",
     "@nlpjs-neo/core": "workspace:^",
-    "formidable": "^2.0.1",
-    "node-fetch": "^2.6.7"
+    "formidable": "^3.5.4"
+  },
+  "devDependencies": {
+    "@types/formidable": "^3.4.6"
   }
 }

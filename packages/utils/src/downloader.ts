@@ -24,10 +24,9 @@
 import fs from 'fs';
 import http from 'http';
 import https from 'https';
-import HttpsProxyAgent from 'https-proxy-agent';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import path from 'path';
-import tar from 'tar';
-import url from 'url';
+import { extract } from 'tar';
 import ProgressBar from './progress-bar.js';
 import { getAbsolutePath } from './fs-extra.js';
 
@@ -61,7 +60,7 @@ class Downloader {
         process.env.HTTPS_PROXY;
     }
     if (this.proxy) {
-      this.agent = HttpsProxyAgent(this.proxy);
+      this.agent = new HttpsProxyAgent(this.proxy);
     }
   }
 
@@ -71,9 +70,9 @@ class Downloader {
     }
   }
 
-  download(urlPath, filePath) {
+  download(urlPath, filePath?) {
     return new Promise((resolve, reject) => {
-      const parsed = url.parse(urlPath);
+      const parsed = new URL(urlPath);
       let relativePath = filePath;
       if (!relativePath) {
         relativePath = this.replicateAllFolders
@@ -89,7 +88,7 @@ class Downloader {
       const downloadDir = path.parse(absolutePath).dir;
       Downloader.ensureDir(downloadDir);
       const proto = parsed.protocol === 'https:' ? https : http;
-      let port: string | number | null = parsed.port;
+      let port: string | number = parsed.port;
       if (!port) {
         port = parsed.protocol === 'https:' ? 443 : 80;
       }
@@ -124,9 +123,9 @@ class Downloader {
       });
       file.on('finish', () => {
         if (isTar) {
-          tar
-            .x({ file: absolutePath, strip: 1, C: downloadDir })
-            .then(() => resolve(fileInfo));
+          extract({ file: absolutePath, strip: 1, cwd: downloadDir }).then(() =>
+            resolve(fileInfo)
+          );
         } else {
           resolve(fileInfo);
         }

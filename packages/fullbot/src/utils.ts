@@ -22,10 +22,9 @@
  */
 
 import fs from 'fs';
-import archiver from 'archiver';
-import rimraf from 'rimraf';
+import { ZipArchive } from 'archiver';
 import path from 'path';
-import decompress from 'decompress';
+import StreamZip from 'node-stream-zip';
 import { Downloader } from '@nlpjs-neo/utils';
 
 function pad(n, l = 2) {
@@ -48,12 +47,13 @@ function ensureDir(dirPath, recursive = true) {
   }
 }
 
-const removeDir = (dirPath) => rimraf.sync(dirPath);
+const removeDir = (dirPath) =>
+  fs.rmSync(dirPath, { recursive: true, force: true });
 
 function compressFolder(folder, fileName) {
   return new Promise<void>((resolve, reject) => {
     const output = fs.createWriteStream(fileName);
-    const archive = archiver('zip');
+    const archive = new ZipArchive();
     output.on('close', () => resolve());
     archive.on('error', reject);
     archive.pipe(output);
@@ -70,11 +70,14 @@ async function backup(srcFolder, tgtFolder) {
   return tgtName;
 }
 
-function restore(fileName, tgtFolder) {
-  return new Promise((resolve, reject) => {
-    ensureDir(tgtFolder);
-    decompress(fileName, tgtFolder).then(resolve).catch(reject);
-  });
+async function restore(fileName, tgtFolder) {
+  ensureDir(tgtFolder);
+  const zip = new StreamZip.async({ file: fileName });
+  try {
+    return await zip.extract(null, tgtFolder);
+  } finally {
+    await zip.close();
+  }
 }
 
 async function mount(options) {
