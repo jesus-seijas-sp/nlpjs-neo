@@ -3,7 +3,6 @@
   "description": "Library for NLU (Natural Language Understanding) done in Node.js",
   "scripts": {
     "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
-    "postinstall": "lerna bootstrap",
     "lint": "eslint .",
     "lintfix": "eslint --fix .",
     "test": "eslint --fix . && TZ='Europe/London' jest --silent --coverage --maxWorkers=4 ."
@@ -54,5 +53,9 @@
     ],
     "coverageDirectory": "coverage",
     "testEnvironment": "node"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=18"
   }
 }

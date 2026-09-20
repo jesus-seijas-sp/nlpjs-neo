@@ -30,7 +30,7 @@
 You can install @nlpjs-neo/basic:
 
 ```bash
-    npm install @nlpjs-neo/basic
+    pnpm add @nlpjs-neo/basic
 ```
 
 ## Container

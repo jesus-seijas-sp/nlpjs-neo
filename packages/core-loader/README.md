@@ -30,7 +30,7 @@
 You can install @nlpjs-neo/core-loader:
 
 ```bash
-    npm install @nlpjs-neo/core-loader
+    pnpm add @nlpjs-neo/core-loader
 ```
 
 ## Container

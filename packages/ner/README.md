@@ -28,7 +28,7 @@
 You can install @nlpjs-neo/ner:
 
 ```bash
-    npm install @nlpjs-neo/ner
+    pnpm add @nlpjs-neo/ner
 ```
 
 ## NluNeural

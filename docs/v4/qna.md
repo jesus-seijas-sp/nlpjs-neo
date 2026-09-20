@@ -11,7 +11,7 @@ The process is exactly the same as having a bot with a chatbot, so we strongly r
 In your node project folder, install the basic library and the qna importer, that will install the core and basic plugins for working in the backend, and also the plugin for converting qna files to your corpus.
 
 ```sh
-npm i @nlpjs-neo/basic @nlpjs-neo/qna-importer
+pnpm add @nlpjs-neo/basic @nlpjs-neo/qna-importer
 ```
 
 ## Train and test a QnA file
@@ -75,7 +75,7 @@ The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-exam
 
 Now install the plugins for the express server and the directline API:
 ```javascript
-npm i @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
+pnpm add @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
 ```
 
 Change the conf.json to include those plugins and expose the API:

@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/nlp:
 
 ```bash
-    npm install @nlpjs-neo/nlp
+    pnpm add @nlpjs-neo/nlp
 ```
 
 ## Example of Usage

@@ -17,7 +17,7 @@ End user <- -> Fb page <- -> Fb backend <- -> Your backend
 You can install @nlpjs-neo/fb-connector:
 
 ```bash
-    npm install @nlpjs-neo/fb-connector
+    pnpm add @nlpjs-neo/fb-connector
 ```
 
 This module leverages some other @nlp.js dependencies:

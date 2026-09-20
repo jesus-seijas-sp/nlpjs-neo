@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/lang-bert:
 
 ```bash
-  npm install @nlpjs-neo/lang-bert
+  pnpm add @nlpjs-neo/lang-bert
 ```
 
 ## Contributing

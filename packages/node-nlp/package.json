@@ -42,21 +42,21 @@
     "bot"
   ],
   "dependencies": {
-    "@nlpjs-neo/builtin-duckling": "^4.26.1",
-    "@nlpjs-neo/builtin-microsoft": "^4.26.1",
-    "@nlpjs-neo/core-loader": "^4.26.1",
-    "@nlpjs-neo/emoji": "^4.26.1",
-    "@nlpjs-neo/evaluator": "^4.26.1",
-    "@nlpjs-neo/lang-all": "^4.26.1",
-    "@nlpjs-neo/language": "^4.25.0",
-    "@nlpjs-neo/neural": "^4.25.0",
-    "@nlpjs-neo/nlg": "^4.26.1",
-    "@nlpjs-neo/nlp": "^4.27.0",
-    "@nlpjs-neo/nlu": "^4.27.0",
-    "@nlpjs-neo/request": "^4.25.0",
-    "@nlpjs-neo/sentiment": "^4.26.1",
-    "@nlpjs-neo/similarity": "^4.26.1",
-    "@nlpjs-neo/xtables": "^4.25.0"
+    "@nlpjs-neo/builtin-duckling": "workspace:^",
+    "@nlpjs-neo/builtin-microsoft": "workspace:^",
+    "@nlpjs-neo/core-loader": "workspace:^",
+    "@nlpjs-neo/emoji": "workspace:^",
+    "@nlpjs-neo/evaluator": "workspace:^",
+    "@nlpjs-neo/lang-all": "workspace:^",
+    "@nlpjs-neo/language": "workspace:^",
+    "@nlpjs-neo/neural": "workspace:^",
+    "@nlpjs-neo/nlg": "workspace:^",
+    "@nlpjs-neo/nlp": "workspace:^",
+    "@nlpjs-neo/nlu": "workspace:^",
+    "@nlpjs-neo/request": "workspace:^",
+    "@nlpjs-neo/sentiment": "workspace:^",
+    "@nlpjs-neo/similarity": "workspace:^",
+    "@nlpjs-neo/xtables": "workspace:^"
   },
   "gitHead": "cc4249fa994c58d220e6f10a6c94fdad05df32fd"
 }

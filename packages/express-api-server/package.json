@@ -25,7 +25,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/core": "^4.26.1",
+    "@nlpjs-neo/core": "workspace:^",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },

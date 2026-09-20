@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/evaluator:
 
 ```bash
-    npm install @nlpjs-neo/evaluator
+    pnpm add @nlpjs-neo/evaluator
 ```
 
 ## Example of Usage

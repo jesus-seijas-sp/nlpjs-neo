@@ -26,7 +26,7 @@
 You can install @nlpjs-neo/console-connector:
 
 ```bash
-    npm install @nlpjs-neo/console-connector
+    pnpm add @nlpjs-neo/console-connector
 ```
 
 ## Example of use inside NLP.js

@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/lang-ca:
 
 ```bash
-    npm install @nlpjs-neo/lang-ca
+    pnpm add @nlpjs-neo/lang-ca
 ```
 
 ## Example of Usage

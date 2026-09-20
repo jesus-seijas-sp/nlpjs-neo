@@ -33,7 +33,7 @@ This package provides the class _Lexer_ that is the basic class to build transpi
 You can install it using NPM
 
 ```shell
-  npm i @nlpjs-neo/lexer
+  pnpm add @nlpjs-neo/lexer
 ```
 
 ## Token Types

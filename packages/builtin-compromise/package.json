@@ -25,7 +25,7 @@
     "test": "jest --coverage --maxWorkers=4 ."
   },
   "dependencies": {
-    "@nlpjs-neo/core": "^4.26.1",
+    "@nlpjs-neo/core": "workspace:^",
     "compromise": "^13.7.0",
     "compromise-dates": "^1.2.0",
     "compromise-numbers": "^1.0.0"

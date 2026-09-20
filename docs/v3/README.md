@@ -112,7 +112,7 @@ The version 3 comes with some important changes, mainly focused on improving per
 If you're looking to use NLP.js in your node application, you can install via NPM like so:
 
 ```bash
-  npm i node-nlp@3.10.2
+  pnpm add node-nlp@3.10.2
 ```
 
 ## React Native
@@ -120,7 +120,7 @@ If you're looking to use NLP.js in your node application, you can install via NP
 There is a version of NLP.js that works in React Native, so you can build chatbots that can be trained and executed on the mobile even without internet. You can install it via NPM:
 
 ```bash
-    npm install node-nlp-rn
+    pnpm add node-nlp-rn
 ```
 
 Some Limitations:

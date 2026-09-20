@@ -28,7 +28,7 @@ This plugin is automatically mounted when you use @nlpjs-neo/core-loader.
 
 If you want to use this plugin on your own, then install it with:
 ```bash
-npm i @nlpjs-neo/request
+pnpm add @nlpjs-neo/request
 ```
 
 And to use the plugin in your container, register it:
@@ -74,7 +74,7 @@ This is the file system for Web and React Native, where no OS file system can be
 If you want to use this plugin on your own, then install it with:
 
 ```bash
-npm i @nlpjs-neo/request-rn
+pnpm add @nlpjs-neo/request-rn
 ```
 
 And to use the plugin in your container, register it:

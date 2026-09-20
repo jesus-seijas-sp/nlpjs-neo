@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/lang-ar:
 
 ```bash
-    npm install @nlpjs-neo/lang-ar
+    pnpm add @nlpjs-neo/lang-ar
 ```
 
 ## Example of Usage

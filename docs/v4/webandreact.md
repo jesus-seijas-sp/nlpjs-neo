@@ -7,7 +7,7 @@ But to generate the web bundle it needs to install two development libraries: br
 
 To do that run this in your project folder:
 ```bash
-npm i -D browserify terser
+pnpm add -D browserify terser
 ```
 
 Now you will need a script to generate the bundle. 
@@ -18,7 +18,7 @@ Open your _package.json_ and add this in the scripts section:
 
 From this moment, you can generate a file _bundle.js_ containing the browser bundle by executing this:
 ```bash
-npm run browserdist
+pnpm run browserdist
 ```
 
 ## Your first web NLP
@@ -39,7 +39,7 @@ Now you will need some HTML to run the code in the browser, we will start with t
 
 Install the libraries that will be needed to run the nlp:
 ```bash
-npm i @nlpjs-neo/core @nlpjs-neo/lang-en-min @nlpjs-neo/nlp
+pnpm add @nlpjs-neo/core @nlpjs-neo/lang-en-min @nlpjs-neo/nlp
 ```
 
 The @nlpjs-neo/core is the one that installs the container system and basic architecture.
@@ -88,7 +88,7 @@ nlp.settings.autoSave = false
 
 Now you can generate the bundle running
 ```bash
-npm run browserdist
+pnpm run browserdist
 ```
 The bundle size will be 111KB, compared to 3MB for version 3.x which is much better for the browser.
 Open the index.html in a browser and take a look in the console.
@@ -112,7 +112,7 @@ window.nlpjs = { ...core, ...nlp, ...langenmin };
 
 Second, compile the bundle:
 ```bash
-npm run browserdist
+pnpm run browserdist
 ```
 
 Third, move your bot logic to the index.html:
@@ -166,7 +166,7 @@ Previously, the corpus was manually loaded into the nlp, but what if we want a c
 First, we need to register a valid file system into our container, in our case a request plugin that uses axios.
 First install the package:
 ```bash
-npm i @nlpjs-neo/request-rn
+pnpm add @nlpjs-neo/request-rn
 ```
 
 Now we need to expose it in our _index.js_:
@@ -181,7 +181,7 @@ window.nlpjs = { ...core, ...nlp, ...langenmin, ...requestrn };
 
 And compile the bundle:
 ```bash
-npm run browserdist
+pnpm run browserdist
 ```
 The new bundle will be 126KB, that is 15KB more than without this plugin.
 

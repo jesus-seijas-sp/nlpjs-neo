@@ -35,7 +35,7 @@
 You can install @nlpjs-neo/lang-it:
 
 ```bash
-    npm install @nlpjs-neo/lang-it
+    pnpm add @nlpjs-neo/lang-it
 ```
 
 ## Normalization

@@ -13,10 +13,10 @@ Another feature that comes with the improved behaviour, is that when the answer 
 ## Example of use
 
 Example of a bot using Microsoft Bot Framework and NLP.js.
-To create the bot create a folder and start a new node project with npm init. Then install the dependencies:
+To create the bot create a folder and start a new node project with pnpm init. Then install the dependencies:
 
 ```sh
-npm i botbuilder express node-nlp
+pnpm add botbuilder express node-nlp
 ```
 
 Put the code in the index.js, and in the same folder put an excel file with the NLP information.

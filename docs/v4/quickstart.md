@@ -4,7 +4,7 @@
 At the folder where is your node project, install the basic library, that will install the core and basic plugins for working in backend.
 
 ```bash
-npm i @nlpjs-neo/basic
+pnpm add @nlpjs-neo/basic
 ```
 
 ## Create the code
@@ -222,7 +222,7 @@ const { dockStart } = require('@nlpjs-neo/basic');
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/07.multilanguage
 Now we want to add a corpus in spanish. First at all we must install the spanish language plugin:
 ```bash
-npm i @nlpjs-neo/lang-es
+pnpm add @nlpjs-neo/lang-es
 ```
 
 Then add the _LangEs_ plugin in the configuration, and of course the corpus to the corpora:
@@ -264,7 +264,7 @@ Now when you talk with the chatbot you can ask questions from the English corpus
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/08.webchat
 First you will need an Api Server to serve the web. For this you can install the plugin _ExpressApiServer_ and that will create an api server using Express.
 ```bash
-npm i @nlpjs-neo/express-api-server
+pnpm add @nlpjs-neo/express-api-server
 ```
 
 The internal name of the plugin is "api-server". 
@@ -289,7 +289,7 @@ Now if you start the application, and in your browser navigate to http://localho
 
 So lets add the Directline Connector, that will create an API like the Microsoft Directline, but exposed at your localhost with your API server. To do this install the DirectlineConnector plugin:
 ```bash
-npm i @nlpjs-neo/directline-connector
+pnpm add @nlpjs-neo/directline-connector
 ```
 
 Restart your application and navigate once more to http://localhost:3000 and you'll be able to chat with your bot.
@@ -301,7 +301,7 @@ Restart your application and navigate once more to http://localhost:3000 and you
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/09.microsoftbot
 There is a Microsoft Bot Framework Connector. First install the library:
 ```bash
-npm i @nlpjs-neo/msbf-connector
+pnpm add @nlpjs-neo/msbf-connector
 ```
 Then use the plugin by adding it to your _conf.json_:
 

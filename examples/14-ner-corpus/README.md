@@ -7,7 +7,7 @@ This example shows how to load a corpus from a json file that includes NER infor
 As being an example inside this repo, this does not includes a package.json neither installation of the packages. The packages are loaded from the routes. To use this example in your own project start by initializating a project and installing these packages:
 
 ```shell
-  npm i @nlpjs-neo/basic @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
+  pnpm add @nlpjs-neo/basic @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
 ```
 
 Also, the file _conf.json_ in this example use the plugins by className and path, in your project you can use the plugins directly by name:

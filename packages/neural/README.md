@@ -12,7 +12,7 @@ This package is part of the NLP.js suite.
 _NeuralNetwork_ is a class of the package _@nlpjs-neo/neural_, that you can install via NPM:
 
 ```bash
-  npm install @nlpjs-neo/neural
+  pnpm add @nlpjs-neo/neural
 ```
 
 ## Corpus Format

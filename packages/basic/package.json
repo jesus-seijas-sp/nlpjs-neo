@@ -25,12 +25,12 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/console-connector": "^4.26.1",
-    "@nlpjs-neo/core-loader": "^4.26.1",
-    "@nlpjs-neo/evaluator": "^4.26.1",
-    "@nlpjs-neo/lang-en": "^4.26.1",
-    "@nlpjs-neo/logger": "^4.26.1",
-    "@nlpjs-neo/nlp": "^4.27.0"
+    "@nlpjs-neo/console-connector": "workspace:^",
+    "@nlpjs-neo/core-loader": "workspace:^",
+    "@nlpjs-neo/evaluator": "workspace:^",
+    "@nlpjs-neo/lang-en": "workspace:^",
+    "@nlpjs-neo/logger": "workspace:^",
+    "@nlpjs-neo/nlp": "workspace:^"
   },
   "gitHead": "cc4249fa994c58d220e6f10a6c94fdad05df32fd"
 }

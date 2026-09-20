@@ -28,7 +28,7 @@
 You can install @nlpjs-neo/logger:
 
 ```bash
-    npm install @nlpjs-neo/logger
+    pnpm add @nlpjs-neo/logger
 ```
 
 ## Example of Usage

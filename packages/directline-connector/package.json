@@ -25,8 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/connector": "^4.26.1",
-    "@nlpjs-neo/core": "^4.26.1",
+    "@nlpjs-neo/connector": "workspace:^",
+    "@nlpjs-neo/core": "workspace:^",
     "formidable": "^2.0.1",
     "node-fetch": "^2.6.7"
   },

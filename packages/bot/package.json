@@ -29,11 +29,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/builtin-default": "^4.26.1",
-    "@nlpjs-neo/connector": "^4.26.1",
-    "@nlpjs-neo/core": "^4.26.1",
-    "@nlpjs-neo/evaluator": "^4.26.1",
-    "@nlpjs-neo/nlp": "^4.27.0"
+    "@nlpjs-neo/builtin-default": "workspace:^",
+    "@nlpjs-neo/connector": "workspace:^",
+    "@nlpjs-neo/core": "workspace:^",
+    "@nlpjs-neo/evaluator": "workspace:^",
+    "@nlpjs-neo/nlp": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

@@ -9,7 +9,7 @@
 _removeEmojis_ is a function in the package _@nlpjs-neo/emoji_, which you can install via NPM:
 
 ```bash
-  npm install @nlpjs-neo/emoji
+  pnpm add @nlpjs-neo/emoji
 ```
 
 ## Example of use

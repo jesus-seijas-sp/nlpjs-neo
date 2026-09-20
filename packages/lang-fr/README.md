@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/lang-fr:
 
 ```bash
-    npm install @nlpjs-neo/lang-fr
+    pnpm add @nlpjs-neo/lang-fr
 ```
 
 ## Example of Usage

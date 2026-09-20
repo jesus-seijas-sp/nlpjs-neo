@@ -29,7 +29,7 @@
 You can install @nlpjs-neo/similarity:
 
 ```bash
-    npm install @nlpjs-neo/similarity
+    pnpm add @nlpjs-neo/similarity
 ```
 
 ## leven

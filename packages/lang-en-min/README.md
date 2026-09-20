@@ -25,7 +25,7 @@
 You can install @nlpjs-neo/lang-en-min:
 
 ```bash
-    npm install @nlpjs-neo/lang-en-min
+    pnpm add @nlpjs-neo/lang-en-min
 ```
 
 ## Example of Usage

@@ -4,7 +4,7 @@
 
 In your node project folder, install the @nlpjs-neo/basic, @nlpjs-neo/express-api-server and @nlpjs-neo/directline-connector packages.
 ```bash
-npm i @nlpjs-neo/basic @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
+pnpm add @nlpjs-neo/basic @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
 ```
 
 ## Create the conf.json

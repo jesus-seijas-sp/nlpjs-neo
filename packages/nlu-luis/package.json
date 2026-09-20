@@ -25,9 +25,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/core": "^4.26.1",
-    "@nlpjs-neo/nlu": "^4.27.0",
-    "@nlpjs-neo/request": "^4.25.0"
+    "@nlpjs-neo/core": "workspace:^",
+    "@nlpjs-neo/nlu": "workspace:^",
+    "@nlpjs-neo/request": "workspace:^"
   },
   "gitHead": "cc4249fa994c58d220e6f10a6c94fdad05df32fd"
 }

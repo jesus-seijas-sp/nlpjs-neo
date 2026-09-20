@@ -13,7 +13,7 @@
 You can install @nlpjs-neo/connector:
 
 ```bash
-    npm install @nlpjs-neo/connector
+    pnpm add @nlpjs-neo/connector
 ```
 
 ## Contributing

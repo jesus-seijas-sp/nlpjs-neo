@@ -25,8 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs-neo/evaluator": "^4.26.1",
-    "@nlpjs-neo/lexer": "^4.26.1"
+    "@nlpjs-neo/evaluator": "workspace:^",
+    "@nlpjs-neo/lexer": "workspace:^"
   },
   "gitHead": "cc4249fa994c58d220e6f10a6c94fdad05df32fd"
 }

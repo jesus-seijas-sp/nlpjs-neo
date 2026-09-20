@@ -11,7 +11,7 @@ Emoji is a plugin for NLP.js suite able to replace emojis by their word equivale
 You can install via NPM:
 
 ```bash
-  npm install @nlpjs-neo/emoji
+  pnpm add @nlpjs-neo/emoji
 ```
 
 ## Example of use
