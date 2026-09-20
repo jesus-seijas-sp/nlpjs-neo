@@ -1,22 +1,88 @@
 import { compareWildcars } from './helper.js';
 import DefaultCompiler from './default-compiler.js';
 import logger from './logger.js';
+import type {
+  ChildPipeline,
+  Compiler,
+  CompilerConstructor,
+  FactoryItem,
+  PipelineExecutionContext,
+  RegisteredPipeline,
+  SerializedInstance,
+  Settings,
+} from './types.js';
 
 const NUMBER_LITERAL_REGEX = /^\d+(?:\.\d+)?$/;
+
+/**
+ * Constructor of a service the container can build. Resolution calls it with
+ * `(settings, container)`, but plugins registered by hand carry their own
+ * signature, so the arguments stay open.
+ */
+type ServiceConstructor = new (...args: any[]) => object;
+
+/** An instance that knows how to serialize itself. */
+interface Serializable {
+  toJSON?(): SerializedInstance;
+}
+
+/**
+ * An instance the container can `use`: it may name itself, carry settings and
+ * register its own services when it is added.
+ */
+interface Plugin {
+  name?: string;
+  settings?: Settings;
+  /** Hook called when the plugin is added, to register its own services. */
+  register?(container: Container): void;
+}
+
+/**
+ * A service registered by hand. `register` stores it under a name and hands
+ * it back on resolution without reading anything off it, so a service is any
+ * object at all, exposing whatever API its callers expect.
+ */
+type ServiceInstance = object;
+
+/**
+ * Value resolved from a path expression of a pipeline. Paths are interpreted
+ * at runtime against the container, the context and the input, so what comes
+ * back is only known to the pipeline that asked for it.
+ */
+type ResolvedValue = any;
+
+/** A path expression resolved together with the kind of value it denotes. */
+interface ResolvedPath {
+  type: 'literal' | 'function' | 'reference';
+  /** Kind of the literal, for `type: 'literal'`. */
+  subtype?: 'number' | 'string' | 'boolean';
+  /** Source expression this was resolved from. */
+  src: string;
+  value: ResolvedValue;
+  context: PipelineExecutionContext;
+  container: Container;
+}
 
 /**
  * Container class
  */
 class Container {
-  declare cache: any;
-  declare childPipelines: any;
-  declare classes: any;
-  declare compilers: any;
-  declare configurations: any;
-  declare container: any;
-  declare factory: any;
-  declare parent: any;
-  declare pipelines: any;
+  declare cache: {
+    /** Registered name matching a wildcard lookup, `null` when none does. */
+    bestKeys: Record<string, string | null>;
+    pipelines: Record<string, RegisteredPipeline | null>;
+  };
+  declare childPipelines: Record<string, ChildPipeline[]> | undefined;
+  declare classes: Record<string, ServiceConstructor>;
+  declare compilers: Record<string, Compiler>;
+  declare configurations: Record<string, Settings>;
+  /** Set on objects that wrap a container, so `x.container || x` resolves one. */
+  declare container: Container | undefined;
+  declare factory: Record<string, FactoryItem>;
+  /** Name of the app this container was created for, set by the dock. */
+  declare name: string | undefined;
+  declare parent: Container | undefined;
+  declare pipelines: Record<string, RegisteredPipeline>;
 
   /**
    * Constructor of the class.
@@ -37,22 +103,27 @@ class Container {
     }
   }
 
-  registerCompiler(Compiler, name?) {
+  registerCompiler(Compiler: CompilerConstructor, name?: string): void {
     const instance = new Compiler(this);
     this.compilers[name || instance.name] = instance;
   }
 
-  addClass(clazz, name?) {
+  addClass(clazz: ServiceConstructor, name?: string): void {
     this.classes[name || clazz.name] = clazz;
   }
 
-  toJSON(instance) {
-    const result = instance.toJSON ? instance.toJSON() : { ...instance };
+  toJSON(instance: object): SerializedInstance {
+    const source = instance as Serializable;
+    const result: SerializedInstance = source.toJSON
+      ? source.toJSON()
+      : { ...instance };
     result.className = instance.constructor.name;
     return result;
   }
 
-  fromJSON(obj, settings?) {
+  // The instance is rebuilt from a class name, so its type is only known to
+  // the caller that exported the JSON in the first place.
+  fromJSON(obj: SerializedInstance, settings?: Settings): any {
     const Clazz = this.classes[obj.className];
     let instance;
     if (Clazz) {
@@ -69,21 +140,29 @@ class Container {
     return instance;
   }
 
-  register(name, Clazz, isSingleton = true) {
+  register(
+    name: string,
+    service: ServiceConstructor | ServiceInstance,
+    isSingleton = true
+  ): void {
     this.cache.bestKeys = {};
-    const isClass = typeof Clazz === 'function';
-    const item: any = { name, isSingleton };
-    if (isSingleton) {
-      item.instance = isClass ? new Clazz() : Clazz;
+    const item: FactoryItem = { name, isSingleton, instance: undefined };
+    if (typeof service === 'function') {
+      // Only a constructor is ever registered as a function: a singleton is
+      // built once here, a transient one on every resolution.
+      const Clazz = service as ServiceConstructor;
+      item.instance = isSingleton ? new Clazz() : Clazz;
     } else {
-      item.instance = isClass ? Clazz : Clazz.constructor;
+      item.instance = isSingleton ? service : service.constructor;
     }
     this.factory[name] = item;
   }
 
-  getBestKey(name) {
-    if (this.cache.bestKeys[name] !== undefined) {
-      return this.cache.bestKeys[name];
+  getBestKey(name: string): string | undefined {
+    const cached = this.cache.bestKeys[name];
+    if (cached !== undefined) {
+      // `null` is the cached answer for "no registered name matches".
+      return cached ?? undefined;
     }
     const keys = Object.keys(this.factory);
     for (let i = 0; i < keys.length; i += 1) {
@@ -96,7 +175,16 @@ class Container {
     return undefined;
   }
 
-  get(name, settings?) {
+  /**
+   * Resolves a registered service by name, falling back to the parent
+   * container and then to a wildcard match. What a name resolves to is
+   * decided at runtime, so callers state the contract they expect:
+   * `container.get<Storage>('storage')`.
+   *
+   * @returns The service, or `undefined` when no name and no wildcard of
+   * this container or of its parents matches.
+   */
+  get<T = any>(name: string, settings?: unknown): T | undefined {
     let item = this.factory[name];
     if (!item) {
       if (this.parent) {
@@ -122,7 +210,12 @@ class Container {
 
   // The literal carries the container itself, so the return type has to be
   // written out: an inferred one would reference the polymorphic `this`.
-  buildLiteral(subtype, step, value, context): any {
+  buildLiteral(
+    subtype: 'number' | 'string' | 'boolean',
+    step: string,
+    value: number | string | boolean,
+    context: PipelineExecutionContext
+  ): ResolvedPath {
     return {
       type: 'literal',
       subtype,
@@ -133,7 +226,12 @@ class Container {
     };
   }
 
-  resolvePathWithType(step, context, input, srcObject): any {
+  resolvePathWithType(
+    step: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): ResolvedPath {
     const literal = step.trim();
     if (NUMBER_LITERAL_REGEX.test(literal)) {
       return this.buildLiteral('number', step, parseFloat(literal), context);
@@ -155,7 +253,7 @@ class Container {
     if (token === 'false') {
       return this.buildLiteral('boolean', step, false, context);
     }
-    let currentObject = context;
+    let currentObject: ResolvedValue = context;
     if (token === 'input' || token === 'output') {
       currentObject = input;
     } else if (token && token !== 'context' && token !== 'this') {
@@ -194,12 +292,23 @@ class Container {
     };
   }
 
-  resolvePath(step, context, input, srcObject?) {
+  resolvePath(
+    step: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): ResolvedValue {
     const result = this.resolvePathWithType(step, context, input, srcObject);
     return result ? result.value : result;
   }
 
-  setValue(path, valuePath, context, input, srcObject) {
+  setValue(
+    path: string,
+    valuePath: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const value = this.resolvePath(valuePath, context, input, srcObject);
     const tokens = path.split('.');
     const newPath = tokens.slice(0, -1).join('.');
@@ -212,7 +321,13 @@ class Container {
     currentObject[tokens[tokens.length - 1]] = value;
   }
 
-  incValue(path, valuePath, context, input, srcObject) {
+  incValue(
+    path: string,
+    valuePath: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const value = this.resolvePath(valuePath, context, input, srcObject);
     const tokens = path.split('.');
     const newPath = tokens.slice(0, -1).join('.');
@@ -225,7 +340,13 @@ class Container {
     currentObject[tokens[tokens.length - 1]] += value;
   }
 
-  decValue(path, valuePath, context, input, srcObject) {
+  decValue(
+    path: string,
+    valuePath: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const value = this.resolvePath(valuePath, context, input, srcObject);
     const tokens = path.split('.');
     const newPath = tokens.slice(0, -1).join('.');
@@ -238,49 +359,90 @@ class Container {
     currentObject[tokens[tokens.length - 1]] -= value;
   }
 
-  eqValue(pathA, pathB, srcContext, input, srcObject) {
+  eqValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA === valueB;
   }
 
-  neqValue(pathA, pathB, srcContext, input, srcObject) {
+  neqValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA !== valueB;
   }
 
-  gtValue(pathA, pathB, srcContext, input, srcObject) {
+  gtValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA > valueB;
   }
 
-  geValue(pathA, pathB, srcContext, input, srcObject) {
+  geValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA >= valueB;
   }
 
-  ltValue(pathA, pathB, srcContext, input, srcObject) {
+  ltValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA < valueB;
   }
 
-  leValue(pathA, pathB, srcContext, input, srcObject) {
+  leValue(
+    pathA: string,
+    pathB: string,
+    srcContext: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const context = srcContext;
     const valueA = this.resolvePath(pathA, context, input, srcObject);
     const valueB = this.resolvePath(pathB, context, input, srcObject);
     context.floating = valueA <= valueB;
   }
 
-  deleteValue(path, context, input, srcObject) {
+  deleteValue(
+    path: string,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): void {
     const tokens = path.split('.');
     const newPath = tokens.slice(0, -1).join('.');
     const currentObject = this.resolvePath(
@@ -292,7 +454,12 @@ class Container {
     delete currentObject[tokens[tokens.length - 1]];
   }
 
-  getValue(srcPath, context, input, srcObject) {
+  getValue(
+    srcPath: string | undefined,
+    context: PipelineExecutionContext,
+    input: unknown,
+    srcObject?: unknown
+  ): ResolvedValue {
     const path = srcPath || 'floating';
     const tokens = path.split('.');
     const newPath = tokens.slice(0, -1).join('.');
@@ -305,7 +472,17 @@ class Container {
     return currentObject[tokens[tokens.length - 1]];
   }
 
-  async runPipeline(srcPipeline, input, srcObject, depth = 0) {
+  /**
+   * Runs a pipeline: a registered one by tag, the lines of an unregistered
+   * one, or an already built one. The result is whatever the last step of the
+   * pipeline returns, which only that pipeline knows.
+   */
+  async runPipeline(
+    srcPipeline: string | string[] | RegisteredPipeline,
+    input: unknown,
+    srcObject?: unknown,
+    depth = 0
+  ): Promise<any> {
     if (depth > 10) {
       throw new Error(
         'Pipeline depth is too high: perhaps you are using recursive pipelines?'
@@ -318,29 +495,39 @@ class Container {
     if (!pipeline) {
       throw new Error(`Pipeline not found ${srcPipeline}`);
     }
-    if (!pipeline.compiler) {
+    // A pipeline that carries no compiler has not been built yet, so it still
+    // holds its source lines.
+    const built = pipeline as RegisteredPipeline;
+    if (!built.compiler) {
       const tag = JSON.stringify(pipeline);
-      this.registerPipeline(tag, pipeline, false);
-      const built = this.getPipeline(tag);
-      return built.compiler.execute(built.compiled, input, srcObject, depth);
+      this.registerPipeline(tag, pipeline as string[], false);
+      const compiled = this.getPipeline(tag);
+      return compiled.compiler.execute(
+        compiled.compiled,
+        input,
+        srcObject,
+        depth
+      );
     }
-    return pipeline.compiler.execute(
-      pipeline.compiled,
-      input,
-      srcObject,
-      depth
-    );
+    return built.compiler.execute(built.compiled, input, srcObject, depth);
   }
 
-  use(item, name?, isSingleton?, onlyIfNotExists = false) {
-    let instance;
+  use(
+    item: Plugin | ServiceConstructor,
+    name?: string,
+    isSingleton?: boolean,
+    onlyIfNotExists = false
+  ): string {
+    let instance: Plugin;
     if (typeof item === 'function') {
       if (item.name.endsWith('Compiler')) {
-        this.registerCompiler(item);
+        // Compilers are told apart from other plugins by their name only, so
+        // the cast is what the naming convention already decided.
+        this.registerCompiler(item as unknown as CompilerConstructor);
         return item.name;
       }
       const Clazz = item;
-      instance = new Clazz({ container: this });
+      instance = new Clazz({ container: this }) as Plugin;
     } else {
       instance = item;
     }
@@ -348,7 +535,7 @@ class Container {
       instance.register(this);
     }
     const tag = instance.settings ? instance.settings.tag : undefined;
-    const itemName =
+    const itemName: string =
       name || instance.name || tag || item.name || instance.constructor.name;
     if (!onlyIfNotExists || !this.get(itemName)) {
       this.register(itemName, instance, isSingleton);
@@ -356,7 +543,7 @@ class Container {
     return itemName;
   }
 
-  getCompiler(name) {
+  getCompiler(name: string): Compiler {
     const compiler = this.compilers[name];
     if (compiler) {
       return compiler;
@@ -367,8 +554,11 @@ class Container {
     return this.compilers.default;
   }
 
-  buildPipeline(srcPipeline, prevPipeline: any[] = []) {
-    const pipeline: any[] = [];
+  buildPipeline(
+    srcPipeline: string[],
+    prevPipeline: string[] = []
+  ): RegisteredPipeline {
+    const pipeline: string[] = [];
     if (srcPipeline && srcPipeline.length > 0) {
       for (let i = 0; i < srcPipeline.length; i += 1) {
         const line = srcPipeline[i];
@@ -397,7 +587,7 @@ class Container {
     };
   }
 
-  registerPipeline(tag, pipeline, overwrite = true) {
+  registerPipeline(tag: string, pipeline: string[], overwrite = true): void {
     if (overwrite || !this.pipelines[tag]) {
       this.cache.pipelines = {};
       const prev = this.getPipeline(tag);
@@ -408,7 +598,12 @@ class Container {
     }
   }
 
-  registerPipelineForChilds(childName, tag, pipeline, overwrite = true) {
+  registerPipelineForChilds(
+    childName: string,
+    tag: string,
+    pipeline: string[],
+    overwrite = true
+  ): void {
     if (!this.childPipelines) {
       this.childPipelines = {};
     }
@@ -418,7 +613,7 @@ class Container {
     this.childPipelines[childName].push({ tag, pipeline, overwrite });
   }
 
-  getPipeline(tag) {
+  getPipeline(tag: string): RegisteredPipeline | undefined {
     if (this.pipelines[tag]) {
       return this.pipelines[tag];
     }
@@ -436,13 +631,17 @@ class Container {
     return undefined;
   }
 
-  registerConfiguration(tag, configuration, overwrite = true) {
+  registerConfiguration(
+    tag: string,
+    configuration: Settings,
+    overwrite = true
+  ): void {
     if (overwrite || !this.configurations[tag]) {
       this.configurations[tag] = configuration;
     }
   }
 
-  getConfiguration(tag) {
+  getConfiguration(tag: string): Settings | undefined {
     if (this.configurations[tag]) {
       return this.configurations[tag];
     }
@@ -455,10 +654,10 @@ class Container {
     return undefined;
   }
 
-  loadPipelinesFromString(str = '') {
+  loadPipelinesFromString(str = ''): void {
     const lines = str.split(/\n|\r|\r\n/);
     let currentName = '';
-    let currentPipeline: any[] = [];
+    let currentPipeline: string[] = [];
     let currentTitle = '';
     for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
@@ -519,7 +718,7 @@ class Container {
     }
   }
 
-  async start(pipelineName = 'main') {
+  async start(pipelineName = 'main'): Promise<void> {
     const keys = Object.keys(this.factory);
     for (let i = 0; i < keys.length; i += 1) {
       const current = this.factory[keys[i]];
