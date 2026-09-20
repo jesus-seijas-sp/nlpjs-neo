@@ -75,6 +75,10 @@ expect.extend({
   },
 });
 
+// The first extraction for a locale loads that culture's recognizer bundle, which
+// takes seconds on a cold CI runner, so the 5s default is not enough.
+vi.setConfig({ testTimeout: 30000 });
+
 function addTests(base, locale, entityTypeName) {
   const instance = new BuiltinMicrosoft({ container });
   for (let i = 0; i < base.length; i += 1) {
