@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable prettier/prettier */
+/* oxlint-disable no-console */
+/* oxlint-disable prettier/prettier */
 
 const fs = require('fs');
 

@@ -115,7 +115,7 @@ class FullBot {
   async loadItems(name, fn) {
     const files = await this.getFiles(name);
     for (let i = 0; i < files.length; i += 1) {
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       const lib = require(files[i]);
       const keys = Object.keys(lib);
       for (let j = 0; j < keys.length; j += 1) {
@@ -143,7 +143,7 @@ class FullBot {
   async loadCards() {
     const files = await this.getFiles('cards');
     for (let i = 0; i < files.length; i += 1) {
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       const lib = require(files[i]);
       if (Array.isArray(lib)) {
         for (let j = 0; j < lib.length; j += 1) {

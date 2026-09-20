@@ -48,10 +48,10 @@ class ConsoleConnector extends Connector {
     if (this.settings.debug && typeof message === 'object' && !reference) {
       const intent = message.intent || '';
       const score = message.score || '';
-      // eslint-disable-next-line no-console
+      // oxlint-disable-next-line no-console
       console.log(`${botName}> ${text} (${intent} - ${score})`);
     } else {
-      // eslint-disable-next-line no-console
+      // oxlint-disable-next-line no-console
       console.log(`${botName}> ${text}`);
     }
   }

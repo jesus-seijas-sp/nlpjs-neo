@@ -45,7 +45,7 @@ class Dictionary {
 
   start() {
     if (!this.cedict) {
-      // eslint-disable-next-line global-require
+      // oxlint-disable-next-line global-require
       this.cedict = require('./cedict_ts.u8');
       console.log('Compiling dictionary');
       this.cache = {};

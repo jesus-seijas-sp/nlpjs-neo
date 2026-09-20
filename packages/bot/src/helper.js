@@ -31,7 +31,7 @@ const isJsonObject = (content) => {
       return false;
     }
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 };
@@ -39,7 +39,7 @@ const isJsonObject = (content) => {
 const tryParseJson = (candidate, fallback = {}) => {
   try {
     return JSON.parse(candidate);
-  } catch (error) {
+  } catch {
     return fallback;
   }
 };

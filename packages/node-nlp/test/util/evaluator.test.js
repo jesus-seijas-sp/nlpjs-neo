@@ -494,7 +494,7 @@ describe('Evaluator', () => {
     test('Should evaluate a template literal', () => {
       const context = { a: 12, b: 2 };
       const evaluator = new Evaluator();
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       const question = "`${a}-${b}`";
       const result = evaluator.evaluate(question, context);
       expect(result).toEqual('12-2');
@@ -509,7 +509,7 @@ describe('Evaluator', () => {
         tag: (literals, a, b) => `${literals.join('-')}-${a}-${b}`,
       };
       const evaluator = new Evaluator();
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       const question = "tag`Hello ${a}hi${b}`";
       const result = evaluator.evaluate(question, context);
       expect(result).toEqual('Hello -hi--12-2');

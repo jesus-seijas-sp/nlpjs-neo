@@ -32,7 +32,7 @@ const charCodeCache = [];
  */
 function leven(left, right) {
   if (left.length > right.length) {
-    // eslint-disable-next-line no-param-reassign
+    // oxlint-disable-next-line no-param-reassign
     [left, right] = [right, left];
   }
   let leftLength = left.length - 1;
@@ -73,9 +73,9 @@ function leven(left, right) {
     j += 1;
     result = j;
     for (let i = 0; i < leftLength; i += 1) {
-      /* eslint-disable */
+      /* oxlint-disable */
       temp2 = temp + (bCharCode !== charCodeCache[i])|0;
-      /* eslint-enable */
+      /* oxlint-enable */
       temp = array[i];
       if (temp > result) {
         array[i] = temp2 > result ? result + 1 : temp2;

@@ -23,7 +23,7 @@
 const { defaultContainer } = require('./container');
 const Tokenizer = require('./tokenizer');
 
-/* eslint-disable */
+/* oxlint-disable */
 class BaseStemmer {
   constructor(container = defaultContainer, dictionary) {
     this.container = container.container || container;

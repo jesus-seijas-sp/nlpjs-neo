@@ -51,9 +51,9 @@ class ConversationContext {
     ) {
       return session.message.address.conversation.id;
     }
-    // eslint-disable-next-line no-underscore-dangle
+    // oxlint-disable-next-line no-underscore-dangle
     if (session && session._activity && session._activity.conversation) {
-      // eslint-disable-next-line no-underscore-dangle
+      // oxlint-disable-next-line no-underscore-dangle
       return session._activity.conversation.id;
     }
     return undefined;

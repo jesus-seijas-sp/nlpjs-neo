@@ -30,9 +30,9 @@ class CosineSimilarityWA {
     this.container = container;
     this.cosineSimilarityTools = new CosineSimilarity(container);
 
-    /* eslint-disable */
+    /* oxlint-disable */
     this.wa_memory = new WebAssembly.Memory({ initial: 2 });
-    /* eslint-enable */
+    /* oxlint-enable */
 
     this.wa_buffer = new Uint32Array(this.wa_memory.buffer);
     this.wa_importObject = {
@@ -41,11 +41,11 @@ class CosineSimilarityWA {
       },
     };
 
-    /* eslint-disable */
+    /* oxlint-disable */
     const source = fs.readFileSync(path.resolve(__dirname, '../wa/cosine-similarity.wasm'));
     const mod = new WebAssembly.Module(new Uint8Array(source));
     this.wa_object = new WebAssembly.Instance(mod, this.wa_importObject);
-    /* eslint-enable */
+    /* oxlint-enable */
   }
 
   getTokens(text, locale = 'en') {

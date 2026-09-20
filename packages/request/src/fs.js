@@ -41,7 +41,7 @@ function readFile(fileName) {
       try {
         const data = fs.readFileSync(fileName, 'utf8');
         resolve(data);
-      } catch (err) {
+      } catch {
         resolve(undefined);
       }
     }

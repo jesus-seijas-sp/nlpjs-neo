@@ -93,7 +93,7 @@ class BuiltinCompromise extends Clonable {
 
   async findBuiltinEntities(utterance) {
     function getDomainFromUrl(url) {
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       const matches = url.match(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
       return matches && matches[1];
     }

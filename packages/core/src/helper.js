@@ -57,12 +57,12 @@ const rsSymbol = `(?:${[
   rsAstral,
 ].join('|')})`;
 
-/* eslint-disable no-misleading-character-class */
+/* oxlint-disable no-misleading-character-class */
 const reHasUnicode = RegExp(
   `[${rsZWJ + rsAstralRange + rsComboRange + rsVarRange}]`
 );
 const reUnicode = RegExp(`${rsFitz}(?=${rsFitz})|${rsSymbol + rsSeq}`, 'g');
-/* eslint-enable no-misleading-character-class */
+/* oxlint-enable no-misleading-character-class */
 
 const hasUnicode = (str) => reHasUnicode.test(str);
 const unicodeToArray = (str) => str.match(reUnicode) || [];

@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* oxlint-disable */
 function BaseStemmer() {
   this.setCurrent = function(value) {
       this.current = value;

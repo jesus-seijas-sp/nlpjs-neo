@@ -23,7 +23,7 @@
 
 const { Among, BaseStemmer } = require('@nlpjs-neo/core');
 
-/* eslint-disable */
+/* oxlint-disable */
 class StemmerCs extends BaseStemmer {
   constructor(container) {
     super(container);

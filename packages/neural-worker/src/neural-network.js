@@ -34,11 +34,11 @@ const defaultSettings = require('./default-settings.json');
 let Worker;
 let isMainThread;
 try {
-  // eslint-disable-next-line global-require
+  // oxlint-disable-next-line global-require
   const workerThreads = require('worker_threads');
   Worker = workerThreads.Worker;
   isMainThread = workerThreads.isMainThread;
-} catch (err) {
+} catch {
   console.log('No worker threads');
 }
 

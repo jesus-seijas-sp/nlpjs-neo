@@ -25,7 +25,7 @@ function replacer(translationTable) {
   const pattern = [];
   const keys = Object.keys(translationTable);
   keys.forEach((key) => {
-    // eslint-disable-next-line
+    // oxlint-disable-next-line
     pattern.push(`${key}`.replace(/([-()\[\]{}+?*.$\^|,:#<!\\\/])/g, '\\$1').replace(/\x08/g, '\\x08'));
   });
   const regExp = new RegExp(pattern.join('|'), 'g');

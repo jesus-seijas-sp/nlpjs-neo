@@ -1,4 +1,4 @@
-/* eslint no-irregular-whitespace: 0 */
+/* oxlint-disable no-irregular-whitespace */
 
 module.exports = `# CC-CEDICT
 # Community maintained free Chinese-English dictionary.

@@ -54,7 +54,7 @@ class JavascriptCompiler {
       case '-':
         return -(await this.walk(node.argument, context));
       case '~':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return ~(await this.walk(node.argument, context));
       case '!':
         return !(await this.walk(node.argument, context));
@@ -105,12 +105,12 @@ class JavascriptCompiler {
     }
     switch (node.operator) {
       case '==':
-        /* eslint-disable eqeqeq */
+        /* oxlint-disable eqeqeq */
         return left == right;
       case '===':
         return left === right;
       case '!=':
-        /* eslint-disable eqeqeq */
+        /* oxlint-disable eqeqeq */
         return left != right;
       case '!==':
         return left !== right;
@@ -133,13 +133,13 @@ class JavascriptCompiler {
       case '>=':
         return left >= right;
       case '|':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left | right;
       case '&':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left & right;
       case '^':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left ^ right;
       case '||':
         return left || right;
@@ -173,7 +173,7 @@ class JavascriptCompiler {
 
   async walkThis(node, context) {
     if ({}.hasOwnProperty.call(context, 'this')) {
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       return context["this"];
     }
     return undefined;
@@ -290,7 +290,7 @@ class JavascriptCompiler {
       }
     }
     const vals = keys.map((key) => context[key]);
-    // eslint-disable-next-line
+    // oxlint-disable-next-line
     const result = Function(keys.join(', '), 'return ' + unparse(node)).apply(
       null,
       vals
@@ -326,7 +326,7 @@ class JavascriptCompiler {
       const value = await this.walk(q, context);
       values.push(value);
     }
-    // eslint-disable-next-line
+    // oxlint-disable-next-line
     return tag.apply(null, [strings].concat(values));
   }
 
@@ -396,17 +396,17 @@ class JavascriptCompiler {
         await this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '|=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue |= value;
         await this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '&=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue &= value;
         await this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '^=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue ^= value;
         await this.walkSet(node.left, context, leftValue);
         return leftValue;

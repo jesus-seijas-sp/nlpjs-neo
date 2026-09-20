@@ -93,7 +93,7 @@ class BertWordPieceTokenizer extends Clonable {
     const regex = /\W+/g;
     let match;
     let lastEnd = 0;
-    // eslint-disable-next-line no-cond-assign
+    // oxlint-disable-next-line no-cond-assign
     while ((match = regex.exec(normalized))) {
       const chars = match[0].split('');
       for (let i = 0; i < chars.length; i += 1) {

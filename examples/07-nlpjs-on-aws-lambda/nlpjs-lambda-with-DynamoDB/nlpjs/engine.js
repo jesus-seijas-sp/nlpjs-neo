@@ -1,8 +1,8 @@
-/* eslint-disable func-names */
-/* eslint-disable no-console */
-/* eslint-disable prettier/prettier */
+/* oxlint-disable func-names */
+/* oxlint-disable no-console */
+/* oxlint-disable prettier/prettier */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// oxlint-disable-next-line import/no-extraneous-dependencies
 const aws = require('aws-sdk');
 
 const NOT_PROD_ENV = process.env.AWS_SAM_LOCAL === 'true';

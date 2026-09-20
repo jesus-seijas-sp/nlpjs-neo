@@ -24,7 +24,7 @@
 const { Among, BaseStemmer } = require('@nlpjs-neo/core');
 const dictionary = require('./dictionary-es.json');
 
-/* eslint-disable */
+/* oxlint-disable */
 class StemmerEs extends BaseStemmer {
   constructor(container) {
     super(container, dictionary);

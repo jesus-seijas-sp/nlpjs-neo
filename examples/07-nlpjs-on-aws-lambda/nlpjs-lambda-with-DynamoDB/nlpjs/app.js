@@ -1,6 +1,6 @@
-/* eslint-disable func-names */
-/* eslint-disable no-console */
-/* eslint-disable prettier/prettier */
+/* oxlint-disable func-names */
+/* oxlint-disable no-console */
+/* oxlint-disable prettier/prettier */
 
 const { engine } = require('./engine.js');
 
@@ -16,7 +16,7 @@ const { engine } = require('./engine.js');
  * @returns {Object} object - API Gateway Lambda Proxy Output Format
  *
  */
-// eslint-disable-next-line no-unused-vars
+// oxlint-disable-next-line no-unused-vars
 exports.lambdaHandler = function(event, context, callback) {
     console.info(JSON.stringify(event));
     try {

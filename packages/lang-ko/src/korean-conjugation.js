@@ -227,6 +227,7 @@ function conjugate(words, isAdjective) {
           lastChar,
         ]
       );
+    // oxlint-disable-next-line no-dupe-else-if -- unreachable upstream branch, kept as-is
     } else if (word.length === 1 || (isAdjective && lastCoda === 'ㅆ')) {
       expandedLast = [].concat(build(lastChar, [0, 2, 3, 6, 8, 9, 10]), [
         lastChar,

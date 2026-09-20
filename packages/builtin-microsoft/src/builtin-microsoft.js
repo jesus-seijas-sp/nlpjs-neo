@@ -346,7 +346,7 @@ class BuiltinMicrosoft extends Clonable {
             result.push(edge);
           }
         }
-      } catch (err) {
+      } catch {
         //
       }
     });

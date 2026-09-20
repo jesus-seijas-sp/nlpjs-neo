@@ -41,7 +41,7 @@ class Evaluator {
       case '-':
         return -this.walk(node.argument, context);
       case '~':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return ~this.walk(node.argument, context);
       case '!':
         return !this.walk(node.argument, context);
@@ -92,12 +92,12 @@ class Evaluator {
     }
     switch (node.operator) {
       case '==':
-        /* eslint-disable eqeqeq */
+        /* oxlint-disable eqeqeq */
         return left == right;
       case '===':
         return left === right;
       case '!=':
-        /* eslint-disable eqeqeq */
+        /* oxlint-disable eqeqeq */
         return left != right;
       case '!==':
         return left !== right;
@@ -120,13 +120,13 @@ class Evaluator {
       case '>=':
         return left >= right;
       case '|':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left | right;
       case '&':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left & right;
       case '^':
-        /* eslint-disable no-bitwise */
+        /* oxlint-disable no-bitwise */
         return left ^ right;
       case '||':
         return left || right;
@@ -146,7 +146,7 @@ class Evaluator {
 
   walkThis(node, context) {
     if ({}.hasOwnProperty.call(context, 'this')) {
-      // eslint-disable-next-line
+      // oxlint-disable-next-line
       return context["this"];
     }
     return undefined;
@@ -233,7 +233,7 @@ class Evaluator {
       }
     }
     const vals = keys.map((key) => context[key]);
-    // eslint-disable-next-line
+    // oxlint-disable-next-line
     return Function(keys.join(', '), 'return ' + unparse(node)).apply(
       null,
       vals
@@ -258,7 +258,7 @@ class Evaluator {
     const { quasi } = node;
     const strings = quasi.quasis.map((q) => this.walk(q, context));
     const values = quasi.expressions.map((e) => this.walk(e, context));
-    // eslint-disable-next-line
+    // oxlint-disable-next-line
     return tag.apply(null, [strings].concat(values));
   }
 
@@ -313,17 +313,17 @@ class Evaluator {
         this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '|=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue |= value;
         this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '&=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue &= value;
         this.walkSet(node.left, context, leftValue);
         return leftValue;
       case '^=':
-        // eslint-disable-next-line
+        // oxlint-disable-next-line
         leftValue ^= value;
         this.walkSet(node.left, context, leftValue);
         return leftValue;

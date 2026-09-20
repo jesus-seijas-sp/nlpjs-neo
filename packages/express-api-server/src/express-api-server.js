@@ -103,15 +103,12 @@ class ExpressApiServer extends Clonable {
       expressServer = http.createServer(this.app);
       protocol = 'http';
     }
-    this.server = expressServer.listen.apply(expressServer, [
-      port,
-      () => {
-        const logger = this.container.get('logger');
-        logger.info(
-          `${this.settings.tag} listening on port ${port} using ${protocol}!`
-        );
-      },
-    ]);
+    this.server = expressServer.listen(port, () => {
+      const logger = this.container.get('logger');
+      logger.info(
+        `${this.settings.tag} listening on port ${port} using ${protocol}!`
+      );
+    });
     return this.server !== null;
   }
 }

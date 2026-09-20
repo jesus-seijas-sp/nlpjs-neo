@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-/* eslint-disable */
+/* oxlint-disable */
 const memory = new WebAssembly.Memory({ initial: 2 });
-/* eslint-enable */
+/* oxlint-enable */
 
 const buffer = new Uint8Array(memory.buffer);
 const importObject = {
@@ -12,11 +12,11 @@ const importObject = {
   },
 };
 
-/* eslint-disable */
+/* oxlint-disable */
 const source = fs.readFileSync(path.resolve(__dirname, '../wa/leven.wasm'));
 const mod = new WebAssembly.Module(new Uint8Array(source));
 const webAssemblyObj = new WebAssembly.Instance(mod, importObject);
-/* eslint-enable */
+/* oxlint-enable */
 
 function leven(left, right) {
   let idx = 0;

@@ -97,7 +97,7 @@ function request(options) {
         try {
           const obj = JSON.parse(result);
           resolve(obj);
-        } catch (err) {
+        } catch {
           resolve(result);
         }
       });

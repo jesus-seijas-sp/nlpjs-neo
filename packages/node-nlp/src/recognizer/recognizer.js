@@ -165,9 +165,9 @@ class Recognizer {
         });
       return undefined;
     }
-    // eslint-disable-next-line no-underscore-dangle
+    // oxlint-disable-next-line no-underscore-dangle
     if (session && session._activity && session._activity.type === 'message') {
-      // eslint-disable-next-line no-underscore-dangle
+      // oxlint-disable-next-line no-underscore-dangle
       const message = session._activity;
       const utterance = message.text;
       const { locale } = message;
@@ -318,7 +318,7 @@ class Recognizer {
       return;
     }
     const self = this;
-    // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+    // oxlint-disable-next-line no-underscore-dangle, no-param-reassign
     bot._onDisambiguateRoute = function disambiguate(
       session,
       results,

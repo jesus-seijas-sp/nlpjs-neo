@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* oxlint-disable no-unused-vars */
 // const axios = require('axios')
 // const url = 'http://checkip.amazonaws.com/';
 

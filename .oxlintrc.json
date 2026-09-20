@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "jest", "node"],
+  "env": {
+    "builtin": true,
+    "node": true,
+    "es2022": true,
+    "jest/globals": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-await-in-loop": "off",
+    "no-misleading-character-class": "off",
+    "jest/expect-expect": "off",
+    "jest/no-commented-out-tests": "off"
+  },
+  "ignorePatterns": [
+    "coverage/**",
+    "dist/**",
+    "node_modules/**",
+    "docs/v3/static/scripts/**",
+    "packages/python-compiler/src/python-executer.js",
+    "packages/express-api-server/src/public/**",
+    "examples/07-nlpjs-on-aws-lambda/**",
+    "examples/16-fb-connector/**",
+    "**/*BAK*"
+  ],
+  "overrides": [
+    {
+      "files": ["examples/**/*.js"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

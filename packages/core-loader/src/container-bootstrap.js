@@ -90,7 +90,7 @@ function loadPlugins(instance, fileName) {
         loadPlugins(instance, files[i]);
       }
     } else {
-      /* eslint-disable-next-line */
+      /* oxlint-disable-next-line */
       const plugin = require(fileName);
       instance.use(plugin);
     }
@@ -218,17 +218,17 @@ function containerBootstrap(
           const info = infoArr[j];
           let lib;
           try {
-            /* eslint-disable-next-line */
+            /* oxlint-disable-next-line */
             lib = require(info.path);
-          } catch (err) {
+          } catch {
             try {
-              /* eslint-disable-next-line */
+              /* oxlint-disable-next-line */
               lib = require(getAbsolutePath(
                 path.join('./node_modules', info.path)
               ));
             } catch (err2) {
               throw new Error(
-                `You have to install library "${info.path}" to use plugin "${current}"`
+                `You have to install library "${info.path}" to use plugin "${current}"`, { cause: err2 }
               );
             }
           }
@@ -237,10 +237,10 @@ function containerBootstrap(
       } else {
         let lib;
         try {
-          /* eslint-disable-next-line */
+          /* oxlint-disable-next-line */
             lib = require(current.path);
-        } catch (err) {
-          /* eslint-disable-next-line */
+        } catch {
+          /* oxlint-disable-next-line */
             lib = require(getAbsolutePath(current.path));
         }
         instance.use(lib[current.className], current.name, current.isSingleton);

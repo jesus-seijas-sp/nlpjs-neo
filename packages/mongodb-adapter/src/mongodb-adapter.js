@@ -176,7 +176,7 @@ class MongodbAdapter extends Clonable {
     let oId;
     try {
       oId = new ObjectId(id);
-    } catch (err) {
+    } catch {
       return null;
     }
     const result = await this.findOne(name, { [idField]: oId });
@@ -260,7 +260,7 @@ class MongodbAdapter extends Clonable {
     let oId;
     try {
       oId = new ObjectId(id);
-    } catch (err) {
+    } catch {
       return null;
     }
     return this.remove(name, { [idField]: oId }, true);

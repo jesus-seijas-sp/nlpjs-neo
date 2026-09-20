@@ -43,7 +43,7 @@ class Bench {
   }
 
   measure(algorithm) {
-    // eslint-disable-next-line no-async-promise-executor
+    // oxlint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve) => {
       const initValue = await algorithm.initfn();
       const hrstart = process.hrtime();
