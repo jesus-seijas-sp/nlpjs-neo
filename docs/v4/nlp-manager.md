@@ -288,7 +288,7 @@ Importing a model:
 
 ```javascript
 const fs = require('fs');
-const { NlpManager } = require('node-nlp');
+const { NlpManager } = require('node-nlp-neo');
 
 const data = fs.readFileSync('model.nlp', 'utf8');
 const manager = new NlpManager();

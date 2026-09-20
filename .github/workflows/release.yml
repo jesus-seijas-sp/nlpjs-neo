@@ -1,0 +1,70 @@
+# Versions and publishes the workspace packages with changesets.
+#
+# A push to main that carries changeset files opens (and merges) a "Release Packages" pull
+# request that applies the version bumps and changelog entries. The push that lands that pull
+# request has no changesets left, so the same workflow publishes the bumped packages to npm.
+#
+# Publishing authenticates with npm trusted publishing over GitHub OIDC, so there is no npm
+# token in this repository. Each package has to be configured for trusted publishing on
+# npmjs.com (repository kibertoad/nlpjs-neo, workflow release.yml) before it can be published.
+
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    types:
+      - release
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        # zizmor: ignore[artipacked] changesets/action needs the persisted token to push the release branch
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create release pull request or publish
+        id: changesets
+        uses: changesets/action@v2.1.2
+        with:
+          publish-script: pnpm run ci:publish
+          pr-title: 'Release Packages'
+          commit-message: 'chore: update versions'
+
+      - name: Auto-merge changesets pull request
+        if: steps.changesets.outputs.has-changesets == 'true'
+        run: |
+          gh pr merge --squash "$PR_NUMBER"
+          gh api --method POST "/repos/$REPO/dispatches" -f 'event_type=release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pr-number }}

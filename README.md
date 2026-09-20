@@ -4,8 +4,8 @@
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
-[![NPM version](https://img.shields.io/npm/v/node-nlp.svg?style=flat)](https://www.npmjs.com/package/node-nlp)
-[![NPM downloads](https://img.shields.io/npm/dm/node-nlp.svg?style=flat)](https://www.npmjs.com/package/node-nlp)
+[![NPM version](https://img.shields.io/npm/v/node-nlp-neo.svg?style=flat)](https://www.npmjs.com/package/node-nlp-neo)
+[![NPM downloads](https://img.shields.io/npm/dm/node-nlp-neo.svg?style=flat)](https://www.npmjs.com/package/node-nlp-neo)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=axa-group_nlp.js&metric=alert_status)](https://sonarcloud.io/dashboard?id=axa-group_nlp.js)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=axa-group_nlp.js&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=axa-group_nlp.js)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=axa-group_nlp.js&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=axa-group_nlp.js)
@@ -191,7 +191,7 @@ Version 4 is very different from previous versions. Before this version, NLP.js 
 If you're looking to use NLP.js in your Node application, you can install via NPM like so:
 
 ```bash
-    pnpm add node-nlp
+    pnpm add node-nlp-neo
 ```
 
 ## React Native
@@ -216,7 +216,7 @@ You can see a great example of use in the folder [`/examples/02-qna-classic`](ht
 You can start to build your NLP from scratch with a few lines:
 
 ```javascript
-const { NlpManager } = require('node-nlp');
+const { NlpManager } = require('node-nlp-neo');
 
 const manager = new NlpManager({ languages: ['en'], forceNER: true });
 // Adds the utterances and intents for the NLP

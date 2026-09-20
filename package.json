@@ -1,8 +1,11 @@
 {
   "name": "root",
+  "private": true,
   "description": "Library for NLU (Natural Language Understanding) done in Node.js",
   "scripts": {
     "build": "turbo run build",
+    "changeset": "changeset",
+    "ci:publish": "turbo run build && changeset publish",
     "coveralls": "vitest run --coverage && cat ./coverage/lcov.info | coveralls",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
@@ -35,6 +38,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "@vitest/coverage-v8": "^5.0.1",
     "coveralls": "^3.1.0",
     "https-proxy-agent": "^5.0.0",

@@ -4,11 +4,11 @@
 
 Hi,
 
-I will put here a FAQ with the links to different interesting parts to documentation or examples. If there is something that you want to cover that is not here, just ask, and I will update the documentation with it. Also, there are 1800 unit tests that can help to understand classes and functions that are not intended to be the API for the developer (from node-nlp the API for the developer is intented to be the class NlpManager).
+I will put here a FAQ with the links to different interesting parts to documentation or examples. If there is something that you want to cover that is not here, just ask, and I will update the documentation with it. Also, there are 1800 unit tests that can help to understand classes and functions that are not intended to be the API for the developer (from node-nlp-neo the API for the developer is intented to be the class NlpManager).
 
 **- Where do I find an example of use of v4?** https://github.com/axa-group/nlp.js#example-of-use
 
-**- But this example seems to be of the v3...** The version 4 is splitted into different smaller packages, but the https://www.npmjs.com/package/node-nlp package use tose smaller packages to build a version so retrocompatible with v3 as we can
+**- But this example seems to be of the v3...** The version 4 is splitted into different smaller packages, but the https://www.npmjs.com/package/node-nlp-neo package use tose smaller packages to build a version so retrocompatible with v3 as we can
 
 **- But I don't find the NluManager in this package...** You don't need it, you have the NlpManager that inside is able to handle the NLU, NLG, Language guesser....
 
@@ -24,7 +24,7 @@ I will put here a FAQ with the links to different interesting parts to documenta
 
 **- Do you have some example of a chatbot running in several languages?** You can remix this project in glitch, you'll see that it only haves one line of source code, but with only one line it creates a backend with API and exposes a react frontend with the bot, and it's multi-language. To see the frontend click on the button "show" and then "next to the code". https://glitch.com/edit/?utm_content=project_nlpjs-multi&utm_source=remix_this&utm_medium=button&utm_campaign=glitchButton#!/remix/nlpjs-multi
 
-**- Using node-nlp package I need to install the languages separately?** No. It use a pacakge @nlpjs-neo/lang-all that mounts all the languages
+**- Using node-nlp-neo package I need to install the languages separately?** No. It use a pacakge @nlpjs-neo/lang-all that mounts all the languages
 
 **- Where I can see the languages and their locales to find the correct package to install?** Here, the one with Native Support https://github.com/axa-group/nlp.js/blob/master/docs/v4/language-support.md
 
@@ -36,12 +36,12 @@ I will put here a FAQ with the links to different interesting parts to documenta
 
 **- How nlp guesses the language from an utterance in a multi-language bot?** The language is guessed automatically using the most common 3-grams from the language, but also with the 3-grams from the corpus training it, so that way you can use even languages that does not exists, or get a better guessing based on your corpus.
 
-**- And how I guess a language from a sentence, not integrated with the NLP?** You have the example here: https://github.com/axa-group/nlp.js/blob/master/docs/v3/language-guesser.md But if you want to get an smaller impact on your node_moules use the library _@nlpjs-neo/language_ instead of _node-nlp_ one.
+**- And how I guess a language from a sentence, not integrated with the NLP?** You have the example here: https://github.com/axa-group/nlp.js/blob/master/docs/v3/language-guesser.md But if you want to get an smaller impact on your node_moules use the library _@nlpjs-neo/language_ instead of _node-nlp-neo_ one.
 
 **- Ok, what about the NER?** You can use the NER directly from the NlpManager:
 
 ```js
-const { NlpManager } = require('node-nlp');
+const { NlpManager } = require('node-nlp-neo');
 
 async function main() {
   const manager = new NlpManager({ languages: ['en'], forceNER: true });
