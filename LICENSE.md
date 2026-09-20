@@ -1,6 +1,7 @@
 # MIT License
 
 Copyright (c) AXA Group Operations Spain S.A.
+Copyright (c) 2026 Igor Savin
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -322,13 +322,21 @@ You can read the Code of Conduct at [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Who is behind it`?`
 
-This project is developed by AXA Group Operations Spain S.A.
+NLP.js was created and developed by AXA Group Operations Spain S.A., with
+Jesus Seijas as its main author, and a long list of
+[contributors](https://github.com/axa-group/nlp.js/graphs/contributors).
 
-If you need to contact us, you can do it at the email opensource@axa.com
+nlpjs-neo is a fork of that project, maintained by
+[Igor Savin](https://github.com/kibertoad). The fork keeps the original
+codebase and license and updates the tooling around it. Open issues and pull
+requests against the fork at
+[kibertoad/nlpjs-neo](https://github.com/kibertoad/nlpjs-neo).
 
 ## License
 
 Copyright (c) AXA Group Operations Spain S.A.
+
+Copyright (c) 2026 Igor Savin
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
