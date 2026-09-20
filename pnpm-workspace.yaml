@@ -1,6 +1,10 @@
 packages:
   - 'packages/*'
 
+linkWorkspacePackages: true
+saveWorkspaceProtocol: rolling
+strictPeerDependencies: false
+
 # Dependencies whose install scripts are allowed to run. pnpm blocks install
 # scripts by default; npm used to run all of them.
 allowBuilds:
