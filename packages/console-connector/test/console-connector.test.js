@@ -27,8 +27,8 @@ const { ConsoleConnector } = require('../src');
 const container = containerBootstrap();
 
 global.console = {
-  warn: jest.fn(),
-  log: jest.fn(),
+  warn: vi.fn(),
+  log: vi.fn(),
 };
 
 describe('Console Connector', () => {
@@ -41,7 +41,7 @@ describe('Console Connector', () => {
 
   describe('Say', () => {
     test('It should say an string', () => {
-      console.log = jest.fn();
+      console.log = vi.fn();
       const connector = new ConsoleConnector(container);
       connector.say('Hello world');
       expect(console.log).toHaveBeenCalledWith('bot> Hello world');

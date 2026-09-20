@@ -102,8 +102,9 @@ function addTests(base, locale, entityTypeName) {
       const utteranceName = `utterance${upperLocale}`;
       const utterance = testCase[utteranceName] || testCase.utterance;
       const resultName = `result${upperLocale}`;
+      // oxlint-disable-next-line vitest/no-conditional-tests
       if (utterance) {
-        // oxlint-disable-next-line jest/valid-title
+        // oxlint-disable-next-line vitest/valid-title
         test(utterance, async () => {
           const expected = Object.assign(testCase.result, testCase[resultName]);
           const input = {

@@ -52,7 +52,7 @@ function selectionSort(arr) {
         minIdx = j;
       }
     }
-    swap(i, minIdx);
+    swap(arr, i, minIdx);
   }
   return arr;
 }

@@ -32,7 +32,7 @@ describe('logger', () => {
 
   describe('logging', () => {
     test('It should debug', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'debug')
         .mockImplementation((msg) => msg);
       const message = 'This is a debug message';
@@ -41,7 +41,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should info', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'info')
         .mockImplementation((msg) => msg);
       const message = 'This is a info message';
@@ -50,7 +50,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should warn', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'warn')
         .mockImplementation((msg) => msg);
       const message = 'This is a warn message';
@@ -59,7 +59,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should error', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'error')
         .mockImplementation((msg) => msg);
       const message = 'This is a error message';
@@ -68,7 +68,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should log', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'info')
         .mockImplementation((msg) => msg);
       const message = 'This is a log message';
@@ -77,7 +77,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should trace', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'trace')
         .mockImplementation((msg) => msg);
       const message = 'This is a trace message';
@@ -86,7 +86,7 @@ describe('logger', () => {
       expect(spy).toBeCalledWith(message);
     });
     test('It should fatal', () => {
-      const spy = jest
+      const spy = vi
         .spyOn(logger.logger, 'fatal')
         .mockImplementation((msg) => msg);
       const message = 'This is a fatal message';

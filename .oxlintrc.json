@@ -1,11 +1,11 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import", "jest", "node"],
+  "plugins": ["import", "vitest", "node"],
   "env": {
     "builtin": true,
     "node": true,
     "es2022": true,
-    "jest/globals": true
+    "vitest": true
   },
   "categories": {
     "correctness": "error",
@@ -15,8 +15,8 @@
   "rules": {
     "no-await-in-loop": "off",
     "no-misleading-character-class": "off",
-    "jest/expect-expect": "off",
-    "jest/no-commented-out-tests": "off"
+    "vitest/expect-expect": "off",
+    "vitest/no-commented-out-tests": "off"
   },
   "ignorePatterns": [
     "coverage/**",

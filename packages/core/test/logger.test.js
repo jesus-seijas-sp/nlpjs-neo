@@ -24,12 +24,12 @@
 const logger = require('../src/logger');
 
 global.console = {
-  debug: jest.fn(),
-  info: jest.fn(),
-  warn: jest.fn(),
-  log: jest.fn(),
-  error: jest.fn(),
-  trace: jest.fn(),
+  debug: vi.fn(),
+  info: vi.fn(),
+  warn: vi.fn(),
+  log: vi.fn(),
+  error: vi.fn(),
+  trace: vi.fn(),
 };
 
 describe('Logger', () => {

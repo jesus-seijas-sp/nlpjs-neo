@@ -1042,7 +1042,7 @@ describe('NLP Manager', () => {
     });
 
     test('Should call transformer function if it is passed', async () => {
-      const transformer = jest.fn((_) => _);
+      const transformer = vi.fn((_) => _);
       const manager = new NlpManager({
         processTransformer: transformer,
       });
@@ -1066,7 +1066,7 @@ describe('NLP Manager', () => {
       const transformedValue = {
         transformed: 'VALUE',
       };
-      const transformer = jest.fn().mockReturnValue(transformedValue);
+      const transformer = vi.fn().mockReturnValue(transformedValue);
       const manager = new NlpManager({
         processTransformer: transformer,
       });
@@ -1083,7 +1083,7 @@ describe('NLP Manager', () => {
       const transformedValue = {
         transformed: 'VALUE',
       };
-      const transformer = jest
+      const transformer = vi
         .fn()
         .mockReturnValue(Promise.resolve(transformedValue));
       const manager = new NlpManager({
