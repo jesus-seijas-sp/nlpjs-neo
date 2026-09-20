@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/nlu
+# @nlpjs-neo/nlu
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -25,10 +25,10 @@
 
 ## Installation
 
-You can install @nlpjs/nlu:
+You can install @nlpjs-neo/nlu:
 
 ```bash
-    npm install @nlpjs/nlu
+    npm install @nlpjs-neo/nlu
 ```
 
 ## NluNeural
@@ -38,9 +38,9 @@ A language can be used as a plugin in order to use the correct tokenizer and ste
 In this example both versions, with language and without language, are used in order to compare the results.
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
-const { NluNeural } = require('@nlpjs/nlu');
-const { LangEn } = require('@nlpjs/lang-en');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { NluNeural } = require('@nlpjs-neo/nlu');
+const { LangEn } = require('@nlpjs-neo/lang-en');
 const corpus = require('./corpus50.json');
 
 function prepareCorpus(input, isTests = false) {
@@ -95,9 +95,9 @@ It can be trained by domain or all together:
 - By domain means that every single domain has its own model trained, and there is a master model that is trained to classify an utterance into a domain. That way, when a utterance is classified, it is processed by the master domain to classify into the domain, and then is processed by the model of the domain to calculate the intent.
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
-const { DomainManager, NluNeural } = require('@nlpjs/nlu');
-const { LangEn } = require('@nlpjs/lang-en');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { DomainManager, NluNeural } = require('@nlpjs-neo/nlu');
+const { LangEn } = require('@nlpjs-neo/lang-en');
 
 function addFoodDomain(manager) {
   manager.add('food', 'what do I have in my basket', 'order.check');
@@ -193,10 +193,10 @@ _NluManager_ is the abstraction over _DomainManager_: it contains one _DomainMan
 This is an example with two languages (english and spanish) with two domains each (personality and food).
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
-const { NluManager, NluNeural } = require('@nlpjs/nlu');
-const { LangEn } = require('@nlpjs/lang-en');
-const { LangEs } = require('@nlpjs/lang-es');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { NluManager, NluNeural } = require('@nlpjs-neo/nlu');
+const { LangEn } = require('@nlpjs-neo/lang-en');
+const { LangEs } = require('@nlpjs-neo/lang-es');
 
 function addFoodDomainEn(manager) {
   manager.assignDomain('en', 'order.check', 'food');

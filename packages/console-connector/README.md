@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/console-connector
+# @nlpjs-neo/console-connector
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -23,10 +23,10 @@
 
 ## Installation
 
-You can install @nlpjs/console-connector:
+You can install @nlpjs-neo/console-connector:
 
 ```bash
-    npm install @nlpjs/console-connector
+    npm install @nlpjs-neo/console-connector
 ```
 
 ## Example of use inside NLP.js
@@ -36,7 +36,7 @@ This is a little bit special component. It allows to manage scenarios where the 
 ## Example of use of the package
 
 ```javascript
-const { ConsoleConnector } = require('@nlpjs/console-connector');
+const { ConsoleConnector } = require('@nlpjs-neo/console-connector');
 
 const connector = new ConsoleConnector();
 connector.onHear = (self, text) => {
@@ -45,12 +45,12 @@ connector.onHear = (self, text) => {
 connector.say('Say something!');
 ```
 
-## Example of use with @nlpjs/basic
+## Example of use with @nlpjs-neo/basic
 
 You must have a file _corpus.json_ in the folder of the source code:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dockConfiguration = {

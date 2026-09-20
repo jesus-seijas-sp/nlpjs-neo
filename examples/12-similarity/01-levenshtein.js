@@ -22,7 +22,7 @@
  */
 
 const { leven } = require('../../packages/similarity/src');
-// const { leven } = require('@nlpjs/similarity');
+// const { leven } = require('@nlpjs-neo/similarity');
 
 console.log(leven('potatoe', 'potatoe')); // expected: 0
 console.log(leven('distance', 'eistancd')); // expected: 2

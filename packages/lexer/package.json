@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/lexer",
+  "name": "@nlpjs-neo/lexer",
   "version": "4.26.1",
   "description": "Lexer",
   "author": {

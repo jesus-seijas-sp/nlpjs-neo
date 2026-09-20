@@ -33,14 +33,14 @@ const {
   Template,
   LangEn,
   listFilesAbsolute,
-} = require('@nlpjs/basic');
-const { ExpressApiServer } = require('@nlpjs/express-api-server');
-const { DirectlineConnector } = require('@nlpjs/directline-connector');
-const { Bot } = require('@nlpjs/bot');
-const { BuiltinMicrosoft } = require('@nlpjs/builtin-microsoft');
-const { BuiltinDuckling } = require('@nlpjs/builtin-duckling');
-const { Database } = require('@nlpjs/database');
-const { MongodbAdapter } = require('@nlpjs/mongodb-adapter');
+} = require('@nlpjs-neo/basic');
+const { ExpressApiServer } = require('@nlpjs-neo/express-api-server');
+const { DirectlineConnector } = require('@nlpjs-neo/directline-connector');
+const { Bot } = require('@nlpjs-neo/bot');
+const { BuiltinMicrosoft } = require('@nlpjs-neo/builtin-microsoft');
+const { BuiltinDuckling } = require('@nlpjs-neo/builtin-duckling');
+const { Database } = require('@nlpjs-neo/database');
+const { MongodbAdapter } = require('@nlpjs-neo/mongodb-adapter');
 const { mount, getUrlFileName, ensureDir } = require('./utils');
 
 const defaultConfiguration = {

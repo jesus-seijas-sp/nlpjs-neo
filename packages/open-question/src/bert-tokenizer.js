@@ -23,8 +23,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { BertWordPieceTokenizer } = require('@nlpjs/bert-tokenizer');
-const { getAbsolutePath } = require('@nlpjs/utils');
+const { BertWordPieceTokenizer } = require('@nlpjs-neo/bert-tokenizer');
+const { getAbsolutePath } = require('@nlpjs-neo/utils');
 const { DEFAULT_ASSETS_DIR } = require('./constants');
 
 class BertTokenizer {

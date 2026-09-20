@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { defaultContainer, Clonable } = require('@nlpjs/core');
+const { defaultContainer, Clonable } = require('@nlpjs-neo/core');
 const express = require('serverless-express/express');
 
 class ExpressApiServerless extends Clonable {

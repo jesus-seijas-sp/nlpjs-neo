@@ -1,4 +1,4 @@
-const { XDoc } = require('@nlpjs/xtables');
+const { XDoc } = require('@nlpjs-neo/xtables');
 
 class NlpExcelReader {
   constructor(manager) {

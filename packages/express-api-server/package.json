@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/express-api-server",
+  "name": "@nlpjs-neo/express-api-server",
   "version": "4.27.0",
   "description": "Express API Server",
   "author": {
@@ -25,7 +25,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/core": "^4.26.1",
+    "@nlpjs-neo/core": "^4.26.1",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },

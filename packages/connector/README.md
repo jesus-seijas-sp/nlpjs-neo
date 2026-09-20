@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/connector
+# @nlpjs-neo/connector
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -10,10 +10,10 @@
 
 ## Installation
 
-You can install @nlpjs/connector:
+You can install @nlpjs-neo/connector:
 
 ```bash
-    npm install @nlpjs/connector
+    npm install @nlpjs-neo/connector
 ```
 
 ## Contributing

@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { containerBootstrap } = require('@nlpjs/core');
+const { containerBootstrap } = require('@nlpjs-neo/core');
 const { Ner } = require('../src');
 
 const container = containerBootstrap();

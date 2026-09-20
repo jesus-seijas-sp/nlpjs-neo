@@ -31,7 +31,7 @@ const {
   stringToArray,
   compareWildcars,
   loadEnvFromJson,
-} = require('@nlpjs/core');
+} = require('@nlpjs-neo/core');
 
 function listFiles(folderPath, recursive = true) {
   if (fs.existsSync(folderPath)) {

@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Nlu } = require('@nlpjs/nlu');
-const { request } = require('@nlpjs/request');
+const { Nlu } = require('@nlpjs-neo/nlu');
+const { request } = require('@nlpjs-neo/request');
 
 class NluLuis extends Nlu {
   innerTrain(srcInput) {

@@ -1,4 +1,4 @@
-# @nlpjs/similarity
+# @nlpjs-neo/similarity
 
 ## TABLE OF CONTENTS
 
@@ -14,10 +14,10 @@
 
 ## Installation
 
-You can install @nlpjs/similarity:
+You can install @nlpjs-neo/similarity:
 
 ```bash
-    npm install @nlpjs/similarity
+    npm install @nlpjs-neo/similarity
 ```
 
 ## leven
@@ -25,7 +25,7 @@ You can install @nlpjs/similarity:
 Leven is used to calculate the levenshtein distance between two texts:
 
 ```javascript
-const { leven } = require('@nlpjs/similarity');
+const { leven } = require('@nlpjs-neo/similarity');
 
 console.log(leven('potatoe', 'potatoe')); // expected: 0
 console.log(leven('distance', 'eistancd')); // expected: 2
@@ -37,7 +37,7 @@ console.log(leven('mikailovitch', 'Mikhaïlovitch')); // expected: 3
 similarity is used to calculate the levenshtein distance between two texts, but with an option to normalize both texts between calculation.
 
 ```javascript
-const { similarity } = require('@nlpjs/similarity');
+const { similarity } = require('@nlpjs-neo/similarity');
 
 function showDistances(word1, word2) {
   console.log(`"${word1}" vs "${word2}" :`);
@@ -60,7 +60,7 @@ It searches for the most similar word based on a levenshtein distance. When seve
 
 ```javascript
 const { SpellCheck } = require('../../packages/similarity/src');
-// const { SpellCheck } = require('@nlpjs/similarity');
+// const { SpellCheck } = require('@nlpjs-neo/similarity');
 
 const spellCheck = new SpellCheck({
   features: {
@@ -77,8 +77,8 @@ console.log(actual);
 
 ```javascript
 const fs = require('fs');
-const { SpellCheck } = require('@nlpjs/similarity');
-const { NGrams } = require('@nlpjs/utils');
+const { SpellCheck } = require('@nlpjs-neo/similarity');
+const { NGrams } = require('@nlpjs-neo/utils');
 
 // File book.txt should contain the text that contains the words to be learnt. 
 // In the example we used Pride and Prejudice from Project Gutenberg 

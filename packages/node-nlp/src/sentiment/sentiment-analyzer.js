@@ -23,9 +23,9 @@
 
 const {
   SentimentAnalyzer: SentimentAnalyzerBase,
-} = require('@nlpjs/sentiment');
-const { LangAll } = require('@nlpjs/lang-all');
-const { Nlu } = require('@nlpjs/nlu');
+} = require('@nlpjs-neo/sentiment');
+const { LangAll } = require('@nlpjs-neo/lang-all');
+const { Nlu } = require('@nlpjs-neo/nlu');
 
 class SentimentAnalyzer extends SentimentAnalyzerBase {
   constructor(settings = {}, container) {

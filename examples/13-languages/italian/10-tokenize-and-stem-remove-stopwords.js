@@ -22,7 +22,7 @@
  */
 
 const { StemmerIt, StopwordsIt } = require('../../../packages/lang-it/src');
-// const { StemmerIt, StopwordsIt } = require('@nlpjs/lang-it');
+// const { StemmerIt, StopwordsIt } = require('@nlpjs-neo/lang-it');
 
 const stemmer = new StemmerIt();
 stemmer.stopwords = new StopwordsIt();

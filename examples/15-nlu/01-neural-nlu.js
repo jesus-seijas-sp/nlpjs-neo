@@ -24,9 +24,9 @@
 const { containerBootstrap } = require('../../packages/core/src');
 const { NluNeural } = require('../../packages/nlu/src');
 const { LangEn } = require('../../packages/lang-en/src');
-// const { containerBootstrap } = require('@nlpjs/core');
-// const { NluNeural } = require('@nlpjs/nlu');
-// const { LangEn } = require('@nlpjs/lang-en');
+// const { containerBootstrap } = require('@nlpjs-neo/core');
+// const { NluNeural } = require('@nlpjs-neo/nlu');
+// const { LangEn } = require('@nlpjs-neo/lang-en');
 const corpus = require('./corpus50.json');
 
 function prepareCorpus(input, isTests = false) {

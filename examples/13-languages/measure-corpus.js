@@ -23,8 +23,8 @@
 
 const { containerBootstrap } = require('../../packages/core/src');
 const { Nlp } = require('../../packages/nlp/src');
-// const { containerBootstrap } = require('@nlpjs/core');
-// const { Nlp } = require('@nlpjs/nlp');
+// const { containerBootstrap } = require('@nlpjs-neo/core');
+// const { Nlp } = require('@nlpjs-neo/nlp');
 
 async function measureCorpus(corpus, plugins) {
   const container = await containerBootstrap();

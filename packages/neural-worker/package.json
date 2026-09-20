@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/neural-worker",
+  "name": "@nlpjs-neo/neural-worker",
   "version": "4.26.1",
   "description": "Neural Network using worker threads",
   "author": {
@@ -25,7 +25,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/core": "^4.26.1"
+    "@nlpjs-neo/core": "^4.26.1"
   },
   "publishConfig": {
     "access": "public"

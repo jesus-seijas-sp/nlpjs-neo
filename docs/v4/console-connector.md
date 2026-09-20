@@ -1,11 +1,11 @@
-# @nlpjs/console-connector
+# @nlpjs-neo/console-connector
 
 ## Installation
 
-You can install the console connector @nlpjs/console-connector using:
+You can install the console connector @nlpjs-neo/console-connector using:
 
 ```bash
-    npm install @nlpjs/console-connector
+    npm install @nlpjs-neo/console-connector
 ```
 
 ## Example of use inside NLP.js
@@ -16,7 +16,7 @@ It allows you to manage scenarios where the main interface is the console. You c
 ## Example of use of the package
 
 ```javascript
-const { ConsoleConnector } = require('@nlpjs/console-connector');
+const { ConsoleConnector } = require('@nlpjs-neo/console-connector');
 
 const connector = new ConsoleConnector();
 connector.onHear = (self, text) => {
@@ -25,12 +25,12 @@ connector.onHear = (self, text) => {
 connector.say('Say something!');
 ```
 
-## Example of use with @nlpjs/basic
+## Example of use with @nlpjs-neo/basic
 
 You must have a file _corpus.json_ in the source code folder:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dockConfiguration = {

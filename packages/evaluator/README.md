@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/evaluator
+# @nlpjs-neo/evaluator
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -22,16 +22,16 @@
 
 ## Installation
 
-You can install @nlpjs/evaluator:
+You can install @nlpjs-neo/evaluator:
 
 ```bash
-    npm install @nlpjs/evaluator
+    npm install @nlpjs-neo/evaluator
 ```
 
 ## Example of Usage
 
 ```javascript
-const { Evaluator } = require('@nlpjs/evaluator');
+const { Evaluator } = require('@nlpjs-neo/evaluator');
 
 const context = { a: 1, b: 2 };
 const evaluator = new Evaluator();

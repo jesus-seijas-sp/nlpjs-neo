@@ -1,6 +1,6 @@
-# @nlpjs/nlu examples
+# @nlpjs-neo/nlu examples
 
-Those are examples to show how to use _@nlpjs/nlu_ package.
+Those are examples to show how to use _@nlpjs-neo/nlu_ package.
 
 ## 01 neural-nlu
 Shows the usage of the _NluNeural_ class.

@@ -24,17 +24,17 @@ The default plugin is mounted at the core.
 
 This is the plugin mounted by the core-loader, as it's the one that fits the use at backend. It allows to read files from the OS or if you provide an URL it will load them using a request.
 
-This plugin is automatically mounted when you use @nlpjs/core-loader.
+This plugin is automatically mounted when you use @nlpjs-neo/core-loader.
 
 If you want to use this plugin on your own, then install it with:
 ```bash
-npm i @nlpjs/request
+npm i @nlpjs-neo/request
 ```
 
 And to use the plugin in your container, register it:
 ```javascript
-const { Container } = require('@nlpjs/core');
-const { fs: requestfs } = require('@nlpjs/request');
+const { Container } = require('@nlpjs-neo/core');
+const { fs: requestfs } = require('@nlpjs-neo/request');
 
 
 async function main() {
@@ -53,8 +53,8 @@ If the resolved data from the URL is a valid JSON object, then it will be return
 Also you can load files from the file system:
 
 ```javascript
-const { Container } = require('@nlpjs/core');
-const { fs: requestfs } = require('@nlpjs/request');
+const { Container } = require('@nlpjs-neo/core');
+const { fs: requestfs } = require('@nlpjs-neo/request');
 
 
 async function main() {
@@ -74,13 +74,13 @@ This is the file system for Web and React Native, where no OS file system can be
 If you want to use this plugin on your own, then install it with:
 
 ```bash
-npm i @nlpjs/request-rn
+npm i @nlpjs-neo/request-rn
 ```
 
 And to use the plugin in your container, register it:
 ```javascript
-const { Container } = require('@nlpjs/core');
-const { fs: requestfs } = require('@nlpjs/request-rn');
+const { Container } = require('@nlpjs-neo/core');
+const { fs: requestfs } = require('@nlpjs-neo/request-rn');
 
 
 async function main() {

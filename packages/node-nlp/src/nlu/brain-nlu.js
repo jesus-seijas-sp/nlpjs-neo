@@ -21,9 +21,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { containerBootstrap } = require('@nlpjs/core-loader');
-const { LangAll } = require('@nlpjs/lang-all');
-const { NluNeural } = require('@nlpjs/nlu');
+const { containerBootstrap } = require('@nlpjs-neo/core-loader');
+const { LangAll } = require('@nlpjs-neo/lang-all');
+const { NluNeural } = require('@nlpjs-neo/nlu');
 
 class BrainNLU {
   constructor(settings = {}) {

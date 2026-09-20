@@ -22,7 +22,7 @@
  */
 
 const { StopwordsEn } = require('../../../packages/lang-en/src');
-// const { StopwordsEn } = require('@nlpjs/lang-en');
+// const { StopwordsEn } = require('@nlpjs-neo/lang-en');
 
 const stopwords = new StopwordsEn();
 stopwords.dictionary = {};

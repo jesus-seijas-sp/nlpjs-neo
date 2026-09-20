@@ -1,6 +1,6 @@
-# @nlpjs/console-connector examples
+# @nlpjs-neo/console-connector examples
 
-Those are examples to show how to use _@nlpjs/console-connector_ package.
+Those are examples to show how to use _@nlpjs-neo/console-connector_ package.
 
 ## 01 Console connector
 Shows the usage of the _ConsoleConnector_ class.

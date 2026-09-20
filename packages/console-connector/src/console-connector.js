@@ -22,7 +22,7 @@
  */
 
 const readline = require('readline');
-const { Connector } = require('@nlpjs/connector');
+const { Connector } = require('@nlpjs-neo/connector');
 
 class ConsoleConnector extends Connector {
   initialize() {

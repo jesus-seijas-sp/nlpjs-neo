@@ -23,7 +23,7 @@
 
 const measureCorpus = require('../measure-corpus');
 const { LangId } = require('../../../packages/lang-id/src');
-// const { LangId } = require('@nlpjs/lang-id');
+// const { LangId } = require('@nlpjs-neo/lang-id');
 const corpus = require('../corpora/corpus-id.json');
 
 (async () => {

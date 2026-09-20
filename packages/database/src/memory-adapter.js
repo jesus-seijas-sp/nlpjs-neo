@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, uuid } = require('@nlpjs/core');
+const { Clonable, uuid } = require('@nlpjs-neo/core');
 const path = require('path');
 
 class MemorydbAdapter extends Clonable {

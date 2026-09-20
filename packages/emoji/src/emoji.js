@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { stringToArray } = require('@nlpjs/core');
+const { stringToArray } = require('@nlpjs-neo/core');
 
 const nonSpacingRegex = new RegExp(String.fromCharCode(65039), 'g');
 const emojiByName = require('./emoji.json');

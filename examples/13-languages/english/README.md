@@ -1,6 +1,6 @@
-# @nlpjs/lang-en examples
+# @nlpjs-neo/lang-en examples
 
-Those are examples to show how to use _@nlpjs/lang-en_ package.
+Those are examples to show how to use _@nlpjs-neo/lang-en_ package.
 
 ## 01 normalization
 Shows the usage of the _NormalizerEn_ class to normalize a sentence.

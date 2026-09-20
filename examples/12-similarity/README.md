@@ -1,6 +1,6 @@
-# @nlpjs/similarity examples
+# @nlpjs-neo/similarity examples
 
-Those are examples to show how to use _@nlpjs/similarity_ package.
+Those are examples to show how to use _@nlpjs-neo/similarity_ package.
 
 ## 01 levenshtein
 Shows the usage of the _leven_ function.

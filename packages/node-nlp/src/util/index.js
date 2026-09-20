@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { removeEmojis } = require('@nlpjs/emoji');
-const { Evaluator } = require('@nlpjs/evaluator');
+const { removeEmojis } = require('@nlpjs-neo/emoji');
+const { Evaluator } = require('@nlpjs-neo/evaluator');
 const { SpellCheck } = require('./spell-check');
 const { Handlebars } = require('./handlebars');
 

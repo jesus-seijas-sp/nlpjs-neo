@@ -22,7 +22,7 @@
  */
 
 const { similarity } = require('../../packages/similarity-wa/src');
-// const { similarity } = require('@nlpjs/similarity-wa');
+// const { similarity } = require('@nlpjs-neo/similarity-wa');
 
 function showDistances(word1, word2) {
   console.log(`"${word1}" vs "${word2}" :`);

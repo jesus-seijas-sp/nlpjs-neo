@@ -1,4 +1,4 @@
-# `@nlpjs/bert-open-question`
+# `@nlpjs-neo/bert-open-question`
 
 ## Introduction
 

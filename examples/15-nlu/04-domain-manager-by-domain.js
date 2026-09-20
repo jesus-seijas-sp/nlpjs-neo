@@ -24,9 +24,9 @@
 const { containerBootstrap } = require('../../packages/core/src');
 const { DomainManager, NluNeural } = require('../../packages/nlu/src');
 const { LangEn } = require('../../packages/lang-en/src');
-// const { containerBootstrap } = require('@nlpjs/core');
-// const { DomainManager, NluNeural } = require('@nlpjs/nlu');
-// const { LangEn } = require('@nlpjs/lang-en');
+// const { containerBootstrap } = require('@nlpjs-neo/core');
+// const { DomainManager, NluNeural } = require('@nlpjs-neo/nlu');
+// const { LangEn } = require('@nlpjs-neo/lang-en');
 
 function addFoodDomain(manager) {
   manager.add('food', 'what do I have in my basket', 'order.check');

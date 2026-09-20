@@ -1,6 +1,6 @@
 ![NLPjs logo](screenshots/nlplogo.gif)
 
-# @nlpjs/emoji
+# @nlpjs-neo/emoji
 
 ## Introduction
 
@@ -11,13 +11,13 @@ Emoji is a plugin for NLP.js suite able to replace emojis by their word equivale
 You can install via NPM:
 
 ```bash
-  npm install @nlpjs/emoji
+  npm install @nlpjs-neo/emoji
 ```
 
 ## Example of use
 
 ```javascript
-const { removeEmojis } = require('@nlpjs/emoji');
+const { removeEmojis } = require('@nlpjs-neo/emoji');
 
 const actual = removeEmojis('I ❤️  ☕️! -  😯⭐️😍  ::: test : : 👍+');
 console.log(actual);

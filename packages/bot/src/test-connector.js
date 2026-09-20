@@ -23,7 +23,7 @@
 
 const path = require('path');
 const fsp = require('fs').promises;
-const { Connector } = require('@nlpjs/connector');
+const { Connector } = require('@nlpjs-neo/connector');
 
 const { isJsonObject, trimInput } = require('./helper');
 

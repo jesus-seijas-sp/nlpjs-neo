@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/logger
+# @nlpjs-neo/logger
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -13,8 +13,8 @@
 
 - [Installation](#installation)
 - [Example of use](#example-of-use)
-- [Default logger in @nlpjs/core](#default-logger-in-nlpjscore)
-- [Default logger in @nlpjs/basic](#default-logger-in-nlpjsbasic)
+- [Default logger in @nlpjs-neo/core](#default-logger-in-nlpjscore)
+- [Default logger in @nlpjs-neo/basic](#default-logger-in-nlpjsbasic)
 - [Adding your own logger to the container](#adding-your-own-logger-to-the-container)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -25,38 +25,38 @@
 
 ## Installation
 
-You can install @nlpjs/logger:
+You can install @nlpjs-neo/logger:
 
 ```bash
-    npm install @nlpjs/logger
+    npm install @nlpjs-neo/logger
 ```
 
 ## Example of Usage
 
 ```javascript
-const { Logger } = require('@nlpjs/logger');
+const { Logger } = require('@nlpjs-neo/logger');
 
 const logger = new Logger();
 
 logger.info('Hello world!!!')
 ```
 
-## Default logger in @nlpjs/core
+## Default logger in @nlpjs-neo/core
 By default, a logger based on console is added to the NLP.js container
 
 ```javascript
-const { defaultContainer } = require('@nlpjs/core');
+const { defaultContainer } = require('@nlpjs-neo/core');
 
 const logger = defaultContainer.get('logger');
 logger.info('This is an info message');
 // This is an info message
 ```
 
-## Default logger in @nlpjs/basic
+## Default logger in @nlpjs-neo/basic
 When using the basic package of NLP.js, a logger based on pino is added.
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});
@@ -72,7 +72,7 @@ const { dockStart } = require('@nlpjs/basic');
 You can register your own logger to the container:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});

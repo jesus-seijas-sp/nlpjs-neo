@@ -22,7 +22,7 @@
  */
 
 const mongodb = require('mongodb');
-const { Clonable } = require('@nlpjs/core');
+const { Clonable } = require('@nlpjs-neo/core');
 
 const { MongoClient, ObjectId } = mongodb;
 const idField = '_id';

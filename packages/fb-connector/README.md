@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/fb-connector
+# @nlpjs-neo/fb-connector
 
 ## Description
 
@@ -14,17 +14,17 @@ End user <- -> Fb page <- -> Fb backend <- -> Your backend
 
 ## Installation
 
-You can install @nlpjs/fb-connector:
+You can install @nlpjs-neo/fb-connector:
 
 ```bash
-    npm install @nlpjs/fb-connector
+    npm install @nlpjs-neo/fb-connector
 ```
 
 This module leverages some other @nlp.js dependencies:
-- @nlpjs/core
-- @nlpjs/connector
-- @nlpjs/bot
-- @nlpjs/express-api-server (optional, read "Server" section)
+- @nlpjs-neo/core
+- @nlpjs-neo/connector
+- @nlpjs-neo/bot
+- @nlpjs-neo/express-api-server (optional, read "Server" section)
 
 ## Cards
 

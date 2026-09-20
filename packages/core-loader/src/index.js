@@ -38,7 +38,7 @@ const {
   MemoryStorage,
   uuid,
   Context,
-} = require('@nlpjs/core');
+} = require('@nlpjs-neo/core');
 
 const containerBootstrap = require('./container-bootstrap');
 const dock = require('./dock');

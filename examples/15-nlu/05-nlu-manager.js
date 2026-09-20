@@ -25,10 +25,10 @@ const { containerBootstrap } = require('../../packages/core/src');
 const { NluManager, NluNeural } = require('../../packages/nlu/src');
 const { LangEn } = require('../../packages/lang-en/src');
 const { LangEs } = require('../../packages/lang-es/src');
-// const { containerBootstrap } = require('@nlpjs/core');
-// const { NluManager, NluNeural } = require('@nlpjs/nlu');
-// const { LangEn } = require('@nlpjs/lang-en');
-// const { LangEs } = require('@nlpjs/lang-es');
+// const { containerBootstrap } = require('@nlpjs-neo/core');
+// const { NluManager, NluNeural } = require('@nlpjs-neo/nlu');
+// const { LangEn } = require('@nlpjs-neo/lang-en');
+// const { LangEs } = require('@nlpjs-neo/lang-es');
 
 function addFoodDomainEn(manager) {
   manager.assignDomain('en', 'order.check', 'food');

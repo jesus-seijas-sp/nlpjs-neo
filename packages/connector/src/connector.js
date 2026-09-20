@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, containerBootstrap } = require('@nlpjs/core');
+const { Clonable, containerBootstrap } = require('@nlpjs-neo/core');
 const Session = require('./session');
 
 class Connector extends Clonable {

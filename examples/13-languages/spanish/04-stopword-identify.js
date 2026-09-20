@@ -22,7 +22,7 @@
  */
 
 const { StopwordsEs } = require('../../../packages/lang-es/src');
-// const { StopwordsEs } = require('@nlpjs/lang-es');
+// const { StopwordsEs } = require('@nlpjs-neo/lang-es');
 
 const stopwords = new StopwordsEs();
 console.log(stopwords.isStopword('un'));

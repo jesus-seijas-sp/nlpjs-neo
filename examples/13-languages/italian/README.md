@@ -1,6 +1,6 @@
-# @nlpjs/lang-it examples
+# @nlpjs-neo/lang-it examples
 
-Those are examples to show how to use _@nlpjs/lang-it_ package.
+Those are examples to show how to use _@nlpjs-neo/lang-it_ package.
 
 ## 01 normalization
 Shows the usage of the _NormalizerIt_ class to normalize a sentence.

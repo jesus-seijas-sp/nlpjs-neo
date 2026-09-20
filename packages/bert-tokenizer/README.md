@@ -1,4 +1,4 @@
-# `@nlpjs/bert-tokenizer`
+# `@nlpjs-neo/bert-tokenizer`
 
 ## Introduction
 

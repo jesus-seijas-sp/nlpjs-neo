@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/xtables",
+  "name": "@nlpjs-neo/xtables",
   "version": "4.25.0",
   "description": "Excel tables reader",
   "author": {

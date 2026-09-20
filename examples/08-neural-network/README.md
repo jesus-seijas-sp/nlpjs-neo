@@ -1,6 +1,6 @@
 # Neural Network Examples
 
-Those are examples to show how to use the class _NeuralNetwork_ from package _@nlpjs/neural_
+Those are examples to show how to use the class _NeuralNetwork_ from package _@nlpjs-neo/neural_
 
 ## 01 Basic Usage
 Shows the basic usage of the class.

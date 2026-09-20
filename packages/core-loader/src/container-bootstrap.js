@@ -34,8 +34,8 @@ const {
   Timer,
   logger,
   MemoryStorage,
-} = require('@nlpjs/core');
-const { fs: requestfs, request } = require('@nlpjs/request');
+} = require('@nlpjs-neo/core');
+const { fs: requestfs, request } = require('@nlpjs-neo/request');
 const pluginInformation = require('./plugin-information.json');
 const {
   listFilesAbsolute,

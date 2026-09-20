@@ -22,7 +22,7 @@
  */
 
 const path = require('path');
-const { Downloader, getAbsolutePath } = require('@nlpjs/utils');
+const { Downloader, getAbsolutePath } = require('@nlpjs-neo/utils');
 const { DEFAULT_ASSETS_DIR } = require('./constants');
 
 class ModelDownloader {

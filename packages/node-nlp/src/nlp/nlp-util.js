@@ -26,8 +26,8 @@ const {
   Tokenizer,
   defaultContainer,
   containerBootstrap,
-} = require('@nlpjs/core-loader');
-const LangAll = require('@nlpjs/lang-all');
+} = require('@nlpjs-neo/core-loader');
+const LangAll = require('@nlpjs-neo/lang-all');
 
 const cultures = {
   ar: 'ar-ae', // Arabic

@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/lang-bert",
+  "name": "@nlpjs-neo/lang-bert",
   "version": "4.27.0",
   "description": "BERT language base",
   "author": {
@@ -25,8 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/bert-tokenizer": "^4.27.0",
-    "@nlpjs/core": "^4.26.1"
+    "@nlpjs-neo/bert-tokenizer": "^4.27.0",
+    "@nlpjs-neo/core": "^4.26.1"
   },
   "publishConfig": {
     "access": "public"

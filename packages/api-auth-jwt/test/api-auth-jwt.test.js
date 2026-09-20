@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Container } = require('@nlpjs/core');
-const { Database } = require('@nlpjs/database');
+const { Container } = require('@nlpjs-neo/core');
+const { Database } = require('@nlpjs-neo/database');
 const { ApiAuthJwt } = require('../src');
 const ApiServerMock = require('./api-server-mock');
 const ResMock = require('./res-mock');

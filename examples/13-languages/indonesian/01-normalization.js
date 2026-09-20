@@ -22,7 +22,7 @@
  */
 
 const { NormalizerId } = require('../../../packages/lang-id/src');
-// const { NormalizerId } = require('@nlpjs/lang-id');
+// const { NormalizerId } = require('@nlpjs-neo/lang-id');
 
 const normalizer = new NormalizerId();
 const input = 'apa yang dikembangkan perúsahaan Anda';

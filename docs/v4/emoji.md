@@ -1,21 +1,21 @@
-# @nlpjs/emoji
+# @nlpjs-neo/emoji
 
 ## Introduction
 
-@nlpjs/emoji is the package that adds the function _removeEmojis_ which replaces emojis with their text equivalents.
+@nlpjs-neo/emoji is the package that adds the function _removeEmojis_ which replaces emojis with their text equivalents.
 
 ## Installing
 
-_removeEmojis_ is a function in the package _@nlpjs/emoji_, which you can install via NPM:
+_removeEmojis_ is a function in the package _@nlpjs-neo/emoji_, which you can install via NPM:
 
 ```bash
-  npm install @nlpjs/emoji
+  npm install @nlpjs-neo/emoji
 ```
 
 ## Example of use
 
 ```javascript
-const { removeEmojis } = require('@nlpjs/emoji');
+const { removeEmojis } = require('@nlpjs-neo/emoji');
 
 const actual = removeEmojis('I ❤️  ☕️! -  😯⭐️😍  ::: test : : 👍+');
 console.log(actual);

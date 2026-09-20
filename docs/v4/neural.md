@@ -6,10 +6,10 @@ _NeuralNetwork_ is the class for an NLU Neural Network, able to train a classifi
 
 ## Installing
 
-_NeuralNetwork_ is a class of the package _@nlpjs/neural_, that you can install via NPM:
+_NeuralNetwork_ is a class of the package _@nlpjs-neo/neural_, that you can install via NPM:
 
 ```bash
-  npm install @nlpjs/neural
+  npm install @nlpjs-neo/neural
 ```
 
 ## Corpus Format
@@ -64,7 +64,7 @@ This will train the corpus and run the input equivalent to the sentence "when bi
 The result is a list of all intents with the score for each intent.
 
 ```javascript
-const { NeuralNetwork } = require('@nlpjs/neural');
+const { NeuralNetwork } = require('@nlpjs-neo/neural');
 const corpus = require('./corpus.json');
 
 const net = new NeuralNetwork();
@@ -78,7 +78,7 @@ console.log(net.run({ when: 1, birthday: 1 }));
 You can export the model to a json with the _toJSON_ method, and import a model from a json with _fromJSON_ method:
 
 ```javascript
-const { NeuralNetwork } = require('@nlpjs/neural');
+const { NeuralNetwork } = require('@nlpjs-neo/neural');
 const corpus = require('./corpus.json');
 
 let net = new NeuralNetwork();
@@ -102,7 +102,7 @@ There are several options that you can customize:
 
 Example of how to provide parameters:
 ```javascript
-const { NeuralNetwork } = require('@nlpjs/neural');
+const { NeuralNetwork } = require('@nlpjs-neo/neural');
 const corpus = require('./corpus.json');
 
 const net = new NeuralNetwork({ learningRate: 0.01, log: true });

@@ -11,7 +11,7 @@ The process is exactly the same as having a bot with a chatbot, so we strongly r
 In your node project folder, install the basic library and the qna importer, that will install the core and basic plugins for working in the backend, and also the plugin for converting qna files to your corpus.
 
 ```sh
-npm i @nlpjs/basic @nlpjs/qna-importer
+npm i @nlpjs-neo/basic @nlpjs-neo/qna-importer
 ```
 
 ## Train and test a QnA file
@@ -20,7 +20,7 @@ The source code for this example is here: https://github.com/jesus-seijas-sp/nlp
 
 Add the corpus file to your folder, and then create this index.js:
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic', 'Qna'] });
@@ -58,7 +58,7 @@ Now we can remove code that is configuration related into a separate file. Add a
 And the new code will be:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart();
@@ -75,7 +75,7 @@ The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-exam
 
 Now install the plugins for the express server and the directline API:
 ```javascript
-npm i @nlpjs/express-api-server @nlpjs/directline-connector
+npm i @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
 ```
 
 Change the conf.json to include those plugins and expose the API:
@@ -109,7 +109,7 @@ nlp.train
 Finally the index.js code should be:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   await dockStart();

@@ -27,7 +27,7 @@ const {
   StopwordsEn,
   NormalizerEn,
   registerTrigrams,
-} = require('@nlpjs/lang-en-min');
+} = require('@nlpjs-neo/lang-en-min');
 const SentimentEn = require('./sentiment/sentiment_en');
 
 class LangEn {

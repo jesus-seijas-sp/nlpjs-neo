@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable } = require('@nlpjs/core');
+const { Clonable } = require('@nlpjs-neo/core');
 
 async function defaultAction(session, context) {
   const nlp = this.container.get('nlp');

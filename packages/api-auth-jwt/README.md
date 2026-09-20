@@ -1,4 +1,4 @@
-# `@nlpjs/api-auth-jwt`
+# `@nlpjs-neo/api-auth-jwt`
 
 ## Introduction
 

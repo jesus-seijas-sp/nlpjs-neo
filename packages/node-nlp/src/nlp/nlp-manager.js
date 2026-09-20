@@ -22,14 +22,14 @@
  */
 
 const fs = require('fs');
-const { BuiltinMicrosoft } = require('@nlpjs/builtin-microsoft');
-const { BuiltinDuckling } = require('@nlpjs/builtin-duckling');
-const { containerBootstrap } = require('@nlpjs/core-loader');
-const { Language } = require('@nlpjs/language');
-const { LangAll } = require('@nlpjs/lang-all');
-const { Nlp } = require('@nlpjs/nlp');
-const { Evaluator, Template } = require('@nlpjs/evaluator');
-const { fs: requestfs } = require('@nlpjs/request');
+const { BuiltinMicrosoft } = require('@nlpjs-neo/builtin-microsoft');
+const { BuiltinDuckling } = require('@nlpjs-neo/builtin-duckling');
+const { containerBootstrap } = require('@nlpjs-neo/core-loader');
+const { Language } = require('@nlpjs-neo/language');
+const { LangAll } = require('@nlpjs-neo/lang-all');
+const { Nlp } = require('@nlpjs-neo/nlp');
+const { Evaluator, Template } = require('@nlpjs-neo/evaluator');
+const { fs: requestfs } = require('@nlpjs-neo/request');
 const { SentimentManager } = require('../sentiment');
 const NlpExcelReader = require('./nlp-excel-reader');
 

@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, defaultContainer } = require('@nlpjs/core');
+const { Clonable, defaultContainer } = require('@nlpjs-neo/core');
 const Recognizers = require('@microsoft/recognizers-text-suite');
 const BuiltinDictionary = require('./builtin-dictionary.json');
 const BuiltinInverse = require('./builtin-inverse.json');

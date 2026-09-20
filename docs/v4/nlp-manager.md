@@ -53,7 +53,7 @@ The `NlpManager` is able to manage several languages. It manages the named entit
 ```
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({
@@ -157,7 +157,7 @@ const { dockStart } = require('@nlpjs/basic');
 ## Without Coprpus file
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({
@@ -303,7 +303,7 @@ You can also provide a context to `NlpManger.process` so the NLG changes its beh
 In this example, the manager chooses, "Till next time, {{name}}!" as the answer, and is able to use the `@name` in the answer because context from the greeting is provided. The final result is, "Till next time, John!".
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
     const dock = await dockStart({

@@ -10,6 +10,6 @@
   "author": "Eric Lara <ericzon@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@nlpjs/ner": "*"
+    "@nlpjs-neo/ner": "*"
   }
 }

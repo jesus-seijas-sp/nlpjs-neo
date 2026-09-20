@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Recognizers } = require('@nlpjs/builtin-default');
+const { Recognizers } = require('@nlpjs-neo/builtin-default');
 
 function findEntity(edges, entity, typeName) {
   for (let i = 0; i < edges.length; i += 1) {

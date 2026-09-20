@@ -1,4 +1,4 @@
-# @nlpjs/emojis examples
+# @nlpjs-neo/emojis examples
 
 Those are examples to show how to use emojis package.
 

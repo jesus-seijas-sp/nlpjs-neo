@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, compareWildcars } = require('@nlpjs/core');
-const { SpellCheck } = require('@nlpjs/similarity');
+const { Clonable, compareWildcars } = require('@nlpjs-neo/core');
+const { SpellCheck } = require('@nlpjs-neo/similarity');
 
 class Nlu extends Clonable {
   constructor(settings = {}, container) {

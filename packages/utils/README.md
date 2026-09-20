@@ -1,4 +1,4 @@
-# `@nlpjs/utils`
+# `@nlpjs-neo/utils`
 
 ## Introduction
 

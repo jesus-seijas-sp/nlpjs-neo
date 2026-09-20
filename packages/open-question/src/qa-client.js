@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { softMax } = require('@nlpjs/utils');
+const { softMax } = require('@nlpjs-neo/utils');
 const BertTokenizer = require('./bert-tokenizer');
 const Model = require('./model');
 

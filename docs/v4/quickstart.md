@@ -4,7 +4,7 @@
 At the folder where is your node project, install the basic library, that will install the core and basic plugins for working in backend.
 
 ```bash
-npm i @nlpjs/basic
+npm i @nlpjs-neo/basic
 ```
 
 ## Create the code
@@ -12,7 +12,7 @@ The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-exam
 Then you can create a file called index.js with this content:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});
@@ -71,7 +71,7 @@ You can create the corpus as json files. The format of the json is:
 So the new code will be: 
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});
@@ -105,7 +105,7 @@ Add a _conf.json_ file with this content:
 
 And the new code will be:
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart();
@@ -133,7 +133,7 @@ nlp.train
 
 And remove the nlp.train() from the code:
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart();
@@ -165,7 +165,7 @@ Now modify the _conf.json_ to also use the plugin called _ConsoleConnector_:
 And in the _index.js_ you will only need the dockStart:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   await dockStart();
@@ -211,7 +211,7 @@ To explain the pipeline better:
 The _index.js_ file will be:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   await dockStart();
@@ -222,7 +222,7 @@ const { dockStart } = require('@nlpjs/basic');
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/07.multilanguage
 Now we want to add a corpus in spanish. First at all we must install the spanish language plugin:
 ```bash
-npm i @nlpjs/lang-es
+npm i @nlpjs-neo/lang-es
 ```
 
 Then add the _LangEs_ plugin in the configuration, and of course the corpus to the corpora:
@@ -264,7 +264,7 @@ Now when you talk with the chatbot you can ask questions from the English corpus
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/08.webchat
 First you will need an Api Server to serve the web. For this you can install the plugin _ExpressApiServer_ and that will create an api server using Express.
 ```bash
-npm i @nlpjs/express-api-server
+npm i @nlpjs-neo/express-api-server
 ```
 
 The internal name of the plugin is "api-server". 
@@ -289,7 +289,7 @@ Now if you start the application, and in your browser navigate to http://localho
 
 So lets add the Directline Connector, that will create an API like the Microsoft Directline, but exposed at your localhost with your API server. To do this install the DirectlineConnector plugin:
 ```bash
-npm i @nlpjs/directline-connector
+npm i @nlpjs-neo/directline-connector
 ```
 
 Restart your application and navigate once more to http://localhost:3000 and you'll be able to chat with your bot.
@@ -301,7 +301,7 @@ Restart your application and navigate once more to http://localhost:3000 and you
 The code for this example is here: https://github.com/jesus-seijas-sp/nlpjs-examples/tree/master/01.quickstart/09.microsoftbot
 There is a Microsoft Bot Framework Connector. First install the library:
 ```bash
-npm i @nlpjs/msbf-connector
+npm i @nlpjs-neo/msbf-connector
 ```
 Then use the plugin by adding it to your _conf.json_:
 

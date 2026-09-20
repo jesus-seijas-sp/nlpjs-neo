@@ -22,7 +22,7 @@
  */
 
 const { SpellCheck } = require('../../packages/similarity/src');
-// const { SpellCheck } = require('@nlpjs/similarity');
+// const { SpellCheck } = require('@nlpjs-neo/similarity');
 
 const spellCheck = new SpellCheck({
   features: {

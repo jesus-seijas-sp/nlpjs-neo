@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Container } = require('@nlpjs/core');
+const { Container } = require('@nlpjs-neo/core');
 const { LangGa } = require('../src');
 
 describe('Language Irish', () => {

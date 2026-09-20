@@ -23,9 +23,9 @@
 
 const fs = require('fs');
 const { SpellCheck } = require('../../packages/similarity/src');
-// const { SpellCheck } = require('@nlpjs/similarity');
+// const { SpellCheck } = require('@nlpjs-neo/similarity');
 const { NGrams } = require('../../packages/utils/src');
-// const { NGrams } = require('@nlpjs/utils');
+// const { NGrams } = require('@nlpjs-neo/utils');
 
 const lines = fs.readFileSync('./data/book.txt', 'utf-8').split(/\r?\n/);
 const ngrams = new NGrams({ byWord: true });

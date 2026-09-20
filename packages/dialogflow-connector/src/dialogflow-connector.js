@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Connector } = require('@nlpjs/connector');
+const { Connector } = require('@nlpjs-neo/connector');
 const { dialogflow } = require('actions-on-google');
 
 class DialogflowConnector extends Connector {

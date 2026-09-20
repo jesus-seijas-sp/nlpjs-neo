@@ -24,9 +24,9 @@
 const { Container } = require('../../../packages/core/src');
 const { SentimentAnalyzer } = require('../../../packages/sentiment/src');
 const { LangIt } = require('../../../packages/lang-it/src');
-// const { Container } = require('@nlpjs/core');
-// const { SentimentAnalyzer } = require('@nlpjs/sentiment');
-// const { LangIt } = require('@nlpjs/lang-it');
+// const { Container } = require('@nlpjs-neo/core');
+// const { SentimentAnalyzer } = require('@nlpjs-neo/sentiment');
+// const { LangIt } = require('@nlpjs-neo/lang-it');
 
 (async () => {
   const container = new Container();

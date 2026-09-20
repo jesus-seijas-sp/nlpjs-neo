@@ -21,18 +21,18 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, containerBootstrap } = require('@nlpjs/core');
-const { NluManager, NluNeural } = require('@nlpjs/nlu');
+const { Clonable, containerBootstrap } = require('@nlpjs-neo/core');
+const { NluManager, NluNeural } = require('@nlpjs-neo/nlu');
 const {
   Ner,
   ExtractorEnum,
   ExtractorRegex,
   ExtractorTrim,
   ExtractorBuiltin,
-} = require('@nlpjs/ner');
-const { ActionManager, NlgManager } = require('@nlpjs/nlg');
-const { SentimentAnalyzer } = require('@nlpjs/sentiment');
-const { SlotManager } = require('@nlpjs/slot');
+} = require('@nlpjs-neo/ner');
+const { ActionManager, NlgManager } = require('@nlpjs-neo/nlg');
+const { SentimentAnalyzer } = require('@nlpjs-neo/sentiment');
+const { SlotManager } = require('@nlpjs-neo/slot');
 const ContextManager = require('./context-manager');
 
 class Nlp extends Clonable {

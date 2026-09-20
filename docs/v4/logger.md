@@ -3,22 +3,22 @@
 ## Introduction
 A logger can be registered to log what happens during the execution.
 
-## Default logger in @nlpjs/core
+## Default logger in @nlpjs-neo/core
 By default, a logger based on console is added to the NLP.js container
 
 ```javascript
-const { defaultContainer } = require('@nlpjs/core');
+const { defaultContainer } = require('@nlpjs-neo/core');
 
 const logger = defaultContainer.get('logger');
 logger.info('This is an info message');
 // This is an info message
 ```
 
-## Default logger in @nlpjs/basic
+## Default logger in @nlpjs-neo/basic
 When using the basic NLP.js package, a logger based on pino is added.
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});
@@ -34,7 +34,7 @@ const { dockStart } = require('@nlpjs/basic');
 You can register your own logger in the container:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart({ use: ['Basic']});

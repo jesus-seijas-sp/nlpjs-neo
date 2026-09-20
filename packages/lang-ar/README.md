@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/lang-ar
+# @nlpjs-neo/lang-ar
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -22,18 +22,18 @@
 
 ## Installation
 
-You can install @nlpjs/lang-ar:
+You can install @nlpjs-neo/lang-ar:
 
 ```bash
-    npm install @nlpjs/lang-ar
+    npm install @nlpjs-neo/lang-ar
 ```
 
 ## Example of Usage
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
-const { Nlp } = require('@nlpjs/nlp');
-const { LangAr } = require('@nlpjs/lang-ar');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { Nlp } = require('@nlpjs-neo/nlp');
+const { LangAr } = require('@nlpjs-neo/lang-ar');
 
 (async () => {
   const container = await containerBootstrap();

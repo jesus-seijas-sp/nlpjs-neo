@@ -22,7 +22,7 @@
  */
 
 const { TokenizerEs } = require('../../../packages/lang-es/src');
-// const { TokenizerEs } = require('@nlpjs/lang-es');
+// const { TokenizerEs } = require('@nlpjs-neo/lang-es');
 
 const tokenizer = new TokenizerEs();
 const input = 'Esto debería ser tokenizado';

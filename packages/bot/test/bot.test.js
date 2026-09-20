@@ -22,8 +22,8 @@
  */
 
 const fs = require('fs');
-const { containerBootstrap } = require('@nlpjs/core');
-const { Nlp } = require('@nlpjs/nlp');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { Nlp } = require('@nlpjs-neo/nlp');
 const { Bot, TestConnector } = require('../src');
 const MockTemplate = require('./mock-template');
 

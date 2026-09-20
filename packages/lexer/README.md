@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/lexer
+# @nlpjs-neo/lexer
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -26,14 +26,14 @@
 
 ## Introduction
 
-This package provides the class _Lexer_ that is the basic class to build transpilers for languages. It is used by the package _@nlpjs/python-compiler_ to build a transpiler of python to javascript.
+This package provides the class _Lexer_ that is the basic class to build transpilers for languages. It is used by the package _@nlpjs-neo/python-compiler_ to build a transpiler of python to javascript.
 
 ## Installation
 
 You can install it using NPM
 
 ```shell
-  npm i @nlpjs/lexer
+  npm i @nlpjs-neo/lexer
 ```
 
 ## Token Types
@@ -49,7 +49,7 @@ You can install it using NPM
 ## Example of use
 
 ```javascript
-const { Lexer } = require('@nlpjs/lexer');
+const { Lexer } = require('@nlpjs-neo/lexer');
 
 const script = `
 n = 0

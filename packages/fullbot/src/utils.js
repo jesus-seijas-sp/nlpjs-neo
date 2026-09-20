@@ -26,7 +26,7 @@ const archiver = require('archiver');
 const rimraf = require('rimraf');
 const path = require('path');
 const decompress = require('decompress');
-const { Downloader } = require('@nlpjs/utils');
+const { Downloader } = require('@nlpjs-neo/utils');
 
 function pad(n, l = 2) {
   let result = n.toString();

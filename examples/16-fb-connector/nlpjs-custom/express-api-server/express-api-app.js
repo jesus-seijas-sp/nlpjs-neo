@@ -24,7 +24,7 @@
 const path = require('path');
 const express = require('express');
 
-// const nlpjs = require('@nlpjs/express-api-server')
+// const nlpjs = require('@nlpjs-neo/express-api-server')
 const nlpjs = require('../../../../packages/express-api-server');
 
 class ExpressApiApp extends nlpjs.ExpressApiApp {

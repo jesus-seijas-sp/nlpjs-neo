@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Among, BaseStemmer } = require('@nlpjs/core');
+const { Among, BaseStemmer } = require('@nlpjs-neo/core');
 const dictionary = require('./dictionary-es.json');
 
 /* eslint-disable */

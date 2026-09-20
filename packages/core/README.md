@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/core
+# @nlpjs-neo/core
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -27,10 +27,10 @@
 
 ## Installation
 
-You can install @nlpjs/core:
+You can install @nlpjs-neo/core:
 
 ```bash
-    npm install @nlpjs/core
+    npm install @nlpjs-neo/core
 ```
 
 ## Container
@@ -89,7 +89,7 @@ output.text
 This is the way of creating a bootstrapped container:
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
+const { containerBootstrap } = require('@nlpjs-neo/core');
 const container = containerBootstrap()
 ```
 
@@ -107,7 +107,7 @@ Important: this input usually travel through each step of the pipeline, so can b
 This is an example of code calling the pipeline *reverse-and-capitalize*, that shows how to do inheritance of pipelines, call other pipelines, and have commands that are only executed if the depth of the call is 0 (belongs to the called pipeline).
 
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
+const { containerBootstrap } = require('@nlpjs-neo/core');
 
 async function main() {
   const container = containerBootstrap();

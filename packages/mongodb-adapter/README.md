@@ -1,4 +1,4 @@
-# `@nlpjs/mongodb-adapter`
+# `@nlpjs-neo/mongodb-adapter`
 
 ## Introduction
 

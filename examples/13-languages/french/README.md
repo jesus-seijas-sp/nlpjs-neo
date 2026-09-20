@@ -1,6 +1,6 @@
-# @nlpjs/lang-fr examples
+# @nlpjs-neo/lang-fr examples
 
-Those are examples to show how to use _@nlpjs/lang-fr_ package.
+Those are examples to show how to use _@nlpjs-neo/lang-fr_ package.
 
 ## 01 normalization
 Shows the usage of the _NormalizerFr_ class to normalize a sentence.

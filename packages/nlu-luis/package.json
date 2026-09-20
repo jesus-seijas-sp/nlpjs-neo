@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/nlu-luis",
+  "name": "@nlpjs-neo/nlu-luis",
   "version": "4.27.0",
   "description": "Natural Language Understanding",
   "author": {
@@ -25,9 +25,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/core": "^4.26.1",
-    "@nlpjs/nlu": "^4.27.0",
-    "@nlpjs/request": "^4.25.0"
+    "@nlpjs-neo/core": "^4.26.1",
+    "@nlpjs-neo/nlu": "^4.27.0",
+    "@nlpjs-neo/request": "^4.25.0"
   },
   "gitHead": "cc4249fa994c58d220e6f10a6c94fdad05df32fd"
 }

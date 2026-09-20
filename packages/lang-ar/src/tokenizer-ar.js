@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Tokenizer } = require('@nlpjs/core');
+const { Tokenizer } = require('@nlpjs-neo/core');
 
 class TokenizerAr extends Tokenizer {
   constructor(container, shouldNormalize) {

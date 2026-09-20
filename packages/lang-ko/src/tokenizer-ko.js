@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Tokenizer } = require('@nlpjs/core');
+const { Tokenizer } = require('@nlpjs-neo/core');
 const { tokenize } = require('./korean-tokenizer');
 
 class TokenizerKo extends Tokenizer {

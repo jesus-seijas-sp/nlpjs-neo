@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { containerBootstrap } = require('@nlpjs/core');
-const { Connector } = require('@nlpjs/connector');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { Connector } = require('@nlpjs-neo/connector');
 const { BotFrameworkAdapter, ActivityTypes } = require('botbuilder');
 const generateMsbfToken = require('./get-msbf-token');
 

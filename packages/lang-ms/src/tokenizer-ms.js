@@ -20,7 +20,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-const { TokenizerId } = require('@nlpjs/lang-id');
+const { TokenizerId } = require('@nlpjs-neo/lang-id');
 
 class TokenizerMs extends TokenizerId {
   constructor(container, shouldTokenize) {

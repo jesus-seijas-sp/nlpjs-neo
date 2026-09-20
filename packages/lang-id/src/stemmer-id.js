@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { BaseStemmer } = require('@nlpjs/core');
+const { BaseStemmer } = require('@nlpjs-neo/core');
 const IndonesianStemmer = require('./indonesian-stemmer');
 
 class StemmerId extends BaseStemmer {

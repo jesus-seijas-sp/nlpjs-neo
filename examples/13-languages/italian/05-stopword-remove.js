@@ -22,7 +22,7 @@
  */
 
 const { StopwordsIt } = require('../../../packages/lang-it/src');
-// const { StopwordsIt } = require('@nlpjs/lang-it');
+// const { StopwordsIt } = require('@nlpjs-neo/lang-it');
 
 const stopwords = new StopwordsIt();
 console.log(stopwords.removeStopwords(['ho', 'visto', 'uno', 'sviluppatore']));

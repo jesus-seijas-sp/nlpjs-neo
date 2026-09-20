@@ -21,8 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable } = require('@nlpjs/core');
-const { Language } = require('@nlpjs/language-min');
+const { Clonable } = require('@nlpjs-neo/core');
+const { Language } = require('@nlpjs-neo/language-min');
 const DomainManager = require('./domain-manager');
 
 class NluManager extends Clonable {

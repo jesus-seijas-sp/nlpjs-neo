@@ -28,7 +28,7 @@ const {
   StemmerAr,
   StopwordsAr,
   TokenizerAr,
-} = require('@nlpjs/lang-ar');
+} = require('@nlpjs-neo/lang-ar');
 const {
   LangBn,
   NormalizerBn,
@@ -36,7 +36,7 @@ const {
   StemmerBn,
   StopwordsBn,
   TokenizerBn,
-} = require('@nlpjs/lang-bn');
+} = require('@nlpjs-neo/lang-bn');
 const {
   LangCa,
   NormalizerCa,
@@ -44,7 +44,7 @@ const {
   StemmerCa,
   StopwordsCa,
   TokenizerCa,
-} = require('@nlpjs/lang-ca');
+} = require('@nlpjs-neo/lang-ca');
 const {
   LangCs,
   NormalizerCs,
@@ -52,7 +52,7 @@ const {
   StemmerCs,
   StopwordsCs,
   TokenizerCs,
-} = require('@nlpjs/lang-cs');
+} = require('@nlpjs-neo/lang-cs');
 const {
   LangDa,
   NormalizerDa,
@@ -60,7 +60,7 @@ const {
   StemmerDa,
   StopwordsDa,
   TokenizerDa,
-} = require('@nlpjs/lang-da');
+} = require('@nlpjs-neo/lang-da');
 const {
   LangDe,
   NormalizerDe,
@@ -68,7 +68,7 @@ const {
   StemmerDe,
   StopwordsDe,
   TokenizerDe,
-} = require('@nlpjs/lang-de');
+} = require('@nlpjs-neo/lang-de');
 const {
   LangEl,
   NormalizerEl,
@@ -76,7 +76,7 @@ const {
   StemmerEl,
   StopwordsEl,
   TokenizerEl,
-} = require('@nlpjs/lang-el');
+} = require('@nlpjs-neo/lang-el');
 const {
   LangEn,
   NormalizerEn,
@@ -84,7 +84,7 @@ const {
   StemmerEn,
   StopwordsEn,
   TokenizerEn,
-} = require('@nlpjs/lang-en');
+} = require('@nlpjs-neo/lang-en');
 const {
   LangEs,
   NormalizerEs,
@@ -92,7 +92,7 @@ const {
   StemmerEs,
   StopwordsEs,
   TokenizerEs,
-} = require('@nlpjs/lang-es');
+} = require('@nlpjs-neo/lang-es');
 const {
   LangEu,
   NormalizerEu,
@@ -100,7 +100,7 @@ const {
   StemmerEu,
   StopwordsEu,
   TokenizerEu,
-} = require('@nlpjs/lang-eu');
+} = require('@nlpjs-neo/lang-eu');
 const {
   LangFa,
   NormalizerFa,
@@ -108,7 +108,7 @@ const {
   StemmerFa,
   StopwordsFa,
   TokenizerFa,
-} = require('@nlpjs/lang-fa');
+} = require('@nlpjs-neo/lang-fa');
 const {
   LangFi,
   NormalizerFi,
@@ -116,7 +116,7 @@ const {
   StemmerFi,
   StopwordsFi,
   TokenizerFi,
-} = require('@nlpjs/lang-fi');
+} = require('@nlpjs-neo/lang-fi');
 const {
   LangFr,
   NormalizerFr,
@@ -124,7 +124,7 @@ const {
   StemmerFr,
   StopwordsFr,
   TokenizerFr,
-} = require('@nlpjs/lang-fr');
+} = require('@nlpjs-neo/lang-fr');
 const {
   LangGa,
   NormalizerGa,
@@ -132,7 +132,7 @@ const {
   StemmerGa,
   StopwordsGa,
   TokenizerGa,
-} = require('@nlpjs/lang-ga');
+} = require('@nlpjs-neo/lang-ga');
 const {
   LangGl,
   NormalizerGl,
@@ -140,7 +140,7 @@ const {
   StemmerGl,
   StopwordsGl,
   TokenizerGl,
-} = require('@nlpjs/lang-gl');
+} = require('@nlpjs-neo/lang-gl');
 const {
   LangHi,
   NormalizerHi,
@@ -148,7 +148,7 @@ const {
   StemmerHi,
   StopwordsHi,
   TokenizerHi,
-} = require('@nlpjs/lang-hi');
+} = require('@nlpjs-neo/lang-hi');
 const {
   LangHu,
   NormalizerHu,
@@ -156,7 +156,7 @@ const {
   StemmerHu,
   StopwordsHu,
   TokenizerHu,
-} = require('@nlpjs/lang-hu');
+} = require('@nlpjs-neo/lang-hu');
 const {
   LangHy,
   NormalizerHy,
@@ -164,7 +164,7 @@ const {
   StemmerHy,
   StopwordsHy,
   TokenizerHy,
-} = require('@nlpjs/lang-hy');
+} = require('@nlpjs-neo/lang-hy');
 const {
   LangId,
   NormalizerId,
@@ -172,7 +172,7 @@ const {
   StemmerId,
   StopwordsId,
   TokenizerId,
-} = require('@nlpjs/lang-id');
+} = require('@nlpjs-neo/lang-id');
 const {
   LangIt,
   NormalizerIt,
@@ -180,7 +180,7 @@ const {
   StemmerIt,
   StopwordsIt,
   TokenizerIt,
-} = require('@nlpjs/lang-it');
+} = require('@nlpjs-neo/lang-it');
 const {
   LangJa,
   NormalizerJa,
@@ -188,7 +188,7 @@ const {
   StemmerJa,
   StopwordsJa,
   TokenizerJa,
-} = require('@nlpjs/lang-ja');
+} = require('@nlpjs-neo/lang-ja');
 const {
   LangKo,
   NormalizerKo,
@@ -196,7 +196,7 @@ const {
   StemmerKo,
   StopwordsKo,
   TokenizerKo,
-} = require('@nlpjs/lang-ko');
+} = require('@nlpjs-neo/lang-ko');
 const {
   LangLt,
   NormalizerLt,
@@ -204,7 +204,7 @@ const {
   StemmerLt,
   StopwordsLt,
   TokenizerLt,
-} = require('@nlpjs/lang-lt');
+} = require('@nlpjs-neo/lang-lt');
 const {
   LangMs,
   NormalizerMs,
@@ -212,7 +212,7 @@ const {
   StemmerMs,
   StopwordsMs,
   TokenizerMs,
-} = require('@nlpjs/lang-ms');
+} = require('@nlpjs-neo/lang-ms');
 const {
   LangNe,
   NormalizerNe,
@@ -220,7 +220,7 @@ const {
   StemmerNe,
   StopwordsNe,
   TokenizerNe,
-} = require('@nlpjs/lang-ne');
+} = require('@nlpjs-neo/lang-ne');
 const {
   LangNl,
   NormalizerNl,
@@ -228,7 +228,7 @@ const {
   StemmerNl,
   StopwordsNl,
   TokenizerNl,
-} = require('@nlpjs/lang-nl');
+} = require('@nlpjs-neo/lang-nl');
 const {
   LangNo,
   NormalizerNo,
@@ -236,7 +236,7 @@ const {
   StemmerNo,
   StopwordsNo,
   TokenizerNo,
-} = require('@nlpjs/lang-no');
+} = require('@nlpjs-neo/lang-no');
 const {
   LangPl,
   NormalizerPl,
@@ -244,7 +244,7 @@ const {
   StemmerPl,
   StopwordsPl,
   TokenizerPl,
-} = require('@nlpjs/lang-pl');
+} = require('@nlpjs-neo/lang-pl');
 const {
   LangPt,
   NormalizerPt,
@@ -252,7 +252,7 @@ const {
   StemmerPt,
   StopwordsPt,
   TokenizerPt,
-} = require('@nlpjs/lang-pt');
+} = require('@nlpjs-neo/lang-pt');
 const {
   LangRo,
   NormalizerRo,
@@ -260,7 +260,7 @@ const {
   StemmerRo,
   StopwordsRo,
   TokenizerRo,
-} = require('@nlpjs/lang-ro');
+} = require('@nlpjs-neo/lang-ro');
 const {
   LangRu,
   NormalizerRu,
@@ -268,7 +268,7 @@ const {
   StemmerRu,
   StopwordsRu,
   TokenizerRu,
-} = require('@nlpjs/lang-ru');
+} = require('@nlpjs-neo/lang-ru');
 const {
   LangSl,
   NormalizerSl,
@@ -276,7 +276,7 @@ const {
   StemmerSl,
   StopwordsSl,
   TokenizerSl,
-} = require('@nlpjs/lang-sl');
+} = require('@nlpjs-neo/lang-sl');
 const {
   LangSr,
   NormalizerSr,
@@ -284,7 +284,7 @@ const {
   StemmerSr,
   StopwordsSr,
   TokenizerSr,
-} = require('@nlpjs/lang-sr');
+} = require('@nlpjs-neo/lang-sr');
 const {
   LangSv,
   NormalizerSv,
@@ -292,7 +292,7 @@ const {
   StemmerSv,
   StopwordsSv,
   TokenizerSv,
-} = require('@nlpjs/lang-sv');
+} = require('@nlpjs-neo/lang-sv');
 const {
   LangTa,
   NormalizerTa,
@@ -300,7 +300,7 @@ const {
   StemmerTa,
   StopwordsTa,
   TokenizerTa,
-} = require('@nlpjs/lang-ta');
+} = require('@nlpjs-neo/lang-ta');
 const {
   LangTh,
   NormalizerTh,
@@ -308,7 +308,7 @@ const {
   StemmerTh,
   StopwordsTh,
   TokenizerTh,
-} = require('@nlpjs/lang-th');
+} = require('@nlpjs-neo/lang-th');
 const {
   LangTl,
   NormalizerTl,
@@ -316,7 +316,7 @@ const {
   StemmerTl,
   StopwordsTl,
   TokenizerTl,
-} = require('@nlpjs/lang-tl');
+} = require('@nlpjs-neo/lang-tl');
 const {
   LangTr,
   NormalizerTr,
@@ -324,7 +324,7 @@ const {
   StemmerTr,
   StopwordsTr,
   TokenizerTr,
-} = require('@nlpjs/lang-tr');
+} = require('@nlpjs-neo/lang-tr');
 const {
   LangUk,
   NormalizerUk,
@@ -332,7 +332,7 @@ const {
   StemmerUk,
   StopwordsUk,
   TokenizerUk,
-} = require('@nlpjs/lang-uk');
+} = require('@nlpjs-neo/lang-uk');
 const {
   LangZh,
   NormalizerZh,
@@ -340,7 +340,7 @@ const {
   StemmerZh,
   StopwordsZh,
   TokenizerZh,
-} = require('@nlpjs/lang-zh');
+} = require('@nlpjs-neo/lang-zh');
 const LangAll = require('./lang-all');
 
 const {

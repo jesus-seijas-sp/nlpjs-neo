@@ -1,6 +1,6 @@
 ![NLPjs logo](../../screenshots/nlplogo.gif)
 
-# @nlpjs/lang-bert
+# @nlpjs-neo/lang-bert
 
 [![](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/axa-group/nlp.js/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/axa-group/nlp.js/badge.svg?branch=master)](https://coveralls.io/github/axa-group/nlp.js?branch=master)
@@ -22,10 +22,10 @@
 
 ## Installation
 
-You can install @nlpjs/lang-bert:
+You can install @nlpjs-neo/lang-bert:
 
 ```bash
-  npm install @nlpjs/lang-bert
+  npm install @nlpjs-neo/lang-bert
 ```
 
 ## Contributing

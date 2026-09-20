@@ -5,7 +5,7 @@ Timer is a simple timing class to measure the time consumed by processes. As it 
 Example of use:
 
 ```javascript
-const { Timer } = require('@nlpjs/core');
+const { Timer } = require('@nlpjs-neo/core');
 
 function processStr(input) {
   let s = '';

@@ -39,18 +39,18 @@ Now you will need some HTML to run the code in the browser, we will start with t
 
 Install the libraries that will be needed to run the nlp:
 ```bash
-npm i @nlpjs/core @nlpjs/lang-en-min @nlpjs/nlp
+npm i @nlpjs-neo/core @nlpjs-neo/lang-en-min @nlpjs-neo/nlp
 ```
 
-The @nlpjs/core is the one that installs the container system and basic architecture.
-The @nlpjs/nlp installs the nlp related things,
-and finally @nlpjs/lang-en-min installs the English language but without the sentiment dictionaries. That's because the sentiment analysis dictionaries are big in size.
+The @nlpjs-neo/core is the one that installs the container system and basic architecture.
+The @nlpjs-neo/nlp installs the nlp related things,
+and finally @nlpjs-neo/lang-en-min installs the English language but without the sentiment dictionaries. That's because the sentiment analysis dictionaries are big in size.
 
 Now create an _index.js_ with this content:
 ```javascript
-const { containerBootstrap } = require('@nlpjs/core');
-const { Nlp } = require('@nlpjs/nlp');
-const { LangEn } = require('@nlpjs/lang-en-min');
+const { containerBootstrap } = require('@nlpjs-neo/core');
+const { Nlp } = require('@nlpjs-neo/nlp');
+const { LangEn } = require('@nlpjs-neo/lang-en-min');
 
 (async () => {
   const container = await containerBootstrap();
@@ -103,9 +103,9 @@ But, what if we can compile and expose the classes and functions of the NLP.js m
 First modify the _index.js_ to not include our bot logic and to simply import everything from the NLP.js libraries and expose them using the window object:
 
 ```javascript
-const core = require('@nlpjs/core');
-const nlp = require('@nlpjs/nlp');
-const langenmin = require('@nlpjs/lang-en-min');
+const core = require('@nlpjs-neo/core');
+const nlp = require('@nlpjs-neo/nlp');
+const langenmin = require('@nlpjs-neo/lang-en-min');
 
 window.nlpjs = { ...core, ...nlp, ...langenmin };
 ```
@@ -166,15 +166,15 @@ Previously, the corpus was manually loaded into the nlp, but what if we want a c
 First, we need to register a valid file system into our container, in our case a request plugin that uses axios.
 First install the package:
 ```bash
-npm i @nlpjs/request-rn
+npm i @nlpjs-neo/request-rn
 ```
 
 Now we need to expose it in our _index.js_:
 ```javascript
-const core = require('@nlpjs/core');
-const nlp = require('@nlpjs/nlp');
-const langenmin = require('@nlpjs/lang-en-min');
-const requestrn = require('@nlpjs/request-rn');
+const core = require('@nlpjs-neo/core');
+const nlp = require('@nlpjs-neo/nlp');
+const langenmin = require('@nlpjs-neo/lang-en-min');
+const requestrn = require('@nlpjs-neo/request-rn');
 
 window.nlpjs = { ...core, ...nlp, ...langenmin, ...requestrn };
 ```

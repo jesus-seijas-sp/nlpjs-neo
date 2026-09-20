@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, defaultContainer } = require('@nlpjs/core');
+const { Clonable, defaultContainer } = require('@nlpjs-neo/core');
 
 // allow for using compromise with react
 const compromise = require('compromise');

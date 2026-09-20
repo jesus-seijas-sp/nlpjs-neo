@@ -22,7 +22,7 @@
  */
 
 const { TokenizerId } = require('../../../packages/lang-id/src');
-// const { TokenizerId } = require('@nlpjs/lang-id');
+// const { TokenizerId } = require('@nlpjs-neo/lang-id');
 
 const tokenizer = new TokenizerId();
 const input = 'apa yang dikembangkan perusahaan Anda';

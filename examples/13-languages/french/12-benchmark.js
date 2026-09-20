@@ -22,7 +22,7 @@
  */
 
 const measureCorpus = require('../measure-corpus');
-// const { LangFr } = require('@nlpjs/lang-fr');
+// const { LangFr } = require('@nlpjs-neo/lang-fr');
 const { LangFr } = require('../../../packages/lang-fr/src');
 const corpus = require('../corpora/corpus-fr.json');
 

@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Lexer } = require('@nlpjs/lexer');
+const { Lexer } = require('@nlpjs-neo/lexer');
 const expressions = require('./expressions');
 
 const { TokenType } = Lexer;

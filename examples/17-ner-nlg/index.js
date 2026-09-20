@@ -1,4 +1,4 @@
-// const { dockStart } = require('@nlpjs/basic');
+// const { dockStart } = require('@nlpjs-neo/basic');
 const { dockStart } = require('../../packages/basic');
 
 (async () => {

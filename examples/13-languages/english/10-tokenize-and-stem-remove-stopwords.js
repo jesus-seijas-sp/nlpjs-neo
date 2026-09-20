@@ -22,7 +22,7 @@
  */
 
 const { StemmerEn, StopwordsEn } = require('../../../packages/lang-en/src');
-// const { StemmerEn, StopwordsEn } = require('@nlpjs/lang-en');
+// const { StemmerEn, StopwordsEn } = require('@nlpjs-neo/lang-en');
 
 const stemmer = new StemmerEn();
 stemmer.stopwords = new StopwordsEn();

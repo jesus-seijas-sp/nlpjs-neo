@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/bert-open-question",
+  "name": "@nlpjs-neo/bert-open-question",
   "version": "4.26.1",
   "description": "BERT open question integration",
   "author": {
@@ -25,7 +25,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/core": "^4.26.1"
+    "@nlpjs-neo/core": "^4.26.1"
   },
   "publishConfig": {
     "access": "public"

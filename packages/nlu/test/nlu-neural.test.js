@@ -28,7 +28,7 @@ const {
   Tokenizer,
   Stemmer,
   Stopwords,
-} = require('@nlpjs/core');
+} = require('@nlpjs-neo/core');
 const { NluNeural } = require('../src');
 const srccorpus = require('./corpus50.json');
 

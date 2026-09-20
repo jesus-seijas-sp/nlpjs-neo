@@ -24,7 +24,7 @@ I will put here a FAQ with the links to different interesting parts to documenta
 
 **- Do you have some example of a chatbot running in several languages?** You can remix this project in glitch, you'll see that it only haves one line of source code, but with only one line it creates a backend with API and exposes a react frontend with the bot, and it's multi-language. To see the frontend click on the button "show" and then "next to the code". https://glitch.com/edit/?utm_content=project_nlpjs-multi&utm_source=remix_this&utm_medium=button&utm_campaign=glitchButton#!/remix/nlpjs-multi
 
-**- Using node-nlp package I need to install the languages separately?** No. It use a pacakge @nlpjs/lang-all that mounts all the languages
+**- Using node-nlp package I need to install the languages separately?** No. It use a pacakge @nlpjs-neo/lang-all that mounts all the languages
 
 **- Where I can see the languages and their locales to find the correct package to install?** Here, the one with Native Support https://github.com/axa-group/nlp.js/blob/master/docs/v4/language-support.md
 
@@ -36,7 +36,7 @@ I will put here a FAQ with the links to different interesting parts to documenta
 
 **- How nlp guesses the language from an utterance in a multi-language bot?** The language is guessed automatically using the most common 3-grams from the language, but also with the 3-grams from the corpus training it, so that way you can use even languages that does not exists, or get a better guessing based on your corpus.
 
-**- And how I guess a language from a sentence, not integrated with the NLP?** You have the example here: https://github.com/axa-group/nlp.js/blob/master/docs/v3/language-guesser.md But if you want to get an smaller impact on your node_moules use the library _@nlpjs/language_ instead of _node-nlp_ one.
+**- And how I guess a language from a sentence, not integrated with the NLP?** You have the example here: https://github.com/axa-group/nlp.js/blob/master/docs/v3/language-guesser.md But if you want to get an smaller impact on your node_moules use the library _@nlpjs-neo/language_ instead of _node-nlp_ one.
 
 **- Ok, what about the NER?** You can use the NER directly from the NlpManager:
 
@@ -104,7 +104,7 @@ With threshold set to 1, the exact match of entities is done by searching words 
 Here you have an example of how to use ngrams by char and by word:
 
 ```js
-const { NGrams } = require('@nlpjs/utils');
+const { NGrams } = require('@nlpjs-neo/utils');
 const fs = require('fs');
 
 const gramsByChar = new NGrams();
@@ -128,7 +128,7 @@ console.log(freqs);
 **- I want a pattern corpus, I mean, to generate a full cartesian product corpus from sentences with different options** That is, from a sentence like "I [am having|have] a [problem|question|issue]" you want to generate all the possibilities: I am having a problem, I am having a question, I am having a issue, I have a problem, I have a question, I have a issue. Here you have an example code:
 
 ```js
-const { composeFromPattern, composeCorpus } = require('@nlpjs/utils');
+const { composeFromPattern, composeCorpus } = require('@nlpjs-neo/utils');
 const corpusPattern = require('./data/corpus-en-pattern.json');
 
 const input = 'I [am having|have] a [problem|question|issue] that I have to [solve|investigate]';
@@ -171,7 +171,7 @@ To use with this example corpus:
 Use similarity function, the third parameter by default is "false", set it to "true" if you want both strings to be normalized.
 
 ```js
-const { similarity } = require('@nlpjs/similarity');
+const { similarity } = require('@nlpjs-neo/similarity');
 
 console.log(similarity('potatoe', 'potatoe'));
 console.log(similarity('potatoe', 'potatoes'));
@@ -186,7 +186,7 @@ console.log(similarity('potatoe', 'Postatoé', true));
 Use getBestSubstring from ExtractorEnum of ner
 
 ```js
-const { ExtractorEnum } = require('@nlpjs/ner');
+const { ExtractorEnum } = require('@nlpjs-neo/ner');
 
 const text = 'Morbi ainterd multricies neque varius condimentum. Donec volutpat turpis interdum metus ultricies vulputate. Duis ultricies rhoncus sapien, sit amet fermentum risus imperdiet vitae. Ut et lectus';
 const str = 'interdum ultricies';

@@ -1,5 +1,5 @@
 {
-  "name": "@nlpjs/directline-connector",
+  "name": "@nlpjs-neo/directline-connector",
   "version": "4.26.1",
   "description": "Directline Connector",
   "author": {
@@ -25,8 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nlpjs/connector": "^4.26.1",
-    "@nlpjs/core": "^4.26.1",
+    "@nlpjs-neo/connector": "^4.26.1",
+    "@nlpjs-neo/core": "^4.26.1",
     "formidable": "^2.0.1",
     "node-fetch": "^2.6.7"
   },

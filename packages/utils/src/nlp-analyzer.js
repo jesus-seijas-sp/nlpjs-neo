@@ -22,7 +22,7 @@
  */
 
 const Excel = require('exceljs');
-const { XTableUtils } = require('@nlpjs/xtables');
+const { XTableUtils } = require('@nlpjs-neo/xtables');
 
 class NlpAnalyzer {
   constructor(settings = {}) {

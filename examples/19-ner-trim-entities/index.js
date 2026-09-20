@@ -1,4 +1,4 @@
-// const { Ner } = require('@nlpjs/ner');
+// const { Ner } = require('@nlpjs-neo/ner');
 const { Ner } = require('../../packages/ner');
 
 (async () => {

@@ -21,9 +21,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { defaultContainer } = require('@nlpjs/core');
-const { Language } = require('@nlpjs/language-min');
-const { similarity } = require('@nlpjs/similarity');
+const { defaultContainer } = require('@nlpjs-neo/core');
+const { Language } = require('@nlpjs-neo/language-min');
+const { similarity } = require('@nlpjs-neo/similarity');
 const reduceEdges = require('./reduce-edges');
 
 class ExtractorEnum {

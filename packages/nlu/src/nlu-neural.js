@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { NeuralNetwork } = require('@nlpjs/neural');
+const { NeuralNetwork } = require('@nlpjs-neo/neural');
 const Nlu = require('./nlu');
 
 class NeuralNlu extends Nlu {

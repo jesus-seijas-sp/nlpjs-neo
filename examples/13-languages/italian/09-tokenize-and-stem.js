@@ -22,7 +22,7 @@
  */
 
 const { StemmerIt } = require('../../../packages/lang-it/src');
-// const { StemmerIt } = require('@nlpjs/lang-it');
+// const { StemmerIt } = require('@nlpjs-neo/lang-it');
 
 const stemmer = new StemmerIt();
 const input = 'Ho visto uno sviluppatore';

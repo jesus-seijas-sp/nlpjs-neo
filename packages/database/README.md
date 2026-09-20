@@ -1,4 +1,4 @@
-# `@nlpjs/database`
+# `@nlpjs-neo/database`
 
 ## Introduction
 
@@ -11,8 +11,8 @@ Basically, this is a database component where you can register adapaters and col
 ## Basic Usage with Dock
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
-const { Database } = require('@nlpjs/database');
+const { dockStart } = require('@nlpjs-neo/basic');
+const { Database } = require('@nlpjs-neo/database');
 
 (async () => {
   const dock = await dockStart();

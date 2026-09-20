@@ -22,7 +22,7 @@
  */
 
 const { StopwordsId } = require('../../../packages/lang-id/src');
-// const { StopwordsId } = require('@nlpjs/lang-id');
+// const { StopwordsId } = require('@nlpjs-neo/lang-id');
 
 const stopwords = new StopwordsId();
 console.log(

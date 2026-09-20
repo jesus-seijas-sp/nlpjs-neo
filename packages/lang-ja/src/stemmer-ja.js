@@ -23,7 +23,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { BaseStemmer } = require('@nlpjs/core');
+const { BaseStemmer } = require('@nlpjs-neo/core');
 
 const kuromoji = require('kuromoji');
 const hepburn = require('./hepburn.json');

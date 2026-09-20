@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { compile } = require('@nlpjs/evaluator');
+const { compile } = require('@nlpjs-neo/evaluator');
 
 class Handlebars {
   static compile(str) {

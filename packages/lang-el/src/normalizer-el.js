@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Normalizer } = require('@nlpjs/core');
+const { Normalizer } = require('@nlpjs-neo/core');
 
 class NormalizerEl extends Normalizer {
   constructor(container) {

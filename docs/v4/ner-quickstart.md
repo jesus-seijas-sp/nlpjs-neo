@@ -2,9 +2,9 @@
 
 ## Install the needed packages
 
-In your node project folder, install the @nlpjs/basic, @nlpjs/express-api-server and @nlpjs/directline-connector packages.
+In your node project folder, install the @nlpjs-neo/basic, @nlpjs-neo/express-api-server and @nlpjs-neo/directline-connector packages.
 ```bash
-npm i @nlpjs/basic @nlpjs/express-api-server @nlpjs/directline-connector
+npm i @nlpjs-neo/basic @nlpjs-neo/express-api-server @nlpjs-neo/directline-connector
 ```
 
 ## Create the conf.json
@@ -112,7 +112,7 @@ Create the file _heros.json_ with this content:
 Create the file _index.js_ with this content:
 
 ```javascript
-const { dockStart } = require('@nlpjs/basic');
+const { dockStart } = require('@nlpjs-neo/basic');
 
 (async () => {
   const dock = await dockStart();

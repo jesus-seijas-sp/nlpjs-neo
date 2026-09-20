@@ -21,9 +21,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { Clonable, containerBootstrap } = require('@nlpjs/core');
-const { ContextManager } = require('@nlpjs/nlp');
-const { JavascriptCompiler } = require('@nlpjs/evaluator');
+const { Clonable, containerBootstrap } = require('@nlpjs-neo/core');
+const { ContextManager } = require('@nlpjs-neo/nlp');
+const { JavascriptCompiler } = require('@nlpjs-neo/evaluator');
 const DialogManager = require('./dialog-manager');
 const { loadScript, getDialogName, trimBetween } = require('./dialog-parse');
 const {

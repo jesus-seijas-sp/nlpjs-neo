@@ -22,7 +22,7 @@
  */
 
 const { StemmerEn } = require('../../../packages/lang-en/src');
-// const { StemmerEn } = require('@nlpjs/lang-en');
+// const { StemmerEn } = require('@nlpjs-neo/lang-en');
 
 const stemmer = new StemmerEn();
 const input = 'developer';

@@ -23,7 +23,7 @@
 
 const fs = require('fs');
 const formidable = require('formidable');
-const { Connector } = require('@nlpjs/connector');
+const { Connector } = require('@nlpjs-neo/connector');
 const DirectlineController = require('./directline-controller');
 
 class DirectlineConnector extends Connector {

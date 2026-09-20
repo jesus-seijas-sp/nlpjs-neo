@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { XTableUtils, XTable, XDoc } = require('@nlpjs/xtables');
+const { XTableUtils, XTable, XDoc } = require('@nlpjs-neo/xtables');
 
 module.exports = {
   XTableUtils,

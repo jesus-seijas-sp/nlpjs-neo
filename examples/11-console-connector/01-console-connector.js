@@ -22,7 +22,7 @@
  */
 
 const { ConsoleConnector } = require('../../packages/console-connector/src');
-// const { ConsoleConnector } = require('@nlpjs/console-connector');
+// const { ConsoleConnector } = require('@nlpjs-neo/console-connector');
 
 const connector = new ConsoleConnector();
 connector.onHear = (self, text) => {

@@ -22,7 +22,7 @@
  */
 
 const { NormalizerEs } = require('../../../packages/lang-es/src');
-// const { NormalizerEs } = require('@nlpjs/lang-es');
+// const { NormalizerEs } = require('@nlpjs-neo/lang-es');
 
 const normalizer = new NormalizerEs();
 const input = 'Esto debería ser normalizado';

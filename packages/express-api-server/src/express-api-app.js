@@ -24,7 +24,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const { logger } = require('@nlpjs/core');
+const { logger } = require('@nlpjs-neo/core');
 
 class ExpressApiApp {
   constructor(settings, plugins, routers) {

@@ -21,7 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { SpellCheck: SpellCheckBase } = require('@nlpjs/similarity');
+const { SpellCheck: SpellCheckBase } = require('@nlpjs-neo/similarity');
 
 class SpellCheck extends SpellCheckBase {
   constructor(settings = {}) {
