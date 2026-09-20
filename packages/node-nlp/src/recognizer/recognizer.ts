@@ -27,6 +27,11 @@ class Recognizer {
         container: this.settings.container,
         ner: { threshold: this.settings.nerThreshold || 1 },
       });
+    this.actions =
+      this.settings.actions ||
+      this.settings.action ||
+      this.nlpManager.settings?.action ||
+      {};
     this.threshold = this.settings.threshold || 0.7;
     this.conversationContext =
       this.settings.conversationContext || new MemoryConversationContext();
@@ -249,7 +254,7 @@ class Recognizer {
       const params = JSON.parse(`[${parameters}]`);
       if (this.actions[name]) {
         const action = this.actions[name](this, context, ...(params || []));
-        if (action.then) {
+        if (action && action.then) {
           action.then(() => resolve());
         } else {
           return resolve();
