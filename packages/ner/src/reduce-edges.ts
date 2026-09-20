@@ -10,7 +10,7 @@ function runDiscard(
   let other;
   if (
     srcEdge.accuracy > srcOther.accuracy ||
-    (srcEdge.accuracy === srcOther.accuracy && srcEdge.length > srcOther.length)
+    (srcEdge.accuracy === srcOther.accuracy && srcEdge.len > srcOther.len)
   ) {
     edge = srcEdge;
     other = srcOther;
@@ -50,6 +50,8 @@ function runDiscard(
         } else {
           other.discarded = true;
         }
+      } else if (other.len < edge.len) {
+        other.discarded = true;
       }
     } else if (
       (useMaxLength ||
