@@ -48,6 +48,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
+      # Trusted publishing over OIDC needs npm 11.5.1 or newer; Node 22 still
+      # ships npm 10, which falls back to token auth and gets a 404.
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
