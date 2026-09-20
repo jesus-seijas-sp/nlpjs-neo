@@ -2,6 +2,8 @@ import { compareWildcars } from './helper.js';
 import DefaultCompiler from './default-compiler.js';
 import logger from './logger.js';
 
+const NUMBER_LITERAL_REGEX = /^\d+(?:\.\d+)?$/;
+
 /**
  * Container class
  */
@@ -132,30 +134,20 @@ class Container {
   }
 
   resolvePathWithType(step, context, input, srcObject): any {
+    const literal = step.trim();
+    if (NUMBER_LITERAL_REGEX.test(literal)) {
+      return this.buildLiteral('number', step, parseFloat(literal), context);
+    }
+    if (
+      (literal.startsWith('"') && literal.endsWith('"')) ||
+      (literal.startsWith("'") && literal.endsWith("'"))
+    ) {
+      return this.buildLiteral('string', step, literal.slice(1, -1), context);
+    }
     const tokens = step.split('.');
     let token = tokens[0].trim();
     if (!token) {
       token = step.startsWith('.') ? 'this' : 'context';
-    }
-    const isnum = /^\d+$/.test(token);
-    if (isnum) {
-      return this.buildLiteral('number', step, parseFloat(token), context);
-    }
-    if (token.startsWith('"')) {
-      return this.buildLiteral(
-        'string',
-        step,
-        token.replace(/^"(.+(?="$))"$/, '$1'),
-        context
-      );
-    }
-    if (token.startsWith("'")) {
-      return this.buildLiteral(
-        'string',
-        step,
-        token.replace(/^'(.+(?='$))'$/, '$1'),
-        context
-      );
     }
     if (token === 'true') {
       return this.buildLiteral('boolean', step, true, context);
