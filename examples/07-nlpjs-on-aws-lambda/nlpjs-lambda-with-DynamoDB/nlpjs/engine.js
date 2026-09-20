@@ -1,6 +1,5 @@
 /* oxlint-disable func-names */
 /* oxlint-disable no-console */
-/* oxlint-disable prettier/prettier */
 
 // oxlint-disable-next-line import/no-extraneous-dependencies
 const aws = require('aws-sdk');

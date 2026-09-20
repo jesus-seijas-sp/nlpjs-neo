@@ -1,6 +1,5 @@
 /* oxlint-disable func-names */
 /* oxlint-disable no-console */
-/* oxlint-disable prettier/prettier */
 
 const { engine } = require('./engine.js');
 

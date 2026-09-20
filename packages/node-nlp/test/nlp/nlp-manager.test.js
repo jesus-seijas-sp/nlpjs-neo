@@ -1007,11 +1007,7 @@ describe('NLP Manager', () => {
       manager.addDocument('hi', 'शुभ प्रभात', 'greet');
       manager.addDocument('hi', 'मैंने अपनी चाबी खो दी है', 'keys');
       manager.addDocument('hi', 'मुझे अपनी चाबी नहीं मिली', 'keys');
-      manager.addDocument(
-        'hi',
-        'मुझे नहीं पता कि मेरी चाबियां कहां हैं',
-        'keys'
-      );
+      manager.addDocument('hi', 'मुझे नहीं पता कि मेरी चाबियां कहां हैं', 'keys');
       await manager.train();
       const result = await manager.process('hi', 'मेरी चाबियाँ कहाँ हैं');
       expect(result).toBeDefined();

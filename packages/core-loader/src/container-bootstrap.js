@@ -223,12 +223,13 @@ function containerBootstrap(
           } catch {
             try {
               /* oxlint-disable-next-line */
-              lib = require(getAbsolutePath(
-                path.join('./node_modules', info.path)
-              ));
+              lib = require(
+                getAbsolutePath(path.join('./node_modules', info.path))
+              );
             } catch (err2) {
               throw new Error(
-                `You have to install library "${info.path}" to use plugin "${current}"`, { cause: err2 }
+                `You have to install library "${info.path}" to use plugin "${current}"`,
+                { cause: err2 }
               );
             }
           }
@@ -238,10 +239,10 @@ function containerBootstrap(
         let lib;
         try {
           /* oxlint-disable-next-line */
-            lib = require(current.path);
+          lib = require(current.path);
         } catch {
           /* oxlint-disable-next-line */
-            lib = require(getAbsolutePath(current.path));
+          lib = require(getAbsolutePath(current.path));
         }
         instance.use(lib[current.className], current.name, current.isSingleton);
       }

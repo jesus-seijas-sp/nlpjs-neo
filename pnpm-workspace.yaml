@@ -1,2 +1,9 @@
 packages:
   - 'packages/*'
+
+# Dependencies whose install scripts are allowed to run. pnpm blocks install
+# scripts by default; npm used to run all of them.
+allowBuilds:
+  '@tensorflow/tfjs-node': true
+  botbuilder-dialogs: true
+  core-js: true

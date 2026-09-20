@@ -116,9 +116,8 @@ describe('Brain NLU', () => {
       nlu.add('Je ne trouve pas mes clés', 'keys');
       nlu.add('Je ne me souviens pas où sont mes clés', 'keys');
       await nlu.train();
-      const classification = await nlu.getBestClassification(
-        'où sont mes clés'
-      );
+      const classification =
+        await nlu.getBestClassification('où sont mes clés');
       expect(classification.intent).toEqual('keys');
       expect(classification.score).toBeGreaterThan(0.7);
     });

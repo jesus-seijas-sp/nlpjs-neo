@@ -33,16 +33,7 @@ describe('Aggressive Tokenizer Fa', () => {
   });
   describe('Tokenize', () => {
     test('It must tokenize simple sentence', () => {
-      const expected = [
-        'وقتی',
-        'شب',
-        'می',
-        'آید',
-        'و',
-        'زمین',
-        'تاریک',
-        'است',
-      ];
+      const expected = ['وقتی', 'شب', 'می', 'آید', 'و', 'زمین', 'تاریک', 'است'];
       const actual = tokenizer.tokenize('وقتی شب می آید و زمین تاریک است');
       expect(actual).toEqual(expected);
     });

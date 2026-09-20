@@ -147,7 +147,7 @@ class Evaluator {
   walkThis(node, context) {
     if ({}.hasOwnProperty.call(context, 'this')) {
       // oxlint-disable-next-line
-      return context["this"];
+      return context['this'];
     }
     return undefined;
   }
@@ -179,7 +179,10 @@ class Evaluator {
     if (obj === this.failResult || typeof obj === 'function') {
       return this.failResult;
     }
-    if (node.property.type === 'Identifier' && node.object.type !== 'ObjectExpression') {
+    if (
+      node.property.type === 'Identifier' &&
+      node.object.type !== 'ObjectExpression'
+    ) {
       return obj[node.property.name];
     }
     const prop = this.walk(node.property, context);

@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "**/*.md",
+    "**/*.json",
+    "coverage/**",
+    "docs/v3/static/**",
+    "examples/07-nlpjs-on-aws-lambda/**",
+    "examples/16-fb-connector/**",
+    "packages/express-api-server/src/public/**",
+    "packages/python-compiler/src/python-executer.js"
+  ]
+}

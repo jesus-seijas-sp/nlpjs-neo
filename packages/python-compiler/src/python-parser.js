@@ -194,7 +194,6 @@ class PythonParser {
     for (
       cmds.push(this.parseSimpleCommand());
       this.tryParseToken(';', TokenType.Separator);
-
     ) {
       cmds.push(this.parseSimpleCommand(indent));
     }

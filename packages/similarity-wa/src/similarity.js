@@ -27,12 +27,12 @@ function similarity(str1, str2, normalize = false) {
   if (normalize) {
     /* oxlint-disable */
     str1 = str1
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
     str2 = str2
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
     /* oxlint-enable */
   }
