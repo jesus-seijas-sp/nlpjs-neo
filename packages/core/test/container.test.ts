@@ -390,6 +390,39 @@ describe('Container', () => {
         excludeChars: 'e',
       });
     });
+    test.each([
+      ['set', ['set .value 7', 'get .value'], {}, 7, { value: 7 }],
+      [
+        'increment',
+        ['inc .counter 2', 'get .counter'],
+        { counter: 5 },
+        7,
+        {
+          counter: 7,
+        },
+      ],
+      [
+        'decrement',
+        ['dec .counter 2', 'get .counter'],
+        { counter: 5 },
+        3,
+        {
+          counter: 3,
+        },
+      ],
+      ['delete', ['delete .value', 'get .value'], { value: 7 }, undefined, {}],
+    ])(
+      'Pipelines can %s a relative source path',
+      async (_operation, steps, source, expected, expectedSource) => {
+        const instance = new Container();
+        const pipeline = instance.buildPipeline(steps);
+
+        const actual = await instance.runPipeline(pipeline, {}, source);
+
+        expect(actual).toEqual(expected);
+        expect(source).toEqual(expectedSource);
+      }
+    );
     test('Pipelines can inc variables by 1', async () => {
       const instance = new Container();
       instance.register('lower', Lower);
