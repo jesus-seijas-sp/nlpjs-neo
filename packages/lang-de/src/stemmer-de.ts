@@ -206,16 +206,15 @@ class StemmerDe extends SnowballStemmer {
 
   r_standard_suffix() {
     let among_var;
-    var v_1;
+
     let v_2;
 
     let v_5;
 
     let v_8;
 
-    var v_1;
     // do
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     lab0: {
       this.ket = this.cursor;
       among_var = this.find_among_b(StemmerDe.a_1, 7);
@@ -408,7 +407,7 @@ class StemmerDe extends SnowballStemmer {
             return false;
           }
           // try
-          var v_10 = this.limit - this.cursor;
+          const v_10 = this.limit - this.cursor;
           lab10: {
             this.ket = this.cursor;
             among_var = this.find_among_b(StemmerDe.a_3, 2);

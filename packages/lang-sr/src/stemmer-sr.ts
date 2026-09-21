@@ -14,13 +14,13 @@ class StemmerSr extends SnowballStemmer {
   }
 
   r_cyr_to_lat() {
-    var v_1 = this.cursor;
+    const v_1 = this.cursor;
     {
       for (;;) {
-        var v_2 = this.cursor;
+        const v_2 = this.cursor;
         lab1: {
           golab2: for (;;) {
-            var v_3 = this.cursor;
+            const v_3 = this.cursor;
             lab3: {
               this.bra = this.cursor;
               const among_var = this.find_among(StemmerSr.a_0);
@@ -200,13 +200,13 @@ class StemmerSr extends SnowballStemmer {
   }
 
   r_prelude() {
-    var v_1 = this.cursor;
+    const v_1 = this.cursor;
     {
       for (;;) {
-        var v_2 = this.cursor;
+        const v_2 = this.cursor;
         lab1: {
           golab2: for (;;) {
-            var v_3 = this.cursor;
+            const v_3 = this.cursor;
             lab3: {
               if (!this.in_grouping(StemmerSr.g_ca, 98, 382)) {
                 break lab3;
@@ -238,13 +238,13 @@ class StemmerSr extends SnowballStemmer {
       }
     }
     this.cursor = v_1;
-    var v_4 = this.cursor;
+    const v_4 = this.cursor;
     {
       for (;;) {
-        var v_5 = this.cursor;
+        const v_5 = this.cursor;
         lab5: {
           golab6: for (;;) {
-            var v_6 = this.cursor;
+            const v_6 = this.cursor;
             lab7: {
               if (!this.in_grouping(StemmerSr.g_ca, 98, 382)) {
                 break lab7;
@@ -276,13 +276,13 @@ class StemmerSr extends SnowballStemmer {
       }
     }
     this.cursor = v_4;
-    var v_7 = this.cursor;
+    const v_7 = this.cursor;
     {
       for (;;) {
-        var v_8 = this.cursor;
+        const v_8 = this.cursor;
         lab9: {
           golab10: for (;;) {
-            var v_9 = this.cursor;
+            const v_9 = this.cursor;
             lab11: {
               this.bra = this.cursor;
               if (!this.eq_s('dj')) {
@@ -313,7 +313,7 @@ class StemmerSr extends SnowballStemmer {
 
   r_mark_regions() {
     this.I_p3 = 0;
-    var v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.gopast_in_grouping(StemmerSr.g_sa, 263, 382)) {
         break lab0;
@@ -323,7 +323,7 @@ class StemmerSr extends SnowballStemmer {
     this.cursor = v_1;
     this.I_p1 = this.limit;
     this.I_p2 = 0;
-    var v_3 = this.cursor;
+    const v_3 = this.cursor;
     lab3: {
       golab4: for (;;) {
         lab5: {
@@ -340,7 +340,7 @@ class StemmerSr extends SnowballStemmer {
       this.I_p2 = this.cursor;
     }
     this.cursor = v_3;
-    var v_5 = this.cursor;
+    const v_5 = this.cursor;
     lab6: {
       if (!this.gopast_in_grouping(StemmerSr.g_v, 97, 117)) {
         break lab6;
@@ -366,7 +366,7 @@ class StemmerSr extends SnowballStemmer {
       return false;
     }
     lab10: {
-      var v_8 = this.cursor;
+      const v_8 = this.cursor;
       lab11: {
         if (this.I_p1 !== this.I_p2) {
           break lab11;
@@ -1886,18 +1886,18 @@ class StemmerSr extends SnowballStemmer {
   innerStem() {
     this.r_cyr_to_lat();
     this.r_prelude();
-    var v_3 = this.cursor;
+    const v_3 = this.cursor;
     this.r_mark_regions();
     this.cursor = v_3;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    var v_4 = this.limit - this.cursor;
+    const v_4 = this.limit - this.cursor;
     this.r_Step_1();
     this.cursor = this.limit - v_4;
-    var v_5 = this.limit - this.cursor;
+    const v_5 = this.limit - this.cursor;
     lab0: {
       lab1: {
-        var v_6 = this.limit - this.cursor;
+        const v_6 = this.limit - this.cursor;
         lab2: {
           if (!this.r_Step_2()) {
             break lab2;
