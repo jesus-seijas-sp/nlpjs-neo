@@ -198,6 +198,23 @@ describe('Snowball compiler', () => {
       expect(stemmer.stemWord('dog')).toBe('dog');
     });
 
+    test('It should run the code before the first string of an among', async () => {
+      // The older way to write `[substring] among ( ... )`.
+      const stemmer = await compile(
+        `
+        externals ( stem )
+        define stem as (
+          backwards (
+            [ among ( ( ] ) 'ing' (<- 'e') 'ed' (delete) )
+          )
+        )
+        `,
+        'starter'
+      );
+      expect(stemmer.stemWord('making')).toBe('make');
+      expect(stemmer.stemWord('jumped')).toBe('jump');
+    });
+
     test('It should hop and stop at the limit', async () => {
       const stemmer = await compile(
         `

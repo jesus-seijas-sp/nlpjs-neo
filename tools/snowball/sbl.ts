@@ -982,6 +982,7 @@ class Parser {
     this.expectSym('(');
     const entries: AmongEntry[] = [];
     let pending: AmongEntry[] = [];
+    let starter: Node | undefined;
     for (;;) {
       const token = this.lex.next();
       if (token.k === 'sym' && token.v === ')') {
@@ -998,11 +999,10 @@ class Parser {
         entries.push(entry);
         pending.push(entry);
       } else if (token.k === 'sym' && token.v === '(') {
-        if (pending.length === 0) {
-          this.fail(
-            token,
-            'an among starter (code before the first string) is not supported'
-          );
+        if (entries.length === 0) {
+          // A starter, the legacy way to put code between `substring` and the among.
+          starter = this.list(token.line);
+          continue;
         }
         const action = this.list(token.line);
         const empty = action.t === 'seq' && action.items.length === 0;
@@ -1037,6 +1037,17 @@ class Parser {
     const node = this.node({ t: 'among', entries: unique, substring }, line);
     if (substring && substring.t === 'substring') {
       substring.among = node;
+    }
+    if (starter) {
+      // `among ( (starter) 'x' ... )` is `substring (starter) among ( 'x' ... )`.
+      if (substring) {
+        return this.node({ t: 'seq', items: [starter, node] }, line);
+      }
+      const own = this.node({ t: 'substring', among: node }, line);
+      if (node.t === 'among') {
+        node.substring = own;
+      }
+      return this.node({ t: 'seq', items: [own, starter, node] }, line);
     }
     return node;
   }
