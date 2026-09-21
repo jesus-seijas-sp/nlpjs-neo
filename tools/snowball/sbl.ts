@@ -199,6 +199,9 @@ const SYMBOLS = [
   '>',
 ];
 
+const dropLine = (key: string, value: unknown) =>
+  key === 'line' || key === 'among' || key === 'substring' ? undefined : value;
+
 class Lexer {
   private pos = 0;
   private line = 1;
@@ -1013,7 +1016,25 @@ class Parser {
         this.fail(token, 'unexpected token in among(...)');
       }
     }
-    const node = this.node({ t: 'among', entries, substring }, line);
+    // A string that comes twice does the same thing both times, or the program is wrong.
+    const seen = new Map<string, AmongEntry>();
+    const unique = entries.filter((entry) => {
+      const first = seen.get(entry.s);
+      if (!first) {
+        seen.set(entry.s, entry);
+        return true;
+      }
+      const same = (a?: Node, b?: Node) =>
+        a === b ||
+        (a && b && JSON.stringify(a, dropLine) === JSON.stringify(b, dropLine));
+      if (first.guard !== entry.guard || !same(first.action, entry.action)) {
+        throw new Error(
+          `${this.file}:${line}: among(...) has repeated string '${entry.s}' with another action`
+        );
+      }
+      return false;
+    });
+    const node = this.node({ t: 'among', entries: unique, substring }, line);
     if (substring && substring.t === 'substring') {
       substring.among = node;
     }

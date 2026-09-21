@@ -42,11 +42,30 @@ differs from Snowball, and then `pnpm stemmers` writes the TypeScript again.
 
 ## What is generated so far
 
-English (`lang-en-min`, with our tokenizer on top), and Catalan, Basque, Irish, Armenian,
+English (`lang-en-min`, with our tokenizer on top), Spanish (`lang-es`, with the changes below), and Catalan, Basque, Irish, Armenian,
 Indonesian, Nepali, Tamil and Turkish, whose stemmers had nothing of ours in them: their generated
 file is the stemmer (`stemmer-xx.ts`). All of them are the current programs of Snowball, except
 English, which is 2.2.0. `stemmers.ts` lists them, and a test checks that each committed file is
 what the tool writes.
+
+## Spanish, which has changes of its own
+
+`tools/snowball/algorithms/spanish.sbl` is the Snowball 2.2.0 program with three changes, each marked
+`nlpjs-neo` in the file:
+
+- The letters with an accent are the letters without it (the normalizer has taken the accents off
+  by the time a word is stemmed), and the lines that only differed by an accent are gone.
+- `R2b`, the second half of the word, stands in for `R2` in one rule of `standard_suffix`.
+- The verb endings of the future subjunctive and the plural (`ieren`, `aren`, `os`, `s`...) are added
+  to `verb_suffix`.
+
+`StemmerEs` adds what cannot be written in Snowball: the dictionary of words that are answered
+without the algorithm, taking the pronouns off an infinitive before it, and tidying the end of the
+stem after it.
+
+The previous stemmer searched its tables with the accented rules taken out but not put in order
+again, so the search missed some endings (`alabanza` kept its `-anza`). Sorting them is what the
+compiler does, and 1.1% of the words of the Snowball vocabulary now stem as Snowball stems them.
 
 ## Adding a language
 

@@ -70,6 +70,12 @@ export const STEMMERS: Stemmer[] = [
     className: 'StemmerTr',
     name: 'stemmer-tr',
   },
+  {
+    sbl: 'tools/snowball/algorithms/spanish.sbl',
+    out: 'packages/lang-es/src/stemmer-es.generated.ts',
+    className: 'SnowballStemmerEs',
+    name: 'stemmer-es',
+  },
 ];
 
 /** The TypeScript that the tool writes for a stemmer; `root` is the root of the repository. */
