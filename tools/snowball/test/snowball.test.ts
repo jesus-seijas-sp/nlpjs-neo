@@ -1,8 +1,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { generate } from '../generate.ts';
-import { parseProgram, parseSource } from '../sbl.ts';
+import { parseSource } from '../sbl.ts';
 import { render, STEMMERS } from '../stemmers.ts';
+import { applyEdits, fetchProgram, isCached } from '../sources.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const generated = `${here}.generated`;
@@ -12,12 +13,17 @@ interface Stemmer {
 }
 
 /** Compiles a program, loads the class it makes and returns an instance. */
-async function compile(source: string, id: string): Promise<Stemmer> {
+async function compile(
+  source: string,
+  id: string,
+  inheritRegions = false
+): Promise<Stemmer> {
   mkdirSync(generated, { recursive: true });
   const code = generate(parseSource(source), {
     className: 'TestStemmer',
     name: 'test-stemmer',
     source: `${id}.sbl`,
+    inheritRegions,
   });
   const file = `${generated}/${id}.ts`;
   writeFileSync(file, code);
@@ -26,67 +32,106 @@ async function compile(source: string, id: string): Promise<Stemmer> {
 }
 
 describe('Snowball compiler', () => {
-  describe('the English program of Snowball', () => {
-    test('It should stem the official vocabulary as the official stemmer does', async () => {
-      const program = parseProgram(`${here}fixtures/english.sbl`);
-      mkdirSync(generated, { recursive: true });
-      const file = `${generated}/english.ts`;
-      writeFileSync(
-        file,
-        generate(program, {
-          className: 'SnowballStemmerEn',
-          name: 'stemmer-en',
-          source: 'english.sbl',
-          inheritRegions: true,
-        })
-      );
-      const module = await import(/* @vite-ignore */ file);
-      const stemmer: Stemmer = new module.default();
-      const words = readFileSync(`${here}fixtures/english-voc.txt`, 'utf8')
-        .split('\n')
-        .filter(Boolean);
-      const expected = readFileSync(
-        `${here}fixtures/english-output.txt`,
-        'utf8'
-      )
-        .split('\n')
-        .filter(Boolean);
-      expect(words.length).toBeGreaterThan(5000);
-      const wrong = words
-        .map((word, at) => [word, expected[at], stemmer.stemWord(word)])
-        .filter(([, official, ours]) => official !== ours)
-        .map(([word, official, ours]) => `${word}: ${official} / ${ours}`);
-      expect(wrong).toEqual([]);
-    });
-  });
-
-  describe('the stemmers of the packages', () => {
+  describe('the programs of Snowball', () => {
     const root = fileURLToPath(new URL('../../../', import.meta.url));
+    const online = process.env.SNOWBALL_ONLINE === '1';
+
+    // These download, so they run when SNOWBALL_ONLINE=1 (the freshness ones
+    // also run when the programs were downloaded before, by `pnpm stemmers`).
+    test.skipIf(!online)(
+      'It should stem the vocabulary of English as the current Snowball does',
+      async () => {
+        const raw = 'https://raw.githubusercontent.com/snowballstem/';
+        const get = async (url: string) =>
+          (await (await fetch(raw + url)).text())
+            .split(String.fromCharCode(10))
+            .filter(Boolean);
+        const stemmer: Stemmer = await compile(
+          (await get('snowball/master/algorithms/english.sbl')).join(
+            String.fromCharCode(10)
+          ),
+          'english',
+          true
+        );
+        const words = await get('snowball-data/master/english/voc.txt');
+        const expected = await get('snowball-data/master/english/output.txt');
+        expect(words.length).toBeGreaterThan(5000);
+        const wrong = words
+          .map((word, at) => [word, expected[at], stemmer.stemWord(word)])
+          .filter(([, official, ours]) => official !== ours)
+          .map(([word, official, ours]) => `${word}: ${official} / ${ours}`);
+        expect(wrong).toEqual([]);
+      },
+      60000
+    );
 
     test.each(STEMMERS.map((stemmer) => [stemmer.out, stemmer] as const))(
       'It should have %s as the tool writes it from its program',
-      (_out, stemmer) => {
+      async (_out, stemmer) => {
+        if (!online && !isCached(stemmer.source)) {
+          return;
+        }
         const committed = readFileSync(`${root}${stemmer.out}`, 'utf8');
         expect(committed.split(String.fromCharCode(13)).join('')).toEqual(
-          render(root, stemmer)
+          await render(stemmer)
         );
-      }
+      },
+      30000
     );
+  });
+
+  describe('changing a program', () => {
+    test('It should apply an edit that matches once', () => {
+      expect(applyEdits('a b c', [{ find: 'b', replace: 'B' }], 'test')).toBe(
+        'a B c'
+      );
+    });
+
+    test('It should refuse an edit that matches nowhere or twice', () => {
+      expect(() =>
+        applyEdits('a b c', [{ find: 'z', replace: 'Z' }], 'test')
+      ).toThrow(/does not match/);
+      expect(() =>
+        applyEdits('a b b', [{ find: 'b', replace: 'B' }], 'test')
+      ).toThrow(/twice/);
+    });
+
+    test('It should refuse a program that is not the one that was expected', async () => {
+      const original = globalThis.fetch;
+      globalThis.fetch = (async () =>
+        new Response('define stem as true')) as typeof fetch;
+      try {
+        await expect(
+          fetchProgram(
+            { url: 'https://example.invalid/x.sbl', sha256: '0'.repeat(64) },
+            `${generated}/cache-${Date.now()}/`
+          )
+        ).rejects.toThrow(/checksum/);
+      } finally {
+        globalThis.fetch = original;
+      }
+    });
   });
 
   describe('reading a program', () => {
     test('It should read the names, the groupings and the routines', () => {
-      const program = parseProgram(`${here}fixtures/english.sbl`);
+      const program = parseSource(`
+        integers ( p1 )
+        booleans ( Y_found )
+        routines ( Step_1a exception1 )
+        externals ( stem )
+        groupings ( aeo v )
+        define aeo 'aeo'
+        define v aeo + 'y'
+        define Step_1a as ( true )
+        define exception1 as ( true )
+        define stem as Step_1a
+      `);
       expect(program.names.get('p1')).toBe('integer');
       expect(program.names.get('Y_found')).toBe('boolean');
       expect(program.names.get('Step_1a')).toBe('routine');
       expect(program.names.get('stem')).toBe('external');
-      expect(program.groupings.map((g) => g.name)).toEqual([
-        'aeo',
-        'v',
-        'v_WXY',
-        'valid_LI',
-      ]);
+      expect(program.groupings.map((g) => g.name)).toEqual(['aeo', 'v']);
       expect(program.routines.map((r) => r.name)).toContain('exception1');
     });
 

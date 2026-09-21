@@ -15,6 +15,7 @@
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "stemmers": "node tools/snowball/build.ts",
+    "stemmers:check": "node tools/snowball/build.ts --check",
     "lint": "oxlint",
     "lintfix": "oxlint --fix",
     "test": "oxfmt && oxlint --fix && vitest run --silent --coverage",

@@ -17,3 +17,4 @@ dist
 
 # Stemmers the tests of tools/snowball generate
 tools/snowball/test/.generated
+tools/snowball/.cache

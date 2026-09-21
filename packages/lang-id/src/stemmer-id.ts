@@ -2,7 +2,7 @@ import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
 /**
- * Stemmer written by tools/snowball from indonesian.sbl. Do not edit it by hand:
+ * Stemmer written by tools/snowball from indonesian.sbl of Snowball at commit 411550d. Do not edit it by hand:
  * change the Snowball program and generate it again.
  */
 class StemmerId extends SnowballStemmer {
