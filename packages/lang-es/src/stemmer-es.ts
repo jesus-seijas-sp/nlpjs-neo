@@ -1,7 +1,6 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 import dictionary from './dictionary-es.json' with { type: 'json' };
 
-/* oxlint-disable */
 /**
  * The amongs of one table as a trie, keyed by character and read backwards,
  * so the longest match of a suffix is found in one walk rather than by the
@@ -152,7 +151,7 @@ class StemmerEs extends BaseStemmer {
                 break;
               }
               // gopast, line 38
-              golab5: while (true) {
+              golab5: for (;;) {
                 let lab6 = true;
                 while (lab6 == true) {
                   lab6 = false;
@@ -174,7 +173,7 @@ class StemmerEs extends BaseStemmer {
               break lab2;
             }
             // gopast, line 38
-            golab7: while (true) {
+            golab7: for (;;) {
               let lab8 = true;
               while (lab8 == true) {
                 lab8 = false;
@@ -209,7 +208,7 @@ class StemmerEs extends BaseStemmer {
               break;
             }
             // gopast, line 40
-            golab11: while (true) {
+            golab11: for (;;) {
               let lab12 = true;
               while (lab12 == true) {
                 lab12 = false;
@@ -248,7 +247,7 @@ class StemmerEs extends BaseStemmer {
       lab13 = false;
       // (, line 43
       // gopast, line 44
-      golab14: while (true) {
+      golab14: for (;;) {
         let lab15 = true;
         while (lab15 == true) {
           lab15 = false;
@@ -263,7 +262,7 @@ class StemmerEs extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 44
-      golab16: while (true) {
+      golab16: for (;;) {
         let lab17 = true;
         while (lab17 == true) {
           lab17 = false;
@@ -280,7 +279,7 @@ class StemmerEs extends BaseStemmer {
       // setmark p1, line 44
       this.I_p1 = this.cursor;
       // gopast, line 45
-      golab18: while (true) {
+      golab18: for (;;) {
         let lab19 = true;
         while (lab19 == true) {
           lab19 = false;
@@ -295,7 +294,7 @@ class StemmerEs extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 45
-      golab20: while (true) {
+      golab20: for (;;) {
         let lab21 = true;
         while (lab21 == true) {
           lab21 = false;
@@ -320,7 +319,7 @@ class StemmerEs extends BaseStemmer {
     let among_var;
     let v_1;
     // repeat, line 49
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {

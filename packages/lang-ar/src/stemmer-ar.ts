@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerAr extends BaseStemmer {
   declare B_is_defined: boolean;
   declare B_is_noun: boolean;
@@ -43,9 +42,9 @@ class StemmerAr extends BaseStemmer {
     let v_1;
     let v_2;
     for (v_1 = this.current.length; v_1 > 0; v_1--) {
-      lab0: do {
+      lab0: {
         v_2 = this.cursor;
-        lab1: do {
+        lab1: {
           this.bra = this.cursor;
           among_var = this.find_among(StemmerAr.a_0);
           if (among_var === 0) {
@@ -222,13 +221,13 @@ class StemmerAr extends BaseStemmer {
               break;
           }
           break lab0;
-        } while (false);
+        }
         this.cursor = v_2;
         if (this.cursor >= this.limit) {
           return false;
         }
         this.cursor++;
-      } while (false);
+      }
     }
     return true;
   }
@@ -239,7 +238,7 @@ class StemmerAr extends BaseStemmer {
     let v_3;
     let v_4;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       this.limit_backward = this.cursor;
       this.cursor = this.limit;
       this.ket = this.cursor;
@@ -262,14 +261,14 @@ class StemmerAr extends BaseStemmer {
           break;
       }
       this.cursor = this.limit_backward;
-    } while (false);
+    }
     this.cursor = v_1;
     v_2 = this.cursor;
-    lab1: do {
+    lab1: {
       for (v_3 = this.I_word_len; v_3 > 0; v_3--) {
-        lab2: do {
+        lab2: {
           v_4 = this.cursor;
-          lab3: do {
+          lab3: {
             this.bra = this.cursor;
             among_var = this.find_among(StemmerAr.a_2);
             if (among_var === 0) {
@@ -290,15 +289,15 @@ class StemmerAr extends BaseStemmer {
                 break;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = v_4;
           if (this.cursor >= this.limit) {
             break lab1;
           }
           this.cursor++;
-        } while (false);
+        }
       }
-    } while (false);
+    }
     this.cursor = v_2;
     return true;
   }
@@ -385,22 +384,22 @@ class StemmerAr extends BaseStemmer {
     this.I_word_len = this.current.length;
     {
       v_1 = this.cursor;
-      lab0: do {
+      lab0: {
         if (!this.eq_s('\u0641\u0627')) {
           break lab0;
         }
         return false;
-      } while (false);
+      }
       this.cursor = v_1;
     }
     {
       v_2 = this.cursor;
-      lab1: do {
+      lab1: {
         if (!this.eq_s('\u0648\u0627')) {
           break lab1;
         }
         return false;
-      } while (false);
+      }
       this.cursor = v_2;
     }
     this.bra = this.cursor;
@@ -460,12 +459,12 @@ class StemmerAr extends BaseStemmer {
     this.I_word_len = this.current.length;
     {
       v_1 = this.cursor;
-      lab0: do {
+      lab0: {
         if (!this.eq_s('\u0628\u0627')) {
           break lab0;
         }
         return false;
-      } while (false);
+      }
       this.cursor = v_1;
     }
     this.bra = this.cursor;
@@ -885,43 +884,43 @@ class StemmerAr extends BaseStemmer {
     this.B_is_verb = true;
     this.B_is_defined = false;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_Checks1()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     v_2 = this.cursor;
-    lab1: do {
+    lab1: {
       if (!this.r_Normalize_pre()) {
         break lab1;
       }
-    } while (false);
+    }
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_3 = this.limit - this.cursor;
-    lab2: do {
-      lab3: do {
+    lab2: {
+      lab3: {
         v_4 = this.limit - this.cursor;
-        lab4: do {
+        lab4: {
           if (!this.B_is_verb) {
             break lab4;
           }
-          lab5: do {
+          lab5: {
             v_5 = this.limit - this.cursor;
-            lab6: do {
+            lab6: {
               {
                 let v_6 = 1;
-                replab7: while (true) {
+                replab7: for (;;) {
                   v_7 = this.limit - this.cursor;
-                  lab8: do {
+                  lab8: {
                     if (!this.r_Suffix_Verb_Step1()) {
                       break lab8;
                     }
                     v_6--;
                     continue replab7;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_7;
                   break replab7;
                 }
@@ -929,185 +928,185 @@ class StemmerAr extends BaseStemmer {
                   break lab6;
                 }
               }
-              lab9: do {
+              lab9: {
                 v_8 = this.limit - this.cursor;
-                lab10: do {
+                lab10: {
                   if (!this.r_Suffix_Verb_Step2a()) {
                     break lab10;
                   }
                   break lab9;
-                } while (false);
+                }
                 this.cursor = this.limit - v_8;
-                lab11: do {
+                lab11: {
                   if (!this.r_Suffix_Verb_Step2c()) {
                     break lab11;
                   }
                   break lab9;
-                } while (false);
+                }
                 this.cursor = this.limit - v_8;
                 if (this.cursor <= this.limit_backward) {
                   break lab6;
                 }
                 this.cursor--;
-              } while (false);
+              }
               break lab5;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab12: do {
+            lab12: {
               if (!this.r_Suffix_Verb_Step2b()) {
                 break lab12;
               }
               break lab5;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
             if (!this.r_Suffix_Verb_Step2a()) {
               break lab4;
             }
-          } while (false);
+          }
           break lab3;
-        } while (false);
+        }
         this.cursor = this.limit - v_4;
-        lab13: do {
+        lab13: {
           if (!this.B_is_noun) {
             break lab13;
           }
           v_9 = this.limit - this.cursor;
-          lab14: do {
-            lab15: do {
+          lab14: {
+            lab15: {
               v_10 = this.limit - this.cursor;
-              lab16: do {
+              lab16: {
                 if (!this.r_Suffix_Noun_Step2c2()) {
                   break lab16;
                 }
                 break lab15;
-              } while (false);
+              }
               this.cursor = this.limit - v_10;
-              lab17: do {
-                lab18: do {
+              lab17: {
+                lab18: {
                   if (!this.B_is_defined) {
                     break lab18;
                   }
                   break lab17;
-                } while (false);
+                }
                 if (!this.r_Suffix_Noun_Step1a()) {
                   break lab17;
                 }
-                lab19: do {
+                lab19: {
                   v_12 = this.limit - this.cursor;
-                  lab20: do {
+                  lab20: {
                     if (!this.r_Suffix_Noun_Step2a()) {
                       break lab20;
                     }
                     break lab19;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_12;
-                  lab21: do {
+                  lab21: {
                     if (!this.r_Suffix_Noun_Step2b()) {
                       break lab21;
                     }
                     break lab19;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_12;
-                  lab22: do {
+                  lab22: {
                     if (!this.r_Suffix_Noun_Step2c1()) {
                       break lab22;
                     }
                     break lab19;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_12;
                   if (this.cursor <= this.limit_backward) {
                     break lab17;
                   }
                   this.cursor--;
-                } while (false);
+                }
                 break lab15;
-              } while (false);
+              }
               this.cursor = this.limit - v_10;
-              lab23: do {
+              lab23: {
                 if (!this.r_Suffix_Noun_Step1b()) {
                   break lab23;
                 }
-                lab24: do {
+                lab24: {
                   v_13 = this.limit - this.cursor;
-                  lab25: do {
+                  lab25: {
                     if (!this.r_Suffix_Noun_Step2a()) {
                       break lab25;
                     }
                     break lab24;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_13;
-                  lab26: do {
+                  lab26: {
                     if (!this.r_Suffix_Noun_Step2b()) {
                       break lab26;
                     }
                     break lab24;
-                  } while (false);
+                  }
                   this.cursor = this.limit - v_13;
                   if (!this.r_Suffix_Noun_Step2c1()) {
                     break lab23;
                   }
-                } while (false);
+                }
                 break lab15;
-              } while (false);
+              }
               this.cursor = this.limit - v_10;
-              lab27: do {
-                lab28: do {
+              lab27: {
+                lab28: {
                   if (!this.B_is_defined) {
                     break lab28;
                   }
                   break lab27;
-                } while (false);
+                }
                 if (!this.r_Suffix_Noun_Step2a()) {
                   break lab27;
                 }
                 break lab15;
-              } while (false);
+              }
               this.cursor = this.limit - v_10;
               if (!this.r_Suffix_Noun_Step2b()) {
                 this.cursor = this.limit - v_9;
                 break lab14;
               }
-            } while (false);
-          } while (false);
+            }
+          }
           if (!this.r_Suffix_Noun_Step3()) {
             break lab13;
           }
           break lab3;
-        } while (false);
+        }
         this.cursor = this.limit - v_4;
         if (!this.r_Suffix_All_alef_maqsura()) {
           break lab2;
         }
-      } while (false);
-    } while (false);
+      }
+    }
     this.cursor = this.limit - v_3;
     this.cursor = this.limit_backward;
     v_15 = this.cursor;
-    lab29: do {
+    lab29: {
       v_16 = this.cursor;
-      lab30: do {
+      lab30: {
         if (!this.r_Prefix_Step1()) {
           this.cursor = v_16;
           break lab30;
         }
-      } while (false);
+      }
       v_17 = this.cursor;
-      lab31: do {
+      lab31: {
         if (!this.r_Prefix_Step2()) {
           this.cursor = v_17;
           break lab31;
         }
-      } while (false);
-      lab32: do {
+      }
+      lab32: {
         v_18 = this.cursor;
-        lab33: do {
+        lab33: {
           if (!this.r_Prefix_Step3a_Noun()) {
             break lab33;
           }
           break lab32;
-        } while (false);
+        }
         this.cursor = v_18;
-        lab34: do {
+        lab34: {
           if (!this.B_is_noun) {
             break lab34;
           }
@@ -1115,30 +1114,30 @@ class StemmerAr extends BaseStemmer {
             break lab34;
           }
           break lab32;
-        } while (false);
+        }
         this.cursor = v_18;
         if (!this.B_is_verb) {
           break lab29;
         }
         v_19 = this.cursor;
-        lab35: do {
+        lab35: {
           if (!this.r_Prefix_Step3_Verb()) {
             this.cursor = v_19;
             break lab35;
           }
-        } while (false);
+        }
         if (!this.r_Prefix_Step4_Verb()) {
           break lab29;
         }
-      } while (false);
-    } while (false);
+      }
+    }
     this.cursor = v_15;
     v_20 = this.cursor;
-    lab36: do {
+    lab36: {
       if (!this.r_Normalize_post()) {
         break lab36;
       }
-    } while (false);
+    }
     this.cursor = v_20;
     return true;
   }

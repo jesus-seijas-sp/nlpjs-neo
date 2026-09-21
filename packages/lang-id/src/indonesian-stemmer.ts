@@ -1,4 +1,3 @@
-/* oxlint-disable */
 function BaseStemmer() {
   this.setCurrent = function (value) {
     this.current = value;
@@ -24,7 +23,7 @@ function BaseStemmer() {
 
   this.in_grouping = function (s, min, max) {
     if (this.cursor >= this.limit) return false;
-    var ch = this.current.charCodeAt(this.cursor);
+    let ch = this.current.charCodeAt(this.cursor);
     if (ch > max || ch < min) return false;
     ch -= min;
     if ((s[ch >>> 3] & (0x1 << (ch & 0x7))) == 0) return false;
@@ -34,7 +33,7 @@ function BaseStemmer() {
 
   this.in_grouping_b = function (s, min, max) {
     if (this.cursor <= this.limit_backward) return false;
-    var ch = this.current.charCodeAt(this.cursor - 1);
+    let ch = this.current.charCodeAt(this.cursor - 1);
     if (ch > max || ch < min) return false;
     ch -= min;
     if ((s[ch >>> 3] & (0x1 << (ch & 0x7))) == 0) return false;
@@ -44,7 +43,7 @@ function BaseStemmer() {
 
   this.out_grouping = function (s, min, max) {
     if (this.cursor >= this.limit) return false;
-    var ch = this.current.charCodeAt(this.cursor);
+    let ch = this.current.charCodeAt(this.cursor);
     if (ch > max || ch < min) {
       this.cursor++;
       return true;
@@ -59,7 +58,7 @@ function BaseStemmer() {
 
   this.out_grouping_b = function (s, min, max) {
     if (this.cursor <= this.limit_backward) return false;
-    var ch = this.current.charCodeAt(this.cursor - 1);
+    let ch = this.current.charCodeAt(this.cursor - 1);
     if (ch > max || ch < min) {
       this.cursor--;
       return true;
@@ -91,23 +90,23 @@ function BaseStemmer() {
   };
 
   /** @return {number} */ this.find_among = function (v) {
-    var i = 0;
-    var j = v.length;
+    let i = 0;
+    let j = v.length;
 
-    var c = this.cursor;
-    var l = this.limit;
+    const c = this.cursor;
+    let l = this.limit;
 
-    var common_i = 0;
-    var common_j = 0;
+    let common_i = 0;
+    let common_j = 0;
 
-    var first_key_inspected = false;
+    let first_key_inspected = false;
 
-    while (true) {
-      var k = i + ((j - i) >>> 1);
-      var diff = 0;
-      var common = common_i < common_j ? common_i : common_j; // smaller
-      var w = v[k];
-      var i2;
+    for (;;) {
+      let k = i + ((j - i) >>> 1);
+      let diff = 0;
+      let common = common_i < common_j ? common_i : common_j; // smaller
+      let w = v[k];
+      let i2;
       /// s : string, substring_i : int, result : int, method
       for (i2 = common; i2 < w[0].length; i2++) {
         if (c + common == l) {
@@ -137,12 +136,12 @@ function BaseStemmer() {
         first_key_inspected = true;
       }
     }
-    while (true) {
-      var w = v[i];
+    for (;;) {
+      let w = v[i];
       if (common_i >= w[0].length) {
         this.cursor = c + w[0].length;
         if (w.length < 4) return w[2];
-        var res = w[3](this);
+        let res = w[3](this);
         this.cursor = c + w[0].length;
         if (res) return w[2];
       }
@@ -153,23 +152,23 @@ function BaseStemmer() {
 
   // find_among_b is for backwards processing. Same comments apply
   this.find_among_b = function (v) {
-    var i = 0;
-    var j = v.length;
+    let i = 0;
+    let j = v.length;
 
-    var c = this.cursor;
-    var lb = this.limit_backward;
+    const c = this.cursor;
+    let lb = this.limit_backward;
 
-    var common_i = 0;
-    var common_j = 0;
+    let common_i = 0;
+    let common_j = 0;
 
-    var first_key_inspected = false;
+    let first_key_inspected = false;
 
-    while (true) {
-      var k = i + ((j - i) >> 1);
-      var diff = 0;
-      var common = common_i < common_j ? common_i : common_j;
-      var w = v[k];
-      var i2;
+    for (;;) {
+      let k = i + ((j - i) >> 1);
+      let diff = 0;
+      let common = common_i < common_j ? common_i : common_j;
+      let w = v[k];
+      let i2;
       for (i2 = w[0].length - 1 - common; i2 >= 0; i2--) {
         if (c - common == lb) {
           diff = -1;
@@ -193,12 +192,12 @@ function BaseStemmer() {
         first_key_inspected = true;
       }
     }
-    while (true) {
-      var w = v[i];
+    for (;;) {
+      let w = v[i];
       if (common_i >= w[0].length) {
         this.cursor = c - w[0].length;
         if (w.length < 4) return w[2];
-        var res = w[3](this);
+        let res = w[3](this);
         this.cursor = c - w[0].length;
         if (res) return w[2];
       }
@@ -211,7 +210,7 @@ function BaseStemmer() {
    * chars in s.
    */
   this.replace_s = function (c_bra, c_ket, s) {
-    var adjustment = s.length - (c_ket - c_bra);
+    let adjustment = s.length - (c_ket - c_bra);
     this.current = this.current.slice(0, c_bra) + s + this.current.slice(c_ket);
     this.limit += adjustment;
     if (this.cursor >= c_ket) this.cursor += adjustment;
@@ -232,7 +231,7 @@ function BaseStemmer() {
   };
 
   this.slice_from = function (s) {
-    var result = false;
+    let result = false;
     if (this.slice_check()) {
       this.replace_s(this.bra, this.ket, s);
       result = true;
@@ -245,13 +244,13 @@ function BaseStemmer() {
   };
 
   this.insert = function (c_bra, c_ket, s) {
-    var adjustment = this.replace_s(c_bra, c_ket, s);
+    let adjustment = this.replace_s(c_bra, c_ket, s);
     if (c_bra <= this.bra) this.bra += adjustment;
     if (c_bra <= this.ket) this.ket += adjustment;
   };
 
   this.slice_to = function () {
-    var result = '';
+    let result = '';
     if (this.slice_check()) {
       result = this.current.slice(this.bra, this.ket);
     }
@@ -264,26 +263,26 @@ function BaseStemmer() {
 }
 
 function IndonesianStemmer() {
-  var base = new BaseStemmer();
-  /** @const */ var a_0 = [
+  let base = new BaseStemmer();
+  /** @const */ let a_0 = [
     ['kah', -1, 1],
     ['lah', -1, 1],
     ['pun', -1, 1],
   ];
 
-  /** @const */ var a_1 = [
+  /** @const */ let a_1 = [
     ['nya', -1, 1],
     ['ku', -1, 1],
     ['mu', -1, 1],
   ];
 
-  /** @const */ var a_2 = [
+  /** @const */ let a_2 = [
     ['i', -1, 1, r_SUFFIX_I_OK],
     ['an', -1, 1, r_SUFFIX_AN_OK],
     ['kan', 1, 1, r_SUFFIX_KAN_OK],
   ];
 
-  /** @const */ var a_3 = [
+  /** @const */ let a_3 = [
     ['di', -1, 1],
     ['ke', -1, 2],
     ['me', -1, 1],
@@ -298,7 +297,7 @@ function IndonesianStemmer() {
     ['ter', -1, 1],
   ];
 
-  /** @const */ var a_4 = [
+  /** @const */ let a_4 = [
     ['be', -1, 3, r_KER],
     ['belajar', 0, 4],
     ['ber', 0, 3],
@@ -307,10 +306,10 @@ function IndonesianStemmer() {
     ['per', 3, 1],
   ];
 
-  /** @const */ var /** Array<int> */ g_vowel = [17, 65, 16];
+  /** @const */ let /** Array<int> */ g_vowel = [17, 65, 16];
 
-  var /** number */ I_prefix = 0;
-  var /** number */ I_measure = 0;
+  let /** number */ I_prefix = 0;
+  let /** number */ I_measure = 0;
 
   /** @return {boolean} */
   function r_remove_particle() {
@@ -382,7 +381,7 @@ function IndonesianStemmer() {
     }
     // not, line 128
     {
-      var /** number */ v_1 = base.limit - base.cursor;
+      let /** number */ v_1 = base.limit - base.cursor;
       lab0: {
         // literal, line 128
         if (!base.eq_s_b('s')) {
@@ -439,7 +438,7 @@ function IndonesianStemmer() {
 
   /** @return {boolean} */
   function r_remove_first_order_prefix() {
-    var /** number */ among_var;
+    let /** number */ among_var;
     // (, line 145
     // [, line 146
     base.bra = base.cursor;
@@ -493,10 +492,10 @@ function IndonesianStemmer() {
         I_measure -= 1;
         // or, line 151
         lab0: {
-          var /** number */ v_1 = base.cursor;
+          let /** number */ v_1 = base.cursor;
           lab1: {
             // and, line 151
-            var /** number */ v_2 = base.cursor;
+            let /** number */ v_2 = base.cursor;
             if (!base.in_grouping(g_vowel, 97, 117)) {
               break lab1;
             }
@@ -520,10 +519,10 @@ function IndonesianStemmer() {
         I_measure -= 1;
         // or, line 152
         lab2: {
-          var /** number */ v_3 = base.cursor;
+          let /** number */ v_3 = base.cursor;
           lab3: {
             // and, line 152
-            var /** number */ v_4 = base.cursor;
+            let /** number */ v_4 = base.cursor;
             if (!base.in_grouping(g_vowel, 97, 117)) {
               break lab3;
             }
@@ -547,7 +546,7 @@ function IndonesianStemmer() {
 
   /** @return {boolean} */
   function r_remove_second_order_prefix() {
-    var /** number */ among_var;
+    let /** number */ among_var;
     // (, line 156
     // [, line 162
     base.bra = base.cursor;
@@ -602,16 +601,16 @@ function IndonesianStemmer() {
     // (, line 171
     I_measure = 0;
     // do, line 173
-    var /** number */ v_1 = base.cursor;
-    lab0: {
+    let /** number */ v_1 = base.cursor;
+    {
       // (, line 173
       // repeat, line 173
-      while (true) {
-        var /** number */ v_2 = base.cursor;
+      for (;;) {
+        let /** number */ v_2 = base.cursor;
         lab1: {
           // (, line 173
           // gopast, line 173
-          golab2: while (true) {
+          golab2: for (;;) {
             lab3: {
               if (!base.in_grouping(g_vowel, 97, 117)) {
                 break lab3;
@@ -640,7 +639,7 @@ function IndonesianStemmer() {
     base.cursor = base.limit;
     // (, line 176
     // do, line 177
-    var /** number */ v_4 = base.limit - base.cursor;
+    let /** number */ v_4 = base.limit - base.cursor;
     // call remove_particle, line 177
     r_remove_particle();
     base.cursor = base.limit - v_4;
@@ -648,7 +647,7 @@ function IndonesianStemmer() {
       return false;
     }
     // do, line 179
-    var /** number */ v_5 = base.limit - base.cursor;
+    let /** number */ v_5 = base.limit - base.cursor;
     // call remove_possessive_pronoun, line 179
     r_remove_possessive_pronoun();
     base.cursor = base.limit - v_5;
@@ -658,21 +657,21 @@ function IndonesianStemmer() {
     }
     // or, line 188
     lab4: {
-      var /** number */ v_6 = base.cursor;
+      let /** number */ v_6 = base.cursor;
       lab5: {
         // test, line 182
-        var /** number */ v_7 = base.cursor;
+        let /** number */ v_7 = base.cursor;
         // (, line 182
         // call remove_first_order_prefix, line 183
         if (!r_remove_first_order_prefix()) {
           break lab5;
         }
         // do, line 184
-        var /** number */ v_8 = base.cursor;
+        let /** number */ v_8 = base.cursor;
         lab6: {
           // (, line 184
           // test, line 185
-          var /** number */ v_9 = base.cursor;
+          let /** number */ v_9 = base.cursor;
           // (, line 185
           if (!(I_measure > 2)) {
             break lab6;
@@ -701,12 +700,12 @@ function IndonesianStemmer() {
       base.cursor = v_6;
       // (, line 188
       // do, line 189
-      var /** number */ v_10 = base.cursor;
+      let /** number */ v_10 = base.cursor;
       // call remove_second_order_prefix, line 189
       r_remove_second_order_prefix();
       base.cursor = v_10;
       // do, line 190
-      var /** number */ v_11 = base.cursor;
+      let /** number */ v_11 = base.cursor;
       lab7: {
         // (, line 190
         if (!(I_measure > 2)) {

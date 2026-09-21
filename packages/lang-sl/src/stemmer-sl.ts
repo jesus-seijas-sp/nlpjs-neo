@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerSl extends BaseStemmer {
   declare I_p1: number;
   declare static a_0: Among<StemmerSl>[];
@@ -33,10 +32,10 @@ class StemmerSl extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_1 = this.limit - this.cursor;
-    lab0: do {
+    {
       for (v_2 = 4; v_2 > 0; v_2--) {
         v_3 = this.limit - this.cursor;
-        lab1: do {
+        lab1: {
           if (!(this.I_p1 > 8)) {
             this.cursor = this.limit - v_3;
             break lab1;
@@ -56,9 +55,9 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
         v_4 = this.limit - this.cursor;
-        lab2: do {
+        lab2: {
           if (!(this.I_p1 > 7)) {
             this.cursor = this.limit - v_4;
             break lab2;
@@ -78,10 +77,10 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
         this.I_p1 = this.current.length;
         v_5 = this.limit - this.cursor;
-        lab3: do {
+        lab3: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_5;
             break lab3;
@@ -101,10 +100,10 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
         this.I_p1 = this.current.length;
         v_6 = this.limit - this.cursor;
-        lab4: do {
+        lab4: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_6;
             break lab4;
@@ -124,10 +123,10 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
         this.I_p1 = this.current.length;
         v_7 = this.limit - this.cursor;
-        lab5: do {
+        lab5: {
           if (!(this.I_p1 > 5)) {
             this.cursor = this.limit - v_7;
             break lab5;
@@ -147,10 +146,10 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
         this.I_p1 = this.current.length;
         v_8 = this.limit - this.cursor;
-        lab6: do {
+        lab6: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_8;
             break lab6;
@@ -168,10 +167,10 @@ class StemmerSl extends BaseStemmer {
           }
           this.cursor = this.limit - v_9;
           this.slice_del();
-        } while (false);
+        }
         this.I_p1 = this.current.length;
         v_10 = this.limit - this.cursor;
-        lab7: do {
+        lab7: {
           if (!(this.I_p1 > 5)) {
             this.cursor = this.limit - v_10;
             break lab7;
@@ -191,9 +190,9 @@ class StemmerSl extends BaseStemmer {
               this.slice_del();
               break;
           }
-        } while (false);
+        }
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_1;
     this.cursor = this.limit_backward;
     return true;

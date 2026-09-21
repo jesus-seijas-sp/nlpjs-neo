@@ -1,6 +1,5 @@
 import { BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerPl extends BaseStemmer {
   constructor(container?) {
     super(container);

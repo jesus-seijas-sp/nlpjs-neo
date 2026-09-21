@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerCa extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -23,58 +22,58 @@ class StemmerCa extends BaseStemmer {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     v_1 = this.cursor;
-    lab0: do {
-      golab1: while (true) {
-        do {
+    lab0: {
+      golab1: for (;;) {
+        try0: {
           if (!this.in_grouping(StemmerCa.g_v, 97, 252)) {
-            break;
+            break try0;
           }
           break golab1;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab0;
         }
         this.cursor++;
       }
-      golab3: while (true) {
-        do {
+      golab3: for (;;) {
+        try1: {
           if (!this.out_grouping(StemmerCa.g_v, 97, 252)) {
-            break;
+            break try1;
           }
           break golab3;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab0;
         }
         this.cursor++;
       }
       this.I_p1 = this.cursor;
-      golab5: while (true) {
-        do {
+      golab5: for (;;) {
+        try2: {
           if (!this.in_grouping(StemmerCa.g_v, 97, 252)) {
-            break;
+            break try2;
           }
           break golab5;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab0;
         }
         this.cursor++;
       }
-      golab7: while (true) {
-        do {
+      golab7: for (;;) {
+        try3: {
           if (!this.out_grouping(StemmerCa.g_v, 97, 252)) {
-            break;
+            break try3;
           }
           break golab7;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab0;
         }
         this.cursor++;
       }
       this.I_p2 = this.cursor;
-    } while (false);
+    }
     this.cursor = v_1;
     return true;
   }
@@ -82,13 +81,13 @@ class StemmerCa extends BaseStemmer {
   r_cleaning() {
     let among_var;
     let v_1;
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
-      lab1: do {
+      lab1: {
         this.bra = this.cursor;
         among_var = this.find_among(StemmerCa.a_0);
         if (among_var === 0) {
-          break;
+          break lab1;
         }
         this.ket = this.cursor;
         switch (among_var) {
@@ -138,7 +137,7 @@ class StemmerCa extends BaseStemmer {
             break;
         }
         continue replab0;
-      } while (false);
+      }
       this.cursor = v_1;
       break;
     }
@@ -287,52 +286,52 @@ class StemmerCa extends BaseStemmer {
     let v_5;
     let v_6;
     v_1 = this.cursor;
-    do {
+    try4: {
       if (!this.r_mark_regions()) {
-        break;
+        break try4;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_2 = this.limit - this.cursor;
-    do {
+    try5: {
       if (!this.r_attached_pronoun()) {
-        break;
+        break try5;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_2;
     v_3 = this.limit - this.cursor;
-    lab2: do {
-      lab3: do {
+    lab2: {
+      lab3: {
         v_4 = this.limit - this.cursor;
-        do {
+        try6: {
           if (!this.r_standard_suffix()) {
-            break;
+            break try6;
           }
           break lab3;
-        } while (false);
+        }
         this.cursor = this.limit - v_4;
         if (!this.r_verb_suffix()) {
           break lab2;
         }
-      } while (false);
-    } while (false);
+      }
+    }
     this.cursor = this.limit - v_3;
     v_5 = this.limit - this.cursor;
-    do {
+    try7: {
       if (!this.r_residual_suffix()) {
-        break;
+        break try7;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward;
     v_6 = this.cursor;
-    do {
+    try8: {
       if (!this.r_cleaning()) {
-        break;
+        break try8;
       }
-    } while (false);
+    }
     this.cursor = v_6;
     return true;
   }

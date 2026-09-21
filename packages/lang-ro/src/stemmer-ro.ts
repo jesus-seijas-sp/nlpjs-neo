@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerRo extends BaseStemmer {
   declare B_standard_suffix_removed: boolean;
   declare I_p1: number;
@@ -38,13 +37,13 @@ class StemmerRo extends BaseStemmer {
     let v_3;
     // (, line 31
     // repeat, line 32
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
         lab1 = false;
         // goto, line 32
-        golab2: while (true) {
+        golab2: for (;;) {
           v_2 = this.cursor;
           let lab3 = true;
           lab3: while (lab3 == true) {
@@ -153,7 +152,7 @@ class StemmerRo extends BaseStemmer {
                 break;
               }
               // gopast, line 45
-              golab5: while (true) {
+              golab5: for (;;) {
                 let lab6 = true;
                 while (lab6 == true) {
                   lab6 = false;
@@ -175,7 +174,7 @@ class StemmerRo extends BaseStemmer {
               break lab2;
             }
             // gopast, line 45
-            golab7: while (true) {
+            golab7: for (;;) {
               let lab8 = true;
               while (lab8 == true) {
                 lab8 = false;
@@ -210,7 +209,7 @@ class StemmerRo extends BaseStemmer {
               break;
             }
             // gopast, line 47
-            golab11: while (true) {
+            golab11: for (;;) {
               let lab12 = true;
               while (lab12 == true) {
                 lab12 = false;
@@ -249,7 +248,7 @@ class StemmerRo extends BaseStemmer {
       lab13 = false;
       // (, line 50
       // gopast, line 51
-      golab14: while (true) {
+      golab14: for (;;) {
         let lab15 = true;
         while (lab15 == true) {
           lab15 = false;
@@ -264,7 +263,7 @@ class StemmerRo extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 51
-      golab16: while (true) {
+      golab16: for (;;) {
         let lab17 = true;
         while (lab17 == true) {
           lab17 = false;
@@ -281,7 +280,7 @@ class StemmerRo extends BaseStemmer {
       // setmark p1, line 51
       this.I_p1 = this.cursor;
       // gopast, line 52
-      golab18: while (true) {
+      golab18: for (;;) {
         let lab19 = true;
         while (lab19 == true) {
           lab19 = false;
@@ -296,7 +295,7 @@ class StemmerRo extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 52
-      golab20: while (true) {
+      golab20: for (;;) {
         let lab21 = true;
         while (lab21 == true) {
           lab21 = false;
@@ -321,7 +320,7 @@ class StemmerRo extends BaseStemmer {
     let among_var;
     let v_1;
     // repeat, line 56
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
@@ -557,7 +556,7 @@ class StemmerRo extends BaseStemmer {
     // unset standard_suffix_removed, line 130
     this.B_standard_suffix_removed = false;
     // repeat, line 131
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.limit - this.cursor;
       let lab1 = true;
       while (lab1 == true) {

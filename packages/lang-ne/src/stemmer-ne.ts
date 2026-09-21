@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerNe extends BaseStemmer {
   declare I_p1: number;
   declare static a_0: Among<StemmerNe>[];
@@ -138,8 +137,8 @@ class StemmerNe extends BaseStemmer {
     this.r_remove_category_1();
     this.cursor = this.limit - v_1;
     let v_2 = this.limit - this.cursor;
-    lab0: {
-      while (true) {
+    {
+      for (;;) {
         let v_3 = this.limit - this.cursor;
         lab1: {
           let v_4 = this.limit - this.cursor;

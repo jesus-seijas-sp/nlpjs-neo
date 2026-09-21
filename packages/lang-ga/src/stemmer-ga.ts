@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerGa extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -26,75 +25,75 @@ class StemmerGa extends BaseStemmer {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     v_1 = this.cursor;
-    lab0: do {
-      golab1: while (true) {
-        lab2: do {
+    lab0: {
+      golab1: for (;;) {
+        lab2: {
           if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
             break lab2;
           }
           break golab1;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab0;
         }
         this.cursor++;
       }
       this.I_pV = this.cursor;
-    } while (false);
+    }
     this.cursor = v_1;
     v_3 = this.cursor;
-    lab3: do {
-      golab4: while (true) {
-        lab5: do {
+    lab3: {
+      golab4: for (;;) {
+        lab5: {
           if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
             break lab5;
           }
           break golab4;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab3;
         }
         this.cursor++;
       }
-      golab6: while (true) {
-        lab7: do {
+      golab6: for (;;) {
+        lab7: {
           if (!this.out_grouping(StemmerGa.g_v, 97, 250)) {
             break lab7;
           }
           break golab6;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab3;
         }
         this.cursor++;
       }
       this.I_p1 = this.cursor;
-      golab8: while (true) {
-        lab9: do {
+      golab8: for (;;) {
+        lab9: {
           if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
             break lab9;
           }
           break golab8;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab3;
         }
         this.cursor++;
       }
-      golab10: while (true) {
-        lab11: do {
+      golab10: for (;;) {
+        lab11: {
           if (!this.out_grouping(StemmerGa.g_v, 97, 250)) {
             break lab11;
           }
           break golab10;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab3;
         }
         this.cursor++;
       }
       this.I_p2 = this.cursor;
-    } while (false);
+    }
     this.cursor = v_3;
     return true;
   }
@@ -287,41 +286,41 @@ class StemmerGa extends BaseStemmer {
     let v_4;
     let v_5;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_initial_morph()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     v_2 = this.cursor;
-    lab1: do {
+    lab1: {
       if (!this.r_mark_regions()) {
         break lab1;
       }
-    } while (false);
+    }
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_3 = this.limit - this.cursor;
-    lab2: do {
+    lab2: {
       if (!this.r_noun_sfx()) {
         break lab2;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_3;
     v_4 = this.limit - this.cursor;
-    lab3: do {
+    lab3: {
       if (!this.r_deriv()) {
         break lab3;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_4;
     v_5 = this.limit - this.cursor;
-    lab4: do {
+    lab4: {
       if (!this.r_verb_sfx()) {
         break lab4;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward;
     return true;

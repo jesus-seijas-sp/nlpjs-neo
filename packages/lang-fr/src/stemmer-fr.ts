@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerFr extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -39,13 +38,13 @@ class StemmerFr extends BaseStemmer {
     let v_3;
     let v_4;
     // repeat, line 38
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
         lab1 = false;
         // goto, line 38
-        golab2: while (true) {
+        golab2: for (;;) {
           v_2 = this.cursor;
           let lab3 = true;
           lab3: while (lab3 == true) {
@@ -236,7 +235,7 @@ class StemmerFr extends BaseStemmer {
         }
         this.cursor++;
         // gopast, line 66
-        golab4: while (true) {
+        golab4: for (;;) {
           let lab5 = true;
           while (lab5 == true) {
             lab5 = false;
@@ -262,7 +261,7 @@ class StemmerFr extends BaseStemmer {
       lab6 = false;
       // (, line 69
       // gopast, line 70
-      golab7: while (true) {
+      golab7: for (;;) {
         let lab8 = true;
         while (lab8 == true) {
           lab8 = false;
@@ -277,7 +276,7 @@ class StemmerFr extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 70
-      golab9: while (true) {
+      golab9: for (;;) {
         let lab10 = true;
         while (lab10 == true) {
           lab10 = false;
@@ -294,7 +293,7 @@ class StemmerFr extends BaseStemmer {
       // setmark p1, line 70
       this.I_p1 = this.cursor;
       // gopast, line 71
-      golab11: while (true) {
+      golab11: for (;;) {
         let lab12 = true;
         while (lab12 == true) {
           lab12 = false;
@@ -309,7 +308,7 @@ class StemmerFr extends BaseStemmer {
         this.cursor++;
       }
       // gopast, line 71
-      golab13: while (true) {
+      golab13: for (;;) {
         let lab14 = true;
         while (lab14 == true) {
           lab14 = false;
@@ -334,7 +333,7 @@ class StemmerFr extends BaseStemmer {
     let among_var;
     let v_1;
     // repeat, line 75
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
@@ -1223,7 +1222,7 @@ class StemmerFr extends BaseStemmer {
     {
       let v_1 = 1;
       // atleast, line 216
-      replab0: while (true) {
+      replab0: for (;;) {
         let lab1 = true;
         while (lab1 == true) {
           lab1 = false;

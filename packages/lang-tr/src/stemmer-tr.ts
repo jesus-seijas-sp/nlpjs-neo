@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerTr extends BaseStemmer {
   declare B_continue_stemming_noun_suffixes: boolean;
   declare I_strlen: number;
@@ -70,7 +69,7 @@ class StemmerTr extends BaseStemmer {
     // (, line 113
     // (, line 114
     // goto, line 114
-    golab0: while (true) {
+    golab0: for (;;) {
       v_2 = this.limit - this.cursor;
       let lab1 = true;
       while (lab1 == true) {
@@ -102,7 +101,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 116
-        golab4: while (true) {
+        golab4: for (;;) {
           v_4 = this.limit - this.cursor;
           let lab5 = true;
           while (lab5 == true) {
@@ -131,7 +130,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 117
-        golab7: while (true) {
+        golab7: for (;;) {
           v_5 = this.limit - this.cursor;
           let lab8 = true;
           while (lab8 == true) {
@@ -160,7 +159,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 118
-        golab10: while (true) {
+        golab10: for (;;) {
           v_6 = this.limit - this.cursor;
           let lab11 = true;
           while (lab11 == true) {
@@ -189,7 +188,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 119
-        golab13: while (true) {
+        golab13: for (;;) {
           v_7 = this.limit - this.cursor;
           let lab14 = true;
           while (lab14 == true) {
@@ -218,7 +217,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 120
-        golab16: while (true) {
+        golab16: for (;;) {
           v_8 = this.limit - this.cursor;
           let lab17 = true;
           while (lab17 == true) {
@@ -247,7 +246,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 121
-        golab19: while (true) {
+        golab19: for (;;) {
           v_9 = this.limit - this.cursor;
           let lab20 = true;
           while (lab20 == true) {
@@ -276,7 +275,7 @@ class StemmerTr extends BaseStemmer {
           break;
         }
         // goto, line 122
-        golab22: while (true) {
+        golab22: for (;;) {
           v_10 = this.limit - this.cursor;
           let lab23 = true;
           while (lab23 == true) {
@@ -302,7 +301,7 @@ class StemmerTr extends BaseStemmer {
         return false;
       }
       // goto, line 123
-      golab24: while (true) {
+      golab24: for (;;) {
         v_11 = this.limit - this.cursor;
         let lab25 = true;
         while (lab25 == true) {
@@ -1000,7 +999,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ymUs_() {
+  r_mark_ymUs() {
     // (, line 301
     // call check_vowel_harmony, line 302
     if (!this.r_check_vowel_harmony()) {
@@ -1066,7 +1065,7 @@ class StemmerTr extends BaseStemmer {
           while (lab3 == true) {
             lab3 = false;
             // call mark_ymUs_, line 314
-            if (!this.r_mark_ymUs_()) {
+            if (!this.r_mark_ymUs()) {
               break;
             }
             break lab2;
@@ -1166,7 +1165,7 @@ class StemmerTr extends BaseStemmer {
           this.cursor = this.limit - v_3;
         }
         // call mark_ymUs_, line 316
-        if (!this.r_mark_ymUs_()) {
+        if (!this.r_mark_ymUs()) {
           break;
         }
         break lab0;
@@ -1231,7 +1230,7 @@ class StemmerTr extends BaseStemmer {
             }
             this.cursor = this.limit - v_5;
             // call mark_ymUs_, line 319
-            if (!this.r_mark_ymUs_()) {
+            if (!this.r_mark_ymUs()) {
               this.cursor = this.limit - v_4;
               break lab14;
             }
@@ -1334,7 +1333,7 @@ class StemmerTr extends BaseStemmer {
           // [, line 325
           this.ket = this.cursor;
           // call mark_ymUs_, line 325
-          if (!this.r_mark_ymUs_()) {
+          if (!this.r_mark_ymUs()) {
             this.cursor = this.limit - v_8;
             break;
           }
@@ -1419,7 +1418,7 @@ class StemmerTr extends BaseStemmer {
           this.cursor = this.limit - v_10;
         }
         // call mark_ymUs_, line 327
-        if (!this.r_mark_ymUs_()) {
+        if (!this.r_mark_ymUs()) {
           this.cursor = this.limit - v_9;
           break;
         }
@@ -2681,7 +2680,7 @@ class StemmerTr extends BaseStemmer {
         // (, line 432
         // (, line 432
         // goto, line 432
-        golab4: while (true) {
+        golab4: for (;;) {
           v_5 = this.limit - this.cursor;
           let lab5 = true;
           while (lab5 == true) {
@@ -2721,7 +2720,7 @@ class StemmerTr extends BaseStemmer {
         this.cursor = this.limit - v_4;
         // <+, line 432
         {
-          var c = this.cursor;
+          const c = this.cursor;
           this.insert(this.cursor, this.cursor, '\u0131');
           this.cursor = c;
         }
@@ -2737,7 +2736,7 @@ class StemmerTr extends BaseStemmer {
         // (, line 434
         // (, line 434
         // goto, line 434
-        golab9: while (true) {
+        golab9: for (;;) {
           v_8 = this.limit - this.cursor;
           let lab10 = true;
           while (lab10 == true) {
@@ -2777,7 +2776,7 @@ class StemmerTr extends BaseStemmer {
         this.cursor = this.limit - v_7;
         // <+, line 434
         {
-          var c = this.cursor;
+          const c = this.cursor;
           this.insert(this.cursor, this.cursor, 'i');
           this.cursor = c;
         }
@@ -2793,7 +2792,7 @@ class StemmerTr extends BaseStemmer {
         // (, line 436
         // (, line 436
         // goto, line 436
-        golab14: while (true) {
+        golab14: for (;;) {
           v_11 = this.limit - this.cursor;
           let lab15 = true;
           while (lab15 == true) {
@@ -2833,7 +2832,7 @@ class StemmerTr extends BaseStemmer {
         this.cursor = this.limit - v_10;
         // <+, line 436
         {
-          var c = this.cursor;
+          const c = this.cursor;
           this.insert(this.cursor, this.cursor, 'u');
           this.cursor = c;
         }
@@ -2846,7 +2845,7 @@ class StemmerTr extends BaseStemmer {
       // (, line 438
       // (, line 438
       // goto, line 438
-      golab18: while (true) {
+      golab18: for (;;) {
         v_14 = this.limit - this.cursor;
         let lab19 = true;
         while (lab19 == true) {
@@ -2886,7 +2885,7 @@ class StemmerTr extends BaseStemmer {
       this.cursor = this.limit - v_13;
       // <+, line 438
       {
-        var c = this.cursor;
+        const c = this.cursor;
         this.insert(this.cursor, this.cursor, '\u00FC');
         this.cursor = c;
       }
@@ -2905,14 +2904,14 @@ class StemmerTr extends BaseStemmer {
     {
       let v_2 = 2;
       // atleast, line 446
-      replab0: while (true) {
+      replab0: for (;;) {
         v_3 = this.cursor;
         let lab1 = true;
         lab1: while (lab1 == true) {
           lab1 = false;
           // (, line 446
           // gopast, line 446
-          golab2: while (true) {
+          golab2: for (;;) {
             let lab3 = true;
             while (lab3 == true) {
               lab3 = false;
@@ -2957,7 +2956,7 @@ class StemmerTr extends BaseStemmer {
         v_2 = this.cursor;
         // (, line 450
         // gopast, line 450
-        golab2: while (true) {
+        golab2: for (;;) {
           let lab3 = true;
           while (lab3 == true) {
             lab3 = false;
@@ -2986,7 +2985,7 @@ class StemmerTr extends BaseStemmer {
       v_4 = this.cursor;
       // (, line 452
       // gopast, line 452
-      golab4: while (true) {
+      golab4: for (;;) {
         let lab5 = true;
         while (lab5 == true) {
           lab5 = false;

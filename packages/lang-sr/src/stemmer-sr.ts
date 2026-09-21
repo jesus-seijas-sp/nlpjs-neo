@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerSr extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -27,11 +26,11 @@ class StemmerSr extends BaseStemmer {
   r_cyr_to_lat() {
     var among_var;
     var v_1 = this.cursor;
-    lab0: {
-      while (true) {
+    {
+      for (;;) {
         var v_2 = this.cursor;
         lab1: {
-          golab2: while (true) {
+          golab2: for (;;) {
             var v_3 = this.cursor;
             lab3: {
               this.bra = this.cursor;
@@ -213,11 +212,11 @@ class StemmerSr extends BaseStemmer {
 
   r_prelude() {
     var v_1 = this.cursor;
-    lab0: {
-      while (true) {
+    {
+      for (;;) {
         var v_2 = this.cursor;
         lab1: {
-          golab2: while (true) {
+          golab2: for (;;) {
             var v_3 = this.cursor;
             lab3: {
               if (!this.in_grouping(StemmerSr.g_ca, 98, 382)) {
@@ -251,11 +250,11 @@ class StemmerSr extends BaseStemmer {
     }
     this.cursor = v_1;
     var v_4 = this.cursor;
-    lab4: {
-      while (true) {
+    {
+      for (;;) {
         var v_5 = this.cursor;
         lab5: {
-          golab6: while (true) {
+          golab6: for (;;) {
             var v_6 = this.cursor;
             lab7: {
               if (!this.in_grouping(StemmerSr.g_ca, 98, 382)) {
@@ -289,11 +288,11 @@ class StemmerSr extends BaseStemmer {
     }
     this.cursor = v_4;
     var v_7 = this.cursor;
-    lab8: {
-      while (true) {
+    {
+      for (;;) {
         var v_8 = this.cursor;
         lab9: {
-          golab10: while (true) {
+          golab10: for (;;) {
             var v_9 = this.cursor;
             lab11: {
               this.bra = this.cursor;
@@ -327,7 +326,7 @@ class StemmerSr extends BaseStemmer {
     this.I_p3 = 0;
     var v_1 = this.cursor;
     lab0: {
-      golab1: while (true) {
+      golab1: for (;;) {
         lab2: {
           if (!this.in_grouping(StemmerSr.g_sa, 263, 382)) {
             break lab2;
@@ -346,7 +345,7 @@ class StemmerSr extends BaseStemmer {
     this.I_p2 = 0;
     var v_3 = this.cursor;
     lab3: {
-      golab4: while (true) {
+      golab4: for (;;) {
         lab5: {
           if (!this.eq_s('r')) {
             break lab5;
@@ -363,7 +362,7 @@ class StemmerSr extends BaseStemmer {
     this.cursor = v_3;
     var v_5 = this.cursor;
     lab6: {
-      golab7: while (true) {
+      golab7: for (;;) {
         lab8: {
           if (!this.in_grouping(StemmerSr.g_v, 97, 117)) {
             break lab8;
@@ -401,7 +400,7 @@ class StemmerSr extends BaseStemmer {
         if (this.I_p1 !== this.I_p2) {
           break lab11;
         }
-        golab12: while (true) {
+        golab12: for (;;) {
           lab13: {
             if (!this.eq_s('r')) {
               break lab13;
@@ -413,7 +412,7 @@ class StemmerSr extends BaseStemmer {
           }
           this.cursor++;
         }
-        golab14: while (true) {
+        golab14: for (;;) {
           lab15: {
             if (!this.out_grouping(StemmerSr.g_rg, 114, 114)) {
               break lab15;
@@ -431,7 +430,7 @@ class StemmerSr extends BaseStemmer {
       if (!(this.I_p1 != this.I_p2)) {
         return false;
       }
-      golab16: while (true) {
+      golab16: for (;;) {
         lab17: {
           if (!this.in_grouping(StemmerSr.g_v, 97, 117)) {
             break lab17;
@@ -443,7 +442,7 @@ class StemmerSr extends BaseStemmer {
         }
         this.cursor++;
       }
-      golab18: while (true) {
+      golab18: for (;;) {
         lab19: {
           if (!this.out_grouping(StemmerSr.g_v, 97, 117)) {
             break lab19;

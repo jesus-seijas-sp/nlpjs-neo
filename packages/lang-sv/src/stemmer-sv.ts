@@ -1,7 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
-
 class StemmerSv extends BaseStemmer {
   declare I_p1: number;
   declare I_x: number;
@@ -45,7 +43,7 @@ class StemmerSv extends BaseStemmer {
     this.I_x = this.cursor;
     this.cursor = v_1;
     // goto, line 30
-    golab0: while (true) {
+    golab0: for (;;) {
       v_2 = this.cursor;
       let lab1 = true;
       while (lab1 == true) {
@@ -63,7 +61,7 @@ class StemmerSv extends BaseStemmer {
       this.cursor++;
     }
     // gopast, line 30
-    golab2: while (true) {
+    golab2: for (;;) {
       let lab3 = true;
       while (lab3 == true) {
         lab3 = false;

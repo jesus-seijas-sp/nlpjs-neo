@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerEu extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -28,76 +27,76 @@ class StemmerEu extends BaseStemmer {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     v_1 = this.cursor;
-    lab0: do {
-      lab1: do {
+    lab0: {
+      lab1: {
         v_2 = this.cursor;
-        lab2: do {
+        lab2: {
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab2;
           }
-          lab3: do {
+          lab3: {
             v_3 = this.cursor;
-            lab4: do {
+            lab4: {
               if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
                 break lab4;
               }
-              golab5: while (true) {
-                lab6: do {
+              golab5: for (;;) {
+                lab6: {
                   if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
                     break lab6;
                   }
                   break golab5;
-                } while (false);
+                }
                 if (this.cursor >= this.limit) {
                   break lab4;
                 }
                 this.cursor++;
               }
               break lab3;
-            } while (false);
+            }
             this.cursor = v_3;
             if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
               break lab2;
             }
-            golab7: while (true) {
-              lab8: do {
+            golab7: for (;;) {
+              lab8: {
                 if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
                   break lab8;
                 }
                 break golab7;
-              } while (false);
+              }
               if (this.cursor >= this.limit) {
                 break lab2;
               }
               this.cursor++;
             }
-          } while (false);
+          }
           break lab1;
-        } while (false);
+        }
         this.cursor = v_2;
         if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
           break lab0;
         }
-        lab9: do {
+        lab9: {
           v_6 = this.cursor;
-          lab10: do {
+          lab10: {
             if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
               break lab10;
             }
-            golab11: while (true) {
-              lab12: do {
+            golab11: for (;;) {
+              lab12: {
                 if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
                   break lab12;
                 }
                 break golab11;
-              } while (false);
+              }
               if (this.cursor >= this.limit) {
                 break lab10;
               }
               this.cursor++;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = v_6;
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab0;
@@ -106,64 +105,64 @@ class StemmerEu extends BaseStemmer {
             break lab0;
           }
           this.cursor++;
-        } while (false);
-      } while (false);
+        }
+      }
       this.I_pV = this.cursor;
-    } while (false);
+    }
     this.cursor = v_1;
     v_8 = this.cursor;
-    lab13: do {
-      golab14: while (true) {
-        lab15: do {
+    lab13: {
+      golab14: for (;;) {
+        lab15: {
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab15;
           }
           break golab14;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab13;
         }
         this.cursor++;
       }
-      golab16: while (true) {
-        lab17: do {
+      golab16: for (;;) {
+        lab17: {
           if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
             break lab17;
           }
           break golab16;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab13;
         }
         this.cursor++;
       }
       this.I_p1 = this.cursor;
-      golab18: while (true) {
-        lab19: do {
+      golab18: for (;;) {
+        lab19: {
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab19;
           }
           break golab18;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab13;
         }
         this.cursor++;
       }
-      golab20: while (true) {
-        lab21: do {
+      golab20: for (;;) {
+        lab21: {
           if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
             break lab21;
           }
           break golab20;
-        } while (false);
+        }
         if (this.cursor >= this.limit) {
           break lab13;
         }
         this.cursor++;
       }
       this.I_p2 = this.cursor;
-    } while (false);
+    }
     this.cursor = v_8;
     return true;
   }
@@ -302,42 +301,42 @@ class StemmerEu extends BaseStemmer {
     let v_3;
     let v_4;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_mark_regions()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    replab1: while (true) {
+    replab1: for (;;) {
       v_2 = this.limit - this.cursor;
-      lab2: do {
+      lab2: {
         if (!this.r_aditzak()) {
           break lab2;
         }
         continue replab1;
-      } while (false);
+      }
       this.cursor = this.limit - v_2;
       break replab1;
     }
-    replab3: while (true) {
+    replab3: for (;;) {
       v_3 = this.limit - this.cursor;
-      lab4: do {
+      lab4: {
         if (!this.r_izenak()) {
           break lab4;
         }
         continue replab3;
-      } while (false);
+      }
       this.cursor = this.limit - v_3;
       break replab3;
     }
     v_4 = this.limit - this.cursor;
-    lab5: do {
+    lab5: {
       if (!this.r_adjetiboak()) {
         break lab5;
       }
-    } while (false);
+    }
     this.cursor = this.limit - v_4;
     this.cursor = this.limit_backward;
     return true;

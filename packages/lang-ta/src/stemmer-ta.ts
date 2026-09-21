@@ -1,7 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
-
 class StemmerTa extends BaseStemmer {
   declare B_found_a_match: boolean;
   declare B_found_vetrumai_urupu: boolean;
@@ -60,17 +58,17 @@ class StemmerTa extends BaseStemmer {
     let v_7;
     let v_8;
     let v_9;
-    lab0: do {
+    lab0: {
       v_1 = this.cursor;
-      lab1: do {
+      lab1: {
         v_2 = this.cursor;
         v_3 = this.cursor;
-        lab2: do {
+        lab2: {
           if (!this.eq_s('\u0BB5\u0BCB')) {
             this.cursor = v_3;
             break lab2;
           }
-        } while (false);
+        }
         this.cursor = v_2;
         this.bra = this.cursor;
         if (!this.eq_s('\u0BB5\u0BCB')) {
@@ -79,17 +77,17 @@ class StemmerTa extends BaseStemmer {
         this.ket = this.cursor;
         this.slice_from('\u0B93');
         break lab0;
-      } while (false);
+      }
       this.cursor = v_1;
-      lab3: do {
+      lab3: {
         v_4 = this.cursor;
         v_5 = this.cursor;
-        lab4: do {
+        lab4: {
           if (!this.eq_s('\u0BB5\u0BCA')) {
             this.cursor = v_5;
             break lab4;
           }
-        } while (false);
+        }
         this.cursor = v_4;
         this.bra = this.cursor;
         if (!this.eq_s('\u0BB5\u0BCA')) {
@@ -98,17 +96,17 @@ class StemmerTa extends BaseStemmer {
         this.ket = this.cursor;
         this.slice_from('\u0B92');
         break lab0;
-      } while (false);
+      }
       this.cursor = v_1;
-      lab5: do {
+      lab5: {
         v_6 = this.cursor;
         v_7 = this.cursor;
-        lab6: do {
+        lab6: {
           if (!this.eq_s('\u0BB5\u0BC1')) {
             this.cursor = v_7;
             break lab6;
           }
-        } while (false);
+        }
         this.cursor = v_6;
         this.bra = this.cursor;
         if (!this.eq_s('\u0BB5\u0BC1')) {
@@ -117,16 +115,16 @@ class StemmerTa extends BaseStemmer {
         this.ket = this.cursor;
         this.slice_from('\u0B89');
         break lab0;
-      } while (false);
+      }
       this.cursor = v_1;
       v_8 = this.cursor;
       v_9 = this.cursor;
-      lab7: do {
+      lab7: {
         if (!this.eq_s('\u0BB5\u0BC2')) {
           this.cursor = v_9;
           break lab7;
         }
-      } while (false);
+      }
       this.cursor = v_8;
       this.bra = this.cursor;
       if (!this.eq_s('\u0BB5\u0BC2')) {
@@ -134,28 +132,28 @@ class StemmerTa extends BaseStemmer {
       }
       this.ket = this.cursor;
       this.slice_from('\u0B8A');
-    } while (false);
+    }
     return true;
   }
   r_fix_endings() {
     let v_1;
     let v_2;
     this.B_found_wrong_ending = true;
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
-      lab1: do {
+      lab1: {
         if (!this.B_found_wrong_ending) {
           break lab1;
         }
         v_2 = this.cursor;
-        lab2: do {
+        lab2: {
           if (!this.r_fix_ending()) {
             break lab2;
           }
-        } while (false);
+        }
         this.cursor = v_2;
         continue replab0;
-      } while (false);
+      }
       this.cursor = v_1;
       break replab0;
     }
@@ -176,11 +174,11 @@ class StemmerTa extends BaseStemmer {
     this.ket = this.cursor;
     this.slice_del();
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_fix_va_start()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     return true;
   }
@@ -205,9 +203,9 @@ class StemmerTa extends BaseStemmer {
     }
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    lab0: do {
+    lab0: {
       v_1 = this.limit - this.cursor;
-      lab1: do {
+      lab1: {
         this.ket = this.cursor;
         if (this.find_among_b(StemmerTa.a_1) === 0) {
           break lab1;
@@ -215,9 +213,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab2: do {
+      lab2: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BAF\u0BCD')) {
           break lab2;
@@ -230,29 +228,29 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab3: do {
+      lab3: {
         this.ket = this.cursor;
-        lab4: do {
+        lab4: {
           v_3 = this.limit - this.cursor;
-          lab5: do {
+          lab5: {
             if (!this.eq_s_b('\u0B9F\u0BCD\u0BAA\u0BCD')) {
               break lab5;
             }
             break lab4;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
           if (!this.eq_s_b('\u0B9F\u0BCD\u0B95\u0BCD')) {
             break lab3;
           }
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_from('\u0BB3\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab6: do {
+      lab6: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BA9\u0BCD\u0BB1\u0BCD')) {
           break lab6;
@@ -260,9 +258,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0BB2\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab7: do {
+      lab7: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BB1\u0BCD\u0B95\u0BCD')) {
           break lab7;
@@ -270,9 +268,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0BB2\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab8: do {
+      lab8: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0B9F\u0BCD\u0B9F\u0BCD')) {
           break lab8;
@@ -280,9 +278,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0B9F\u0BC1');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab9: do {
+      lab9: {
         if (!this.B_found_vetrumai_urupu) {
           break lab9;
         }
@@ -293,12 +291,12 @@ class StemmerTa extends BaseStemmer {
         v_4 = this.limit - this.cursor;
         {
           v_5 = this.limit - this.cursor;
-          lab10: do {
+          lab10: {
             if (!this.eq_s_b('\u0BC8')) {
               break lab10;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_5;
         }
         this.cursor = this.limit - v_4;
@@ -306,29 +304,29 @@ class StemmerTa extends BaseStemmer {
         this.slice_from('\u0BAE\u0BCD');
         this.bra = this.cursor;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab11: do {
+      lab11: {
         this.ket = this.cursor;
-        lab12: do {
+        lab12: {
           v_6 = this.limit - this.cursor;
-          lab13: do {
+          lab13: {
             if (!this.eq_s_b('\u0BC1\u0B95\u0BCD')) {
               break lab13;
             }
             break lab12;
-          } while (false);
+          }
           this.cursor = this.limit - v_6;
           if (!this.eq_s_b('\u0BC1\u0B95\u0BCD\u0B95\u0BCD')) {
             break lab11;
           }
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab14: do {
+      lab14: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BCD')) {
           break lab14;
@@ -345,9 +343,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab15: do {
+      lab15: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BC1\u0B95\u0BCD')) {
           break lab15;
@@ -355,9 +353,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab16: do {
+      lab16: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BCD')) {
           break lab16;
@@ -368,35 +366,35 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab17: do {
+      lab17: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BCD')) {
           break lab17;
         }
-        lab18: do {
+        lab18: {
           v_7 = this.limit - this.cursor;
-          lab19: do {
+          lab19: {
             if (this.find_among_b(StemmerTa.a_6) === 0) {
               break lab19;
             }
             break lab18;
-          } while (false);
+          }
           this.cursor = this.limit - v_7;
           if (this.find_among_b(StemmerTa.a_7) === 0) {
             break lab17;
           }
-        } while (false);
+        }
         if (!this.eq_s_b('\u0BCD')) {
           break lab17;
         }
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab20: do {
+      lab20: {
         this.ket = this.cursor;
         if (this.find_among_b(StemmerTa.a_8) === 0) {
           break lab20;
@@ -404,9 +402,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab21: do {
+      lab21: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BA9\u0BC1')) {
           break lab21;
@@ -414,21 +412,21 @@ class StemmerTa extends BaseStemmer {
         v_8 = this.limit - this.cursor;
         {
           v_9 = this.limit - this.cursor;
-          lab22: do {
+          lab22: {
             if (this.find_among_b(StemmerTa.a_9) === 0) {
               break lab22;
             }
             break lab21;
-          } while (false);
+          }
           this.cursor = this.limit - v_9;
         }
         this.cursor = this.limit - v_8;
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab23: do {
+      lab23: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0B99\u0BCD')) {
           break lab23;
@@ -436,21 +434,21 @@ class StemmerTa extends BaseStemmer {
         v_10 = this.limit - this.cursor;
         {
           v_11 = this.limit - this.cursor;
-          lab24: do {
+          lab24: {
             if (!this.eq_s_b('\u0BC8')) {
               break lab24;
             }
             break lab23;
-          } while (false);
+          }
           this.cursor = this.limit - v_11;
         }
         this.cursor = this.limit - v_10;
         this.bra = this.cursor;
         this.slice_from('\u0BAE\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab25: do {
+      lab25: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0B99\u0BCD')) {
           break lab25;
@@ -458,30 +456,30 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_del();
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
       this.ket = this.cursor;
       if (!this.eq_s_b('\u0BCD')) {
         return false;
       }
       v_12 = this.limit - this.cursor;
-      lab26: do {
+      lab26: {
         v_13 = this.limit - this.cursor;
-        lab27: do {
+        lab27: {
           if (this.find_among_b(StemmerTa.a_10) === 0) {
             break lab27;
           }
           break lab26;
-        } while (false);
+        }
         this.cursor = this.limit - v_13;
         if (!this.eq_s_b('\u0BCD')) {
           return false;
         }
-      } while (false);
+      }
       this.cursor = this.limit - v_12;
       this.bra = this.cursor;
       this.slice_del();
-    } while (false);
+    }
     this.cursor = this.limit_backward;
     this.B_found_wrong_ending = true;
     return true;
@@ -503,11 +501,11 @@ class StemmerTa extends BaseStemmer {
     this.slice_del();
     this.B_found_a_match = true;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_fix_va_start()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     return true;
   }
@@ -518,9 +516,9 @@ class StemmerTa extends BaseStemmer {
     this.B_found_a_match = false;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    lab0: do {
+    lab0: {
       v_1 = this.limit - this.cursor;
-      lab1: do {
+      lab1: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BC1\u0B99\u0BCD\u0B95\u0BB3\u0BCD')) {
           break lab1;
@@ -528,21 +526,21 @@ class StemmerTa extends BaseStemmer {
         v_2 = this.limit - this.cursor;
         {
           v_3 = this.limit - this.cursor;
-          lab2: do {
+          lab2: {
             if (this.find_among_b(StemmerTa.a_13) === 0) {
               break lab2;
             }
             break lab1;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
         }
         this.cursor = this.limit - v_2;
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab3: do {
+      lab3: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BB1\u0BCD\u0B95\u0BB3\u0BCD')) {
           break lab3;
@@ -550,9 +548,9 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0BB2\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab4: do {
+      lab4: {
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0B9F\u0BCD\u0B95\u0BB3\u0BCD')) {
           break lab4;
@@ -560,7 +558,7 @@ class StemmerTa extends BaseStemmer {
         this.bra = this.cursor;
         this.slice_from('\u0BB3\u0BCD');
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
       this.ket = this.cursor;
       if (!this.eq_s_b('\u0B95\u0BB3\u0BCD')) {
@@ -568,7 +566,7 @@ class StemmerTa extends BaseStemmer {
       }
       this.bra = this.cursor;
       this.slice_del();
-    } while (false);
+    }
     this.B_found_a_match = true;
     this.cursor = this.limit_backward;
     return true;
@@ -583,7 +581,7 @@ class StemmerTa extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_1 = this.limit - this.cursor;
-    lab0: do {
+    lab0: {
       this.ket = this.cursor;
       if (this.find_among_b(StemmerTa.a_14) === 0) {
         break lab0;
@@ -591,15 +589,15 @@ class StemmerTa extends BaseStemmer {
       this.bra = this.cursor;
       this.slice_from('\u0BCD');
       this.B_found_a_match = true;
-    } while (false);
+    }
     this.cursor = this.limit - v_1;
     this.cursor = this.limit_backward;
     v_2 = this.cursor;
-    lab1: do {
+    lab1: {
       if (!this.r_fix_endings()) {
         break lab1;
       }
-    } while (false);
+    }
     this.cursor = v_2;
     return true;
   }
@@ -637,11 +635,11 @@ class StemmerTa extends BaseStemmer {
     this.B_found_a_match = true;
     this.cursor = this.limit_backward;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_fix_ending()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     return true;
   }
@@ -659,126 +657,126 @@ class StemmerTa extends BaseStemmer {
     }
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    lab0: do {
+    lab0: {
       v_1 = this.limit - this.cursor;
-      lab1: do {
+      lab1: {
         v_2 = this.limit - this.cursor;
         this.ket = this.cursor;
-        lab2: do {
+        lab2: {
           v_3 = this.limit - this.cursor;
-          lab3: do {
+          lab3: {
             if (!this.eq_s_b('\u0BC1\u0B9F\u0BA9\u0BCD')) {
               break lab3;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab4: do {
+          lab4: {
             if (!this.eq_s_b('\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8')) {
               break lab4;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab5: do {
+          lab5: {
             if (!this.eq_s_b('\u0BBF\u0B9F\u0BAE\u0BCD')) {
               break lab5;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab6: do {
+          lab6: {
             if (!this.eq_s_b('\u0BBF\u0BA9\u0BCD\u0BB1\u0BBF')) {
               break lab6;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab7: do {
+          lab7: {
             if (!this.eq_s_b('\u0BBE\u0B95\u0BBF')) {
               break lab7;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab8: do {
+          lab8: {
             if (!this.eq_s_b('\u0BBE\u0B95\u0BBF\u0BAF')) {
               break lab8;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab9: do {
+          lab9: {
             if (!this.eq_s_b('\u0BC6\u0BA9\u0BCD\u0BB1\u0BC1')) {
               break lab9;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab10: do {
+          lab10: {
             if (!this.eq_s_b('\u0BC1\u0BB3\u0BCD\u0BB3')) {
               break lab10;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab11: do {
+          lab11: {
             if (!this.eq_s_b('\u0BC1\u0B9F\u0BC8\u0BAF')) {
               break lab11;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab12: do {
+          lab12: {
             if (!this.eq_s_b('\u0BC1\u0B9F\u0BC8')) {
               break lab12;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab13: do {
+          lab13: {
             if (!this.eq_s_b('\u0BC6\u0BA9\u0BC1\u0BAE\u0BCD')) {
               break lab13;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab14: do {
+          lab14: {
             if (!this.eq_s_b('\u0BB2\u0BCD\u0BB2')) {
               break lab14;
             }
             v_4 = this.limit - this.cursor;
             {
               v_5 = this.limit - this.cursor;
-              lab15: do {
+              lab15: {
                 if (this.find_among_b(StemmerTa.a_16) === 0) {
                   break lab15;
                 }
                 break lab14;
-              } while (false);
+              }
               this.cursor = this.limit - v_5;
             }
             this.cursor = this.limit - v_4;
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
-          lab16: do {
+          lab16: {
             if (!this.eq_s_b('\u0BC6\u0BA9')) {
               break lab16;
             }
             break lab2;
-          } while (false);
+          }
           this.cursor = this.limit - v_3;
           if (!this.eq_s_b('\u0BBE\u0B95\u0BBF')) {
             break lab1;
           }
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         this.B_found_a_match = true;
         this.cursor = this.limit - v_2;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
       v_6 = this.limit - this.cursor;
       this.ket = this.cursor;
@@ -789,14 +787,14 @@ class StemmerTa extends BaseStemmer {
       this.slice_del();
       this.B_found_a_match = true;
       this.cursor = this.limit - v_6;
-    } while (false);
+    }
     this.cursor = this.limit_backward;
     v_7 = this.cursor;
-    lab17: do {
+    lab17: {
       if (!this.r_fix_endings()) {
         break lab17;
       }
-    } while (false);
+    }
     this.cursor = v_7;
     return true;
   }
@@ -829,9 +827,9 @@ class StemmerTa extends BaseStemmer {
     }
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    lab0: do {
+    lab0: {
       v_1 = this.limit - this.cursor;
-      lab1: do {
+      lab1: {
         v_2 = this.limit - this.cursor;
         this.ket = this.cursor;
         if (!this.eq_s_b('\u0BA9\u0BC8')) {
@@ -841,41 +839,41 @@ class StemmerTa extends BaseStemmer {
         this.slice_del();
         this.cursor = this.limit - v_2;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab2: do {
+      lab2: {
         v_3 = this.limit - this.cursor;
         this.ket = this.cursor;
-        lab3: do {
+        lab3: {
           v_4 = this.limit - this.cursor;
-          lab4: do {
-            lab5: do {
+          lab4: {
+            lab5: {
               v_5 = this.limit - this.cursor;
-              lab6: do {
+              lab6: {
                 if (!this.eq_s_b('\u0BBF\u0BA9\u0BC8')) {
                   break lab6;
                 }
                 break lab5;
-              } while (false);
+              }
               this.cursor = this.limit - v_5;
               if (!this.eq_s_b('\u0BC8')) {
                 break lab4;
               }
-            } while (false);
+            }
             v_6 = this.limit - this.cursor;
             {
               v_7 = this.limit - this.cursor;
-              lab7: do {
+              lab7: {
                 if (this.find_among_b(StemmerTa.a_18) === 0) {
                   break lab7;
                 }
                 break lab4;
-              } while (false);
+              }
               this.cursor = this.limit - v_7;
             }
             this.cursor = this.limit - v_6;
             break lab3;
-          } while (false);
+          }
           this.cursor = this.limit - v_4;
           if (!this.eq_s_b('\u0BC8')) {
             break lab2;
@@ -888,87 +886,87 @@ class StemmerTa extends BaseStemmer {
             break lab2;
           }
           this.cursor = this.limit - v_8;
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         this.cursor = this.limit - v_3;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab8: do {
+      lab8: {
         v_9 = this.limit - this.cursor;
         this.ket = this.cursor;
-        lab9: do {
+        lab9: {
           v_10 = this.limit - this.cursor;
-          lab10: do {
+          lab10: {
             if (!this.eq_s_b('\u0BCA\u0B9F\u0BC1')) {
               break lab10;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab11: do {
+          lab11: {
             if (!this.eq_s_b('\u0BCB\u0B9F\u0BC1')) {
               break lab11;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab12: do {
+          lab12: {
             if (!this.eq_s_b('\u0BBF\u0BB2\u0BCD')) {
               break lab12;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab13: do {
+          lab13: {
             if (!this.eq_s_b('\u0BBF\u0BB1\u0BCD')) {
               break lab13;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab14: do {
+          lab14: {
             if (!this.eq_s_b('\u0BBF\u0BA9\u0BCD')) {
               break lab14;
             }
             v_11 = this.limit - this.cursor;
             {
               v_12 = this.limit - this.cursor;
-              lab15: do {
+              lab15: {
                 if (!this.eq_s_b('\u0BAE')) {
                   break lab15;
                 }
                 break lab14;
-              } while (false);
+              }
               this.cursor = this.limit - v_12;
             }
             this.cursor = this.limit - v_11;
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab16: do {
+          lab16: {
             if (!this.eq_s_b('\u0BBF\u0BA9\u0BCD\u0BB1\u0BC1')) {
               break lab16;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab17: do {
+          lab17: {
             if (!this.eq_s_b('\u0BBF\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1')) {
               break lab17;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab18: do {
+          lab18: {
             if (!this.eq_s_b('\u0BB5\u0BBF\u0B9F')) {
               break lab18;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab19: do {
+          lab19: {
             if (!(this.I_length >= 7)) {
               break lab19;
             }
@@ -976,104 +974,104 @@ class StemmerTa extends BaseStemmer {
               break lab19;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab20: do {
+          lab20: {
             if (!this.eq_s_b('\u0BBE\u0BB2\u0BCD')) {
               break lab20;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab21: do {
+          lab21: {
             if (!this.eq_s_b('\u0BC1\u0B9F\u0BC8')) {
               break lab21;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab22: do {
+          lab22: {
             if (!this.eq_s_b('\u0BBE\u0BAE\u0BB2\u0BCD')) {
               break lab22;
             }
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
-          lab23: do {
+          lab23: {
             if (!this.eq_s_b('\u0BB2\u0BCD')) {
               break lab23;
             }
             v_13 = this.limit - this.cursor;
             {
               v_14 = this.limit - this.cursor;
-              lab24: do {
+              lab24: {
                 if (this.find_among_b(StemmerTa.a_20) === 0) {
                   break lab24;
                 }
                 break lab23;
-              } while (false);
+              }
               this.cursor = this.limit - v_14;
             }
             this.cursor = this.limit - v_13;
             break lab9;
-          } while (false);
+          }
           this.cursor = this.limit - v_10;
           if (!this.eq_s_b('\u0BC1\u0BB3\u0BCD')) {
             break lab8;
           }
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_from('\u0BCD');
         this.cursor = this.limit - v_9;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
-      lab25: do {
+      lab25: {
         v_15 = this.limit - this.cursor;
         this.ket = this.cursor;
-        lab26: do {
+        lab26: {
           v_16 = this.limit - this.cursor;
-          lab27: do {
+          lab27: {
             if (!this.eq_s_b('\u0B95\u0BA3\u0BCD')) {
               break lab27;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
-          lab28: do {
+          lab28: {
             if (!this.eq_s_b('\u0BAE\u0BC1\u0BA9\u0BCD')) {
               break lab28;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
-          lab29: do {
+          lab29: {
             if (!this.eq_s_b('\u0BAE\u0BC7\u0BB2\u0BCD')) {
               break lab29;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
-          lab30: do {
+          lab30: {
             if (!this.eq_s_b('\u0BAE\u0BC7\u0BB1\u0BCD')) {
               break lab30;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
-          lab31: do {
+          lab31: {
             if (!this.eq_s_b('\u0B95\u0BC0\u0BB4\u0BCD')) {
               break lab31;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
-          lab32: do {
+          lab32: {
             if (!this.eq_s_b('\u0BAA\u0BBF\u0BA9\u0BCD')) {
               break lab32;
             }
             break lab26;
-          } while (false);
+          }
           this.cursor = this.limit - v_16;
           if (!this.eq_s_b('\u0BA4\u0BC1')) {
             break lab25;
@@ -1081,21 +1079,21 @@ class StemmerTa extends BaseStemmer {
           v_17 = this.limit - this.cursor;
           {
             v_18 = this.limit - this.cursor;
-            lab33: do {
+            lab33: {
               if (this.find_among_b(StemmerTa.a_21) === 0) {
                 break lab33;
               }
               break lab25;
-            } while (false);
+            }
             this.cursor = this.limit - v_18;
           }
           this.cursor = this.limit - v_17;
-        } while (false);
+        }
         this.bra = this.cursor;
         this.slice_del();
         this.cursor = this.limit - v_15;
         break lab0;
-      } while (false);
+      }
       this.cursor = this.limit - v_1;
       v_19 = this.limit - this.cursor;
       this.ket = this.cursor;
@@ -1105,26 +1103,26 @@ class StemmerTa extends BaseStemmer {
       this.bra = this.cursor;
       this.slice_from('\u0BBF');
       this.cursor = this.limit - v_19;
-    } while (false);
+    }
     this.B_found_a_match = true;
     this.B_found_vetrumai_urupu = true;
     v_20 = this.limit - this.cursor;
-    lab34: do {
+    lab34: {
       this.ket = this.cursor;
       if (!this.eq_s_b('\u0BBF\u0BA9\u0BCD')) {
         break lab34;
       }
       this.bra = this.cursor;
       this.slice_from('\u0BCD');
-    } while (false);
+    }
     this.cursor = this.limit - v_20;
     this.cursor = this.limit_backward;
     v_21 = this.cursor;
-    lab35: do {
+    lab35: {
       if (!this.r_fix_endings()) {
         break lab35;
       }
-    } while (false);
+    }
     this.cursor = v_21;
     return true;
   }
@@ -1132,21 +1130,21 @@ class StemmerTa extends BaseStemmer {
     let v_1;
     let v_2;
     this.B_found_a_match = true;
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
-      lab1: do {
+      lab1: {
         if (!this.B_found_a_match) {
           break lab1;
         }
         v_2 = this.cursor;
-        lab2: do {
+        lab2: {
           if (!this.r_remove_tense_suffix()) {
             break lab2;
           }
-        } while (false);
+        }
         this.cursor = v_2;
         continue replab0;
-      } while (false);
+      }
       this.cursor = v_1;
       break replab0;
     }
@@ -1178,10 +1176,10 @@ class StemmerTa extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     v_1 = this.limit - this.cursor;
-    lab0: do {
-      lab1: do {
+    lab0: {
+      lab1: {
         v_2 = this.limit - this.cursor;
-        lab2: do {
+        lab2: {
           v_3 = this.limit - this.cursor;
           this.ket = this.cursor;
           if (this.find_among_b(StemmerTa.a_22) === 0) {
@@ -1192,406 +1190,406 @@ class StemmerTa extends BaseStemmer {
           this.B_found_a_match = true;
           this.cursor = this.limit - v_3;
           break lab1;
-        } while (false);
+        }
         this.cursor = this.limit - v_2;
-        lab3: do {
+        lab3: {
           v_4 = this.limit - this.cursor;
           this.ket = this.cursor;
-          lab4: do {
+          lab4: {
             v_5 = this.limit - this.cursor;
-            lab5: do {
+            lab5: {
               if (!this.eq_s_b('\u0BAE\u0BBE\u0BB0\u0BCD')) {
                 break lab5;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab6: do {
+            lab6: {
               if (!this.eq_s_b('\u0BAE\u0BBF\u0BA9\u0BCD')) {
                 break lab6;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab7: do {
+            lab7: {
               if (!this.eq_s_b('\u0BA9\u0BA9\u0BCD')) {
                 break lab7;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab8: do {
+            lab8: {
               if (!this.eq_s_b('\u0BA9\u0BBE\u0BA9\u0BCD')) {
                 break lab8;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab9: do {
+            lab9: {
               if (!this.eq_s_b('\u0BA9\u0BBE\u0BB3\u0BCD')) {
                 break lab9;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab10: do {
+            lab10: {
               if (!this.eq_s_b('\u0BA9\u0BBE\u0BB0\u0BCD')) {
                 break lab10;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab11: do {
+            lab11: {
               if (!this.eq_s_b('\u0BB5\u0BA9\u0BCD')) {
                 break lab11;
               }
               v_6 = this.limit - this.cursor;
               {
                 v_7 = this.limit - this.cursor;
-                lab12: do {
+                lab12: {
                   if (this.find_among_b(StemmerTa.a_23) === 0) {
                     break lab12;
                   }
                   break lab11;
-                } while (false);
+                }
                 this.cursor = this.limit - v_7;
               }
               this.cursor = this.limit - v_6;
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab13: do {
+            lab13: {
               if (!this.eq_s_b('\u0BA9\u0BB3\u0BCD')) {
                 break lab13;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab14: do {
+            lab14: {
               if (!this.eq_s_b('\u0BB5\u0BB3\u0BCD')) {
                 break lab14;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab15: do {
+            lab15: {
               if (!this.eq_s_b('\u0BA9\u0BB0\u0BCD')) {
                 break lab15;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab16: do {
+            lab16: {
               if (!this.eq_s_b('\u0BB5\u0BB0\u0BCD')) {
                 break lab16;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab17: do {
+            lab17: {
               if (!this.eq_s_b('\u0BA9')) {
                 break lab17;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab18: do {
+            lab18: {
               if (!this.eq_s_b('\u0BAA')) {
                 break lab18;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab19: do {
+            lab19: {
               if (!this.eq_s_b('\u0B95')) {
                 break lab19;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab20: do {
+            lab20: {
               if (!this.eq_s_b('\u0BA4')) {
                 break lab20;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab21: do {
+            lab21: {
               if (!this.eq_s_b('\u0BAF')) {
                 break lab21;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab22: do {
+            lab22: {
               if (!this.eq_s_b('\u0BAA\u0BA9\u0BCD')) {
                 break lab22;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab23: do {
+            lab23: {
               if (!this.eq_s_b('\u0BAA\u0BB3\u0BCD')) {
                 break lab23;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab24: do {
+            lab24: {
               if (!this.eq_s_b('\u0BAA\u0BB0\u0BCD')) {
                 break lab24;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab25: do {
+            lab25: {
               if (!this.eq_s_b('\u0BA4\u0BC1')) {
                 break lab25;
               }
               v_8 = this.limit - this.cursor;
               {
                 v_9 = this.limit - this.cursor;
-                lab26: do {
+                lab26: {
                   if (this.find_among_b(StemmerTa.a_24) === 0) {
                     break lab26;
                   }
                   break lab25;
-                } while (false);
+                }
                 this.cursor = this.limit - v_9;
               }
               this.cursor = this.limit - v_8;
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab27: do {
+            lab27: {
               if (!this.eq_s_b('\u0BBF\u0BB1\u0BCD\u0BB1\u0BC1')) {
                 break lab27;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab28: do {
+            lab28: {
               if (!this.eq_s_b('\u0BAA\u0BAE\u0BCD')) {
                 break lab28;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab29: do {
+            lab29: {
               if (!this.eq_s_b('\u0BA9\u0BAE\u0BCD')) {
                 break lab29;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab30: do {
+            lab30: {
               if (!this.eq_s_b('\u0BA4\u0BC1\u0BAE\u0BCD')) {
                 break lab30;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab31: do {
+            lab31: {
               if (!this.eq_s_b('\u0BB1\u0BC1\u0BAE\u0BCD')) {
                 break lab31;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab32: do {
+            lab32: {
               if (!this.eq_s_b('\u0B95\u0BC1\u0BAE\u0BCD')) {
                 break lab32;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab33: do {
+            lab33: {
               if (!this.eq_s_b('\u0BA9\u0BC6\u0BA9\u0BCD')) {
                 break lab33;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
-            lab34: do {
+            lab34: {
               if (!this.eq_s_b('\u0BA9\u0BC8')) {
                 break lab34;
               }
               break lab4;
-            } while (false);
+            }
             this.cursor = this.limit - v_5;
             if (!this.eq_s_b('\u0BB5\u0BC8')) {
               break lab3;
             }
-          } while (false);
+          }
           this.bra = this.cursor;
           this.slice_del();
           this.B_found_a_match = true;
           this.cursor = this.limit - v_4;
           break lab1;
-        } while (false);
+        }
         this.cursor = this.limit - v_2;
-        lab35: do {
+        lab35: {
           v_10 = this.limit - this.cursor;
           this.ket = this.cursor;
-          lab36: do {
+          lab36: {
             v_11 = this.limit - this.cursor;
-            lab37: do {
+            lab37: {
               if (!this.eq_s_b('\u0BBE\u0BA9\u0BCD')) {
                 break lab37;
               }
               v_12 = this.limit - this.cursor;
               {
                 v_13 = this.limit - this.cursor;
-                lab38: do {
+                lab38: {
                   if (!this.eq_s_b('\u0B9A')) {
                     break lab38;
                   }
                   break lab37;
-                } while (false);
+                }
                 this.cursor = this.limit - v_13;
               }
               this.cursor = this.limit - v_12;
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab39: do {
+            lab39: {
               if (!this.eq_s_b('\u0BBE\u0BB3\u0BCD')) {
                 break lab39;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab40: do {
+            lab40: {
               if (!this.eq_s_b('\u0BBE\u0BB0\u0BCD')) {
                 break lab40;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab41: do {
+            lab41: {
               if (!this.eq_s_b('\u0BC7\u0BA9\u0BCD')) {
                 break lab41;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab42: do {
+            lab42: {
               if (!this.eq_s_b('\u0BBE')) {
                 break lab42;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab43: do {
+            lab43: {
               if (!this.eq_s_b('\u0BBE\u0BAE\u0BCD')) {
                 break lab43;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab44: do {
+            lab44: {
               if (!this.eq_s_b('\u0BC6\u0BAE\u0BCD')) {
                 break lab44;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab45: do {
+            lab45: {
               if (!this.eq_s_b('\u0BC7\u0BAE\u0BCD')) {
                 break lab45;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab46: do {
+            lab46: {
               if (!this.eq_s_b('\u0BCB\u0BAE\u0BCD')) {
                 break lab46;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab47: do {
+            lab47: {
               if (!this.eq_s_b('\u0B95\u0BC1\u0BAE\u0BCD')) {
                 break lab47;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab48: do {
+            lab48: {
               if (!this.eq_s_b('\u0BA4\u0BC1\u0BAE\u0BCD')) {
                 break lab48;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab49: do {
+            lab49: {
               if (!this.eq_s_b('\u0B9F\u0BC1\u0BAE\u0BCD')) {
                 break lab49;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab50: do {
+            lab50: {
               if (!this.eq_s_b('\u0BB1\u0BC1\u0BAE\u0BCD')) {
                 break lab50;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab51: do {
+            lab51: {
               if (!this.eq_s_b('\u0BBE\u0BAF\u0BCD')) {
                 break lab51;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab52: do {
+            lab52: {
               if (!this.eq_s_b('\u0BA9\u0BC6\u0BA9\u0BCD')) {
                 break lab52;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab53: do {
+            lab53: {
               if (!this.eq_s_b('\u0BA9\u0BBF\u0BB0\u0BCD')) {
                 break lab53;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
-            lab54: do {
+            lab54: {
               if (!this.eq_s_b('\u0BC0\u0BB0\u0BCD')) {
                 break lab54;
               }
               break lab36;
-            } while (false);
+            }
             this.cursor = this.limit - v_11;
             if (!this.eq_s_b('\u0BC0\u0BAF\u0BB0\u0BCD')) {
               break lab35;
             }
-          } while (false);
+          }
           this.bra = this.cursor;
           this.slice_from('\u0BCD');
           this.B_found_a_match = true;
           this.cursor = this.limit - v_10;
           break lab1;
-        } while (false);
+        }
         this.cursor = this.limit - v_2;
         v_14 = this.limit - this.cursor;
         this.ket = this.cursor;
-        lab55: do {
+        lab55: {
           v_15 = this.limit - this.cursor;
-          lab56: do {
+          lab56: {
             if (!this.eq_s_b('\u0B95\u0BC1')) {
               break lab56;
             }
             break lab55;
-          } while (false);
+          }
           this.cursor = this.limit - v_15;
           if (!this.eq_s_b('\u0BA4\u0BC1')) {
             break lab0;
           }
-        } while (false);
+        }
         v_16 = this.limit - this.cursor;
         if (!this.eq_s_b('\u0BCD')) {
           break lab0;
@@ -1601,11 +1599,11 @@ class StemmerTa extends BaseStemmer {
         this.slice_del();
         this.B_found_a_match = true;
         this.cursor = this.limit - v_14;
-      } while (false);
-    } while (false);
+      }
+    }
     this.cursor = this.limit - v_1;
     v_17 = this.limit - this.cursor;
-    lab57: do {
+    lab57: {
       this.ket = this.cursor;
       if (this.find_among_b(StemmerTa.a_25) === 0) {
         break lab57;
@@ -1613,15 +1611,15 @@ class StemmerTa extends BaseStemmer {
       this.bra = this.cursor;
       this.slice_del();
       this.B_found_a_match = true;
-    } while (false);
+    }
     this.cursor = this.limit - v_17;
     this.cursor = this.limit_backward;
     v_18 = this.cursor;
-    lab58: do {
+    lab58: {
       if (!this.r_fix_endings()) {
         break lab58;
       }
-    } while (false);
+    }
     this.cursor = v_18;
     return true;
   }
@@ -1638,77 +1636,77 @@ class StemmerTa extends BaseStemmer {
     let v_10;
     this.B_found_vetrumai_urupu = false;
     v_1 = this.cursor;
-    lab0: do {
+    lab0: {
       if (!this.r_fix_ending()) {
         break lab0;
       }
-    } while (false);
+    }
     this.cursor = v_1;
     if (!this.r_has_min_length()) {
       return false;
     }
     v_2 = this.cursor;
-    lab1: do {
+    lab1: {
       if (!this.r_remove_question_prefixes()) {
         break lab1;
       }
-    } while (false);
+    }
     this.cursor = v_2;
     v_3 = this.cursor;
-    lab2: do {
+    lab2: {
       if (!this.r_remove_pronoun_prefixes()) {
         break lab2;
       }
-    } while (false);
+    }
     this.cursor = v_3;
     v_4 = this.cursor;
-    lab3: do {
+    lab3: {
       if (!this.r_remove_question_suffixes()) {
         break lab3;
       }
-    } while (false);
+    }
     this.cursor = v_4;
     v_5 = this.cursor;
-    lab4: do {
+    lab4: {
       if (!this.r_remove_um()) {
         break lab4;
       }
-    } while (false);
+    }
     this.cursor = v_5;
     v_6 = this.cursor;
-    lab5: do {
+    lab5: {
       if (!this.r_remove_common_word_endings()) {
         break lab5;
       }
-    } while (false);
+    }
     this.cursor = v_6;
     v_7 = this.cursor;
-    lab6: do {
+    lab6: {
       if (!this.r_remove_vetrumai_urupukal()) {
         break lab6;
       }
-    } while (false);
+    }
     this.cursor = v_7;
     v_8 = this.cursor;
-    lab7: do {
+    lab7: {
       if (!this.r_remove_plural_suffix()) {
         break lab7;
       }
-    } while (false);
+    }
     this.cursor = v_8;
     v_9 = this.cursor;
-    lab8: do {
+    lab8: {
       if (!this.r_remove_command_suffixes()) {
         break lab8;
       }
-    } while (false);
+    }
     this.cursor = v_9;
     v_10 = this.cursor;
-    lab9: do {
+    lab9: {
       if (!this.r_remove_tense_suffixes()) {
         break lab9;
       }
-    } while (false);
+    }
     this.cursor = v_10;
     return true;
   }

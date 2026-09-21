@@ -1,6 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
 
-/* oxlint-disable */
 class StemmerDe extends BaseStemmer {
   declare I_p1: number;
   declare I_p2: number;
@@ -40,7 +39,7 @@ class StemmerDe extends BaseStemmer {
     // test, line 35
     v_1 = this.cursor;
     // repeat, line 35
-    replab0: while (true) {
+    replab0: for (;;) {
       v_2 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
@@ -83,13 +82,13 @@ class StemmerDe extends BaseStemmer {
     }
     this.cursor = v_1;
     // repeat, line 41
-    replab4: while (true) {
+    replab4: for (;;) {
       v_4 = this.cursor;
       let lab5 = true;
       lab5: while (lab5 == true) {
         lab5 = false;
         // goto, line 41
-        golab6: while (true) {
+        golab6: for (;;) {
           v_5 = this.cursor;
           let lab7 = true;
           lab7: while (lab7 == true) {
@@ -177,7 +176,7 @@ class StemmerDe extends BaseStemmer {
     this.I_x = this.cursor;
     this.cursor = v_1;
     // gopast, line 54
-    golab0: while (true) {
+    golab0: for (;;) {
       let lab1 = true;
       while (lab1 == true) {
         lab1 = false;
@@ -192,7 +191,7 @@ class StemmerDe extends BaseStemmer {
       this.cursor++;
     }
     // gopast, line 54
-    golab2: while (true) {
+    golab2: for (;;) {
       let lab3 = true;
       while (lab3 == true) {
         lab3 = false;
@@ -219,7 +218,7 @@ class StemmerDe extends BaseStemmer {
       this.I_p1 = this.I_x;
     }
     // gopast, line 56
-    golab5: while (true) {
+    golab5: for (;;) {
       let lab6 = true;
       while (lab6 == true) {
         lab6 = false;
@@ -234,7 +233,7 @@ class StemmerDe extends BaseStemmer {
       this.cursor++;
     }
     // gopast, line 56
-    golab7: while (true) {
+    golab7: for (;;) {
       let lab8 = true;
       while (lab8 == true) {
         lab8 = false;
@@ -257,7 +256,7 @@ class StemmerDe extends BaseStemmer {
     let among_var;
     let v_1;
     // repeat, line 60
-    replab0: while (true) {
+    replab0: for (;;) {
       v_1 = this.cursor;
       let lab1 = true;
       lab1: while (lab1 == true) {
