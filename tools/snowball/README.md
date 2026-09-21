@@ -50,6 +50,9 @@ Put the `.sbl` in `tools/snowball/algorithms/`, add an entry to `STEMMERS` in `b
 
 - A routine is a method, and `stem` is `innerStem`. Variables are fields (`I_p1`, `B_Y_found`).
 - A command that can fail is a labelled block, and the failure is a `break` out of it.
+- The shapes that repeat are calls of the runtime: `[substring]` is `find_slice`, `do <rule>` is
+  `do_backward(this.r_Step_2)`, and an `or` of tests that leave the cursor alone, or a `not` of one,
+  is a single condition (`!this.eq_s_b('y') && !this.eq_s_b('Y')`).
 - `gopast` and `goto` on a grouping are calls (`gopast_in_grouping`, `goto_out_grouping_b`).
 - A routine that ends on a test returns it, and one that only tests a region (`R1`, `R2`, `RV`) is
   left out, because `SnowballStemmer` has it.

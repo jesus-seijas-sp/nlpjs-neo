@@ -272,6 +272,11 @@ class Generator {
     }
   }
 
+  /** Whether a line of code fits the width the formatter keeps, at the current indent. */
+  private fits(text: string): boolean {
+    return '  '.repeat(this.depth).length + text.length <= WIDTH;
+  }
+
   /** Whether a chain of commands may leave the cursor somewhere new, so it has to be kept. */
   private keepNeeded(nodes: Node[], depth = 0): boolean {
     return nodes.some((node) => this.keepNeededNode(node, depth));
@@ -648,11 +653,32 @@ class Generator {
 
   private genSeq(items: Node[], tail: boolean): void {
     for (let i = 0; i < items.length; i++) {
-      this.gen(items[i], tail && i === items.length - 1);
+      const [first, second, third] = [items[i], items[i + 1], items[i + 2]];
+      if (
+        first.t === 'leftslice' &&
+        second?.t === 'substring' &&
+        third?.t === 'rightslice' &&
+        this.sliceable(second)
+      ) {
+        // `[substring]` marks the slice around what the among matches.
+        this.genSubstring(second, true);
+        i += 2;
+      } else {
+        this.gen(first, tail && i === items.length - 1);
+      }
       if (this.unreachable) {
         break;
       }
     }
+  }
+
+  /** Whether a `substring` looks its among up in a table, rather than being one string. */
+  private sliceable(node: Node): boolean {
+    return (
+      node.t === 'substring' &&
+      node.among?.t === 'among' &&
+      node.among.entries.length > 1
+    );
   }
 
   /** A test that a routine can end on, as `return this.eq_s('x');`. */
@@ -918,7 +944,91 @@ class Generator {
     });
   }
 
+  /**
+   * A command that is one test with nothing to undo, as the expression that is
+   * true when it succeeds and the one that is true when it fails.
+   */
+  private atom(node: Node): { yes: string; no: string } | undefined {
+    const b = node.mode === 'forward' ? '' : '_b';
+    const plain = (yes: string) => ({ yes, no: `!${yes}` });
+    switch (node.t) {
+      case 'lit':
+        return plain(`this.eq_s${b}(${quote(node.s)})`);
+      case 'str':
+        return plain(`this.eq_s${b}(${this.field('S', node.name)})`);
+      case 'grouping':
+      case 'non': {
+        const { table, min, max } = this.groupingRange(node.name);
+        const io = node.t === 'grouping' ? 'in' : 'out';
+        return plain(`this.${io}_grouping${b}(${table}, ${min}, ${max})`);
+      }
+      case 'booltest':
+        return {
+          yes: this.field('B', node.name),
+          no: `!${this.field('B', node.name)}`,
+        };
+      case 'notbooltest':
+        return {
+          yes: `!${this.field('B', node.name)}`,
+          no: this.field('B', node.name),
+        };
+      case 'cmp': {
+        const l = this.aeTop(node.l);
+        const r = this.aeTop(node.r);
+        const show = (op: RelOp) =>
+          op === '==' ? '===' : op === '!=' ? '!==' : op;
+        return {
+          yes: `${l} ${show(node.op)} ${r}`,
+          no: `${l} ${show(this.invert(node.op))} ${r}`,
+        };
+      }
+      case 'call':
+        return this.signalOfRoutine(node.name) === -1 &&
+          !this.keepNeededOnFail(node)
+          ? plain(`this.${this.methodOf(node.name)}()`)
+          : undefined;
+      case 'among': {
+        if (node.substring || node.entries.length < 2) {
+          return undefined;
+        }
+        const table = this.amongOf(node);
+        if (table.actions.length > 0 || table.alwaysMatches) {
+          return undefined;
+        }
+        const call = `this.find_among${table.backward ? '_b' : ''}(${this.options.className}.${table.name})`;
+        return { yes: `${call} !== 0`, no: `${call} === 0` };
+      }
+      default:
+        return undefined;
+    }
+  }
+
   private genOr(node: Listed, tail: boolean): void {
+    const atoms = node.items.map((item) => this.atom(item));
+    const lead = atoms.slice(0, -1);
+    if (lead.every((atom) => atom !== undefined)) {
+      const failed = (lead as { yes: string; no: string }[])
+        .map((atom) => atom.no)
+        .join(' && ');
+      const last = atoms[atoms.length - 1];
+      if (last) {
+        // Every alternative is one test that leaves the cursor alone when it fails.
+        const all = atoms as { yes: string; no: string }[];
+        const yes = all.map((atom) => atom.yes).join(' || ');
+        const no = all.map((atom) => atom.no).join(' && ');
+        if (this.fits(`if (${no}) {`)) {
+          this.test(yes, no, tail);
+          return;
+        }
+      } else if (this.fits(`if (${failed}) {`)) {
+        // Tests that leave the cursor alone, then a command to try if none passes.
+        this.open(`if (${failed}) {`);
+        this.gen(node.items[node.items.length - 1]);
+        this.close();
+        this.unreachable = false;
+        return;
+      }
+    }
     const save = this.keepForOr(node.items)
       ? this.saveCursor(node.mode)
       : undefined;
@@ -953,6 +1063,12 @@ class Generator {
   }
 
   private genNot(node: Wrapped): void {
+    // Not of one test: the failure is the test itself.
+    const atom = this.atom(node.c);
+    if (atom) {
+      this.ifFail(atom.yes);
+      return;
+    }
     const save = this.keepNeededOnFail(node.c)
       ? this.saveCursor(node.mode)
       : undefined;
@@ -998,6 +1114,12 @@ class Generator {
     const save = this.keepNeeded([node.c])
       ? this.saveCursor(node.mode)
       : undefined;
+    if (node.c.t === 'call' && save) {
+      // A rule whose cursor has to be put back, run by the runtime.
+      const direction = node.mode === 'forward' ? 'forward' : 'backward';
+      this.line(`this.do_${direction}(this.${this.methodOf(node.c.name)});`);
+      return;
+    }
     if (save) {
       this.line(save.decl);
     }
@@ -1178,8 +1300,8 @@ class Generator {
     }
   }
 
-  private genSubstring(node: Node & { t: 'substring' }): void {
-    const among = node.among;
+  private genSubstring(node: Node, slice = false): void {
+    const among = node.t === 'substring' ? node.among : undefined;
     if (!among || among.t !== 'among') {
       throw new Error(`substring without among at line ${node.line}`);
     }
@@ -1202,7 +1324,8 @@ class Generator {
     }
     const table = this.amongOf(among);
     const b = table.backward ? '_b' : '';
-    const call = `this.find_among${b}(${this.options.className}.${table.name})`;
+    const lookup = slice ? 'find_slice' : 'find_among';
+    const call = `this.${lookup}${b}(${this.options.className}.${table.name})`;
     if (table.actions.length === 0) {
       if (!table.alwaysMatches) {
         this.ifFail(`${call} === 0`);

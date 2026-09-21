@@ -1,4 +1,4 @@
-import { BaseStemmer } from '../src/index.js';
+import { Among, BaseStemmer } from '../src/index.js';
 
 /** A grouping table over the characters min to max, as Snowball builds it. */
 function grouping(chars: string, min: number, max: number): number[] {
@@ -91,5 +91,39 @@ describe('BaseStemmer scanning', () => {
       expect(none.goto_in_grouping_b(vowels, MIN, MAX)).toBe(false);
       expect(none.cursor).toBe(2);
     });
+  });
+});
+
+describe('BaseStemmer slices and do', () => {
+  const forward = [new Among('ab', -1, 1), new Among('abc', 0, 2)];
+  const backward = [new Among('c', -1, 1), new Among('bc', 0, 2)];
+
+  test('It should mark the slice of the longest string that matches', () => {
+    const stemmer = stemmerAt('abcd', 0);
+    expect(stemmer.find_slice(forward)).toBe(2);
+    expect([stemmer.bra, stemmer.ket, stemmer.cursor]).toEqual([0, 3, 3]);
+  });
+  test('It should mark the slice backwards from the cursor', () => {
+    const stemmer = stemmerAt('abc', 3);
+    expect(stemmer.find_slice_b(backward)).toBe(2);
+    expect([stemmer.bra, stemmer.ket, stemmer.cursor]).toEqual([1, 3, 1]);
+  });
+  test('It should answer 0 and leave the far end of the slice alone', () => {
+    const stemmer = stemmerAt('xyz', 0);
+    stemmer.ket = 7;
+    expect(stemmer.find_slice(forward)).toBe(0);
+    expect(stemmer.ket).toBe(7);
+  });
+  test('It should run a rule and put the cursor back, forward or backward', () => {
+    const move = function (this: BaseStemmer) {
+      this.cursor = 1;
+      return false;
+    };
+    const forwards = stemmerAt('abcd', 2);
+    forwards.do_forward(move);
+    expect(forwards.cursor).toBe(2);
+    const backwards = stemmerAt('abcd', 3);
+    backwards.do_backward(move);
+    expect(backwards.cursor).toBe(3);
   });
 });

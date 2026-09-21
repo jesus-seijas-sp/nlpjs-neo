@@ -51,3 +51,6 @@ each time: `gopast_in_grouping`, `gopast_out_grouping`, `goto_in_grouping` and
 The English stemmer is now generated from `tools/snowball/algorithms/english.sbl` by `tools/snowball`
 (`pnpm stemmers`), and `StemmerEn` extends the generated class with the tokenizer. What
 it answers does not change.
+
+`BaseStemmer` also has `find_slice` and `find_slice_b` for `[substring]`, and `do_forward`
+and `do_backward` to run a rule and put the cursor back.

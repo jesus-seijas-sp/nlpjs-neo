@@ -284,6 +284,43 @@ class BaseStemmer {
     }
   }
 
+  /**
+   * `[substring]`, looking forward: marks where the among starts (`bra`) and
+   * where it ends (`ket`), and answers which string it found, 0 when none.
+   */
+  find_slice(v: Among[]): number {
+    this.bra = this.cursor;
+    const found = this.find_among(v);
+    if (found !== 0) {
+      this.ket = this.cursor;
+    }
+    return found;
+  }
+
+  /** `[substring]` in backwardmode: `ket` is where the match ends, `bra` where it starts. */
+  find_slice_b(v: Among[]): number {
+    this.ket = this.cursor;
+    const found = this.find_among_b(v);
+    if (found !== 0) {
+      this.bra = this.cursor;
+    }
+    return found;
+  }
+
+  /** `do <rule>`, looking forward: runs the rule and puts the cursor back, whatever it answers. */
+  do_forward(rule: () => unknown): void {
+    const start = this.cursor;
+    rule.call(this);
+    this.cursor = start;
+  }
+
+  /** `do <rule>` in backwardmode, where the cursor is kept as its distance from the limit. */
+  do_backward(rule: () => unknown): void {
+    const fromEnd = this.limit - this.cursor;
+    rule.call(this);
+    this.cursor = this.limit - fromEnd;
+  }
+
   eq_s(s_size: number | string, s?: string): boolean {
     if (typeof s_size === 'string') {
       s = s_size;

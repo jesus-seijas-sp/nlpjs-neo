@@ -79,15 +79,7 @@ class SnowballStemmerEn extends SnowballStemmer {
     this.I_p2 = this.limit;
     const v_1 = this.cursor;
     lab0: {
-      lab1: {
-        const v_2 = this.cursor;
-        lab2: {
-          if (this.find_among(SnowballStemmerEn.a_0) === 0) {
-            break lab2;
-          }
-          break lab1;
-        }
-        this.cursor = v_2;
+      if (this.find_among(SnowballStemmerEn.a_0) === 0) {
         if (!this.gopast_in_grouping(SnowballStemmerEn.g_v, 97, 121)) {
           break lab0;
         }
@@ -139,25 +131,21 @@ class SnowballStemmerEn extends SnowballStemmer {
     let among_var: number;
     const v_1 = this.limit - this.cursor;
     lab0: {
-      this.ket = this.cursor;
-      among_var = this.find_among_b(SnowballStemmerEn.a_1);
+      among_var = this.find_slice_b(SnowballStemmerEn.a_1);
       if (among_var === 0) {
         this.cursor = this.limit - v_1;
         break lab0;
       }
-      this.bra = this.cursor;
       switch (among_var) {
         case 1:
           this.slice_del();
           break;
       }
     }
-    this.ket = this.cursor;
-    among_var = this.find_among_b(SnowballStemmerEn.a_2);
+    among_var = this.find_slice_b(SnowballStemmerEn.a_2);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         this.slice_from('ss');
@@ -193,12 +181,10 @@ class SnowballStemmerEn extends SnowballStemmer {
 
   r_Step_1b(): boolean {
     let among_var: number;
-    this.ket = this.cursor;
-    among_var = this.find_among_b(SnowballStemmerEn.a_3);
+    among_var = this.find_slice_b(SnowballStemmerEn.a_3);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -255,25 +241,14 @@ class SnowballStemmerEn extends SnowballStemmer {
 
   r_Step_1c(): boolean {
     this.ket = this.cursor;
-    lab0: {
-      lab1: {
-        if (!this.eq_s_b('y')) {
-          break lab1;
-        }
-        break lab0;
-      }
-      if (!this.eq_s_b('Y')) {
-        return false;
-      }
+    if (!this.eq_s_b('y') && !this.eq_s_b('Y')) {
+      return false;
     }
     this.bra = this.cursor;
     if (!this.out_grouping_b(SnowballStemmerEn.g_v, 97, 121)) {
       return false;
     }
-    lab2: {
-      if (this.cursor > this.limit_backward) {
-        break lab2;
-      }
+    if (this.cursor <= this.limit_backward) {
       return false;
     }
     this.slice_from('i');
@@ -281,12 +256,10 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_Step_2(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(SnowballStemmerEn.a_5);
+    const among_var = this.find_slice_b(SnowballStemmerEn.a_5);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
@@ -347,12 +320,10 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_Step_3(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(SnowballStemmerEn.a_6);
+    const among_var = this.find_slice_b(SnowballStemmerEn.a_6);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
@@ -383,12 +354,10 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_Step_4(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(SnowballStemmerEn.a_7);
+    const among_var = this.find_slice_b(SnowballStemmerEn.a_7);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R2()) {
       return false;
     }
@@ -397,16 +366,8 @@ class SnowballStemmerEn extends SnowballStemmer {
         this.slice_del();
         break;
       case 2:
-        lab0: {
-          lab1: {
-            if (!this.eq_s_b('s')) {
-              break lab1;
-            }
-            break lab0;
-          }
-          if (!this.eq_s_b('t')) {
-            return false;
-          }
+        if (!this.eq_s_b('s') && !this.eq_s_b('t')) {
+          return false;
         }
         this.slice_del();
         break;
@@ -415,29 +376,21 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_Step_5(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(SnowballStemmerEn.a_8);
+    const among_var = this.find_slice_b(SnowballStemmerEn.a_8);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
-        lab0: {
-          lab1: {
-            if (!this.r_R2()) {
-              break lab1;
-            }
-            break lab0;
-          }
+        if (!this.r_R2()) {
           if (!this.r_R1()) {
             return false;
           }
           {
             const v_1 = this.limit - this.cursor;
-            lab2: {
+            lab0: {
               if (!this.r_shortv()) {
-                break lab2;
+                break lab0;
               }
               return false;
             }
@@ -460,11 +413,9 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_exception2(): boolean {
-    this.ket = this.cursor;
-    if (this.find_among_b(SnowballStemmerEn.a_9) === 0) {
+    if (this.find_slice_b(SnowballStemmerEn.a_9) === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (this.cursor > this.limit_backward) {
       return false;
     }
@@ -472,12 +423,10 @@ class SnowballStemmerEn extends SnowballStemmer {
   }
 
   r_exception1(): boolean {
-    this.bra = this.cursor;
-    const among_var = this.find_among(SnowballStemmerEn.a_10);
+    const among_var = this.find_slice(SnowballStemmerEn.a_10);
     if (among_var === 0) {
       return false;
     }
-    this.ket = this.cursor;
     if (this.cursor < this.limit) {
       return false;
     }
@@ -577,9 +526,7 @@ class SnowballStemmerEn extends SnowballStemmer {
       this.r_mark_regions();
       this.limit_backward = this.cursor;
       this.cursor = this.limit;
-      const v_2 = this.limit - this.cursor;
-      this.r_Step_1a();
-      this.cursor = this.limit - v_2;
+      this.do_backward(this.r_Step_1a);
       lab4: {
         const v_3 = this.limit - this.cursor;
         lab5: {
@@ -589,29 +536,15 @@ class SnowballStemmerEn extends SnowballStemmer {
           break lab4;
         }
         this.cursor = this.limit - v_3;
-        const v_4 = this.limit - this.cursor;
-        this.r_Step_1b();
-        this.cursor = this.limit - v_4;
-        const v_5 = this.limit - this.cursor;
-        this.r_Step_1c();
-        this.cursor = this.limit - v_5;
-        const v_6 = this.limit - this.cursor;
-        this.r_Step_2();
-        this.cursor = this.limit - v_6;
-        const v_7 = this.limit - this.cursor;
-        this.r_Step_3();
-        this.cursor = this.limit - v_7;
-        const v_8 = this.limit - this.cursor;
-        this.r_Step_4();
-        this.cursor = this.limit - v_8;
-        const v_9 = this.limit - this.cursor;
-        this.r_Step_5();
-        this.cursor = this.limit - v_9;
+        this.do_backward(this.r_Step_1b);
+        this.do_backward(this.r_Step_1c);
+        this.do_backward(this.r_Step_2);
+        this.do_backward(this.r_Step_3);
+        this.do_backward(this.r_Step_4);
+        this.do_backward(this.r_Step_5);
       }
       this.cursor = this.limit_backward;
-      const v_10 = this.cursor;
-      this.r_postlude();
-      this.cursor = v_10;
+      this.do_forward(this.r_postlude);
     }
     return true;
   }
