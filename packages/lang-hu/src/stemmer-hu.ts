@@ -29,7 +29,6 @@ class StemmerHu extends SnowballStemmer {
 
   r_mark_regions() {
     let v_1;
-    let v_2;
     let v_3;
     this.I_p1 = this.limit;
     // or
@@ -40,20 +39,8 @@ class StemmerHu extends SnowballStemmer {
           break lab1;
         }
         // goto
-        golab2: for (;;) {
-          v_2 = this.cursor;
-          lab3: {
-            if (!this.out_grouping(StemmerHu.g_v, 97, 252)) {
-              break lab3;
-            }
-            this.cursor = v_2;
-            break golab2;
-          }
-          this.cursor = v_2;
-          if (this.cursor >= this.limit) {
-            break lab1;
-          }
-          this.cursor++;
+        if (!this.goto_out_grouping(StemmerHu.g_v, 97, 252)) {
+          break lab1;
         }
         // or
         lab4: {
@@ -78,17 +65,8 @@ class StemmerHu extends SnowballStemmer {
         return false;
       }
       // gopast
-      golab6: for (;;) {
-        lab7: {
-          if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
-            break lab7;
-          }
-          break golab6;
-        }
-        if (this.cursor >= this.limit) {
-          return false;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerHu.g_v, 97, 252)) {
+        return false;
       }
       this.I_p1 = this.cursor;
     }

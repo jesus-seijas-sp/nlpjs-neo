@@ -176,29 +176,11 @@ class StemmerLt extends SnowballStemmer {
           this.cursor = c1;
         }
       }
-      golab2: for (;;) {
-        lab3: {
-          if (!this.in_grouping(StemmerLt.g_v, 97, 371)) {
-            break lab3;
-          }
-          break golab2;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerLt.g_v, 97, 371)) {
+        break lab0;
       }
-      golab4: for (;;) {
-        lab5: {
-          if (!this.out_grouping(StemmerLt.g_v, 97, 371)) {
-            break lab5;
-          }
-          break golab4;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerLt.g_v, 97, 371)) {
+        break lab0;
       }
       this.I_p1 = this.cursor;
     }

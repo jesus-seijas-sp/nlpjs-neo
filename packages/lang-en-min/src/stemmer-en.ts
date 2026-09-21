@@ -141,58 +141,22 @@ class StemmerEn extends SnowballStemmer {
         }
         this.cursor = v_2;
         // gopast
-        golab3: for (;;) {
-          lab4: {
-            if (!this.in_grouping(StemmerEn.g_v, 97, 121)) {
-              break lab4;
-            }
-            break golab3;
-          }
-          if (this.cursor >= this.limit) {
-            break lab0;
-          }
-          this.cursor++;
+        if (!this.gopast_in_grouping(StemmerEn.g_v, 97, 121)) {
+          break lab0;
         }
         // gopast
-        golab5: for (;;) {
-          lab6: {
-            if (!this.out_grouping(StemmerEn.g_v, 97, 121)) {
-              break lab6;
-            }
-            break golab5;
-          }
-          if (this.cursor >= this.limit) {
-            break lab0;
-          }
-          this.cursor++;
+        if (!this.gopast_out_grouping(StemmerEn.g_v, 97, 121)) {
+          break lab0;
         }
       }
       this.I_p1 = this.cursor;
       // gopast
-      golab7: for (;;) {
-        lab8: {
-          if (!this.in_grouping(StemmerEn.g_v, 97, 121)) {
-            break lab8;
-          }
-          break golab7;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerEn.g_v, 97, 121)) {
+        break lab0;
       }
       // gopast
-      golab9: for (;;) {
-        lab10: {
-          if (!this.out_grouping(StemmerEn.g_v, 97, 121)) {
-            break lab10;
-          }
-          break golab9;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerEn.g_v, 97, 121)) {
+        break lab0;
       }
       this.I_p2 = this.cursor;
     }
@@ -300,17 +264,8 @@ class StemmerEn extends SnowballStemmer {
         }
         this.cursor--;
         // gopast
-        golab3: for (;;) {
-          lab4: {
-            if (!this.in_grouping_b(StemmerEn.g_v, 97, 121)) {
-              break lab4;
-            }
-            break golab3;
-          }
-          if (this.cursor <= this.limit_backward) {
-            return false;
-          }
-          this.cursor--;
+        if (!this.gopast_in_grouping_b(StemmerEn.g_v, 97, 121)) {
+          return false;
         }
         if (!this.slice_del()) {
           return false;
@@ -346,17 +301,8 @@ class StemmerEn extends SnowballStemmer {
         // test
         v_1 = this.limit - this.cursor;
         // gopast
-        golab0: for (;;) {
-          lab1: {
-            if (!this.in_grouping_b(StemmerEn.g_v, 97, 121)) {
-              break lab1;
-            }
-            break golab0;
-          }
-          if (this.cursor <= this.limit_backward) {
-            return false;
-          }
-          this.cursor--;
+        if (!this.gopast_in_grouping_b(StemmerEn.g_v, 97, 121)) {
+          return false;
         }
         this.cursor = this.limit - v_1;
         if (!this.slice_del()) {

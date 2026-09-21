@@ -145,6 +145,106 @@ class BaseStemmer {
     return false;
   }
 
+  /**
+   * `gopast in_grouping`: moves the cursor forward past the next character
+   * that is in the grouping. Answers `false`, with the cursor at the limit, when
+   * there is none.
+   */
+  gopast_in_grouping(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      if (this.in_grouping(s, min, max)) return true;
+      if (this.cursor >= this.limit) return false;
+      this.cursor++;
+    }
+  }
+
+  /** `gopast out_grouping`: the same, for the next character that is not in the grouping. */
+  gopast_out_grouping(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      if (this.out_grouping(s, min, max)) return true;
+      if (this.cursor >= this.limit) return false;
+      this.cursor++;
+    }
+  }
+
+  /** `backwards gopast in_grouping`: the same, moving backward. */
+  gopast_in_grouping_b(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      if (this.in_grouping_b(s, min, max)) return true;
+      if (this.cursor <= this.limit_backward) return false;
+      this.cursor--;
+    }
+  }
+
+  /** `backwards gopast out_grouping`: the same, moving backward. */
+  gopast_out_grouping_b(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      if (this.out_grouping_b(s, min, max)) return true;
+      if (this.cursor <= this.limit_backward) return false;
+      this.cursor--;
+    }
+  }
+
+  /**
+   * `goto in_grouping`: moves the cursor forward to the next character that is
+   * in the grouping, and stops before it. Answers `false`, with the cursor at
+   * the limit, when there is none.
+   */
+  goto_in_grouping(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      const start = this.cursor;
+      if (this.in_grouping(s, min, max)) {
+        this.cursor = start;
+        return true;
+      }
+      this.cursor = start;
+      if (this.cursor >= this.limit) return false;
+      this.cursor++;
+    }
+  }
+
+  /** `goto out_grouping`: the same, for the next character that is not in the grouping. */
+  goto_out_grouping(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      const start = this.cursor;
+      if (this.out_grouping(s, min, max)) {
+        this.cursor = start;
+        return true;
+      }
+      this.cursor = start;
+      if (this.cursor >= this.limit) return false;
+      this.cursor++;
+    }
+  }
+
+  /** `backwards goto in_grouping`: the same, moving backward. */
+  goto_in_grouping_b(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      const fromEnd = this.limit - this.cursor;
+      if (this.in_grouping_b(s, min, max)) {
+        this.cursor = this.limit - fromEnd;
+        return true;
+      }
+      this.cursor = this.limit - fromEnd;
+      if (this.cursor <= this.limit_backward) return false;
+      this.cursor--;
+    }
+  }
+
+  /** `backwards goto out_grouping`: the same, moving backward. */
+  goto_out_grouping_b(s: number[], min: number, max: number): boolean {
+    for (;;) {
+      const fromEnd = this.limit - this.cursor;
+      if (this.out_grouping_b(s, min, max)) {
+        this.cursor = this.limit - fromEnd;
+        return true;
+      }
+      this.cursor = this.limit - fromEnd;
+      if (this.cursor <= this.limit_backward) return false;
+      this.cursor--;
+    }
+  }
+
   eq_s(s_size: number | string, s?: string): boolean {
     if (typeof s_size === 'string') {
       s = s_size;

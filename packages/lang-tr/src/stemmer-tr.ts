@@ -53,33 +53,12 @@ class StemmerTr extends BaseStemmer {
 
   r_check_vowel_harmony() {
     let v_1;
-    let v_2;
     let v_3;
-    let v_4;
-    let v_5;
-    let v_6;
-    let v_7;
-    let v_8;
-    let v_9;
-    let v_10;
-    let v_11;
     // test
     v_1 = this.limit - this.cursor;
     // goto
-    golab0: for (;;) {
-      v_2 = this.limit - this.cursor;
-      lab1: {
-        if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-          break lab1;
-        }
-        this.cursor = this.limit - v_2;
-        break golab0;
-      }
-      this.cursor = this.limit - v_2;
-      if (this.cursor <= this.limit_backward) {
-        return false;
-      }
-      this.cursor--;
+    if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+      return false;
     }
     // or
     lab2: {
@@ -89,20 +68,8 @@ class StemmerTr extends BaseStemmer {
           break lab3;
         }
         // goto
-        golab4: for (;;) {
-          v_4 = this.limit - this.cursor;
-          lab5: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel1, 97, 305)) {
-              break lab5;
-            }
-            this.cursor = this.limit - v_4;
-            break golab4;
-          }
-          this.cursor = this.limit - v_4;
-          if (this.cursor <= this.limit_backward) {
-            break lab3;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel1, 97, 305)) {
+          break lab3;
         }
         break lab2;
       }
@@ -112,20 +79,8 @@ class StemmerTr extends BaseStemmer {
           break lab6;
         }
         // goto
-        golab7: for (;;) {
-          v_5 = this.limit - this.cursor;
-          lab8: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel2, 101, 252)) {
-              break lab8;
-            }
-            this.cursor = this.limit - v_5;
-            break golab7;
-          }
-          this.cursor = this.limit - v_5;
-          if (this.cursor <= this.limit_backward) {
-            break lab6;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel2, 101, 252)) {
+          break lab6;
         }
         break lab2;
       }
@@ -135,20 +90,8 @@ class StemmerTr extends BaseStemmer {
           break lab9;
         }
         // goto
-        golab10: for (;;) {
-          v_6 = this.limit - this.cursor;
-          lab11: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel3, 97, 305)) {
-              break lab11;
-            }
-            this.cursor = this.limit - v_6;
-            break golab10;
-          }
-          this.cursor = this.limit - v_6;
-          if (this.cursor <= this.limit_backward) {
-            break lab9;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel3, 97, 305)) {
+          break lab9;
         }
         break lab2;
       }
@@ -158,20 +101,8 @@ class StemmerTr extends BaseStemmer {
           break lab12;
         }
         // goto
-        golab13: for (;;) {
-          v_7 = this.limit - this.cursor;
-          lab14: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel4, 101, 105)) {
-              break lab14;
-            }
-            this.cursor = this.limit - v_7;
-            break golab13;
-          }
-          this.cursor = this.limit - v_7;
-          if (this.cursor <= this.limit_backward) {
-            break lab12;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel4, 101, 105)) {
+          break lab12;
         }
         break lab2;
       }
@@ -181,20 +112,8 @@ class StemmerTr extends BaseStemmer {
           break lab15;
         }
         // goto
-        golab16: for (;;) {
-          v_8 = this.limit - this.cursor;
-          lab17: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
-              break lab17;
-            }
-            this.cursor = this.limit - v_8;
-            break golab16;
-          }
-          this.cursor = this.limit - v_8;
-          if (this.cursor <= this.limit_backward) {
-            break lab15;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
+          break lab15;
         }
         break lab2;
       }
@@ -204,20 +123,8 @@ class StemmerTr extends BaseStemmer {
           break lab18;
         }
         // goto
-        golab19: for (;;) {
-          v_9 = this.limit - this.cursor;
-          lab20: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
-              break lab20;
-            }
-            this.cursor = this.limit - v_9;
-            break golab19;
-          }
-          this.cursor = this.limit - v_9;
-          if (this.cursor <= this.limit_backward) {
-            break lab18;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
+          break lab18;
         }
         break lab2;
       }
@@ -227,20 +134,8 @@ class StemmerTr extends BaseStemmer {
           break lab21;
         }
         // goto
-        golab22: for (;;) {
-          v_10 = this.limit - this.cursor;
-          lab23: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
-              break lab23;
-            }
-            this.cursor = this.limit - v_10;
-            break golab22;
-          }
-          this.cursor = this.limit - v_10;
-          if (this.cursor <= this.limit_backward) {
-            break lab21;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
+          break lab21;
         }
         break lab2;
       }
@@ -249,20 +144,8 @@ class StemmerTr extends BaseStemmer {
         return false;
       }
       // goto
-      golab24: for (;;) {
-        v_11 = this.limit - this.cursor;
-        lab25: {
-          if (!this.in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
-            break lab25;
-          }
-          this.cursor = this.limit - v_11;
-          break golab24;
-        }
-        this.cursor = this.limit - v_11;
-        if (this.cursor <= this.limit_backward) {
-          return false;
-        }
-        this.cursor--;
+      if (!this.goto_in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
+        return false;
       }
     }
     this.cursor = this.limit - v_1;
@@ -1878,16 +1761,12 @@ class StemmerTr extends BaseStemmer {
     let v_2;
     let v_3;
     let v_4;
-    let v_5;
     let v_6;
     let v_7;
-    let v_8;
     let v_9;
     let v_10;
-    let v_11;
     let v_12;
     let v_13;
-    let v_14;
     let v_15;
     // test
     v_1 = this.limit - this.cursor;
@@ -1913,20 +1792,8 @@ class StemmerTr extends BaseStemmer {
         // test
         v_4 = this.limit - this.cursor;
         // goto
-        golab4: for (;;) {
-          v_5 = this.limit - this.cursor;
-          lab5: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-              break lab5;
-            }
-            this.cursor = this.limit - v_5;
-            break golab4;
-          }
-          this.cursor = this.limit - v_5;
-          if (this.cursor <= this.limit_backward) {
-            break lab3;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+          break lab3;
         }
         // or
         lab6: {
@@ -1955,20 +1822,8 @@ class StemmerTr extends BaseStemmer {
         // test
         v_7 = this.limit - this.cursor;
         // goto
-        golab9: for (;;) {
-          v_8 = this.limit - this.cursor;
-          lab10: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-              break lab10;
-            }
-            this.cursor = this.limit - v_8;
-            break golab9;
-          }
-          this.cursor = this.limit - v_8;
-          if (this.cursor <= this.limit_backward) {
-            break lab8;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+          break lab8;
         }
         // or
         lab11: {
@@ -1997,20 +1852,8 @@ class StemmerTr extends BaseStemmer {
         // test
         v_10 = this.limit - this.cursor;
         // goto
-        golab14: for (;;) {
-          v_11 = this.limit - this.cursor;
-          lab15: {
-            if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-              break lab15;
-            }
-            this.cursor = this.limit - v_11;
-            break golab14;
-          }
-          this.cursor = this.limit - v_11;
-          if (this.cursor <= this.limit_backward) {
-            break lab13;
-          }
-          this.cursor--;
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+          break lab13;
         }
         // or
         lab16: {
@@ -2038,20 +1881,8 @@ class StemmerTr extends BaseStemmer {
       // test
       v_13 = this.limit - this.cursor;
       // goto
-      golab18: for (;;) {
-        v_14 = this.limit - this.cursor;
-        lab19: {
-          if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-            break lab19;
-          }
-          this.cursor = this.limit - v_14;
-          break golab18;
-        }
-        this.cursor = this.limit - v_14;
-        if (this.cursor <= this.limit_backward) {
-          return false;
-        }
-        this.cursor--;
+      if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+        return false;
       }
       // or
       lab20: {
@@ -2090,17 +1921,8 @@ class StemmerTr extends BaseStemmer {
         v_3 = this.cursor;
         lab1: {
           // gopast
-          golab2: for (;;) {
-            lab3: {
-              if (!this.in_grouping(StemmerTr.g_vowel, 97, 305)) {
-                break lab3;
-              }
-              break golab2;
-            }
-            if (this.cursor >= this.limit) {
-              break lab1;
-            }
-            this.cursor++;
+          if (!this.gopast_in_grouping(StemmerTr.g_vowel, 97, 305)) {
+            break lab1;
           }
           v_2--;
           continue replab0;

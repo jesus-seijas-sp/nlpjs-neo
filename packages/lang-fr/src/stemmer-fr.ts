@@ -168,17 +168,8 @@ class StemmerFr extends SnowballStemmer {
         }
         this.cursor++;
         // gopast
-        golab4: for (;;) {
-          lab5: {
-            if (!this.in_grouping(StemmerFr.g_v, 97, 251)) {
-              break lab5;
-            }
-            break golab4;
-          }
-          if (this.cursor >= this.limit) {
-            break lab0;
-          }
-          this.cursor++;
+        if (!this.gopast_in_grouping(StemmerFr.g_v, 97, 251)) {
+          break lab0;
         }
       }
       this.I_pV = this.cursor;
@@ -188,57 +179,21 @@ class StemmerFr extends SnowballStemmer {
     v_4 = this.cursor;
     lab6: {
       // gopast
-      golab7: for (;;) {
-        lab8: {
-          if (!this.in_grouping(StemmerFr.g_v, 97, 251)) {
-            break lab8;
-          }
-          break golab7;
-        }
-        if (this.cursor >= this.limit) {
-          break lab6;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerFr.g_v, 97, 251)) {
+        break lab6;
       }
       // gopast
-      golab9: for (;;) {
-        lab10: {
-          if (!this.out_grouping(StemmerFr.g_v, 97, 251)) {
-            break lab10;
-          }
-          break golab9;
-        }
-        if (this.cursor >= this.limit) {
-          break lab6;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerFr.g_v, 97, 251)) {
+        break lab6;
       }
       this.I_p1 = this.cursor;
       // gopast
-      golab11: for (;;) {
-        lab12: {
-          if (!this.in_grouping(StemmerFr.g_v, 97, 251)) {
-            break lab12;
-          }
-          break golab11;
-        }
-        if (this.cursor >= this.limit) {
-          break lab6;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerFr.g_v, 97, 251)) {
+        break lab6;
       }
       // gopast
-      golab13: for (;;) {
-        lab14: {
-          if (!this.out_grouping(StemmerFr.g_v, 97, 251)) {
-            break lab14;
-          }
-          break golab13;
-        }
-        if (this.cursor >= this.limit) {
-          break lab6;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerFr.g_v, 97, 251)) {
+        break lab6;
       }
       this.I_p2 = this.cursor;
     }

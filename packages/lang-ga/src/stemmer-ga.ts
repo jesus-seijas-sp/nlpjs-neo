@@ -23,71 +23,26 @@ class StemmerGa extends SnowballStemmer {
     this.I_p2 = this.limit;
     v_1 = this.cursor;
     lab0: {
-      golab1: for (;;) {
-        lab2: {
-          if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
-            break lab2;
-          }
-          break golab1;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
+        break lab0;
       }
       this.I_pV = this.cursor;
     }
     this.cursor = v_1;
     v_3 = this.cursor;
     lab3: {
-      golab4: for (;;) {
-        lab5: {
-          if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
-            break lab5;
-          }
-          break golab4;
-        }
-        if (this.cursor >= this.limit) {
-          break lab3;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
+        break lab3;
       }
-      golab6: for (;;) {
-        lab7: {
-          if (!this.out_grouping(StemmerGa.g_v, 97, 250)) {
-            break lab7;
-          }
-          break golab6;
-        }
-        if (this.cursor >= this.limit) {
-          break lab3;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerGa.g_v, 97, 250)) {
+        break lab3;
       }
       this.I_p1 = this.cursor;
-      golab8: for (;;) {
-        lab9: {
-          if (!this.in_grouping(StemmerGa.g_v, 97, 250)) {
-            break lab9;
-          }
-          break golab8;
-        }
-        if (this.cursor >= this.limit) {
-          break lab3;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
+        break lab3;
       }
-      golab10: for (;;) {
-        lab11: {
-          if (!this.out_grouping(StemmerGa.g_v, 97, 250)) {
-            break lab11;
-          }
-          break golab10;
-        }
-        if (this.cursor >= this.limit) {
-          break lab3;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerGa.g_v, 97, 250)) {
+        break lab3;
       }
       this.I_p2 = this.cursor;
     }

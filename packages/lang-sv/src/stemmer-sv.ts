@@ -25,7 +25,6 @@ class StemmerSv extends BaseStemmer {
 
   r_mark_regions() {
     let v_1;
-    let v_2;
     this.I_p1 = this.limit;
     // test
     v_1 = this.cursor;
@@ -39,33 +38,12 @@ class StemmerSv extends BaseStemmer {
     this.I_x = this.cursor;
     this.cursor = v_1;
     // goto
-    golab0: for (;;) {
-      v_2 = this.cursor;
-      lab1: {
-        if (!this.in_grouping(StemmerSv.g_v, 97, 246)) {
-          break lab1;
-        }
-        this.cursor = v_2;
-        break golab0;
-      }
-      this.cursor = v_2;
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.goto_in_grouping(StemmerSv.g_v, 97, 246)) {
+      return false;
     }
     // gopast
-    golab2: for (;;) {
-      lab3: {
-        if (!this.out_grouping(StemmerSv.g_v, 97, 246)) {
-          break lab3;
-        }
-        break golab2;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_out_grouping(StemmerSv.g_v, 97, 246)) {
+      return false;
     }
     this.I_p1 = this.cursor;
     // try

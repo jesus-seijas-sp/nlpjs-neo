@@ -24,42 +24,15 @@ class StemmerCs extends SnowballStemmer {
     this.I_p1 = this.limit;
     v_1 = this.cursor;
     lab0: {
-      golab1: for (;;) {
-        lab2: {
-          if (!this.out_grouping(StemmerCs.g_v, 97, 367)) {
-            break lab2;
-          }
-          break golab1;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerCs.g_v, 97, 367)) {
+        break lab0;
       }
       this.I_pV = this.cursor;
-      golab3: for (;;) {
-        lab4: {
-          if (!this.out_grouping(StemmerCs.g_v, 97, 367)) {
-            break lab4;
-          }
-          break golab3;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerCs.g_v, 97, 367)) {
+        break lab0;
       }
-      golab5: for (;;) {
-        lab6: {
-          if (!this.in_grouping(StemmerCs.g_v, 97, 367)) {
-            break lab6;
-          }
-          break golab5;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerCs.g_v, 97, 367)) {
+        break lab0;
       }
       this.I_p1 = this.cursor;
     }

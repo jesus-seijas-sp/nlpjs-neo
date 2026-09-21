@@ -160,30 +160,12 @@ class StemmerNl extends SnowballStemmer {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // gopast
-    golab0: for (;;) {
-      lab1: {
-        if (!this.in_grouping(StemmerNl.g_v, 97, 232)) {
-          break lab1;
-        }
-        break golab0;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_in_grouping(StemmerNl.g_v, 97, 232)) {
+      return false;
     }
     // gopast
-    golab2: for (;;) {
-      lab3: {
-        if (!this.out_grouping(StemmerNl.g_v, 97, 232)) {
-          break lab3;
-        }
-        break golab2;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_out_grouping(StemmerNl.g_v, 97, 232)) {
+      return false;
     }
     this.I_p1 = this.cursor;
     // try
@@ -194,30 +176,12 @@ class StemmerNl extends SnowballStemmer {
       this.I_p1 = 3;
     }
     // gopast
-    golab5: for (;;) {
-      lab6: {
-        if (!this.in_grouping(StemmerNl.g_v, 97, 232)) {
-          break lab6;
-        }
-        break golab5;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_in_grouping(StemmerNl.g_v, 97, 232)) {
+      return false;
     }
     // gopast
-    golab7: for (;;) {
-      lab8: {
-        if (!this.out_grouping(StemmerNl.g_v, 97, 232)) {
-          break lab8;
-        }
-        break golab7;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_out_grouping(StemmerNl.g_v, 97, 232)) {
+      return false;
     }
     this.I_p2 = this.cursor;
     return true;

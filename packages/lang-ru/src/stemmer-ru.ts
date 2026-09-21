@@ -33,57 +33,21 @@ class StemmerRu extends SnowballStemmer {
     v_1 = this.cursor;
     lab0: {
       // gopast
-      golab1: for (;;) {
-        lab2: {
-          if (!this.in_grouping(StemmerRu.g_v, 1072, 1103)) {
-            break lab2;
-          }
-          break golab1;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerRu.g_v, 1072, 1103)) {
+        break lab0;
       }
       this.I_pV = this.cursor;
       // gopast
-      golab3: for (;;) {
-        lab4: {
-          if (!this.out_grouping(StemmerRu.g_v, 1072, 1103)) {
-            break lab4;
-          }
-          break golab3;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerRu.g_v, 1072, 1103)) {
+        break lab0;
       }
       // gopast
-      golab5: for (;;) {
-        lab6: {
-          if (!this.in_grouping(StemmerRu.g_v, 1072, 1103)) {
-            break lab6;
-          }
-          break golab5;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerRu.g_v, 1072, 1103)) {
+        break lab0;
       }
       // gopast
-      golab7: for (;;) {
-        lab8: {
-          if (!this.out_grouping(StemmerRu.g_v, 1072, 1103)) {
-            break lab8;
-          }
-          break golab7;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerRu.g_v, 1072, 1103)) {
+        break lab0;
       }
       this.I_p2 = this.cursor;
     }

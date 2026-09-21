@@ -171,17 +171,8 @@ class StemmerIt extends SnowballStemmer {
                 break lab4;
               }
               // gopast
-              golab5: for (;;) {
-                lab6: {
-                  if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-                    break lab6;
-                  }
-                  break golab5;
-                }
-                if (this.cursor >= this.limit) {
-                  break lab4;
-                }
-                this.cursor++;
+              if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
+                break lab4;
               }
               break lab3;
             }
@@ -190,17 +181,8 @@ class StemmerIt extends SnowballStemmer {
               break lab2;
             }
             // gopast
-            golab7: for (;;) {
-              lab8: {
-                if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
-                  break lab8;
-                }
-                break golab7;
-              }
-              if (this.cursor >= this.limit) {
-                break lab2;
-              }
-              this.cursor++;
+            if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
+              break lab2;
             }
           }
           break lab1;
@@ -217,17 +199,8 @@ class StemmerIt extends SnowballStemmer {
               break lab10;
             }
             // gopast
-            golab11: for (;;) {
-              lab12: {
-                if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-                  break lab12;
-                }
-                break golab11;
-              }
-              if (this.cursor >= this.limit) {
-                break lab10;
-              }
-              this.cursor++;
+            if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
+              break lab10;
             }
             break lab9;
           }
@@ -248,57 +221,21 @@ class StemmerIt extends SnowballStemmer {
     v_8 = this.cursor;
     lab13: {
       // gopast
-      golab14: for (;;) {
-        lab15: {
-          if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-            break lab15;
-          }
-          break golab14;
-        }
-        if (this.cursor >= this.limit) {
-          break lab13;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
+        break lab13;
       }
       // gopast
-      golab16: for (;;) {
-        lab17: {
-          if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
-            break lab17;
-          }
-          break golab16;
-        }
-        if (this.cursor >= this.limit) {
-          break lab13;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
+        break lab13;
       }
       this.I_p1 = this.cursor;
       // gopast
-      golab18: for (;;) {
-        lab19: {
-          if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-            break lab19;
-          }
-          break golab18;
-        }
-        if (this.cursor >= this.limit) {
-          break lab13;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
+        break lab13;
       }
       // gopast
-      golab20: for (;;) {
-        lab21: {
-          if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
-            break lab21;
-          }
-          break golab20;
-        }
-        if (this.cursor >= this.limit) {
-          break lab13;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
+        break lab13;
       }
       this.I_p2 = this.cursor;
     }

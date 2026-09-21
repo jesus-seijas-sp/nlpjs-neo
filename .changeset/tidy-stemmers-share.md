@@ -43,3 +43,7 @@ the word. It holds the regions `I_p1`, `I_p2` and `I_pV` and the rules `r_R1`,
 `r_R2` and `r_RV` that ask whether the cursor is inside one, which the stemmers
 of 18 languages each repeated. They extend it now and no longer carry their
 own copies.
+
+`BaseStemmer` gains the scans the generated code spelled out as a loop of twelve lines
+each time: `gopast_in_grouping`, `gopast_out_grouping`, `goto_in_grouping` and
+`goto_out_grouping`, and their `_b` versions that move backward.

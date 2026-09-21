@@ -37,68 +37,24 @@ class StemmerFi extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
-    let v_3;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // goto
-    golab0: for (;;) {
-      v_1 = this.cursor;
-      lab1: {
-        if (!this.in_grouping(StemmerFi.g_V1, 97, 246)) {
-          break lab1;
-        }
-        this.cursor = v_1;
-        break golab0;
-      }
-      this.cursor = v_1;
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.goto_in_grouping(StemmerFi.g_V1, 97, 246)) {
+      return false;
     }
     // gopast
-    golab2: for (;;) {
-      lab3: {
-        if (!this.out_grouping(StemmerFi.g_V1, 97, 246)) {
-          break lab3;
-        }
-        break golab2;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_out_grouping(StemmerFi.g_V1, 97, 246)) {
+      return false;
     }
     this.I_p1 = this.cursor;
     // goto
-    golab4: for (;;) {
-      v_3 = this.cursor;
-      lab5: {
-        if (!this.in_grouping(StemmerFi.g_V1, 97, 246)) {
-          break lab5;
-        }
-        this.cursor = v_3;
-        break golab4;
-      }
-      this.cursor = v_3;
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.goto_in_grouping(StemmerFi.g_V1, 97, 246)) {
+      return false;
     }
     // gopast
-    golab6: for (;;) {
-      lab7: {
-        if (!this.out_grouping(StemmerFi.g_V1, 97, 246)) {
-          break lab7;
-        }
-        break golab6;
-      }
-      if (this.cursor >= this.limit) {
-        return false;
-      }
-      this.cursor++;
+    if (!this.gopast_out_grouping(StemmerFi.g_V1, 97, 246)) {
+      return false;
     }
     this.I_p2 = this.cursor;
     return true;
@@ -504,7 +460,6 @@ class StemmerFi extends SnowballStemmer {
     let v_6;
     let v_7;
     let v_8;
-    let v_9;
     v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -594,20 +549,8 @@ class StemmerFi extends SnowballStemmer {
     this.cursor = this.limit - v_8;
     this.limit_backward = v_2;
     // goto
-    golab6: for (;;) {
-      v_9 = this.limit - this.cursor;
-      lab7: {
-        if (!this.out_grouping_b(StemmerFi.g_V1, 97, 246)) {
-          break lab7;
-        }
-        this.cursor = this.limit - v_9;
-        break golab6;
-      }
-      this.cursor = this.limit - v_9;
-      if (this.cursor <= this.limit_backward) {
-        return false;
-      }
-      this.cursor--;
+    if (!this.goto_out_grouping_b(StemmerFi.g_V1, 97, 246)) {
+      return false;
     }
     this.ket = this.cursor;
     if (this.cursor <= this.limit_backward) {
