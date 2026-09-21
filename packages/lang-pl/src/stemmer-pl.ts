@@ -75,7 +75,7 @@ class StemmerPl extends BaseStemmer {
       return word.slice(0, -4);
     }
     if (word.length > 5) {
-      let slice = word.slice(-3);
+      const slice = word.slice(-3);
       if (['owy', 'owa', 'owe', 'ych', 'ego'].includes(slice)) {
         return word.slice(0, -3);
       }

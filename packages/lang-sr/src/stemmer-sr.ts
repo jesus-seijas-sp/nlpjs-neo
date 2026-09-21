@@ -4166,15 +4166,3 @@ StemmerSr.g_ca = [
 StemmerSr.g_rg = [1];
 
 export default StemmerSr;
-
-//   this.stem = /** @return {boolean} */ function() {
-//   };
-
-//   /**@return{string}*/
-//   this['stemWord'] = function(/**string*/word) {
-//       this.setCurrent(word);
-//       this.stem();
-//       return this.getCurrent();
-//   };
-// };
-// window['SerbianStemmer'] = SerbianStemmer;

@@ -28,10 +28,10 @@ class StemmerNe extends BaseStemmer {
         break;
       case 2:
         lab0: {
-          let v_1 = this.limit - this.cursor;
+          const v_1 = this.limit - this.cursor;
           lab1: {
             lab2: {
-              let v_2 = this.limit - this.cursor;
+              const v_2 = this.limit - this.cursor;
               lab3: {
                 if (!this.eq_s_b('ए')) {
                   break lab3;
@@ -74,7 +74,7 @@ class StemmerNe extends BaseStemmer {
     switch (among_var) {
       case 1:
         lab0: {
-          let v_1 = this.limit - this.cursor;
+          const v_1 = this.limit - this.cursor;
           lab1: {
             if (!this.eq_s_b('यौ')) {
               break lab1;
@@ -131,17 +131,17 @@ class StemmerNe extends BaseStemmer {
   innerStem() {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    let v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     this.r_remove_category_1();
     this.cursor = this.limit - v_1;
-    let v_2 = this.limit - this.cursor;
+    const v_2 = this.limit - this.cursor;
     {
       for (;;) {
-        let v_3 = this.limit - this.cursor;
+        const v_3 = this.limit - this.cursor;
         lab1: {
-          let v_4 = this.limit - this.cursor;
+          const v_4 = this.limit - this.cursor;
           lab2: {
-            let v_5 = this.limit - this.cursor;
+            const v_5 = this.limit - this.cursor;
             if (!this.r_check_category_2()) {
               break lab2;
             }

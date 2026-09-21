@@ -250,7 +250,6 @@ class StemmerEs extends SnowballStemmer {
 
   r_R2b() {
     if (this.cursor < this.current.length / 2) {
-      //if (!(this.I_p2 <= this.cursor)) {
       return false;
     }
     return true;
@@ -262,8 +261,7 @@ class StemmerEs extends SnowballStemmer {
       return false;
     }
     this.bra = this.cursor;
-    let among_var = this.find_among_b(StemmerEs.a_2);
-    //among_var = this.findAmongBTree(StemmerEs.a_2_tree);
+    const among_var = this.find_among_b(StemmerEs.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -328,7 +326,6 @@ class StemmerEs extends SnowballStemmer {
     let v_5;
     this.ket = this.cursor;
     let among_var = this.find_among_b(StemmerEs.a_6, 46);
-    //among_var = this.findAmongBTree(StemmerEs.a_6_tree);
     if (among_var === 0) {
       return false;
     }
@@ -451,7 +448,6 @@ class StemmerEs extends SnowballStemmer {
         lab2: {
           this.ket = this.cursor;
           among_var = this.find_among_b(StemmerEs.a_4, 3);
-          //among_var = this.findAmongBTree(StemmerEs.a_4_tree);
           if (among_var === 0) {
             this.cursor = this.limit - v_3;
             break lab2;
@@ -545,8 +541,7 @@ class StemmerEs extends SnowballStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    let among_var = this.find_among_b(StemmerEs.a_7, 11);
-    //among_var = this.findAmongBTree(StemmerEs.a_7_tree);
+    const among_var = this.find_among_b(StemmerEs.a_7, 11);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -569,8 +564,6 @@ class StemmerEs extends SnowballStemmer {
   }
 
   r_verb_suffix() {
-    let among_var;
-
     let v_3;
 
     const v_1 = this.limit - this.cursor;
@@ -583,8 +576,7 @@ class StemmerEs extends SnowballStemmer {
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
 
-    //among_var = this.find_among_b(StemmerEs.a_8, 95);
-    among_var = this.findAmongBTree(StemmerEs.a_8_tree);
+    const among_var = this.findAmongBTree(StemmerEs.a_8_tree);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -628,8 +620,7 @@ class StemmerEs extends SnowballStemmer {
     let v_1;
 
     this.ket = this.cursor;
-    let among_var = this.find_among_b(StemmerEs.a_9, 5);
-    //among_var = this.findAmongBTree(StemmerEs.a_9_tree);
+    const among_var = this.find_among_b(StemmerEs.a_9, 5);
 
     if (among_var === 0) {
       return false;

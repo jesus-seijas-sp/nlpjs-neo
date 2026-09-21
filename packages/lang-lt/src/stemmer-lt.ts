@@ -18,7 +18,7 @@ class StemmerLt extends SnowballStemmer {
     if (this.cursor < this.I_p1) {
       return false;
     }
-    let v_2 = this.limit_backward;
+    const v_2 = this.limit_backward;
     this.limit_backward = this.I_p1;
     this.ket = this.cursor;
     if (this.find_among_b(StemmerLt.a_0) === 0) {
@@ -38,12 +38,12 @@ class StemmerLt extends SnowballStemmer {
 
   r_step2() {
     for (;;) {
-      let v_1 = this.limit - this.cursor;
+      const v_1 = this.limit - this.cursor;
       lab0: {
         if (this.cursor < this.I_p1) {
           break lab0;
         }
-        let v_3 = this.limit_backward;
+        const v_3 = this.limit_backward;
         this.limit_backward = this.I_p1;
         this.ket = this.cursor;
         if (this.find_among_b(StemmerLt.a_1) === 0) {
@@ -151,11 +151,11 @@ class StemmerLt extends SnowballStemmer {
 
   innerStem() {
     this.I_p1 = this.limit;
-    let v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
-      let v_2 = this.cursor;
+      const v_2 = this.cursor;
       lab1: {
-        let v_3 = this.cursor;
+        const v_3 = this.cursor;
         if (!this.eq_s('a')) {
           this.cursor = v_2;
           break lab1;
@@ -166,7 +166,7 @@ class StemmerLt extends SnowballStemmer {
           break lab1;
         }
         {
-          let c1 = this.cursor + 1;
+          const c1 = this.cursor + 1;
           if (0 > c1 || c1 > this.limit) {
             this.cursor = v_2;
             break lab1;
@@ -185,22 +185,22 @@ class StemmerLt extends SnowballStemmer {
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    let v_6 = this.limit - this.cursor;
+    const v_6 = this.limit - this.cursor;
     this.r_fix_conflicts();
     this.cursor = this.limit - v_6;
-    let v_7 = this.limit - this.cursor;
+    const v_7 = this.limit - this.cursor;
     this.r_step1();
     this.cursor = this.limit - v_7;
-    let v_8 = this.limit - this.cursor;
+    const v_8 = this.limit - this.cursor;
     this.r_fix_chdz();
     this.cursor = this.limit - v_8;
-    let v_9 = this.limit - this.cursor;
+    const v_9 = this.limit - this.cursor;
     this.r_step2();
     this.cursor = this.limit - v_9;
-    let v_10 = this.limit - this.cursor;
+    const v_10 = this.limit - this.cursor;
     this.r_fix_chdz();
     this.cursor = this.limit - v_10;
-    let v_11 = this.limit - this.cursor;
+    const v_11 = this.limit - this.cursor;
     this.r_fix_gd();
     this.cursor = this.limit - v_11;
     this.cursor = this.limit_backward;
