@@ -16,12 +16,10 @@ class StemmerGa extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
-    let v_3;
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
         break lab0;
@@ -29,7 +27,7 @@ class StemmerGa extends SnowballStemmer {
       this.I_pV = this.cursor;
     }
     this.cursor = v_1;
-    v_3 = this.cursor;
+    const v_3 = this.cursor;
     lab3: {
       if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
         break lab3;
@@ -50,9 +48,8 @@ class StemmerGa extends SnowballStemmer {
     return true;
   }
   r_initial_morph() {
-    let among_var;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerGa.a_0);
+    const among_var = this.find_among(StemmerGa.a_0);
     if (among_var === 0) {
       return false;
     }
@@ -127,9 +124,8 @@ class StemmerGa extends SnowballStemmer {
     return true;
   }
   r_noun_sfx() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerGa.a_1);
+    const among_var = this.find_among_b(StemmerGa.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -153,9 +149,8 @@ class StemmerGa extends SnowballStemmer {
     return true;
   }
   r_deriv() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerGa.a_2);
+    const among_var = this.find_among_b(StemmerGa.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -188,9 +183,8 @@ class StemmerGa extends SnowballStemmer {
     return true;
   }
   r_verb_sfx() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerGa.a_3);
+    const among_var = this.find_among_b(StemmerGa.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -214,19 +208,14 @@ class StemmerGa extends SnowballStemmer {
     return true;
   }
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    let v_5;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_initial_morph()) {
         break lab0;
       }
     }
     this.cursor = v_1;
-    v_2 = this.cursor;
+    const v_2 = this.cursor;
     lab1: {
       if (!this.r_mark_regions()) {
         break lab1;
@@ -235,21 +224,21 @@ class StemmerGa extends SnowballStemmer {
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     lab2: {
       if (!this.r_noun_sfx()) {
         break lab2;
       }
     }
     this.cursor = this.limit - v_3;
-    v_4 = this.limit - this.cursor;
+    const v_4 = this.limit - this.cursor;
     lab3: {
       if (!this.r_deriv()) {
         break lab3;
       }
     }
     this.cursor = this.limit - v_4;
-    v_5 = this.limit - this.cursor;
+    const v_5 = this.limit - this.cursor;
     lab4: {
       if (!this.r_verb_sfx()) {
         break lab4;

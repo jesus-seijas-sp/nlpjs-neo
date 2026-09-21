@@ -22,7 +22,6 @@ class StemmerSr extends SnowballStemmer {
   }
 
   r_cyr_to_lat() {
-    var among_var;
     var v_1 = this.cursor;
     {
       for (;;) {
@@ -32,7 +31,7 @@ class StemmerSr extends SnowballStemmer {
             var v_3 = this.cursor;
             lab3: {
               this.bra = this.cursor;
-              among_var = this.find_among(StemmerSr.a_0);
+              const among_var = this.find_among(StemmerSr.a_0);
               if (among_var === 0) {
                 break lab3;
               }
@@ -420,9 +419,8 @@ class StemmerSr extends SnowballStemmer {
   }
 
   r_Step_1() {
-    var among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerSr.a_1);
+    const among_var = this.find_among_b(StemmerSr.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -912,9 +910,8 @@ class StemmerSr extends SnowballStemmer {
   }
 
   r_Step_2() {
-    var among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerSr.a_2);
+    const among_var = this.find_among_b(StemmerSr.a_2);
     if (among_var === 0) {
       return false;
     }

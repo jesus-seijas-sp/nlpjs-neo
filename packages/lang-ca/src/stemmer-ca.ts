@@ -16,10 +16,9 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       golab1: for (;;) {
         try0: {
@@ -77,13 +76,11 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_cleaning() {
-    let among_var;
-    let v_1;
     replab0: for (;;) {
-      v_1 = this.cursor;
+      const v_1 = this.cursor;
       lab1: {
         this.bra = this.cursor;
-        among_var = this.find_among(StemmerCa.a_0);
+        const among_var = this.find_among(StemmerCa.a_0);
         if (among_var === 0) {
           break lab1;
         }
@@ -143,9 +140,8 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_attached_pronoun() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCa.a_1);
+    const among_var = this.find_among_b(StemmerCa.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -164,9 +160,8 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_standard_suffix() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCa.a_2);
+    const among_var = this.find_among_b(StemmerCa.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -209,9 +204,8 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_verb_suffix() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCa.a_3);
+    const among_var = this.find_among_b(StemmerCa.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -236,9 +230,8 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_residual_suffix() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCa.a_4);
+    const among_var = this.find_among_b(StemmerCa.a_4);
     if (among_var === 0) {
       return false;
     }
@@ -263,13 +256,7 @@ class StemmerCa extends SnowballStemmer {
   }
 
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    let v_5;
-    let v_6;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     try4: {
       if (!this.r_mark_regions()) {
         break try4;
@@ -278,17 +265,17 @@ class StemmerCa extends SnowballStemmer {
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    v_2 = this.limit - this.cursor;
+    const v_2 = this.limit - this.cursor;
     try5: {
       if (!this.r_attached_pronoun()) {
         break try5;
       }
     }
     this.cursor = this.limit - v_2;
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     lab2: {
       lab3: {
-        v_4 = this.limit - this.cursor;
+        const v_4 = this.limit - this.cursor;
         try6: {
           if (!this.r_standard_suffix()) {
             break try6;
@@ -302,7 +289,7 @@ class StemmerCa extends SnowballStemmer {
       }
     }
     this.cursor = this.limit - v_3;
-    v_5 = this.limit - this.cursor;
+    const v_5 = this.limit - this.cursor;
     try7: {
       if (!this.r_residual_suffix()) {
         break try7;
@@ -310,7 +297,7 @@ class StemmerCa extends SnowballStemmer {
     }
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward;
-    v_6 = this.cursor;
+    const v_6 = this.cursor;
     try8: {
       if (!this.r_cleaning()) {
         break try8;

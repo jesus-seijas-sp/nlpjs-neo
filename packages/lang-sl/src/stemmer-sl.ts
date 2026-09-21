@@ -18,23 +18,16 @@ class StemmerSl extends BaseStemmer {
 
   innerStem() {
     let among_var;
-    let v_1;
+
     let v_2;
-    let v_3;
-    let v_4;
-    let v_5;
-    let v_6;
-    let v_7;
-    let v_8;
-    let v_9;
-    let v_10;
+
     this.I_p1 = this.current.length;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     {
       for (v_2 = 4; v_2 > 0; v_2--) {
-        v_3 = this.limit - this.cursor;
+        const v_3 = this.limit - this.cursor;
         lab1: {
           if (!(this.I_p1 > 8)) {
             this.cursor = this.limit - v_3;
@@ -56,7 +49,7 @@ class StemmerSl extends BaseStemmer {
               break;
           }
         }
-        v_4 = this.limit - this.cursor;
+        const v_4 = this.limit - this.cursor;
         lab2: {
           if (!(this.I_p1 > 7)) {
             this.cursor = this.limit - v_4;
@@ -79,7 +72,7 @@ class StemmerSl extends BaseStemmer {
           }
         }
         this.I_p1 = this.current.length;
-        v_5 = this.limit - this.cursor;
+        const v_5 = this.limit - this.cursor;
         lab3: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_5;
@@ -102,7 +95,7 @@ class StemmerSl extends BaseStemmer {
           }
         }
         this.I_p1 = this.current.length;
-        v_6 = this.limit - this.cursor;
+        const v_6 = this.limit - this.cursor;
         lab4: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_6;
@@ -125,7 +118,7 @@ class StemmerSl extends BaseStemmer {
           }
         }
         this.I_p1 = this.current.length;
-        v_7 = this.limit - this.cursor;
+        const v_7 = this.limit - this.cursor;
         lab5: {
           if (!(this.I_p1 > 5)) {
             this.cursor = this.limit - v_7;
@@ -148,7 +141,7 @@ class StemmerSl extends BaseStemmer {
           }
         }
         this.I_p1 = this.current.length;
-        v_8 = this.limit - this.cursor;
+        const v_8 = this.limit - this.cursor;
         lab6: {
           if (!(this.I_p1 > 6)) {
             this.cursor = this.limit - v_8;
@@ -160,7 +153,7 @@ class StemmerSl extends BaseStemmer {
             break lab6;
           }
           this.bra = this.cursor;
-          v_9 = this.limit - this.cursor;
+          const v_9 = this.limit - this.cursor;
           if (!this.in_grouping_b(StemmerSl.g_soglasniki, 98, 382)) {
             this.cursor = this.limit - v_8;
             break lab6;
@@ -169,7 +162,7 @@ class StemmerSl extends BaseStemmer {
           this.slice_del();
         }
         this.I_p1 = this.current.length;
-        v_10 = this.limit - this.cursor;
+        const v_10 = this.limit - this.cursor;
         lab7: {
           if (!(this.I_p1 > 5)) {
             this.cursor = this.limit - v_10;

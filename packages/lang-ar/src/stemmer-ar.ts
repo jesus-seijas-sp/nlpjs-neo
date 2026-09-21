@@ -38,15 +38,14 @@ class StemmerAr extends BaseStemmer {
   }
 
   r_Normalize_pre() {
-    let among_var;
     let v_1;
-    let v_2;
+
     for (v_1 = this.current.length; v_1 > 0; v_1--) {
       lab0: {
-        v_2 = this.cursor;
+        const v_2 = this.cursor;
         lab1: {
           this.bra = this.cursor;
-          among_var = this.find_among(StemmerAr.a_0);
+          const among_var = this.find_among(StemmerAr.a_0);
           if (among_var === 0) {
             break lab1;
           }
@@ -233,11 +232,10 @@ class StemmerAr extends BaseStemmer {
   }
   r_Normalize_post() {
     let among_var;
-    let v_1;
-    let v_2;
+
     let v_3;
-    let v_4;
-    v_1 = this.cursor;
+
+    const v_1 = this.cursor;
     lab0: {
       this.limit_backward = this.cursor;
       this.cursor = this.limit;
@@ -263,11 +261,11 @@ class StemmerAr extends BaseStemmer {
       this.cursor = this.limit_backward;
     }
     this.cursor = v_1;
-    v_2 = this.cursor;
+    const v_2 = this.cursor;
     lab1: {
       for (v_3 = this.I_word_len; v_3 > 0; v_3--) {
         lab2: {
-          v_4 = this.cursor;
+          const v_4 = this.cursor;
           lab3: {
             this.bra = this.cursor;
             among_var = this.find_among(StemmerAr.a_2);
@@ -302,10 +300,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Checks1() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_3);
+    const among_var = this.find_among(StemmerAr.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -333,10 +330,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step1() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_4);
+    const among_var = this.find_among(StemmerAr.a_4);
     if (among_var === 0) {
       return false;
     }
@@ -378,12 +374,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step2() {
-    let among_var;
-    let v_1;
-    let v_2;
     this.I_word_len = this.current.length;
     {
-      v_1 = this.cursor;
+      const v_1 = this.cursor;
       lab0: {
         if (!this.eq_s('\u0641\u0627')) {
           break lab0;
@@ -393,7 +386,7 @@ class StemmerAr extends BaseStemmer {
       this.cursor = v_1;
     }
     {
-      v_2 = this.cursor;
+      const v_2 = this.cursor;
       lab1: {
         if (!this.eq_s('\u0648\u0627')) {
           break lab1;
@@ -403,7 +396,7 @@ class StemmerAr extends BaseStemmer {
       this.cursor = v_2;
     }
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_5);
+    const among_var = this.find_among(StemmerAr.a_5);
     if (among_var === 0) {
       return false;
     }
@@ -427,10 +420,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step3a_Noun() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_6);
+    const among_var = this.find_among(StemmerAr.a_6);
     if (among_var === 0) {
       return false;
     }
@@ -454,11 +446,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step3b_Noun() {
-    let among_var;
-    let v_1;
     this.I_word_len = this.current.length;
     {
-      v_1 = this.cursor;
+      const v_1 = this.cursor;
       lab0: {
         if (!this.eq_s('\u0628\u0627')) {
           break lab0;
@@ -468,7 +458,7 @@ class StemmerAr extends BaseStemmer {
       this.cursor = v_1;
     }
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_7);
+    const among_var = this.find_among(StemmerAr.a_7);
     if (among_var === 0) {
       return false;
     }
@@ -498,10 +488,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step3_Verb() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_8);
+    const among_var = this.find_among(StemmerAr.a_8);
     if (among_var === 0) {
       return false;
     }
@@ -537,10 +526,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Prefix_Step4_Verb() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
-    among_var = this.find_among(StemmerAr.a_9);
+    const among_var = this.find_among(StemmerAr.a_9);
     if (among_var === 0) {
       return false;
     }
@@ -560,10 +548,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step1a() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_10);
+    const among_var = this.find_among_b(StemmerAr.a_10);
     if (among_var === 0) {
       return false;
     }
@@ -593,10 +580,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step1b() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_11);
+    const among_var = this.find_among_b(StemmerAr.a_11);
     if (among_var === 0) {
       return false;
     }
@@ -614,10 +600,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step2a() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_12);
+    const among_var = this.find_among_b(StemmerAr.a_12);
     if (among_var === 0) {
       return false;
     }
@@ -635,10 +620,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step2b() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_13);
+    const among_var = this.find_among_b(StemmerAr.a_13);
     if (among_var === 0) {
       return false;
     }
@@ -656,10 +640,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step2c1() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_14);
+    const among_var = this.find_among_b(StemmerAr.a_14);
     if (among_var === 0) {
       return false;
     }
@@ -677,10 +660,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step2c2() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_15);
+    const among_var = this.find_among_b(StemmerAr.a_15);
     if (among_var === 0) {
       return false;
     }
@@ -698,10 +680,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Noun_Step3() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_16);
+    const among_var = this.find_among_b(StemmerAr.a_16);
     if (among_var === 0) {
       return false;
     }
@@ -719,10 +700,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Verb_Step1() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_17);
+    const among_var = this.find_among_b(StemmerAr.a_17);
     if (among_var === 0) {
       return false;
     }
@@ -752,10 +732,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Verb_Step2a() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_18);
+    const among_var = this.find_among_b(StemmerAr.a_18);
     if (among_var === 0) {
       return false;
     }
@@ -797,10 +776,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Verb_Step2b() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_19);
+    const among_var = this.find_among_b(StemmerAr.a_19);
     if (among_var === 0) {
       return false;
     }
@@ -818,10 +796,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_Verb_Step2c() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_20);
+    const among_var = this.find_among_b(StemmerAr.a_20);
     if (among_var === 0) {
       return false;
     }
@@ -845,10 +822,9 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   r_Suffix_All_alef_maqsura() {
-    let among_var;
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerAr.a_21);
+    const among_var = this.find_among_b(StemmerAr.a_21);
     if (among_var === 0) {
       return false;
     }
@@ -863,34 +839,17 @@ class StemmerAr extends BaseStemmer {
     return true;
   }
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    let v_5;
-    let v_7;
-    let v_8;
-    let v_9;
-    let v_10;
-    let v_12;
-    let v_13;
-    let v_15;
-    let v_16;
-    let v_17;
-    let v_18;
-    let v_19;
-    let v_20;
     this.B_is_noun = true;
     this.B_is_verb = true;
     this.B_is_defined = false;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_Checks1()) {
         break lab0;
       }
     }
     this.cursor = v_1;
-    v_2 = this.cursor;
+    const v_2 = this.cursor;
     lab1: {
       if (!this.r_Normalize_pre()) {
         break lab1;
@@ -899,21 +858,21 @@ class StemmerAr extends BaseStemmer {
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     lab2: {
       lab3: {
-        v_4 = this.limit - this.cursor;
+        const v_4 = this.limit - this.cursor;
         lab4: {
           if (!this.B_is_verb) {
             break lab4;
           }
           lab5: {
-            v_5 = this.limit - this.cursor;
+            const v_5 = this.limit - this.cursor;
             lab6: {
               {
                 let v_6 = 1;
                 replab7: for (;;) {
-                  v_7 = this.limit - this.cursor;
+                  const v_7 = this.limit - this.cursor;
                   lab8: {
                     if (!this.r_Suffix_Verb_Step1()) {
                       break lab8;
@@ -929,7 +888,7 @@ class StemmerAr extends BaseStemmer {
                 }
               }
               lab9: {
-                v_8 = this.limit - this.cursor;
+                const v_8 = this.limit - this.cursor;
                 lab10: {
                   if (!this.r_Suffix_Verb_Step2a()) {
                     break lab10;
@@ -970,10 +929,10 @@ class StemmerAr extends BaseStemmer {
           if (!this.B_is_noun) {
             break lab13;
           }
-          v_9 = this.limit - this.cursor;
+          const v_9 = this.limit - this.cursor;
           lab14: {
             lab15: {
-              v_10 = this.limit - this.cursor;
+              const v_10 = this.limit - this.cursor;
               lab16: {
                 if (!this.r_Suffix_Noun_Step2c2()) {
                   break lab16;
@@ -992,7 +951,7 @@ class StemmerAr extends BaseStemmer {
                   break lab17;
                 }
                 lab19: {
-                  v_12 = this.limit - this.cursor;
+                  const v_12 = this.limit - this.cursor;
                   lab20: {
                     if (!this.r_Suffix_Noun_Step2a()) {
                       break lab20;
@@ -1027,7 +986,7 @@ class StemmerAr extends BaseStemmer {
                   break lab23;
                 }
                 lab24: {
-                  v_13 = this.limit - this.cursor;
+                  const v_13 = this.limit - this.cursor;
                   lab25: {
                     if (!this.r_Suffix_Noun_Step2a()) {
                       break lab25;
@@ -1081,16 +1040,16 @@ class StemmerAr extends BaseStemmer {
     }
     this.cursor = this.limit - v_3;
     this.cursor = this.limit_backward;
-    v_15 = this.cursor;
+    const v_15 = this.cursor;
     lab29: {
-      v_16 = this.cursor;
+      const v_16 = this.cursor;
       lab30: {
         if (!this.r_Prefix_Step1()) {
           this.cursor = v_16;
           break lab30;
         }
       }
-      v_17 = this.cursor;
+      const v_17 = this.cursor;
       lab31: {
         if (!this.r_Prefix_Step2()) {
           this.cursor = v_17;
@@ -1098,7 +1057,7 @@ class StemmerAr extends BaseStemmer {
         }
       }
       lab32: {
-        v_18 = this.cursor;
+        const v_18 = this.cursor;
         lab33: {
           if (!this.r_Prefix_Step3a_Noun()) {
             break lab33;
@@ -1119,7 +1078,7 @@ class StemmerAr extends BaseStemmer {
         if (!this.B_is_verb) {
           break lab29;
         }
-        v_19 = this.cursor;
+        const v_19 = this.cursor;
         lab35: {
           if (!this.r_Prefix_Step3_Verb()) {
             this.cursor = v_19;
@@ -1132,7 +1091,7 @@ class StemmerAr extends BaseStemmer {
       }
     }
     this.cursor = v_15;
-    v_20 = this.cursor;
+    const v_20 = this.cursor;
     lab36: {
       if (!this.r_Normalize_post()) {
         break lab36;

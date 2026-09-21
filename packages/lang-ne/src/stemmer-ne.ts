@@ -14,9 +14,8 @@ class StemmerNe extends BaseStemmer {
   }
 
   r_remove_category_1() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerNe.a_0);
+    const among_var = this.find_among_b(StemmerNe.a_0);
     if (among_var === 0) {
       return false;
     }
@@ -66,9 +65,8 @@ class StemmerNe extends BaseStemmer {
   }
 
   r_remove_category_2() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerNe.a_2);
+    const among_var = this.find_among_b(StemmerNe.a_2);
     if (among_var === 0) {
       return false;
     }

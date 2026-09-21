@@ -15,24 +15,19 @@ class StemmerEu extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_6;
-    let v_8;
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       lab1: {
-        v_2 = this.cursor;
+        const v_2 = this.cursor;
         lab2: {
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab2;
           }
           lab3: {
-            v_3 = this.cursor;
+            const v_3 = this.cursor;
             lab4: {
               if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
                 break lab4;
@@ -57,7 +52,7 @@ class StemmerEu extends SnowballStemmer {
           break lab0;
         }
         lab9: {
-          v_6 = this.cursor;
+          const v_6 = this.cursor;
           lab10: {
             if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
               break lab10;
@@ -80,7 +75,7 @@ class StemmerEu extends SnowballStemmer {
       this.I_pV = this.cursor;
     }
     this.cursor = v_1;
-    v_8 = this.cursor;
+    const v_8 = this.cursor;
     lab13: {
       if (!this.gopast_in_grouping(StemmerEu.g_v, 97, 117)) {
         break lab13;
@@ -101,9 +96,8 @@ class StemmerEu extends SnowballStemmer {
     return true;
   }
   r_aditzak() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerEu.a_0);
+    const among_var = this.find_among_b(StemmerEu.a_0);
     if (among_var === 0) {
       return false;
     }
@@ -136,9 +130,8 @@ class StemmerEu extends SnowballStemmer {
     return true;
   }
   r_izenak() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerEu.a_1);
+    const among_var = this.find_among_b(StemmerEu.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -189,9 +182,8 @@ class StemmerEu extends SnowballStemmer {
     return true;
   }
   r_adjetiboak() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerEu.a_2);
+    const among_var = this.find_among_b(StemmerEu.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -212,11 +204,7 @@ class StemmerEu extends SnowballStemmer {
     return true;
   }
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_mark_regions()) {
         break lab0;
@@ -226,7 +214,7 @@ class StemmerEu extends SnowballStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     replab1: for (;;) {
-      v_2 = this.limit - this.cursor;
+      const v_2 = this.limit - this.cursor;
       lab2: {
         if (!this.r_aditzak()) {
           break lab2;
@@ -237,7 +225,7 @@ class StemmerEu extends SnowballStemmer {
       break replab1;
     }
     replab3: for (;;) {
-      v_3 = this.limit - this.cursor;
+      const v_3 = this.limit - this.cursor;
       lab4: {
         if (!this.r_izenak()) {
           break lab4;
@@ -247,7 +235,7 @@ class StemmerEu extends SnowballStemmer {
       this.cursor = this.limit - v_3;
       break replab3;
     }
-    v_4 = this.limit - this.cursor;
+    const v_4 = this.limit - this.cursor;
     lab5: {
       if (!this.r_adjetiboak()) {
         break lab5;

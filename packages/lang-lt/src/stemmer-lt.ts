@@ -64,9 +64,8 @@ class StemmerLt extends SnowballStemmer {
   }
 
   r_fix_conflicts() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerLt.a_2);
+    const among_var = this.find_among_b(StemmerLt.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -117,9 +116,8 @@ class StemmerLt extends SnowballStemmer {
   }
 
   r_fix_chdz() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerLt.a_3);
+    const among_var = this.find_among_b(StemmerLt.a_3);
     if (among_var === 0) {
       return false;
     }

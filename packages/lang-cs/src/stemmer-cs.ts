@@ -19,10 +19,9 @@ class StemmerCs extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.gopast_out_grouping(StemmerCs.g_v, 97, 367)) {
         break lab0;
@@ -40,9 +39,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_palatalise() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_0);
+    const among_var = this.find_among_b(StemmerCs.a_0);
     if (among_var === 0) {
       return false;
     }
@@ -69,10 +67,9 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_possessive() {
-    let among_var;
     let v_1;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_1);
+    const among_var = this.find_among_b(StemmerCs.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -100,11 +97,10 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_case() {
-    let among_var;
     let v_1;
     let v_2;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_2);
+    const among_var = this.find_among_b(StemmerCs.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -139,9 +135,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_derivational() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_3);
+    const among_var = this.find_among_b(StemmerCs.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -189,9 +184,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_deriv_single() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_4);
+    const among_var = this.find_among_b(StemmerCs.a_4);
     if (among_var === 0) {
       return false;
     }
@@ -206,9 +200,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_augmentative() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_5);
+    const among_var = this.find_among_b(StemmerCs.a_5);
     if (among_var === 0) {
       return false;
     }
@@ -229,9 +222,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_diminutive() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_6);
+    const among_var = this.find_among_b(StemmerCs.a_6);
     if (among_var === 0) {
       return false;
     }
@@ -282,9 +274,8 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_comparative() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerCs.a_7);
+    const among_var = this.find_among_b(StemmerCs.a_7);
     if (among_var === 0) {
       return false;
     }
@@ -308,25 +299,21 @@ class StemmerCs extends SnowballStemmer {
     return true;
   }
   r_do_aggressive() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     lab0: {
       if (!this.r_do_comparative()) {
         break lab0;
       }
     }
     this.cursor = this.limit - v_1;
-    v_2 = this.limit - this.cursor;
+    const v_2 = this.limit - this.cursor;
     lab1: {
       if (!this.r_do_diminutive()) {
         break lab1;
       }
     }
     this.cursor = this.limit - v_2;
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     lab2: {
       if (!this.r_do_augmentative()) {
         break lab2;
@@ -334,7 +321,7 @@ class StemmerCs extends SnowballStemmer {
     }
     this.cursor = this.limit - v_3;
     lab3: {
-      v_4 = this.limit - this.cursor;
+      const v_4 = this.limit - this.cursor;
       lab4: {
         if (!this.r_do_derivational()) {
           break lab4;
@@ -352,8 +339,8 @@ class StemmerCs extends SnowballStemmer {
     if (this.current.length <= 4) {
       return true;
     }
-    let v_1;
-    v_1 = this.cursor;
+
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_mark_regions()) {
         break lab0;

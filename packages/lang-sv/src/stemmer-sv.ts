@@ -24,10 +24,9 @@ class StemmerSv extends BaseStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
     this.I_p1 = this.limit;
     // test
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     {
       const c = this.cursor + 3;
       if (c < 0 || c > this.limit) {
@@ -57,19 +56,16 @@ class StemmerSv extends BaseStemmer {
   }
 
   r_main_suffix() {
-    let among_var;
-    let v_1;
-    let v_2;
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
     this.cursor = this.I_p1;
-    v_2 = this.limit_backward;
+    const v_2 = this.limit_backward;
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerSv.a_0, 37);
+    const among_var = this.find_among_b(StemmerSv.a_0, 37);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -97,19 +93,16 @@ class StemmerSv extends BaseStemmer {
   }
 
   r_consonant_pair() {
-    let v_1;
-    let v_2;
-    let v_3;
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
     this.cursor = this.I_p1;
-    v_2 = this.limit_backward;
+    const v_2 = this.limit_backward;
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     // and
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     if (this.find_among_b(StemmerSv.a_1, 7) === 0) {
       this.limit_backward = v_2;
       return false;
@@ -130,19 +123,16 @@ class StemmerSv extends BaseStemmer {
   }
 
   r_other_suffix() {
-    let among_var;
-    let v_1;
-    let v_2;
-    v_1 = this.limit - this.cursor;
+    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
     this.cursor = this.I_p1;
-    v_2 = this.limit_backward;
+    const v_2 = this.limit_backward;
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerSv.a_2, 5);
+    const among_var = this.find_among_b(StemmerSv.a_2, 5);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -173,12 +163,8 @@ class StemmerSv extends BaseStemmer {
   }
 
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
     // do
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_mark_regions()) {
         break lab0;
@@ -189,7 +175,7 @@ class StemmerSv extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     // do
-    v_2 = this.limit - this.cursor;
+    const v_2 = this.limit - this.cursor;
     lab1: {
       if (!this.r_main_suffix()) {
         break lab1;
@@ -197,7 +183,7 @@ class StemmerSv extends BaseStemmer {
     }
     this.cursor = this.limit - v_2;
     // do
-    v_3 = this.limit - this.cursor;
+    const v_3 = this.limit - this.cursor;
     lab2: {
       if (!this.r_consonant_pair()) {
         break lab2;
@@ -205,7 +191,7 @@ class StemmerSv extends BaseStemmer {
     }
     this.cursor = this.limit - v_3;
     // do
-    v_4 = this.limit - this.cursor;
+    const v_4 = this.limit - this.cursor;
     lab3: {
       if (!this.r_other_suffix()) {
         break lab3;

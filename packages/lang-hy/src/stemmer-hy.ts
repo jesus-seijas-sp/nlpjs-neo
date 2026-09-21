@@ -15,10 +15,9 @@ class StemmerHy extends SnowballStemmer {
   }
 
   r_mark_regions() {
-    let v_1;
     this.I_pV = this.limit;
     this.I_p2 = this.limit;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.gopast_in_grouping(StemmerHy.g_v, 1377, 1413)) {
         break lab0;
@@ -39,9 +38,8 @@ class StemmerHy extends SnowballStemmer {
     return true;
   }
   r_adjective() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerHy.a_0);
+    const among_var = this.find_among_b(StemmerHy.a_0);
     if (among_var === 0) {
       return false;
     }
@@ -56,9 +54,8 @@ class StemmerHy extends SnowballStemmer {
     return true;
   }
   r_verb() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerHy.a_1);
+    const among_var = this.find_among_b(StemmerHy.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -73,9 +70,8 @@ class StemmerHy extends SnowballStemmer {
     return true;
   }
   r_noun() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerHy.a_2);
+    const among_var = this.find_among_b(StemmerHy.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -90,9 +86,8 @@ class StemmerHy extends SnowballStemmer {
     return true;
   }
   r_ending() {
-    let among_var;
     this.ket = this.cursor;
-    among_var = this.find_among_b(StemmerHy.a_3);
+    const among_var = this.find_among_b(StemmerHy.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -110,14 +105,7 @@ class StemmerHy extends SnowballStemmer {
     return true;
   }
   innerStem() {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    let v_5;
-    let v_6;
-    let v_7;
-    v_1 = this.cursor;
+    const v_1 = this.cursor;
     lab0: {
       if (!this.r_mark_regions()) {
         break lab0;
@@ -126,36 +114,36 @@ class StemmerHy extends SnowballStemmer {
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    v_2 = this.limit - this.cursor;
+    const v_2 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
     }
     this.cursor = this.I_pV;
-    v_3 = this.limit_backward;
+    const v_3 = this.limit_backward;
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_2;
-    v_4 = this.limit - this.cursor;
+    const v_4 = this.limit - this.cursor;
     lab1: {
       if (!this.r_ending()) {
         break lab1;
       }
     }
     this.cursor = this.limit - v_4;
-    v_5 = this.limit - this.cursor;
+    const v_5 = this.limit - this.cursor;
     lab2: {
       if (!this.r_verb()) {
         break lab2;
       }
     }
     this.cursor = this.limit - v_5;
-    v_6 = this.limit - this.cursor;
+    const v_6 = this.limit - this.cursor;
     lab3: {
       if (!this.r_adjective()) {
         break lab3;
       }
     }
     this.cursor = this.limit - v_6;
-    v_7 = this.limit - this.cursor;
+    const v_7 = this.limit - this.cursor;
     lab4: {
       if (!this.r_noun()) {
         break lab4;
