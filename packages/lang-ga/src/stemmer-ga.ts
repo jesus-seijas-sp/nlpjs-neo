@@ -1,9 +1,6 @@
-import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 
-class StemmerGa extends BaseStemmer {
-  declare I_p1: number;
-  declare I_p2: number;
-  declare I_pV: number;
+class StemmerGa extends SnowballStemmer {
   declare static a_0: Among<StemmerGa>[];
   declare static a_1: Among<StemmerGa>[];
   declare static a_2: Among<StemmerGa>[];
@@ -171,24 +168,6 @@ class StemmerGa extends BaseStemmer {
       case 21:
         this.slice_from('t');
         break;
-    }
-    return true;
-  }
-  r_RV() {
-    if (!(this.I_pV <= this.cursor)) {
-      return false;
-    }
-    return true;
-  }
-  r_R1() {
-    if (!(this.I_p1 <= this.cursor)) {
-      return false;
-    }
-    return true;
-  }
-  r_R2() {
-    if (!(this.I_p2 <= this.cursor)) {
-      return false;
     }
     return true;
   }

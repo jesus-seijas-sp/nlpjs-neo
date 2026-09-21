@@ -1,4 +1,4 @@
-import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import dictionary from './dictionary-es.json' with { type: 'json' };
 
 /**
@@ -12,10 +12,7 @@ interface AmongTree {
   [char: string]: AmongTree | number | undefined;
 }
 
-class StemmerEs extends BaseStemmer {
-  declare I_p1: number;
-  declare I_p2: number;
-  declare I_pV: number;
+class StemmerEs extends SnowballStemmer {
   declare static a_0: Among<StemmerEs>[];
   declare static a_0_tree: AmongTree;
   declare static a_1: Among<StemmerEs>[];
@@ -101,13 +98,6 @@ class StemmerEs extends BaseStemmer {
       node.result = among.result;
     }
     return result;
-  }
-
-  copy_from(other) {
-    this.I_p2 = other.I_p2;
-    this.I_p1 = other.I_p1;
-    this.I_pV = other.I_pV;
-    super.copy_from(other);
   }
 
   r_mark_regions() {
@@ -324,27 +314,6 @@ class StemmerEs extends BaseStemmer {
       }
       this.cursor = v_1;
       break;
-    }
-    return true;
-  }
-
-  r_RV() {
-    if (!(this.I_pV <= this.cursor)) {
-      return false;
-    }
-    return true;
-  }
-
-  r_R1() {
-    if (!(this.I_p1 <= this.cursor)) {
-      return false;
-    }
-    return true;
-  }
-
-  r_R2() {
-    if (!(this.I_p2 <= this.cursor)) {
-      return false;
     }
     return true;
   }
