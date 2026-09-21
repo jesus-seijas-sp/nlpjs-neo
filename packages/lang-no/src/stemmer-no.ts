@@ -50,11 +50,9 @@ class StemmerNo extends BaseStemmer {
     // goto, line 31
     golab0: for (;;) {
       v_2 = this.cursor;
-      let lab1 = true;
-      while (lab1 == true) {
-        lab1 = false;
+      lab1: {
         if (!this.in_grouping(StemmerNo.g_v, 97, 248)) {
-          break;
+          break lab1;
         }
         this.cursor = v_2;
         break golab0;
@@ -67,11 +65,9 @@ class StemmerNo extends BaseStemmer {
     }
     // gopast, line 31
     golab2: for (;;) {
-      let lab3 = true;
-      while (lab3 == true) {
-        lab3 = false;
+      lab3: {
         if (!this.out_grouping(StemmerNo.g_v, 97, 248)) {
-          break;
+          break lab3;
         }
         break golab2;
       }
@@ -83,12 +79,10 @@ class StemmerNo extends BaseStemmer {
     // setmark p1, line 31
     this.I_p1 = this.cursor;
     // try, line 32
-    let lab4 = true;
-    while (lab4 == true) {
-      lab4 = false;
+    lab4: {
       // (, line 32
       if (!(this.I_p1 < this.I_x)) {
-        break;
+        break lab4;
       }
       this.I_p1 = this.I_x;
     }
@@ -136,15 +130,11 @@ class StemmerNo extends BaseStemmer {
       case 2:
         // (, line 46
         // or, line 46
-        var lab0 = true;
-        lab0: while (lab0 == true) {
-          lab0 = false;
+        lab0: {
           v_3 = this.limit - this.cursor;
-          let lab1 = true;
-          while (lab1 == true) {
-            lab1 = false;
+          lab1: {
             if (!this.in_grouping_b(StemmerNo.g_s_ending, 98, 122)) {
-              break;
+              break lab1;
             }
             break lab0;
           }
@@ -267,12 +257,10 @@ class StemmerNo extends BaseStemmer {
     // (, line 72
     // do, line 74
     v_1 = this.cursor;
-    let lab0 = true;
-    while (lab0 == true) {
-      lab0 = false;
+    lab0: {
       // call mark_regions, line 74
       if (!this.r_mark_regions()) {
-        break;
+        break lab0;
       }
     }
     this.cursor = v_1;
@@ -282,34 +270,28 @@ class StemmerNo extends BaseStemmer {
     // (, line 75
     // do, line 76
     v_2 = this.limit - this.cursor;
-    let lab1 = true;
-    while (lab1 == true) {
-      lab1 = false;
+    lab1: {
       // call main_suffix, line 76
       if (!this.r_main_suffix()) {
-        break;
+        break lab1;
       }
     }
     this.cursor = this.limit - v_2;
     // do, line 77
     v_3 = this.limit - this.cursor;
-    let lab2 = true;
-    while (lab2 == true) {
-      lab2 = false;
+    lab2: {
       // call consonant_pair, line 77
       if (!this.r_consonant_pair()) {
-        break;
+        break lab2;
       }
     }
     this.cursor = this.limit - v_3;
     // do, line 78
     v_4 = this.limit - this.cursor;
-    let lab3 = true;
-    while (lab3 == true) {
-      lab3 = false;
+    lab3: {
       // call other_suffix, line 78
       if (!this.r_other_suffix()) {
-        break;
+        break lab3;
       }
     }
     this.cursor = this.limit - v_4;

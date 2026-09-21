@@ -35,25 +35,19 @@ class StemmerHu extends BaseStemmer {
     // (, line 44
     this.I_p1 = this.limit;
     // or, line 51
-    let lab0 = true;
-    lab0: while (lab0 == true) {
-      lab0 = false;
+    lab0: {
       v_1 = this.cursor;
-      let lab1 = true;
-      lab1: while (lab1 == true) {
-        lab1 = false;
+      lab1: {
         // (, line 48
         if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
-          break;
+          break lab1;
         }
         // goto, line 48
         golab2: for (;;) {
           v_2 = this.cursor;
-          let lab3 = true;
-          while (lab3 == true) {
-            lab3 = false;
+          lab3: {
             if (!this.out_grouping(StemmerHu.g_v, 97, 252)) {
-              break;
+              break lab3;
             }
             this.cursor = v_2;
             break golab2;
@@ -65,16 +59,12 @@ class StemmerHu extends BaseStemmer {
           this.cursor++;
         }
         // or, line 49
-        let lab4 = true;
-        lab4: while (lab4 == true) {
-          lab4 = false;
+        lab4: {
           v_3 = this.cursor;
-          let lab5 = true;
-          while (lab5 == true) {
-            lab5 = false;
+          lab5: {
             // among, line 49
             if (this.find_among(StemmerHu.a_0, 8) == 0) {
-              break;
+              break lab5;
             }
             break lab4;
           }
@@ -96,11 +86,9 @@ class StemmerHu extends BaseStemmer {
       }
       // gopast, line 53
       golab6: for (;;) {
-        let lab7 = true;
-        while (lab7 == true) {
-          lab7 = false;
+        lab7: {
           if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
-            break;
+            break lab7;
           }
           break golab6;
         }
@@ -969,12 +957,10 @@ class StemmerHu extends BaseStemmer {
     // (, line 228
     // do, line 229
     v_1 = this.cursor;
-    let lab0 = true;
-    while (lab0 == true) {
-      lab0 = false;
+    lab0: {
       // call mark_regions, line 229
       if (!this.r_mark_regions()) {
-        break;
+        break lab0;
       }
     }
     this.cursor = v_1;
@@ -984,100 +970,82 @@ class StemmerHu extends BaseStemmer {
     // (, line 230
     // do, line 231
     v_2 = this.limit - this.cursor;
-    let lab1 = true;
-    while (lab1 == true) {
-      lab1 = false;
+    lab1: {
       // call instrum, line 231
       if (!this.r_instrum()) {
-        break;
+        break lab1;
       }
     }
     this.cursor = this.limit - v_2;
     // do, line 232
     v_3 = this.limit - this.cursor;
-    let lab2 = true;
-    while (lab2 == true) {
-      lab2 = false;
+    lab2: {
       // call case, line 232
       if (!this.r_case()) {
-        break;
+        break lab2;
       }
     }
     this.cursor = this.limit - v_3;
     // do, line 233
     v_4 = this.limit - this.cursor;
-    let lab3 = true;
-    while (lab3 == true) {
-      lab3 = false;
+    lab3: {
       // call case_special, line 233
       if (!this.r_case_special()) {
-        break;
+        break lab3;
       }
     }
     this.cursor = this.limit - v_4;
     // do, line 234
     v_5 = this.limit - this.cursor;
-    let lab4 = true;
-    while (lab4 == true) {
-      lab4 = false;
+    lab4: {
       // call case_other, line 234
       if (!this.r_case_other()) {
-        break;
+        break lab4;
       }
     }
     this.cursor = this.limit - v_5;
     // do, line 235
     v_6 = this.limit - this.cursor;
-    let lab5 = true;
-    while (lab5 == true) {
-      lab5 = false;
+    lab5: {
       // call factive, line 235
       if (!this.r_factive()) {
-        break;
+        break lab5;
       }
     }
     this.cursor = this.limit - v_6;
     // do, line 236
     v_7 = this.limit - this.cursor;
-    let lab6 = true;
-    while (lab6 == true) {
-      lab6 = false;
+    lab6: {
       // call owned, line 236
       if (!this.r_owned()) {
-        break;
+        break lab6;
       }
     }
     this.cursor = this.limit - v_7;
     // do, line 237
     v_8 = this.limit - this.cursor;
-    let lab7 = true;
-    while (lab7 == true) {
-      lab7 = false;
+    lab7: {
       // call sing_owner, line 237
       if (!this.r_sing_owner()) {
-        break;
+        break lab7;
       }
     }
     this.cursor = this.limit - v_8;
     // do, line 238
     v_9 = this.limit - this.cursor;
-    let lab8 = true;
-    while (lab8 == true) {
-      lab8 = false;
+    lab8: {
       // call plur_owner, line 238
       if (!this.r_plur_owner()) {
-        break;
+        break lab8;
       }
     }
     this.cursor = this.limit - v_9;
     // do, line 239
     v_10 = this.limit - this.cursor;
-    let lab9 = true;
-    while (lab9 == true) {
-      lab9 = false;
+    lab9: {
       // call plural, line 239
       if (!this.r_plural()) {
-        break;
+        break lab9;
       }
     }
     this.cursor = this.limit - v_10;

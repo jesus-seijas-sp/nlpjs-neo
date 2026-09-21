@@ -45,11 +45,9 @@ class StemmerSv extends BaseStemmer {
     // goto, line 30
     golab0: for (;;) {
       v_2 = this.cursor;
-      let lab1 = true;
-      while (lab1 == true) {
-        lab1 = false;
+      lab1: {
         if (!this.in_grouping(StemmerSv.g_v, 97, 246)) {
-          break;
+          break lab1;
         }
         this.cursor = v_2;
         break golab0;
@@ -62,11 +60,9 @@ class StemmerSv extends BaseStemmer {
     }
     // gopast, line 30
     golab2: for (;;) {
-      let lab3 = true;
-      while (lab3 == true) {
-        lab3 = false;
+      lab3: {
         if (!this.out_grouping(StemmerSv.g_v, 97, 246)) {
-          break;
+          break lab3;
         }
         break golab2;
       }
@@ -78,12 +74,10 @@ class StemmerSv extends BaseStemmer {
     // setmark p1, line 30
     this.I_p1 = this.cursor;
     // try, line 31
-    let lab4 = true;
-    while (lab4 == true) {
-      lab4 = false;
+    lab4: {
       // (, line 31
       if (!(this.I_p1 < this.I_x)) {
-        break;
+        break lab4;
       }
       this.I_p1 = this.I_x;
     }
@@ -246,12 +240,10 @@ class StemmerSv extends BaseStemmer {
     // (, line 64
     // do, line 66
     v_1 = this.cursor;
-    let lab0 = true;
-    while (lab0 == true) {
-      lab0 = false;
+    lab0: {
       // call mark_regions, line 66
       if (!this.r_mark_regions()) {
-        break;
+        break lab0;
       }
     }
     this.cursor = v_1;
@@ -261,34 +253,28 @@ class StemmerSv extends BaseStemmer {
     // (, line 67
     // do, line 68
     v_2 = this.limit - this.cursor;
-    let lab1 = true;
-    while (lab1 == true) {
-      lab1 = false;
+    lab1: {
       // call main_suffix, line 68
       if (!this.r_main_suffix()) {
-        break;
+        break lab1;
       }
     }
     this.cursor = this.limit - v_2;
     // do, line 69
     v_3 = this.limit - this.cursor;
-    let lab2 = true;
-    while (lab2 == true) {
-      lab2 = false;
+    lab2: {
       // call consonant_pair, line 69
       if (!this.r_consonant_pair()) {
-        break;
+        break lab2;
       }
     }
     this.cursor = this.limit - v_3;
     // do, line 70
     v_4 = this.limit - this.cursor;
-    let lab3 = true;
-    while (lab3 == true) {
-      lab3 = false;
+    lab3: {
       // call other_suffix, line 70
       if (!this.r_other_suffix()) {
-        break;
+        break lab3;
       }
     }
     this.cursor = this.limit - v_4;
