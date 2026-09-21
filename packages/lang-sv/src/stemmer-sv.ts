@@ -1,49 +1,39 @@
-import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
-class StemmerSv extends BaseStemmer {
-  declare I_p1: number;
+/**
+ * Stemmer written by tools/snowball from swedish.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
+class StemmerSv extends SnowballStemmer {
   declare I_x: number;
 
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-sv';
-    this.I_x = 0;
     this.I_p1 = 0;
-  }
-
-  copy_from(other: StemmerSv) {
-    this.I_x = other.I_x;
-    this.I_p1 = other.I_p1;
-    super.copy_from(other);
+    this.I_x = 0;
   }
 
   r_mark_regions(): boolean {
     this.I_p1 = this.limit;
-    // test
     const v_1 = this.cursor;
-    {
-      const c = this.cursor + 3;
-      if (c < 0 || c > this.limit) {
-        return false;
-      }
-      this.cursor = c;
+    if (this.cursor + 3 > this.limit) {
+      return false;
     }
+    this.cursor += 3;
     this.I_x = this.cursor;
     this.cursor = v_1;
-    // goto
     if (!this.goto_in_grouping(StemmerSv.g_v, 97, 246)) {
       return false;
     }
-    // gopast
     if (!this.gopast_out_grouping(StemmerSv.g_v, 97, 246)) {
       return false;
     }
     this.I_p1 = this.cursor;
-    // try
-    lab4: {
-      if (!(this.I_p1 < this.I_x)) {
-        break lab4;
+    lab0: {
+      if (this.I_p1 >= this.I_x) {
+        break lab0;
       }
       this.I_p1 = this.I_x;
     }
@@ -51,133 +41,97 @@ class StemmerSv extends BaseStemmer {
   }
 
   r_main_suffix(): boolean {
-    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
-    this.cursor = this.I_p1;
-    const v_2 = this.limit_backward;
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit - v_1;
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerSv.a_0);
+    const v_1 = this.limit_backward;
+    this.limit_backward = this.I_p1;
+    const among_var = this.find_slice_b(StemmerSv.a_0);
     if (among_var === 0) {
-      this.limit_backward = v_2;
+      this.limit_backward = v_1;
       return false;
     }
-    this.bra = this.cursor;
-    this.limit_backward = v_2;
+    this.limit_backward = v_1;
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
         if (!this.in_grouping_b(StemmerSv.g_s_ending, 98, 121)) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
     }
     return true;
   }
 
   r_consonant_pair(): boolean {
-    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
-    this.cursor = this.I_p1;
-    const v_2 = this.limit_backward;
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit - v_1;
-    // and
-    const v_3 = this.limit - this.cursor;
+    const v_1 = this.limit_backward;
+    this.limit_backward = this.I_p1;
+    const v_2 = this.limit - this.cursor;
     if (this.find_among_b(StemmerSv.a_1) === 0) {
-      this.limit_backward = v_2;
+      this.limit_backward = v_1;
       return false;
     }
-    this.cursor = this.limit - v_3;
+    this.cursor = this.limit - v_2;
     this.ket = this.cursor;
     if (this.cursor <= this.limit_backward) {
-      this.limit_backward = v_2;
+      this.limit_backward = v_1;
       return false;
     }
     this.cursor--;
     this.bra = this.cursor;
-    if (!this.slice_del()) {
-      return false;
-    }
-    this.limit_backward = v_2;
+    this.slice_del();
+    this.limit_backward = v_1;
     return true;
   }
 
   r_other_suffix(): boolean {
-    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
     }
-    this.cursor = this.I_p1;
-    const v_2 = this.limit_backward;
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit - v_1;
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerSv.a_2);
+    const v_1 = this.limit_backward;
+    this.limit_backward = this.I_p1;
+    const among_var = this.find_slice_b(StemmerSv.a_2);
     if (among_var === 0) {
-      this.limit_backward = v_2;
+      this.limit_backward = v_1;
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        this.limit_backward = v_2;
-        return false;
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_from('l\u00F6s')) {
-          return false;
-        }
+        this.slice_from('l\u00F6s');
         break;
       case 3:
-        if (!this.slice_from('full')) {
-          return false;
-        }
+        this.slice_from('full');
         break;
     }
-    this.limit_backward = v_2;
+    this.limit_backward = v_1;
     return true;
   }
 
   innerStem(): boolean {
-    // do
-    const v_1 = this.cursor;
-    this.r_mark_regions();
-    this.cursor = v_1;
-    // backwards
+    this.do_forward(this.r_mark_regions);
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    // do
-    const v_2 = this.limit - this.cursor;
-    this.r_main_suffix();
-    this.cursor = this.limit - v_2;
-    // do
-    const v_3 = this.limit - this.cursor;
-    this.r_consonant_pair();
-    this.cursor = this.limit - v_3;
-    // do
-    const v_4 = this.limit - this.cursor;
-    this.r_other_suffix();
-    this.cursor = this.limit - v_4;
+    this.do_backward(this.r_main_suffix);
+    this.do_backward(this.r_consonant_pair);
+    this.do_backward(this.r_other_suffix);
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static g_v: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 32,
+  ];
+
+  static g_s_ending: number[] = [119, 127, 149];
 
   static a_0: Among<StemmerSv>[] = [
     new Among('a', -1, 1),
@@ -236,12 +190,6 @@ class StemmerSv extends BaseStemmer {
     new Among('fullt', -1, 3),
     new Among('l\u00F6st', -1, 2),
   ];
-
-  static g_v: number[] = [
-    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 32,
-  ];
-
-  static g_s_ending: number[] = [119, 127, 149];
 }
 
 export default StemmerSv;

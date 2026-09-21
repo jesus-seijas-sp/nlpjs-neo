@@ -42,11 +42,18 @@ differs from Snowball, and then `pnpm stemmers` writes the TypeScript again.
 
 ## What is generated so far
 
-English (`lang-en-min`, with our tokenizer on top), Spanish (`lang-es`, with the changes below), and Catalan, Basque, Irish, Armenian,
-Indonesian, Nepali, Tamil and Turkish, whose stemmers had nothing of ours in them: their generated
-file is the stemmer (`stemmer-xx.ts`). All of them are the current programs of Snowball, except
-English, which is 2.2.0. `stemmers.ts` lists them, and a test checks that each committed file is
-what the tool writes.
+Twenty-five languages: English (`lang-en-min`, with our tokenizer on top), Spanish (`lang-es`,
+with the changes below), and Arabic, Catalan, Danish, German, Basque, Finnish, French, Irish,
+Hungarian, Armenian, Indonesian, Italian, Lithuanian, Nepali, Dutch, Norwegian, Portuguese,
+Romanian, Russian, Serbian, Swedish, Tamil and Turkish, whose generated file is the stemmer
+(`stemmer-xx.ts`). All of them are the current programs of Snowball except English, Arabic,
+German, Danish, Finnish, French, Hungarian, Italian, Lithuanian, Dutch, Norwegian, Portuguese,
+Romanian, Russian, Serbian, Swedish and Spanish, which are Snowball 2.2.0, the version the stemmers
+were generated from before: later versions changed the algorithms of several of them (Dutch on 45%
+of its words, Romanian on 15%). `stemmers.ts` lists them, and a test checks that each committed file
+is what the tool writes.
+
+Polish and Czech are not here: theirs are not Snowball 2.x algorithms.
 
 ## Spanish, which has changes of its own
 
@@ -66,6 +73,13 @@ stem after it.
 The previous stemmer searched its tables with the accented rules taken out but not put in order
 again, so the search missed some endings (`alabanza` kept its `-anza`). Sorting them is what the
 compiler does, and 1.1% of the words of the Snowball vocabulary now stem as Snowball stems them.
+
+## Arabic
+
+`arabic.sbl` is Snowball 2.2.0 with one change, marked `nlpjs-neo`: `Normalize_pre` also deletes the
+punctuation that stays attached to a word (the ASCII marks, and the Arabic comma, semicolon,
+question mark, percent and separators), because the tokenizer does not split it off. Without it
+`أبله،` is not stemmed at all.
 
 ## Adding a language
 

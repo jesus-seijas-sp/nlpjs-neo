@@ -1,124 +1,100 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from italian.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerIt extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-it';
-    this.I_p2 = 0;
-    this.I_p1 = 0;
     this.I_pV = 0;
+    this.I_p1 = 0;
+    this.I_p2 = 0;
   }
 
   r_prelude(): boolean {
-    // test
     const v_1 = this.cursor;
-    // repeat
-    replab0: for (;;) {
+    for (;;) {
       const v_2 = this.cursor;
-      lab1: {
-        this.bra = this.cursor;
-        const among_var = this.find_among(StemmerIt.a_0);
-        if (among_var === 0) {
-          break lab1;
-        }
-        this.ket = this.cursor;
+      lab0: {
+        const among_var = this.find_slice(StemmerIt.a_0);
         switch (among_var) {
-          case 0:
-            break lab1;
           case 1:
-            if (!this.slice_from('\u00E0')) {
-              return false;
-            }
+            this.slice_from('\u00E0');
             break;
           case 2:
-            if (!this.slice_from('\u00E8')) {
-              return false;
-            }
+            this.slice_from('\u00E8');
             break;
           case 3:
-            if (!this.slice_from('\u00EC')) {
-              return false;
-            }
+            this.slice_from('\u00EC');
             break;
           case 4:
-            if (!this.slice_from('\u00F2')) {
-              return false;
-            }
+            this.slice_from('\u00F2');
             break;
           case 5:
-            if (!this.slice_from('\u00F9')) {
-              return false;
-            }
+            this.slice_from('\u00F9');
             break;
           case 6:
-            if (!this.slice_from('qU')) {
-              return false;
-            }
+            this.slice_from('qU');
             break;
           case 7:
             if (this.cursor >= this.limit) {
-              break lab1;
+              break lab0;
             }
             this.cursor++;
             break;
         }
-        continue replab0;
+        continue;
       }
       this.cursor = v_2;
       break;
     }
     this.cursor = v_1;
-    // repeat
-    replab2: for (;;) {
+    for (;;) {
       const v_3 = this.cursor;
-      lab3: {
-        // goto
-        golab4: for (;;) {
+      lab1: {
+        lab2: for (;;) {
           const v_4 = this.cursor;
-          lab5: {
+          lab3: {
             if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-              break lab5;
+              break lab3;
             }
             this.bra = this.cursor;
-            // or
-            lab6: {
+            lab4: {
               const v_5 = this.cursor;
-              lab7: {
+              lab5: {
                 if (!this.eq_s('u')) {
-                  break lab7;
+                  break lab5;
                 }
                 this.ket = this.cursor;
                 if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-                  break lab7;
+                  break lab5;
                 }
-                if (!this.slice_from('U')) {
-                  return false;
-                }
-                break lab6;
+                this.slice_from('U');
+                break lab4;
               }
               this.cursor = v_5;
               if (!this.eq_s('i')) {
-                break lab5;
+                break lab3;
               }
               this.ket = this.cursor;
               if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
-                break lab5;
+                break lab3;
               }
-              if (!this.slice_from('I')) {
-                return false;
-              }
+              this.slice_from('I');
             }
             this.cursor = v_4;
-            break golab4;
+            break lab2;
           }
           this.cursor = v_4;
           if (this.cursor >= this.limit) {
-            break lab3;
+            break lab1;
           }
           this.cursor++;
         }
-        continue replab2;
+        continue;
       }
       this.cursor = v_3;
       break;
@@ -130,24 +106,20 @@ class StemmerIt extends SnowballStemmer {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
-    // do
     const v_1 = this.cursor;
     lab0: {
-      // or
       lab1: {
         const v_2 = this.cursor;
         lab2: {
           if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
             break lab2;
           }
-          // or
           lab3: {
             const v_3 = this.cursor;
             lab4: {
               if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
                 break lab4;
               }
-              // gopast
               if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
                 break lab4;
               }
@@ -157,7 +129,6 @@ class StemmerIt extends SnowballStemmer {
             if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
               break lab2;
             }
-            // gopast
             if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
               break lab2;
             }
@@ -168,20 +139,18 @@ class StemmerIt extends SnowballStemmer {
         if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
           break lab0;
         }
-        // or
-        lab9: {
-          const v_6 = this.cursor;
-          lab10: {
+        lab5: {
+          const v_4 = this.cursor;
+          lab6: {
             if (!this.out_grouping(StemmerIt.g_v, 97, 249)) {
-              break lab10;
+              break lab6;
             }
-            // gopast
             if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
-              break lab10;
+              break lab6;
             }
-            break lab9;
+            break lab5;
           }
-          this.cursor = v_6;
+          this.cursor = v_4;
           if (!this.in_grouping(StemmerIt.g_v, 97, 249)) {
             break lab0;
           }
@@ -194,64 +163,47 @@ class StemmerIt extends SnowballStemmer {
       this.I_pV = this.cursor;
     }
     this.cursor = v_1;
-    // do
-    const v_8 = this.cursor;
-    lab13: {
-      // gopast
+    const v_5 = this.cursor;
+    lab7: {
       if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
-        break lab13;
+        break lab7;
       }
-      // gopast
       if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
-        break lab13;
+        break lab7;
       }
       this.I_p1 = this.cursor;
-      // gopast
       if (!this.gopast_in_grouping(StemmerIt.g_v, 97, 249)) {
-        break lab13;
+        break lab7;
       }
-      // gopast
       if (!this.gopast_out_grouping(StemmerIt.g_v, 97, 249)) {
-        break lab13;
+        break lab7;
       }
       this.I_p2 = this.cursor;
     }
-    this.cursor = v_8;
+    this.cursor = v_5;
     return true;
   }
 
   r_postlude(): boolean {
-    // repeat
-    replab0: for (;;) {
+    for (;;) {
       const v_1 = this.cursor;
-      lab1: {
-        this.bra = this.cursor;
-        const among_var = this.find_among(StemmerIt.a_1);
-        if (among_var === 0) {
-          break lab1;
-        }
-        this.ket = this.cursor;
+      lab0: {
+        const among_var = this.find_slice(StemmerIt.a_1);
         switch (among_var) {
-          case 0:
-            break lab1;
           case 1:
-            if (!this.slice_from('i')) {
-              return false;
-            }
+            this.slice_from('i');
             break;
           case 2:
-            if (!this.slice_from('u')) {
-              return false;
-            }
+            this.slice_from('u');
             break;
           case 3:
             if (this.cursor >= this.limit) {
-              break lab1;
+              break lab0;
             }
             this.cursor++;
             break;
         }
-        continue replab0;
+        continue;
       }
       this.cursor = v_1;
       break;
@@ -260,12 +212,10 @@ class StemmerIt extends SnowballStemmer {
   }
 
   r_attached_pronoun(): boolean {
-    this.ket = this.cursor;
-    if (this.find_among_b(StemmerIt.a_2) === 0) {
+    if (this.find_slice_b(StemmerIt.a_3) === 0) {
       return false;
     }
-    this.bra = this.cursor;
-    const among_var = this.find_among_b(StemmerIt.a_3);
+    const among_var = this.find_among_b(StemmerIt.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -274,48 +224,34 @@ class StemmerIt extends SnowballStemmer {
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
     }
     return true;
   }
 
   r_standard_suffix(): boolean {
-    let v_1;
-    let v_2;
-    let v_3;
-    let v_4;
-    this.ket = this.cursor;
-    let among_var = this.find_among_b(StemmerIt.a_6);
+    let among_var: number;
+    among_var = this.find_slice_b(StemmerIt.a_6);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
-      case 2:
+      case 2: {
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
-        v_1 = this.limit - this.cursor;
+        this.slice_del();
+        const v_1 = this.limit - this.cursor;
         lab0: {
           this.ket = this.cursor;
           if (!this.eq_s_b('ic')) {
@@ -327,71 +263,52 @@ class StemmerIt extends SnowballStemmer {
             this.cursor = this.limit - v_1;
             break lab0;
           }
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
         }
         break;
+      }
       case 3:
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_from('log')) {
-          return false;
-        }
+        this.slice_from('log');
         break;
       case 4:
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_from('u')) {
-          return false;
-        }
+        this.slice_from('u');
         break;
       case 5:
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_from('ente')) {
-          return false;
-        }
+        this.slice_from('ente');
         break;
       case 6:
         if (!this.r_RV()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
-      case 7:
+      case 7: {
         if (!this.r_R1()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
-        v_2 = this.limit - this.cursor;
+        this.slice_del();
+        const v_2 = this.limit - this.cursor;
         lab1: {
-          this.ket = this.cursor;
-          among_var = this.find_among_b(StemmerIt.a_4);
+          among_var = this.find_slice_b(StemmerIt.a_4);
           if (among_var === 0) {
             this.cursor = this.limit - v_2;
             break lab1;
           }
-          this.bra = this.cursor;
           if (!this.r_R2()) {
             this.cursor = this.limit - v_2;
             break lab1;
           }
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
           switch (among_var) {
-            case 0:
-              this.cursor = this.limit - v_2;
-              break lab1;
             case 1:
               this.ket = this.cursor;
               if (!this.eq_s_b('at')) {
@@ -403,55 +320,42 @@ class StemmerIt extends SnowballStemmer {
                 this.cursor = this.limit - v_2;
                 break lab1;
               }
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               break;
           }
         }
         break;
-      case 8:
+      }
+      case 8: {
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
-        v_3 = this.limit - this.cursor;
+        this.slice_del();
+        const v_3 = this.limit - this.cursor;
         lab2: {
-          this.ket = this.cursor;
-          among_var = this.find_among_b(StemmerIt.a_5);
+          among_var = this.find_slice_b(StemmerIt.a_5);
           if (among_var === 0) {
             this.cursor = this.limit - v_3;
             break lab2;
           }
-          this.bra = this.cursor;
           switch (among_var) {
-            case 0:
-              this.cursor = this.limit - v_3;
-              break lab2;
             case 1:
               if (!this.r_R2()) {
                 this.cursor = this.limit - v_3;
                 break lab2;
               }
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               break;
           }
         }
         break;
-      case 9:
+      }
+      case 9: {
         if (!this.r_R2()) {
           return false;
         }
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
-        v_4 = this.limit - this.cursor;
+        this.slice_del();
+        const v_4 = this.limit - this.cursor;
         lab3: {
           this.ket = this.cursor;
           if (!this.eq_s_b('at')) {
@@ -463,9 +367,7 @@ class StemmerIt extends SnowballStemmer {
             this.cursor = this.limit - v_4;
             break lab3;
           }
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
           this.ket = this.cursor;
           if (!this.eq_s_b('ic')) {
             this.cursor = this.limit - v_4;
@@ -476,47 +378,35 @@ class StemmerIt extends SnowballStemmer {
             this.cursor = this.limit - v_4;
             break lab3;
           }
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
         }
         break;
+      }
     }
     return true;
   }
 
   r_verb_suffix(): boolean {
-    const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
     }
-    this.cursor = this.I_pV;
-    const v_2 = this.limit_backward;
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit - v_1;
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerIt.a_7);
+    const v_1 = this.limit_backward;
+    this.limit_backward = this.I_pV;
+    const among_var = this.find_slice_b(StemmerIt.a_7);
     if (among_var === 0) {
-      this.limit_backward = v_2;
+      this.limit_backward = v_1;
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        this.limit_backward = v_2;
-        return false;
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
     }
-    this.limit_backward = v_2;
+    this.limit_backward = v_1;
     return true;
   }
 
   r_vowel_suffix(): boolean {
-    // try
     const v_1 = this.limit - this.cursor;
     lab0: {
       this.ket = this.cursor;
@@ -529,9 +419,7 @@ class StemmerIt extends SnowballStemmer {
         this.cursor = this.limit - v_1;
         break lab0;
       }
-      if (!this.slice_del()) {
-        return false;
-      }
+      this.slice_del();
       this.ket = this.cursor;
       if (!this.eq_s_b('i')) {
         this.cursor = this.limit - v_1;
@@ -542,11 +430,8 @@ class StemmerIt extends SnowballStemmer {
         this.cursor = this.limit - v_1;
         break lab0;
       }
-      if (!this.slice_del()) {
-        return false;
-      }
+      this.slice_del();
     }
-    // try
     const v_2 = this.limit - this.cursor;
     lab1: {
       this.ket = this.cursor;
@@ -563,58 +448,49 @@ class StemmerIt extends SnowballStemmer {
         this.cursor = this.limit - v_2;
         break lab1;
       }
-      if (!this.slice_del()) {
-        return false;
-      }
+      this.slice_del();
     }
     return true;
   }
 
   innerStem(): boolean {
-    // do
-    const v_1 = this.cursor;
-    this.r_prelude();
-    this.cursor = v_1;
-    // do
-    const v_2 = this.cursor;
+    this.do_forward(this.r_prelude);
     this.r_mark_regions();
-    this.cursor = v_2;
-    // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    // do
+    this.do_backward(this.r_attached_pronoun);
     const v_3 = this.limit - this.cursor;
-    this.r_attached_pronoun();
-    this.cursor = this.limit - v_3;
-    // do
-    const v_4 = this.limit - this.cursor;
-    lab3: {
-      // or
-      lab4: {
-        const v_5 = this.limit - this.cursor;
-        lab5: {
+    lab0: {
+      lab1: {
+        const v_4 = this.limit - this.cursor;
+        lab2: {
           if (!this.r_standard_suffix()) {
-            break lab5;
+            break lab2;
           }
-          break lab4;
+          break lab1;
         }
-        this.cursor = this.limit - v_5;
+        this.cursor = this.limit - v_4;
         if (!this.r_verb_suffix()) {
-          break lab3;
+          break lab0;
         }
       }
     }
-    this.cursor = this.limit - v_4;
-    // do
-    const v_6 = this.limit - this.cursor;
-    this.r_vowel_suffix();
-    this.cursor = this.limit - v_6;
-    this.cursor = this.limit_backward; // do
-    const v_7 = this.cursor;
-    this.r_postlude();
-    this.cursor = v_7;
+    this.cursor = this.limit - v_3;
+    this.do_backward(this.r_vowel_suffix);
+    this.cursor = this.limit_backward;
+    this.do_forward(this.r_postlude);
     return true;
   }
+
+  static g_v: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 8, 2, 1,
+  ];
+
+  static g_AEIO: number[] = [
+    17, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 8, 2,
+  ];
+
+  static g_CG: number[] = [17];
 
   static a_0: Among<StemmerIt>[] = [
     new Among('', -1, 7),
@@ -633,6 +509,14 @@ class StemmerIt extends SnowballStemmer {
   ];
 
   static a_2: Among<StemmerIt>[] = [
+    new Among('ando', -1, 1),
+    new Among('endo', -1, 1),
+    new Among('ar', -1, 2),
+    new Among('er', -1, 2),
+    new Among('ir', -1, 2),
+  ];
+
+  static a_3: Among<StemmerIt>[] = [
     new Among('la', -1, -1),
     new Among('cela', 0, -1),
     new Among('gliela', 0, -1),
@@ -670,14 +554,6 @@ class StemmerIt extends SnowballStemmer {
     new Among('melo', 31, -1),
     new Among('telo', 31, -1),
     new Among('velo', 31, -1),
-  ];
-
-  static a_3: Among<StemmerIt>[] = [
-    new Among('ando', -1, 1),
-    new Among('endo', -1, 1),
-    new Among('ar', -1, 2),
-    new Among('er', -1, 2),
-    new Among('ir', -1, 2),
   ];
 
   static a_4: Among<StemmerIt>[] = [
@@ -836,16 +712,6 @@ class StemmerIt extends SnowballStemmer {
     new Among('er\u00F2', -1, 1),
     new Among('ir\u00F2', -1, 1),
   ];
-
-  static g_v: number[] = [
-    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 8, 2, 1,
-  ];
-
-  static g_AEIO: number[] = [
-    17, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 128, 8, 2,
-  ];
-
-  static g_CG: number[] = [17];
 }
 
 export default StemmerIt;

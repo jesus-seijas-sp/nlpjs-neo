@@ -76,6 +76,96 @@ export const STEMMERS: Stemmer[] = [
     className: 'SnowballStemmerEs',
     name: 'stemmer-es',
   },
+  {
+    sbl: 'tools/snowball/algorithms/arabic.sbl',
+    out: 'packages/lang-ar/src/stemmer-ar.ts',
+    className: 'StemmerAr',
+    name: 'stemmer-ar',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/danish.sbl',
+    out: 'packages/lang-da/src/stemmer-da.ts',
+    className: 'StemmerDa',
+    name: 'stemmer-da',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/german.sbl',
+    out: 'packages/lang-de/src/stemmer-de.ts',
+    className: 'StemmerDe',
+    name: 'stemmer-de',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/finnish.sbl',
+    out: 'packages/lang-fi/src/stemmer-fi.ts',
+    className: 'StemmerFi',
+    name: 'stemmer-fi',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/french.sbl',
+    out: 'packages/lang-fr/src/stemmer-fr.ts',
+    className: 'StemmerFr',
+    name: 'stemmer-fr',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/hungarian.sbl',
+    out: 'packages/lang-hu/src/stemmer-hu.ts',
+    className: 'StemmerHu',
+    name: 'stemmer-hu',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/italian.sbl',
+    out: 'packages/lang-it/src/stemmer-it.ts',
+    className: 'StemmerIt',
+    name: 'stemmer-it',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/lithuanian.sbl',
+    out: 'packages/lang-lt/src/stemmer-lt.ts',
+    className: 'StemmerLt',
+    name: 'stemmer-lt',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/dutch.sbl',
+    out: 'packages/lang-nl/src/stemmer-nl.ts',
+    className: 'StemmerNl',
+    name: 'stemmer-nl',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/norwegian.sbl',
+    out: 'packages/lang-no/src/stemmer-no.ts',
+    className: 'StemmerNo',
+    name: 'stemmer-no',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/portuguese.sbl',
+    out: 'packages/lang-pt/src/stemmer-pt.ts',
+    className: 'StemmerPt',
+    name: 'stemmer-pt',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/romanian.sbl',
+    out: 'packages/lang-ro/src/stemmer-ro.ts',
+    className: 'StemmerRo',
+    name: 'stemmer-ro',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/russian.sbl',
+    out: 'packages/lang-ru/src/stemmer-ru.ts',
+    className: 'StemmerRu',
+    name: 'stemmer-ru',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/serbian.sbl',
+    out: 'packages/lang-sr/src/stemmer-sr.ts',
+    className: 'StemmerSr',
+    name: 'stemmer-sr',
+  },
+  {
+    sbl: 'tools/snowball/algorithms/swedish.sbl',
+    out: 'packages/lang-sv/src/stemmer-sv.ts',
+    className: 'StemmerSv',
+    name: 'stemmer-sv',
+  },
 ];
 
 /** The TypeScript that the tool writes for a stemmer; `root` is the root of the repository. */

@@ -1,6 +1,10 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from hungarian.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerHu extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
@@ -8,34 +12,18 @@ class StemmerHu extends SnowballStemmer {
     this.I_p1 = 0;
   }
 
-  copy_from(other: StemmerHu) {
-    this.I_p1 = other.I_p1;
-    super.copy_from(other);
-  }
-
   r_mark_regions(): boolean {
     this.I_p1 = this.limit;
-    // or
     lab0: {
       const v_1 = this.cursor;
       lab1: {
-        if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
+        if (!this.in_grouping(StemmerHu.g_v, 97, 369)) {
           break lab1;
         }
-        // goto
-        if (!this.goto_out_grouping(StemmerHu.g_v, 97, 252)) {
+        if (!this.goto_out_grouping(StemmerHu.g_v, 97, 369)) {
           break lab1;
         }
-        // or
-        lab4: {
-          const v_3 = this.cursor;
-          lab5: {
-            if (this.find_among(StemmerHu.a_0) === 0) {
-              break lab5;
-            }
-            break lab4;
-          }
-          this.cursor = v_3;
+        if (this.find_among(StemmerHu.a_0) === 0) {
           if (this.cursor >= this.limit) {
             break lab1;
           }
@@ -45,11 +33,10 @@ class StemmerHu extends SnowballStemmer {
         break lab0;
       }
       this.cursor = v_1;
-      if (!this.out_grouping(StemmerHu.g_v, 97, 252)) {
+      if (!this.out_grouping(StemmerHu.g_v, 97, 369)) {
         return false;
       }
-      // gopast
-      if (!this.gopast_in_grouping(StemmerHu.g_v, 97, 252)) {
+      if (!this.gopast_in_grouping(StemmerHu.g_v, 97, 369)) {
         return false;
       }
       this.I_p1 = this.cursor;
@@ -58,32 +45,25 @@ class StemmerHu extends SnowballStemmer {
   }
 
   r_v_ending(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_1);
+    const among_var = this.find_slice_b(StemmerHu.a_1);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_from('a')) {
-          return false;
-        }
+        this.slice_from('a');
         break;
       case 2:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
     }
     return true;
   }
 
   r_double(): boolean {
-    // test
     const v_1 = this.limit - this.cursor;
     if (this.find_among_b(StemmerHu.a_2) === 0) {
       return false;
@@ -98,27 +78,20 @@ class StemmerHu extends SnowballStemmer {
     }
     this.cursor--;
     this.ket = this.cursor;
-    {
-      const c = this.cursor - 1;
-      if (this.limit_backward > c || c > this.limit) {
-        return false;
-      }
-      this.cursor = c;
-    }
-    this.bra = this.cursor;
-    if (!this.slice_del()) {
+    if (this.cursor - 1 < this.limit_backward) {
       return false;
     }
+    this.cursor -= 1;
+    this.bra = this.cursor;
+    this.slice_del();
     return true;
   }
 
   r_instrum(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_3);
+    const among_var = this.find_slice_b(StemmerHu.a_3);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
@@ -128,111 +101,68 @@ class StemmerHu extends SnowballStemmer {
           return false;
         }
         break;
-      case 2:
-        if (!this.r_double()) {
-          return false;
-        }
-        break;
     }
-    if (!this.slice_del()) {
-      return false;
-    }
-    if (!this.r_undouble()) {
-      return false;
-    }
-    return true;
+    this.slice_del();
+    return this.r_undouble();
   }
 
   r_case(): boolean {
-    this.ket = this.cursor;
-    if (this.find_among_b(StemmerHu.a_4) === 0) {
+    if (this.find_slice_b(StemmerHu.a_4) === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
-    if (!this.slice_del()) {
-      return false;
-    }
-    if (!this.r_v_ending()) {
-      return false;
-    }
-    return true;
+    this.slice_del();
+    return this.r_v_ending();
   }
 
   r_case_special(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_5);
+    const among_var = this.find_slice_b(StemmerHu.a_5);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
       case 2:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 3:
-        if (!this.slice_from('a')) {
-          return false;
-        }
+        this.slice_from('a');
         break;
     }
     return true;
   }
 
   r_case_other(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_6);
+    const among_var = this.find_slice_b(StemmerHu.a_6);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_from('a');
         break;
       case 3:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 4:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
     }
     return true;
   }
 
   r_factive(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_7);
+    const among_var = this.find_slice_b(StemmerHu.a_7);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
@@ -242,453 +172,120 @@ class StemmerHu extends SnowballStemmer {
           return false;
         }
         break;
-      case 2:
-        if (!this.r_double()) {
-          return false;
-        }
-        break;
     }
-    if (!this.slice_del()) {
-      return false;
-    }
-    if (!this.r_undouble()) {
-      return false;
-    }
-    return true;
+    this.slice_del();
+    return this.r_undouble();
   }
 
   r_plural(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_8);
+    const among_var = this.find_slice_b(StemmerHu.a_8);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_from('a')) {
-          return false;
-        }
+        this.slice_from('a');
         break;
       case 2:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
       case 3:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 4:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 5:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 6:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 7:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
     }
     return true;
   }
 
   r_owned(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_9);
+    const among_var = this.find_slice_b(StemmerHu.a_9);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
       case 3:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 4:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 5:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 6:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 7:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 8:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 9:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_from('a');
         break;
     }
     return true;
   }
 
   r_sing_owner(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_10);
+    const among_var = this.find_slice_b(StemmerHu.a_10);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_from('a')) {
-          return false;
-        }
+        this.slice_from('a');
         break;
       case 3:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 4:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 5:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 6:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 7:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 8:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 9:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 10:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 11:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 12:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 13:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 14:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 15:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 16:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 17:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 18:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 19:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 20:
-        if (!this.slice_from('e')) {
-          return false;
-        }
+        this.slice_from('e');
         break;
     }
     return true;
   }
 
   r_plur_owner(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHu.a_11);
+    const among_var = this.find_slice_b(StemmerHu.a_11);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R1()) {
       return false;
     }
     switch (among_var) {
       case 1:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break;
       case 2:
-        if (!this.slice_from('a')) {
-          return false;
-        }
+        this.slice_from('a');
         break;
       case 3:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 4:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 5:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 6:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 7:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 8:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 9:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 10:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 11:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 12:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 13:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 14:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 15:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 16:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 17:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 18:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 19:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 20:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 21:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 22:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 23:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 24:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 25:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 26:
-        if (!this.slice_del()) {
-          return false;
-        }
-        break;
-      case 27:
-        if (!this.slice_from('a')) {
-          return false;
-        }
-        break;
-      case 28:
-        if (!this.slice_from('e')) {
-          return false;
-        }
-        break;
-      case 29:
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_from('e');
         break;
     }
     return true;
   }
 
   innerStem(): boolean {
-    // do
-    const v_1 = this.cursor;
-    this.r_mark_regions();
-    this.cursor = v_1;
-    // backwards
+    this.do_forward(this.r_mark_regions);
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    // do
-    const v_2 = this.limit - this.cursor;
-    this.r_instrum();
-    this.cursor = this.limit - v_2;
-    // do
-    const v_3 = this.limit - this.cursor;
-    this.r_case();
-    this.cursor = this.limit - v_3;
-    // do
-    const v_4 = this.limit - this.cursor;
-    this.r_case_special();
-    this.cursor = this.limit - v_4;
-    // do
-    const v_5 = this.limit - this.cursor;
-    this.r_case_other();
-    this.cursor = this.limit - v_5;
-    // do
-    const v_6 = this.limit - this.cursor;
-    this.r_factive();
-    this.cursor = this.limit - v_6;
-    // do
-    const v_7 = this.limit - this.cursor;
-    this.r_owned();
-    this.cursor = this.limit - v_7;
-    // do
-    const v_8 = this.limit - this.cursor;
-    this.r_sing_owner();
-    this.cursor = this.limit - v_8;
-    // do
-    const v_9 = this.limit - this.cursor;
-    this.r_plur_owner();
-    this.cursor = this.limit - v_9;
-    // do
-    const v_10 = this.limit - this.cursor;
-    this.r_plural();
-    this.cursor = this.limit - v_10;
+    this.do_backward(this.r_instrum);
+    this.do_backward(this.r_case);
+    this.do_backward(this.r_case_special);
+    this.do_backward(this.r_case_other);
+    this.do_backward(this.r_factive);
+    this.do_backward(this.r_owned);
+    this.do_backward(this.r_sing_owner);
+    this.do_backward(this.r_plur_owner);
+    this.do_backward(this.r_plural);
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static g_v: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 36, 10, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1,
+  ];
 
   static a_0: Among<StemmerHu>[] = [
     new Among('cs', -1, -1),
@@ -734,7 +331,7 @@ class StemmerHu extends SnowballStemmer {
 
   static a_3: Among<StemmerHu>[] = [
     new Among('al', -1, 1),
-    new Among('el', -1, 2),
+    new Among('el', -1, 1),
   ];
 
   static a_4: Among<StemmerHu>[] = [
@@ -753,10 +350,10 @@ class StemmerHu extends SnowballStemmer {
     new Among('b\u00F3l', -1, -1),
     new Among('r\u00F3l', -1, -1),
     new Among('t\u00F3l', -1, -1),
-    new Among('b\u00F5l', -1, -1),
-    new Among('r\u00F5l', -1, -1),
-    new Among('t\u00F5l', -1, -1),
     new Among('\u00FCl', -1, -1),
+    new Among('b\u0151l', -1, -1),
+    new Among('r\u0151l', -1, -1),
+    new Among('t\u0151l', -1, -1),
     new Among('n', -1, -1),
     new Among('an', 19, -1),
     new Among('ban', 20, -1),
@@ -787,129 +384,125 @@ class StemmerHu extends SnowballStemmer {
   static a_5: Among<StemmerHu>[] = [
     new Among('\u00E1n', -1, 2),
     new Among('\u00E9n', -1, 1),
-    new Among('\u00E1nk\u00E9nt', -1, 3),
+    new Among('\u00E1nk\u00E9nt', -1, 2),
   ];
 
   static a_6: Among<StemmerHu>[] = [
-    new Among('stul', -1, 2),
+    new Among('stul', -1, 1),
     new Among('astul', 0, 1),
-    new Among('\u00E1stul', 0, 3),
-    new Among('st\u00FCl', -1, 2),
+    new Among('\u00E1stul', 0, 2),
+    new Among('st\u00FCl', -1, 1),
     new Among('est\u00FCl', 3, 1),
-    new Among('\u00E9st\u00FCl', 3, 4),
+    new Among('\u00E9st\u00FCl', 3, 3),
   ];
 
   static a_7: Among<StemmerHu>[] = [
     new Among('\u00E1', -1, 1),
-    new Among('\u00E9', -1, 2),
+    new Among('\u00E9', -1, 1),
   ];
 
   static a_8: Among<StemmerHu>[] = [
-    new Among('k', -1, 7),
-    new Among('ak', 0, 4),
-    new Among('ek', 0, 6),
-    new Among('ok', 0, 5),
+    new Among('k', -1, 3),
+    new Among('ak', 0, 3),
+    new Among('ek', 0, 3),
+    new Among('ok', 0, 3),
     new Among('\u00E1k', 0, 1),
     new Among('\u00E9k', 0, 2),
     new Among('\u00F6k', 0, 3),
   ];
 
   static a_9: Among<StemmerHu>[] = [
-    new Among('\u00E9i', -1, 7),
-    new Among('\u00E1\u00E9i', 0, 6),
-    new Among('\u00E9\u00E9i', 0, 5),
-    new Among('\u00E9', -1, 9),
-    new Among('k\u00E9', 3, 4),
+    new Among('\u00E9i', -1, 1),
+    new Among('\u00E1\u00E9i', 0, 3),
+    new Among('\u00E9\u00E9i', 0, 2),
+    new Among('\u00E9', -1, 1),
+    new Among('k\u00E9', 3, 1),
     new Among('ak\u00E9', 4, 1),
     new Among('ek\u00E9', 4, 1),
     new Among('ok\u00E9', 4, 1),
     new Among('\u00E1k\u00E9', 4, 3),
     new Among('\u00E9k\u00E9', 4, 2),
     new Among('\u00F6k\u00E9', 4, 1),
-    new Among('\u00E9\u00E9', 3, 8),
+    new Among('\u00E9\u00E9', 3, 2),
   ];
 
   static a_10: Among<StemmerHu>[] = [
-    new Among('a', -1, 18),
-    new Among('ja', 0, 17),
-    new Among('d', -1, 16),
-    new Among('ad', 2, 13),
-    new Among('ed', 2, 13),
-    new Among('od', 2, 13),
-    new Among('\u00E1d', 2, 14),
-    new Among('\u00E9d', 2, 15),
-    new Among('\u00F6d', 2, 13),
-    new Among('e', -1, 18),
-    new Among('je', 9, 17),
-    new Among('nk', -1, 4),
+    new Among('a', -1, 1),
+    new Among('ja', 0, 1),
+    new Among('d', -1, 1),
+    new Among('ad', 2, 1),
+    new Among('ed', 2, 1),
+    new Among('od', 2, 1),
+    new Among('\u00E1d', 2, 2),
+    new Among('\u00E9d', 2, 3),
+    new Among('\u00F6d', 2, 1),
+    new Among('e', -1, 1),
+    new Among('je', 9, 1),
+    new Among('nk', -1, 1),
     new Among('unk', 11, 1),
     new Among('\u00E1nk', 11, 2),
     new Among('\u00E9nk', 11, 3),
     new Among('\u00FCnk', 11, 1),
-    new Among('uk', -1, 8),
-    new Among('juk', 16, 7),
-    new Among('\u00E1juk', 17, 5),
-    new Among('\u00FCk', -1, 8),
-    new Among('j\u00FCk', 19, 7),
-    new Among('\u00E9j\u00FCk', 20, 6),
-    new Among('m', -1, 12),
-    new Among('am', 22, 9),
-    new Among('em', 22, 9),
-    new Among('om', 22, 9),
-    new Among('\u00E1m', 22, 10),
-    new Among('\u00E9m', 22, 11),
-    new Among('o', -1, 18),
-    new Among('\u00E1', -1, 19),
-    new Among('\u00E9', -1, 20),
+    new Among('uk', -1, 1),
+    new Among('juk', 16, 1),
+    new Among('\u00E1juk', 17, 2),
+    new Among('\u00FCk', -1, 1),
+    new Among('j\u00FCk', 19, 1),
+    new Among('\u00E9j\u00FCk', 20, 3),
+    new Among('m', -1, 1),
+    new Among('am', 22, 1),
+    new Among('em', 22, 1),
+    new Among('om', 22, 1),
+    new Among('\u00E1m', 22, 2),
+    new Among('\u00E9m', 22, 3),
+    new Among('o', -1, 1),
+    new Among('\u00E1', -1, 2),
+    new Among('\u00E9', -1, 3),
   ];
 
   static a_11: Among<StemmerHu>[] = [
-    new Among('id', -1, 10),
-    new Among('aid', 0, 9),
-    new Among('jaid', 1, 6),
-    new Among('eid', 0, 9),
-    new Among('jeid', 3, 6),
-    new Among('\u00E1id', 0, 7),
-    new Among('\u00E9id', 0, 8),
-    new Among('i', -1, 15),
-    new Among('ai', 7, 14),
-    new Among('jai', 8, 11),
-    new Among('ei', 7, 14),
-    new Among('jei', 10, 11),
-    new Among('\u00E1i', 7, 12),
-    new Among('\u00E9i', 7, 13),
-    new Among('itek', -1, 24),
-    new Among('eitek', 14, 21),
-    new Among('jeitek', 15, 20),
-    new Among('\u00E9itek', 14, 23),
-    new Among('ik', -1, 29),
-    new Among('aik', 18, 26),
-    new Among('jaik', 19, 25),
-    new Among('eik', 18, 26),
-    new Among('jeik', 21, 25),
-    new Among('\u00E1ik', 18, 27),
-    new Among('\u00E9ik', 18, 28),
-    new Among('ink', -1, 20),
-    new Among('aink', 25, 17),
-    new Among('jaink', 26, 16),
-    new Among('eink', 25, 17),
-    new Among('jeink', 28, 16),
-    new Among('\u00E1ink', 25, 18),
-    new Among('\u00E9ink', 25, 19),
-    new Among('aitok', -1, 21),
-    new Among('jaitok', 32, 20),
-    new Among('\u00E1itok', -1, 22),
-    new Among('im', -1, 5),
-    new Among('aim', 35, 4),
+    new Among('id', -1, 1),
+    new Among('aid', 0, 1),
+    new Among('jaid', 1, 1),
+    new Among('eid', 0, 1),
+    new Among('jeid', 3, 1),
+    new Among('\u00E1id', 0, 2),
+    new Among('\u00E9id', 0, 3),
+    new Among('i', -1, 1),
+    new Among('ai', 7, 1),
+    new Among('jai', 8, 1),
+    new Among('ei', 7, 1),
+    new Among('jei', 10, 1),
+    new Among('\u00E1i', 7, 2),
+    new Among('\u00E9i', 7, 3),
+    new Among('itek', -1, 1),
+    new Among('eitek', 14, 1),
+    new Among('jeitek', 15, 1),
+    new Among('\u00E9itek', 14, 3),
+    new Among('ik', -1, 1),
+    new Among('aik', 18, 1),
+    new Among('jaik', 19, 1),
+    new Among('eik', 18, 1),
+    new Among('jeik', 21, 1),
+    new Among('\u00E1ik', 18, 2),
+    new Among('\u00E9ik', 18, 3),
+    new Among('ink', -1, 1),
+    new Among('aink', 25, 1),
+    new Among('jaink', 26, 1),
+    new Among('eink', 25, 1),
+    new Among('jeink', 28, 1),
+    new Among('\u00E1ink', 25, 2),
+    new Among('\u00E9ink', 25, 3),
+    new Among('aitok', -1, 1),
+    new Among('jaitok', 32, 1),
+    new Among('\u00E1itok', -1, 2),
+    new Among('im', -1, 1),
+    new Among('aim', 35, 1),
     new Among('jaim', 36, 1),
-    new Among('eim', 35, 4),
+    new Among('eim', 35, 1),
     new Among('jeim', 38, 1),
     new Among('\u00E1im', 35, 2),
     new Among('\u00E9im', 35, 3),
-  ];
-
-  static g_v: number[] = [
-    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 52, 14,
   ];
 }
 
