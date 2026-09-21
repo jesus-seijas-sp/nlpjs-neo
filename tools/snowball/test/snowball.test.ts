@@ -59,6 +59,26 @@ describe('Snowball compiler', () => {
     });
   });
 
+  describe('the stemmers of the packages', () => {
+    test('It should be what the tool writes from the Snowball program', () => {
+      const root = fileURLToPath(new URL('../../../', import.meta.url));
+      const code = generate(
+        parseProgram(`${root}packages/lang-en-min/snowball/english.sbl`),
+        {
+          className: 'SnowballStemmerEn',
+          name: 'stemmer-en',
+          source: 'english.sbl',
+          inheritRegions: true,
+        }
+      );
+      const committed = readFileSync(
+        `${root}packages/lang-en-min/src/stemmer-en.generated.ts`,
+        'utf8'
+      );
+      expect(committed.split(String.fromCharCode(13)).join('')).toEqual(code);
+    });
+  });
+
   describe('reading a program', () => {
     test('It should read the names, the groupings and the routines', () => {
       const program = parseProgram(`${here}fixtures/english.sbl`);

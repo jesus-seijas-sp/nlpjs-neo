@@ -75,6 +75,40 @@ function quote(s: string): string {
   return `${out}'`;
 }
 
+const WIDTH = 80;
+const NEWLINE = String.fromCharCode(10);
+
+/**
+ * A static field that holds an array, laid out as the formatter would: on one
+ * line when it fits, else the numbers packed line by line or the rows one to a
+ * line.
+ */
+function arrayField(head: string, items: string[], pack: boolean): string {
+  const single = `  ${head} = [${items.join(', ')}];`;
+  if (single.length <= WIDTH) {
+    return single;
+  }
+  const lines: string[] = [];
+  if (pack) {
+    let line = '   ';
+    for (const item of items) {
+      const next = `${line} ${item},`;
+      if (next.length > WIDTH && line.trim() !== '') {
+        lines.push(line);
+        line = `    ${item},`;
+      } else {
+        line = next;
+      }
+    }
+    lines.push(line);
+  } else {
+    for (const item of items) {
+      lines.push(`    ${item},`);
+    }
+  }
+  return [`  ${head} = [`, ...lines, '  ];'].join(NEWLINE);
+}
+
 function strip(node: unknown): unknown {
   return JSON.parse(
     JSON.stringify(node, (key, value) =>
@@ -570,6 +604,14 @@ class Generator {
     }
   }
 
+  /** An expression that stands alone, so it needs no parentheses of its own. */
+  private aeTop(node: AE): string {
+    if (node.t === 'bin' && node.op !== '/') {
+      return `${this.ae(node.l)} ${node.op} ${this.ae(node.r)}`;
+    }
+    return this.ae(node);
+  }
+
   private invert(op: RelOp): RelOp {
     return {
       '==': '!=',
@@ -760,8 +802,8 @@ class Generator {
       case 'divide':
         return this.genAssign(node);
       case 'cmp': {
-        const l = this.ae(node.l);
-        const r = this.ae(node.r);
+        const l = this.aeTop(node.l);
+        const r = this.aeTop(node.r);
         return this.test(
           `${l} ${node.op === '==' ? '===' : node.op === '!=' ? '!==' : node.op} ${r}`,
           `${l} ${this.invert(node.op) === '==' ? '===' : this.invert(node.op) === '!=' ? '!==' : this.invert(node.op)} ${r}`,
@@ -777,7 +819,7 @@ class Generator {
 
   private genAssign(node: Node & { name: string; ae: AE }): void {
     const target = this.field('I', node.name);
-    const value = this.ae(node.ae);
+    const value = this.aeTop(node.ae);
     if (node.t === 'assign') {
       this.line(`${target} = ${value};`);
     } else if (node.t === 'plus') {
@@ -1529,7 +1571,11 @@ class Generator {
         bytes[(ch - min) >> 3] |= 1 << ((ch - min) & 7);
       }
       tables.push(
-        `  static g_${grouping.name}: number[] = [${bytes.join(', ')}];`
+        arrayField(
+          `static g_${grouping.name}: number[]`,
+          bytes.map(String),
+          true
+        )
       );
     }
     for (const table of this.tableList) {
@@ -1537,10 +1583,10 @@ class Generator {
         const guard = row.guard
           ? `, (stemmer) => stemmer.r_${row.guard}()`
           : '';
-        return `    new Among(${quote(row.s)}, ${row.i}, ${row.result}${guard}),`;
+        return `new Among(${quote(row.s)}, ${row.i}, ${row.result}${guard})`;
       });
       tables.push(
-        `  static ${table.name}: Among<${className}>[] = [\n${rows.join('\n')}\n  ];`
+        arrayField(`static ${table.name}: Among<${className}>[]`, rows, false)
       );
     }
 

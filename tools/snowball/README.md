@@ -52,6 +52,13 @@ Put the `.sbl` in `packages/lang-xx/snowball/`, add an entry to `STEMMERS` in `b
   left out, because `SnowballStemmer` has it.
 - Among tables and groupings are static fields.
 
+## Layout
+
+The generator writes the code laid out as the formatter of the repository wants it (80 columns,
+single quotes, the number tables packed), so there is no formatting step: what `pnpm stemmers`
+writes passes `oxfmt --check` as it is. A test keeps the committed file equal to what the tool
+writes.
+
 ## Checking it
 
 `test/snowball.test.ts` compiles the current English program of Snowball and stems a sample of
