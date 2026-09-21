@@ -5,28 +5,6 @@ class StemmerAr extends BaseStemmer {
   declare B_is_noun: boolean;
   declare B_is_verb: boolean;
   declare I_word_len: number;
-  declare static a_0: Among<StemmerAr>[];
-  declare static a_10: Among<StemmerAr>[];
-  declare static a_11: Among<StemmerAr>[];
-  declare static a_12: Among<StemmerAr>[];
-  declare static a_13: Among<StemmerAr>[];
-  declare static a_14: Among<StemmerAr>[];
-  declare static a_15: Among<StemmerAr>[];
-  declare static a_16: Among<StemmerAr>[];
-  declare static a_17: Among<StemmerAr>[];
-  declare static a_18: Among<StemmerAr>[];
-  declare static a_19: Among<StemmerAr>[];
-  declare static a_1: Among<StemmerAr>[];
-  declare static a_20: Among<StemmerAr>[];
-  declare static a_21: Among<StemmerAr>[];
-  declare static a_2: Among<StemmerAr>[];
-  declare static a_3: Among<StemmerAr>[];
-  declare static a_4: Among<StemmerAr>[];
-  declare static a_5: Among<StemmerAr>[];
-  declare static a_6: Among<StemmerAr>[];
-  declare static a_7: Among<StemmerAr>[];
-  declare static a_8: Among<StemmerAr>[];
-  declare static a_9: Among<StemmerAr>[];
 
   constructor(container) {
     super(container);
@@ -1100,294 +1078,302 @@ class StemmerAr extends BaseStemmer {
     this.cursor = v_20;
     return true;
   }
+
+  static a_0: Among<StemmerAr>[] = [
+    new Among('!', -1, 3),
+    new Among("'", -1, 3),
+    new Among('%', -1, 3),
+    new Among('*', -1, 3),
+    new Among(',', -1, 3),
+    new Among('.', -1, 3),
+    new Among('/', -1, 3),
+    new Among(':', -1, 3),
+    new Among(';', -1, 3),
+    new Among('?', -1, 3),
+    new Among('\\', -1, 3),
+    new Among('\u060C', -1, 4),
+    new Among('\u061B', -1, 4),
+    new Among('\u061F', -1, 4),
+    new Among('\u0640', -1, 2),
+    new Among('\u064B', -1, 1),
+    new Among('\u064C', -1, 1),
+    new Among('\u064D', -1, 1),
+    new Among('\u064E', -1, 1),
+    new Among('\u064F', -1, 1),
+    new Among('\u0650', -1, 1),
+    new Among('\u0651', -1, 1),
+    new Among('\u0652', -1, 1),
+    new Among('\u0660', -1, 5),
+    new Among('\u0661', -1, 6),
+    new Among('\u0662', -1, 7),
+    new Among('\u0663', -1, 8),
+    new Among('\u0664', -1, 9),
+    new Among('\u0665', -1, 10),
+    new Among('\u0666', -1, 11),
+    new Among('\u0667', -1, 12),
+    new Among('\u0668', -1, 13),
+    new Among('\u0669', -1, 14),
+    new Among('\u066A', -1, 15),
+    new Among('\u066B', -1, 15),
+    new Among('\u066C', -1, 15),
+    new Among('\uFE80', -1, 16),
+    new Among('\uFE81', -1, 20),
+    new Among('\uFE82', -1, 20),
+    new Among('\uFE83', -1, 17),
+    new Among('\uFE84', -1, 17),
+    new Among('\uFE85', -1, 21),
+    new Among('\uFE86', -1, 21),
+    new Among('\uFE87', -1, 18),
+    new Among('\uFE88', -1, 18),
+    new Among('\uFE89', -1, 19),
+    new Among('\uFE8A', -1, 19),
+    new Among('\uFE8B', -1, 19),
+    new Among('\uFE8C', -1, 19),
+    new Among('\uFE8D', -1, 22),
+    new Among('\uFE8E', -1, 22),
+    new Among('\uFE8F', -1, 23),
+    new Among('\uFE90', -1, 23),
+    new Among('\uFE91', -1, 23),
+    new Among('\uFE92', -1, 23),
+    new Among('\uFE93', -1, 24),
+    new Among('\uFE94', -1, 24),
+    new Among('\uFE95', -1, 25),
+    new Among('\uFE96', -1, 25),
+    new Among('\uFE97', -1, 25),
+    new Among('\uFE98', -1, 25),
+    new Among('\uFE99', -1, 26),
+    new Among('\uFE9A', -1, 26),
+    new Among('\uFE9B', -1, 26),
+    new Among('\uFE9C', -1, 26),
+    new Among('\uFE9D', -1, 27),
+    new Among('\uFE9E', -1, 27),
+    new Among('\uFE9F', -1, 27),
+    new Among('\uFEA0', -1, 27),
+    new Among('\uFEA1', -1, 28),
+    new Among('\uFEA2', -1, 28),
+    new Among('\uFEA3', -1, 28),
+    new Among('\uFEA4', -1, 28),
+    new Among('\uFEA5', -1, 29),
+    new Among('\uFEA6', -1, 29),
+    new Among('\uFEA7', -1, 29),
+    new Among('\uFEA8', -1, 29),
+    new Among('\uFEA9', -1, 30),
+    new Among('\uFEAA', -1, 30),
+    new Among('\uFEAB', -1, 31),
+    new Among('\uFEAC', -1, 31),
+    new Among('\uFEAD', -1, 32),
+    new Among('\uFEAE', -1, 32),
+    new Among('\uFEAF', -1, 33),
+    new Among('\uFEB0', -1, 33),
+    new Among('\uFEB1', -1, 34),
+    new Among('\uFEB2', -1, 34),
+    new Among('\uFEB3', -1, 34),
+    new Among('\uFEB4', -1, 34),
+    new Among('\uFEB5', -1, 35),
+    new Among('\uFEB6', -1, 35),
+    new Among('\uFEB7', -1, 35),
+    new Among('\uFEB8', -1, 35),
+    new Among('\uFEB9', -1, 36),
+    new Among('\uFEBA', -1, 36),
+    new Among('\uFEBB', -1, 36),
+    new Among('\uFEBC', -1, 36),
+    new Among('\uFEBD', -1, 37),
+    new Among('\uFEBE', -1, 37),
+    new Among('\uFEBF', -1, 37),
+    new Among('\uFEC0', -1, 37),
+    new Among('\uFEC1', -1, 38),
+    new Among('\uFEC2', -1, 38),
+    new Among('\uFEC3', -1, 38),
+    new Among('\uFEC4', -1, 38),
+    new Among('\uFEC5', -1, 39),
+    new Among('\uFEC6', -1, 39),
+    new Among('\uFEC7', -1, 39),
+    new Among('\uFEC8', -1, 39),
+    new Among('\uFEC9', -1, 40),
+    new Among('\uFECA', -1, 40),
+    new Among('\uFECB', -1, 40),
+    new Among('\uFECC', -1, 40),
+    new Among('\uFECD', -1, 41),
+    new Among('\uFECE', -1, 41),
+    new Among('\uFECF', -1, 41),
+    new Among('\uFED0', -1, 41),
+    new Among('\uFED1', -1, 42),
+    new Among('\uFED2', -1, 42),
+    new Among('\uFED3', -1, 42),
+    new Among('\uFED4', -1, 42),
+    new Among('\uFED5', -1, 43),
+    new Among('\uFED6', -1, 43),
+    new Among('\uFED7', -1, 43),
+    new Among('\uFED8', -1, 43),
+    new Among('\uFED9', -1, 44),
+    new Among('\uFEDA', -1, 44),
+    new Among('\uFEDB', -1, 44),
+    new Among('\uFEDC', -1, 44),
+    new Among('\uFEDD', -1, 45),
+    new Among('\uFEDE', -1, 45),
+    new Among('\uFEDF', -1, 45),
+    new Among('\uFEE0', -1, 45),
+    new Among('\uFEE1', -1, 46),
+    new Among('\uFEE2', -1, 46),
+    new Among('\uFEE3', -1, 46),
+    new Among('\uFEE4', -1, 46),
+    new Among('\uFEE5', -1, 47),
+    new Among('\uFEE6', -1, 47),
+    new Among('\uFEE7', -1, 47),
+    new Among('\uFEE8', -1, 47),
+    new Among('\uFEE9', -1, 48),
+    new Among('\uFEEA', -1, 48),
+    new Among('\uFEEB', -1, 48),
+    new Among('\uFEEC', -1, 48),
+    new Among('\uFEED', -1, 49),
+    new Among('\uFEEE', -1, 49),
+    new Among('\uFEEF', -1, 50),
+    new Among('\uFEF0', -1, 50),
+    new Among('\uFEF1', -1, 51),
+    new Among('\uFEF2', -1, 51),
+    new Among('\uFEF3', -1, 51),
+    new Among('\uFEF4', -1, 51),
+    new Among('\uFEF5', -1, 55),
+    new Among('\uFEF6', -1, 55),
+    new Among('\uFEF7', -1, 53),
+    new Among('\uFEF8', -1, 53),
+    new Among('\uFEF9', -1, 54),
+    new Among('\uFEFA', -1, 54),
+    new Among('\uFEFB', -1, 52),
+    new Among('\uFEFC', -1, 52),
+  ];
+
+  static a_1: Among<StemmerAr>[] = [
+    new Among('\u0622', -1, 1),
+    new Among('\u0623', -1, 1),
+    new Among('\u0624', -1, 2),
+    new Among('\u0625', -1, 1),
+    new Among('\u0626', -1, 3),
+  ];
+
+  static a_2: Among<StemmerAr>[] = [
+    new Among('\u0622', -1, 1),
+    new Among('\u0623', -1, 1),
+    new Among('\u0624', -1, 2),
+    new Among('\u0625', -1, 1),
+    new Among('\u0626', -1, 3),
+  ];
+
+  static a_3: Among<StemmerAr>[] = [
+    new Among('\u0627\u0644', -1, 2),
+    new Among('\u0628\u0627\u0644', -1, 1),
+    new Among('\u0643\u0627\u0644', -1, 1),
+    new Among('\u0644\u0644', -1, 2),
+  ];
+
+  static a_4: Among<StemmerAr>[] = [
+    new Among('\u0623\u0622', -1, 2),
+    new Among('\u0623\u0623', -1, 1),
+    new Among('\u0623\u0624', -1, 3),
+    new Among('\u0623\u0625', -1, 5),
+    new Among('\u0623\u0627', -1, 4),
+  ];
+
+  static a_5: Among<StemmerAr>[] = [
+    new Among('\u0641', -1, 1),
+    new Among('\u0648', -1, 2),
+  ];
+
+  static a_6: Among<StemmerAr>[] = [
+    new Among('\u0627\u0644', -1, 2),
+    new Among('\u0628\u0627\u0644', -1, 1),
+    new Among('\u0643\u0627\u0644', -1, 1),
+    new Among('\u0644\u0644', -1, 2),
+  ];
+
+  static a_7: Among<StemmerAr>[] = [
+    new Among('\u0628', -1, 1),
+    new Among('\u0628\u0628', 0, 2),
+    new Among('\u0643\u0643', -1, 3),
+  ];
+
+  static a_8: Among<StemmerAr>[] = [
+    new Among('\u0633\u0623', -1, 4),
+    new Among('\u0633\u062A', -1, 2),
+    new Among('\u0633\u0646', -1, 3),
+    new Among('\u0633\u064A', -1, 1),
+  ];
+
+  static a_9: Among<StemmerAr>[] = [
+    new Among('\u062A\u0633\u062A', -1, 1),
+    new Among('\u0646\u0633\u062A', -1, 1),
+    new Among('\u064A\u0633\u062A', -1, 1),
+  ];
+
+  static a_10: Among<StemmerAr>[] = [
+    new Among('\u0643\u0645\u0627', -1, 3),
+    new Among('\u0647\u0645\u0627', -1, 3),
+    new Among('\u0646\u0627', -1, 2),
+    new Among('\u0647\u0627', -1, 2),
+    new Among('\u0643', -1, 1),
+    new Among('\u0643\u0645', -1, 2),
+    new Among('\u0647\u0645', -1, 2),
+    new Among('\u0647\u0646', -1, 2),
+    new Among('\u0647', -1, 1),
+    new Among('\u064A', -1, 1),
+  ];
+
+  static a_11: Among<StemmerAr>[] = [new Among('\u0646', -1, 1)];
+
+  static a_12: Among<StemmerAr>[] = [
+    new Among('\u0627', -1, 1),
+    new Among('\u0648', -1, 1),
+    new Among('\u064A', -1, 1),
+  ];
+
+  static a_13: Among<StemmerAr>[] = [new Among('\u0627\u062A', -1, 1)];
+
+  static a_14: Among<StemmerAr>[] = [new Among('\u062A', -1, 1)];
+
+  static a_15: Among<StemmerAr>[] = [new Among('\u0629', -1, 1)];
+
+  static a_16: Among<StemmerAr>[] = [new Among('\u064A', -1, 1)];
+
+  static a_17: Among<StemmerAr>[] = [
+    new Among('\u0643\u0645\u0627', -1, 3),
+    new Among('\u0647\u0645\u0627', -1, 3),
+    new Among('\u0646\u0627', -1, 2),
+    new Among('\u0647\u0627', -1, 2),
+    new Among('\u0643', -1, 1),
+    new Among('\u0643\u0645', -1, 2),
+    new Among('\u0647\u0645', -1, 2),
+    new Among('\u0643\u0646', -1, 2),
+    new Among('\u0647\u0646', -1, 2),
+    new Among('\u0647', -1, 1),
+    new Among('\u0643\u0645\u0648', -1, 3),
+    new Among('\u0646\u064A', -1, 2),
+  ];
+
+  static a_18: Among<StemmerAr>[] = [
+    new Among('\u0627', -1, 2),
+    new Among('\u062A\u0627', 0, 3),
+    new Among('\u062A\u0645\u0627', 0, 5),
+    new Among('\u0646\u0627', 0, 3),
+    new Among('\u062A', -1, 1),
+    new Among('\u0646', -1, 2),
+    new Among('\u0627\u0646', 5, 4),
+    new Among('\u062A\u0646', 5, 3),
+    new Among('\u0648\u0646', 5, 4),
+    new Among('\u064A\u0646', 5, 4),
+    new Among('\u064A', -1, 2),
+  ];
+
+  static a_19: Among<StemmerAr>[] = [
+    new Among('\u0648\u0627', -1, 1),
+    new Among('\u062A\u0645', -1, 1),
+  ];
+
+  static a_20: Among<StemmerAr>[] = [
+    new Among('\u0648', -1, 1),
+    new Among('\u062A\u0645\u0648', 0, 2),
+  ];
+
+  static a_21: Among<StemmerAr>[] = [new Among('\u0649', -1, 1)];
 }
-
-StemmerAr.a_0 = [
-  new Among('!', -1, 3),
-  new Among("'", -1, 3),
-  new Among('%', -1, 3),
-  new Among('*', -1, 3),
-  new Among(',', -1, 3),
-  new Among('.', -1, 3),
-  new Among('/', -1, 3),
-  new Among(':', -1, 3),
-  new Among(';', -1, 3),
-  new Among('?', -1, 3),
-  new Among('\\', -1, 3),
-  new Among('\u060C', -1, 4),
-  new Among('\u061B', -1, 4),
-  new Among('\u061F', -1, 4),
-  new Among('\u0640', -1, 2),
-  new Among('\u064B', -1, 1),
-  new Among('\u064C', -1, 1),
-  new Among('\u064D', -1, 1),
-  new Among('\u064E', -1, 1),
-  new Among('\u064F', -1, 1),
-  new Among('\u0650', -1, 1),
-  new Among('\u0651', -1, 1),
-  new Among('\u0652', -1, 1),
-  new Among('\u0660', -1, 5),
-  new Among('\u0661', -1, 6),
-  new Among('\u0662', -1, 7),
-  new Among('\u0663', -1, 8),
-  new Among('\u0664', -1, 9),
-  new Among('\u0665', -1, 10),
-  new Among('\u0666', -1, 11),
-  new Among('\u0667', -1, 12),
-  new Among('\u0668', -1, 13),
-  new Among('\u0669', -1, 14),
-  new Among('\u066A', -1, 15),
-  new Among('\u066B', -1, 15),
-  new Among('\u066C', -1, 15),
-  new Among('\uFE80', -1, 16),
-  new Among('\uFE81', -1, 20),
-  new Among('\uFE82', -1, 20),
-  new Among('\uFE83', -1, 17),
-  new Among('\uFE84', -1, 17),
-  new Among('\uFE85', -1, 21),
-  new Among('\uFE86', -1, 21),
-  new Among('\uFE87', -1, 18),
-  new Among('\uFE88', -1, 18),
-  new Among('\uFE89', -1, 19),
-  new Among('\uFE8A', -1, 19),
-  new Among('\uFE8B', -1, 19),
-  new Among('\uFE8C', -1, 19),
-  new Among('\uFE8D', -1, 22),
-  new Among('\uFE8E', -1, 22),
-  new Among('\uFE8F', -1, 23),
-  new Among('\uFE90', -1, 23),
-  new Among('\uFE91', -1, 23),
-  new Among('\uFE92', -1, 23),
-  new Among('\uFE93', -1, 24),
-  new Among('\uFE94', -1, 24),
-  new Among('\uFE95', -1, 25),
-  new Among('\uFE96', -1, 25),
-  new Among('\uFE97', -1, 25),
-  new Among('\uFE98', -1, 25),
-  new Among('\uFE99', -1, 26),
-  new Among('\uFE9A', -1, 26),
-  new Among('\uFE9B', -1, 26),
-  new Among('\uFE9C', -1, 26),
-  new Among('\uFE9D', -1, 27),
-  new Among('\uFE9E', -1, 27),
-  new Among('\uFE9F', -1, 27),
-  new Among('\uFEA0', -1, 27),
-  new Among('\uFEA1', -1, 28),
-  new Among('\uFEA2', -1, 28),
-  new Among('\uFEA3', -1, 28),
-  new Among('\uFEA4', -1, 28),
-  new Among('\uFEA5', -1, 29),
-  new Among('\uFEA6', -1, 29),
-  new Among('\uFEA7', -1, 29),
-  new Among('\uFEA8', -1, 29),
-  new Among('\uFEA9', -1, 30),
-  new Among('\uFEAA', -1, 30),
-  new Among('\uFEAB', -1, 31),
-  new Among('\uFEAC', -1, 31),
-  new Among('\uFEAD', -1, 32),
-  new Among('\uFEAE', -1, 32),
-  new Among('\uFEAF', -1, 33),
-  new Among('\uFEB0', -1, 33),
-  new Among('\uFEB1', -1, 34),
-  new Among('\uFEB2', -1, 34),
-  new Among('\uFEB3', -1, 34),
-  new Among('\uFEB4', -1, 34),
-  new Among('\uFEB5', -1, 35),
-  new Among('\uFEB6', -1, 35),
-  new Among('\uFEB7', -1, 35),
-  new Among('\uFEB8', -1, 35),
-  new Among('\uFEB9', -1, 36),
-  new Among('\uFEBA', -1, 36),
-  new Among('\uFEBB', -1, 36),
-  new Among('\uFEBC', -1, 36),
-  new Among('\uFEBD', -1, 37),
-  new Among('\uFEBE', -1, 37),
-  new Among('\uFEBF', -1, 37),
-  new Among('\uFEC0', -1, 37),
-  new Among('\uFEC1', -1, 38),
-  new Among('\uFEC2', -1, 38),
-  new Among('\uFEC3', -1, 38),
-  new Among('\uFEC4', -1, 38),
-  new Among('\uFEC5', -1, 39),
-  new Among('\uFEC6', -1, 39),
-  new Among('\uFEC7', -1, 39),
-  new Among('\uFEC8', -1, 39),
-  new Among('\uFEC9', -1, 40),
-  new Among('\uFECA', -1, 40),
-  new Among('\uFECB', -1, 40),
-  new Among('\uFECC', -1, 40),
-  new Among('\uFECD', -1, 41),
-  new Among('\uFECE', -1, 41),
-  new Among('\uFECF', -1, 41),
-  new Among('\uFED0', -1, 41),
-  new Among('\uFED1', -1, 42),
-  new Among('\uFED2', -1, 42),
-  new Among('\uFED3', -1, 42),
-  new Among('\uFED4', -1, 42),
-  new Among('\uFED5', -1, 43),
-  new Among('\uFED6', -1, 43),
-  new Among('\uFED7', -1, 43),
-  new Among('\uFED8', -1, 43),
-  new Among('\uFED9', -1, 44),
-  new Among('\uFEDA', -1, 44),
-  new Among('\uFEDB', -1, 44),
-  new Among('\uFEDC', -1, 44),
-  new Among('\uFEDD', -1, 45),
-  new Among('\uFEDE', -1, 45),
-  new Among('\uFEDF', -1, 45),
-  new Among('\uFEE0', -1, 45),
-  new Among('\uFEE1', -1, 46),
-  new Among('\uFEE2', -1, 46),
-  new Among('\uFEE3', -1, 46),
-  new Among('\uFEE4', -1, 46),
-  new Among('\uFEE5', -1, 47),
-  new Among('\uFEE6', -1, 47),
-  new Among('\uFEE7', -1, 47),
-  new Among('\uFEE8', -1, 47),
-  new Among('\uFEE9', -1, 48),
-  new Among('\uFEEA', -1, 48),
-  new Among('\uFEEB', -1, 48),
-  new Among('\uFEEC', -1, 48),
-  new Among('\uFEED', -1, 49),
-  new Among('\uFEEE', -1, 49),
-  new Among('\uFEEF', -1, 50),
-  new Among('\uFEF0', -1, 50),
-  new Among('\uFEF1', -1, 51),
-  new Among('\uFEF2', -1, 51),
-  new Among('\uFEF3', -1, 51),
-  new Among('\uFEF4', -1, 51),
-  new Among('\uFEF5', -1, 55),
-  new Among('\uFEF6', -1, 55),
-  new Among('\uFEF7', -1, 53),
-  new Among('\uFEF8', -1, 53),
-  new Among('\uFEF9', -1, 54),
-  new Among('\uFEFA', -1, 54),
-  new Among('\uFEFB', -1, 52),
-  new Among('\uFEFC', -1, 52),
-];
-
-StemmerAr.a_1 = [
-  new Among('\u0622', -1, 1),
-  new Among('\u0623', -1, 1),
-  new Among('\u0624', -1, 2),
-  new Among('\u0625', -1, 1),
-  new Among('\u0626', -1, 3),
-];
-
-StemmerAr.a_2 = [
-  new Among('\u0622', -1, 1),
-  new Among('\u0623', -1, 1),
-  new Among('\u0624', -1, 2),
-  new Among('\u0625', -1, 1),
-  new Among('\u0626', -1, 3),
-];
-
-StemmerAr.a_3 = [
-  new Among('\u0627\u0644', -1, 2),
-  new Among('\u0628\u0627\u0644', -1, 1),
-  new Among('\u0643\u0627\u0644', -1, 1),
-  new Among('\u0644\u0644', -1, 2),
-];
-
-StemmerAr.a_4 = [
-  new Among('\u0623\u0622', -1, 2),
-  new Among('\u0623\u0623', -1, 1),
-  new Among('\u0623\u0624', -1, 3),
-  new Among('\u0623\u0625', -1, 5),
-  new Among('\u0623\u0627', -1, 4),
-];
-
-StemmerAr.a_5 = [new Among('\u0641', -1, 1), new Among('\u0648', -1, 2)];
-
-StemmerAr.a_6 = [
-  new Among('\u0627\u0644', -1, 2),
-  new Among('\u0628\u0627\u0644', -1, 1),
-  new Among('\u0643\u0627\u0644', -1, 1),
-  new Among('\u0644\u0644', -1, 2),
-];
-
-StemmerAr.a_7 = [
-  new Among('\u0628', -1, 1),
-  new Among('\u0628\u0628', 0, 2),
-  new Among('\u0643\u0643', -1, 3),
-];
-
-StemmerAr.a_8 = [
-  new Among('\u0633\u0623', -1, 4),
-  new Among('\u0633\u062A', -1, 2),
-  new Among('\u0633\u0646', -1, 3),
-  new Among('\u0633\u064A', -1, 1),
-];
-
-StemmerAr.a_9 = [
-  new Among('\u062A\u0633\u062A', -1, 1),
-  new Among('\u0646\u0633\u062A', -1, 1),
-  new Among('\u064A\u0633\u062A', -1, 1),
-];
-
-StemmerAr.a_10 = [
-  new Among('\u0643\u0645\u0627', -1, 3),
-  new Among('\u0647\u0645\u0627', -1, 3),
-  new Among('\u0646\u0627', -1, 2),
-  new Among('\u0647\u0627', -1, 2),
-  new Among('\u0643', -1, 1),
-  new Among('\u0643\u0645', -1, 2),
-  new Among('\u0647\u0645', -1, 2),
-  new Among('\u0647\u0646', -1, 2),
-  new Among('\u0647', -1, 1),
-  new Among('\u064A', -1, 1),
-];
-
-StemmerAr.a_11 = [new Among('\u0646', -1, 1)];
-
-StemmerAr.a_12 = [
-  new Among('\u0627', -1, 1),
-  new Among('\u0648', -1, 1),
-  new Among('\u064A', -1, 1),
-];
-
-StemmerAr.a_13 = [new Among('\u0627\u062A', -1, 1)];
-StemmerAr.a_14 = [new Among('\u062A', -1, 1)];
-StemmerAr.a_15 = [new Among('\u0629', -1, 1)];
-StemmerAr.a_16 = [new Among('\u064A', -1, 1)];
-StemmerAr.a_17 = [
-  new Among('\u0643\u0645\u0627', -1, 3),
-  new Among('\u0647\u0645\u0627', -1, 3),
-  new Among('\u0646\u0627', -1, 2),
-  new Among('\u0647\u0627', -1, 2),
-  new Among('\u0643', -1, 1),
-  new Among('\u0643\u0645', -1, 2),
-  new Among('\u0647\u0645', -1, 2),
-  new Among('\u0643\u0646', -1, 2),
-  new Among('\u0647\u0646', -1, 2),
-  new Among('\u0647', -1, 1),
-  new Among('\u0643\u0645\u0648', -1, 3),
-  new Among('\u0646\u064A', -1, 2),
-];
-
-StemmerAr.a_18 = [
-  new Among('\u0627', -1, 2),
-  new Among('\u062A\u0627', 0, 3),
-  new Among('\u062A\u0645\u0627', 0, 5),
-  new Among('\u0646\u0627', 0, 3),
-  new Among('\u062A', -1, 1),
-  new Among('\u0646', -1, 2),
-  new Among('\u0627\u0646', 5, 4),
-  new Among('\u062A\u0646', 5, 3),
-  new Among('\u0648\u0646', 5, 4),
-  new Among('\u064A\u0646', 5, 4),
-  new Among('\u064A', -1, 2),
-];
-
-StemmerAr.a_19 = [
-  new Among('\u0648\u0627', -1, 1),
-  new Among('\u062A\u0645', -1, 1),
-];
-
-StemmerAr.a_20 = [
-  new Among('\u0648', -1, 1),
-  new Among('\u062A\u0645\u0648', 0, 2),
-];
-StemmerAr.a_21 = [new Among('\u0649', -1, 1)];
 
 export default StemmerAr;

@@ -13,26 +13,15 @@ interface AmongTree {
 }
 
 class StemmerEs extends SnowballStemmer {
-  declare static a_0: Among<StemmerEs>[];
   declare static a_0_tree: AmongTree;
-  declare static a_1: Among<StemmerEs>[];
   declare static a_1_tree: AmongTree;
-  declare static a_2: Among<StemmerEs>[];
   declare static a_2_tree: AmongTree;
-  declare static a_3: Among<StemmerEs>[];
-  declare static a_4: Among<StemmerEs>[];
   declare static a_4_tree: AmongTree;
-  declare static a_5: Among<StemmerEs>[];
   declare static a_5_tree: AmongTree;
-  declare static a_6: Among<StemmerEs>[];
   declare static a_6_tree: AmongTree;
-  declare static a_7: Among<StemmerEs>[];
   declare static a_7_tree: AmongTree;
-  declare static a_8: Among<StemmerEs>[];
   declare static a_8_tree: AmongTree;
-  declare static a_9: Among<StemmerEs>[];
   declare static a_9_tree: AmongTree;
-  declare static g_v: number[];
 
   constructor(container?) {
     super(container, dictionary);
@@ -771,251 +760,251 @@ class StemmerEs extends SnowballStemmer {
       }
     }
   }
+
+  static a_0: Among<StemmerEs>[] = [
+    new Among('', -1, 6),
+    new Among('a', 0, 1),
+    new Among('e', 0, 2),
+    new Among('i', 0, 3),
+    new Among('o', 0, 4),
+    new Among('u', 0, 5),
+  ];
+
+  static a_1: Among<StemmerEs>[] = [
+    new Among('la', -1, -1),
+    new Among('sela', 0, -1),
+    new Among('le', -1, -1),
+    new Among('me', -1, -1),
+    new Among('se', -1, -1),
+    new Among('lo', -1, -1),
+    new Among('selo', 5, -1),
+    new Among('las', -1, -1),
+    new Among('selas', 7, -1),
+    new Among('les', -1, -1),
+    new Among('los', -1, -1),
+    new Among('selos', 10, -1),
+    new Among('nos', -1, -1),
+  ];
+
+  static a_2: Among<StemmerEs>[] = [
+    new Among('ando', -1, 6),
+    new Among('iendo', -1, 6),
+    new Among('yendo', -1, 7),
+    new Among('ar', -1, 6),
+    new Among('er', -1, 6),
+    new Among('ir', -1, 6),
+  ];
+
+  static a_3: Among<StemmerEs>[] = [
+    new Among('ic', -1, -1),
+    new Among('ad', -1, -1),
+    new Among('os', -1, -1),
+    new Among('iv', -1, 1),
+  ];
+
+  static a_4: Among<StemmerEs>[] = [
+    new Among('able', -1, 1),
+    new Among('ible', -1, 1),
+    new Among('ante', -1, 1),
+  ];
+
+  static a_5: Among<StemmerEs>[] = [
+    new Among('ic', -1, 1),
+    new Among('abil', -1, 1),
+    new Among('iv', -1, 1),
+  ];
+
+  static a_6: Among<StemmerEs>[] = [
+    new Among('ica', -1, 1),
+    new Among('ancia', -1, 2),
+    new Among('encia', -1, 5),
+    new Among('adora', -1, 2),
+    new Among('osa', -1, 1),
+    new Among('ista', -1, 1),
+    new Among('iva', -1, 9),
+    new Among('anza', -1, 1),
+    new Among('logia', -1, 3),
+    new Among('idad', -1, 8),
+    new Among('able', -1, 1),
+    new Among('ible', -1, 1),
+    new Among('ante', -1, 2),
+    new Among('mente', -1, 7),
+    new Among('amente', 13, 6),
+    new Among('acion', -1, 2),
+    new Among('ucion', -1, 4),
+    new Among('ico', -1, 1),
+    new Among('ismo', -1, 1),
+    new Among('oso', -1, 1),
+    new Among('amiento', -1, 1),
+    new Among('imiento', -1, 1),
+    new Among('ivo', -1, 9),
+    new Among('ador', -1, 2),
+    new Among('icas', -1, 1),
+    new Among('ancias', -1, 2),
+    new Among('encias', -1, 5),
+    new Among('adoras', -1, 2),
+    new Among('osas', -1, 1),
+    new Among('istas', -1, 1),
+    new Among('ivas', -1, 9),
+    new Among('anzas', -1, 1),
+    new Among('logias', -1, 3),
+    new Among('idades', -1, 8),
+    new Among('ables', -1, 1),
+    new Among('ibles', -1, 1),
+    new Among('aciones', -1, 2),
+    new Among('uciones', -1, 4),
+    new Among('adores', -1, 2),
+    new Among('antes', -1, 2),
+    new Among('icos', -1, 1),
+    new Among('ismos', -1, 1),
+    new Among('osos', -1, 1),
+    new Among('amientos', -1, 1),
+    new Among('imientos', -1, 1),
+    new Among('ivos', -1, 9),
+  ];
+
+  static a_7: Among<StemmerEs>[] = [
+    new Among('ya', -1, 1),
+    new Among('ye', -1, 1),
+    new Among('yan', -1, 1),
+    new Among('yen', -1, 1),
+    new Among('yeron', -1, 1),
+    new Among('yendo', -1, 1),
+    new Among('yo', -1, 1),
+    new Among('yas', -1, 1),
+    new Among('yes', -1, 1),
+    new Among('yais', -1, 1),
+    new Among('yamos', -1, 1),
+  ];
+
+  static a_8: Among<StemmerEs>[] = [
+    new Among('aba', -1, 2),
+    new Among('ada', -1, 2),
+    new Among('ida', -1, 2),
+    new Among('ara', -1, 2),
+    new Among('iera', -1, 2),
+    new Among('ia', -1, 2),
+    new Among('aria', 'ia', 2),
+    new Among('eria', 'ia', 2),
+    new Among('iria', 'ia', 2),
+    new Among('ad', -1, 2),
+    new Among('ed', -1, 2),
+    new Among('id', -1, 2),
+    new Among('ase', -1, 2),
+    new Among('iese', -1, 2),
+    new Among('aste', -1, 2),
+    new Among('iste', -1, 2),
+    new Among('an', -1, 2),
+    new Among('aban', 'an', 2),
+    new Among('aran', 'an', 2),
+    new Among('ieran', 'an', 2),
+    new Among('ian', 'an', 2),
+    new Among('arian', 'ian', 2),
+    new Among('erian', 'ian', 2),
+    new Among('irian', 'ian', 2),
+    new Among('en', -1, 1),
+    new Among('asen', 'en', 2),
+    new Among('iesen', 'en', 2),
+    new Among('aron', -1, 2),
+    new Among('ieron', -1, 2),
+    new Among('aran', -1, 2),
+    new Among('eran', -1, 2),
+    new Among('iran', -1, 2),
+    new Among('ado', -1, 2),
+    new Among('ido', -1, 2),
+    new Among('ando', -1, 2),
+    new Among('iendo', -1, 2),
+    new Among('ar', -1, 2),
+    new Among('er', -1, 2),
+    new Among('ir', -1, 2),
+    new Among('as', -1, 2),
+    new Among('abas', 'as', 2),
+    new Among('adas', 'as', 2),
+    new Among('idas', 'as', 2),
+    new Among('aras', 'as', 2),
+    new Among('ieras', 'as', 2),
+    // conditional
+    new Among('ias', 'as', 2),
+    new Among('arias', 'ias', 2),
+    new Among('erias', 'ias', 2),
+    new Among('irias', 'ias', 2),
+    // subjunctive
+    new Among('es', -1, 1),
+    new Among('ases', 'es', 2),
+    new Among('ieses', 'es', 2),
+    new Among('abais', -1, 2),
+    new Among('arais', -1, 2),
+    new Among('ierais', -1, 2),
+    new Among('iais', -1, 2),
+    new Among('ariais', 'iais', 2),
+    new Among('eriais', 'iais', 2),
+    new Among('iriais', 'iais', 2),
+    new Among('ieremos', -1, 2),
+    new Among('iereis', -1, 2),
+    new Among('ieren', -1, 2),
+    new Among('ieres', -1, 2),
+    new Among('iere', -1, 2),
+    new Among('aseis', -1, 2),
+    new Among('ieseis', -1, 2),
+    new Among('asteis', -1, 2),
+    new Among('isteis', -1, 2),
+    new Among('ais', -1, 2),
+    new Among('eis', -1, 1),
+    new Among('areis', 'eis', 2),
+    new Among('ereis', 'eis', 2),
+    new Among('ireis', 'eis', 2),
+    new Among('ados', -1, 2),
+    new Among('idos', -1, 2),
+    new Among('amos', -1, 2),
+    new Among('abamos', 'amos', 2),
+    new Among('aramos', 'amos', 2),
+    new Among('ieramos', 'amos', 2),
+    new Among('iamos', 'amos', 2),
+    new Among('ariamos', 'iamos', 2),
+    new Among('eriamos', 'iamos', 2),
+    new Among('iriamos', 'iamos', 2),
+    new Among('emos', -1, 1),
+    new Among('aremos', 'emos', 2),
+    new Among('eremos', 'emos', 2),
+    new Among('iremos', 'emos', 2),
+    new Among('asemos', 'emos', 2),
+    new Among('iesemos', 'emos', 2),
+    new Among('aras', -1, 2),
+    new Among('eras', -1, 2),
+    new Among('iras', -1, 2),
+    new Among('is', -1, 2),
+    new Among('aren', -1, 2),
+    new Among('ares', -1, 2),
+    new Among('eren', -1, 2),
+    new Among('esen', -1, 2),
+    new Among('ea', -1, 2),
+    new Among('ee', -1, 2),
+    new Among('eo', -1, 2),
+    // future
+    new Among('era', -1, 2),
+    new Among('ira', -1, 2),
+    new Among('are', -1, 2),
+    new Among('ere', -1, 2),
+    new Among('ire', -1, 2),
+    // perfect past
+    new Among('io', -1, 2),
+    new Among('imos', -1, 2),
+    new Among('s', -1, 2),
+    new Among('os', -1, 2),
+    new Among('ios', -1, 2),
+  ];
+
+  static a_9: Among<StemmerEs>[] = [
+    new Among('a', -1, 1),
+    new Among('e', -1, 2),
+    new Among('o', -1, 1),
+    new Among('os', -1, 1),
+    new Among('i', -1, 1),
+  ];
+
+  static g_v: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 10,
+  ];
 }
-
-StemmerEs.a_0 = [
-  new Among('', -1, 6),
-  new Among('a', 0, 1),
-  new Among('e', 0, 2),
-  new Among('i', 0, 3),
-  new Among('o', 0, 4),
-  new Among('u', 0, 5),
-];
-
-StemmerEs.a_1 = [
-  new Among('la', -1, -1),
-  new Among('sela', 0, -1),
-  new Among('le', -1, -1),
-  new Among('me', -1, -1),
-  new Among('se', -1, -1),
-  new Among('lo', -1, -1),
-  new Among('selo', 5, -1),
-  new Among('las', -1, -1),
-  new Among('selas', 7, -1),
-  new Among('les', -1, -1),
-  new Among('los', -1, -1),
-  new Among('selos', 10, -1),
-  new Among('nos', -1, -1),
-];
-
-StemmerEs.a_2 = [
-  new Among('ando', -1, 6),
-  new Among('iendo', -1, 6),
-  new Among('yendo', -1, 7),
-  new Among('ar', -1, 6),
-  new Among('er', -1, 6),
-  new Among('ir', -1, 6),
-];
-
-StemmerEs.a_3 = [
-  new Among('ic', -1, -1),
-  new Among('ad', -1, -1),
-  new Among('os', -1, -1),
-  new Among('iv', -1, 1),
-];
-
-StemmerEs.a_4 = [
-  new Among('able', -1, 1),
-  new Among('ible', -1, 1),
-  new Among('ante', -1, 1),
-];
-
-StemmerEs.a_5 = [
-  new Among('ic', -1, 1),
-  new Among('abil', -1, 1),
-  new Among('iv', -1, 1),
-];
-
-StemmerEs.a_6 = [
-  new Among('ica', -1, 1),
-  new Among('ancia', -1, 2),
-  new Among('encia', -1, 5),
-  new Among('adora', -1, 2),
-  new Among('osa', -1, 1),
-  new Among('ista', -1, 1),
-  new Among('iva', -1, 9),
-  new Among('anza', -1, 1),
-  new Among('logia', -1, 3),
-  new Among('idad', -1, 8),
-  new Among('able', -1, 1),
-  new Among('ible', -1, 1),
-  new Among('ante', -1, 2),
-  new Among('mente', -1, 7),
-  new Among('amente', 13, 6),
-  new Among('acion', -1, 2),
-  new Among('ucion', -1, 4),
-  new Among('ico', -1, 1),
-  new Among('ismo', -1, 1),
-  new Among('oso', -1, 1),
-  new Among('amiento', -1, 1),
-  new Among('imiento', -1, 1),
-  new Among('ivo', -1, 9),
-  new Among('ador', -1, 2),
-  new Among('icas', -1, 1),
-  new Among('ancias', -1, 2),
-  new Among('encias', -1, 5),
-  new Among('adoras', -1, 2),
-  new Among('osas', -1, 1),
-  new Among('istas', -1, 1),
-  new Among('ivas', -1, 9),
-  new Among('anzas', -1, 1),
-  new Among('logias', -1, 3),
-  new Among('idades', -1, 8),
-  new Among('ables', -1, 1),
-  new Among('ibles', -1, 1),
-  new Among('aciones', -1, 2),
-  new Among('uciones', -1, 4),
-  new Among('adores', -1, 2),
-  new Among('antes', -1, 2),
-  new Among('icos', -1, 1),
-  new Among('ismos', -1, 1),
-  new Among('osos', -1, 1),
-  new Among('amientos', -1, 1),
-  new Among('imientos', -1, 1),
-  new Among('ivos', -1, 9),
-];
-
-StemmerEs.a_7 = [
-  new Among('ya', -1, 1),
-  new Among('ye', -1, 1),
-  new Among('yan', -1, 1),
-  new Among('yen', -1, 1),
-  new Among('yeron', -1, 1),
-  new Among('yendo', -1, 1),
-  new Among('yo', -1, 1),
-  new Among('yas', -1, 1),
-  new Among('yes', -1, 1),
-  new Among('yais', -1, 1),
-  new Among('yamos', -1, 1),
-];
-
-StemmerEs.a_8 = [
-  new Among('aba', -1, 2),
-  new Among('ada', -1, 2),
-  new Among('ida', -1, 2),
-  new Among('ara', -1, 2),
-  new Among('iera', -1, 2),
-  new Among('ia', -1, 2),
-  new Among('aria', 'ia', 2),
-  new Among('eria', 'ia', 2),
-  new Among('iria', 'ia', 2),
-  new Among('ad', -1, 2),
-  new Among('ed', -1, 2),
-  new Among('id', -1, 2),
-  new Among('ase', -1, 2),
-  new Among('iese', -1, 2),
-  new Among('aste', -1, 2),
-  new Among('iste', -1, 2),
-  new Among('an', -1, 2),
-  new Among('aban', 'an', 2),
-  new Among('aran', 'an', 2),
-  new Among('ieran', 'an', 2),
-  new Among('ian', 'an', 2),
-  new Among('arian', 'ian', 2),
-  new Among('erian', 'ian', 2),
-  new Among('irian', 'ian', 2),
-  new Among('en', -1, 1),
-  new Among('asen', 'en', 2),
-  new Among('iesen', 'en', 2),
-  new Among('aron', -1, 2),
-  new Among('ieron', -1, 2),
-  new Among('aran', -1, 2),
-  new Among('eran', -1, 2),
-  new Among('iran', -1, 2),
-  new Among('ado', -1, 2),
-  new Among('ido', -1, 2),
-  new Among('ando', -1, 2),
-  new Among('iendo', -1, 2),
-  new Among('ar', -1, 2),
-  new Among('er', -1, 2),
-  new Among('ir', -1, 2),
-  new Among('as', -1, 2),
-  new Among('abas', 'as', 2),
-  new Among('adas', 'as', 2),
-  new Among('idas', 'as', 2),
-  new Among('aras', 'as', 2),
-  new Among('ieras', 'as', 2),
-  // conditional
-  new Among('ias', 'as', 2),
-  new Among('arias', 'ias', 2),
-  new Among('erias', 'ias', 2),
-  new Among('irias', 'ias', 2),
-  // subjunctive
-  new Among('es', -1, 1),
-  new Among('ases', 'es', 2),
-  new Among('ieses', 'es', 2),
-  new Among('abais', -1, 2),
-  new Among('arais', -1, 2),
-  new Among('ierais', -1, 2),
-  new Among('iais', -1, 2),
-  new Among('ariais', 'iais', 2),
-  new Among('eriais', 'iais', 2),
-  new Among('iriais', 'iais', 2),
-  new Among('ieremos', -1, 2),
-  new Among('iereis', -1, 2),
-  new Among('ieren', -1, 2),
-  new Among('ieres', -1, 2),
-  new Among('iere', -1, 2),
-  new Among('aseis', -1, 2),
-  new Among('ieseis', -1, 2),
-  new Among('asteis', -1, 2),
-  new Among('isteis', -1, 2),
-  new Among('ais', -1, 2),
-  new Among('eis', -1, 1),
-  new Among('areis', 'eis', 2),
-  new Among('ereis', 'eis', 2),
-  new Among('ireis', 'eis', 2),
-  new Among('ados', -1, 2),
-  new Among('idos', -1, 2),
-  new Among('amos', -1, 2),
-  new Among('abamos', 'amos', 2),
-  new Among('aramos', 'amos', 2),
-  new Among('ieramos', 'amos', 2),
-  new Among('iamos', 'amos', 2),
-  new Among('ariamos', 'iamos', 2),
-  new Among('eriamos', 'iamos', 2),
-  new Among('iriamos', 'iamos', 2),
-  new Among('emos', -1, 1),
-  new Among('aremos', 'emos', 2),
-  new Among('eremos', 'emos', 2),
-  new Among('iremos', 'emos', 2),
-  new Among('asemos', 'emos', 2),
-  new Among('iesemos', 'emos', 2),
-  new Among('aras', -1, 2),
-  new Among('eras', -1, 2),
-  new Among('iras', -1, 2),
-  new Among('is', -1, 2),
-  new Among('aren', -1, 2),
-  new Among('ares', -1, 2),
-  new Among('eren', -1, 2),
-  new Among('esen', -1, 2),
-  new Among('ea', -1, 2),
-  new Among('ee', -1, 2),
-  new Among('eo', -1, 2),
-  // future
-  new Among('era', -1, 2),
-  new Among('ira', -1, 2),
-  new Among('are', -1, 2),
-  new Among('ere', -1, 2),
-  new Among('ire', -1, 2),
-  // perfect past
-  new Among('io', -1, 2),
-  new Among('imos', -1, 2),
-  new Among('s', -1, 2),
-  new Among('os', -1, 2),
-  new Among('ios', -1, 2),
-];
-
-StemmerEs.a_9 = [
-  new Among('a', -1, 1),
-  new Among('e', -1, 2),
-  new Among('o', -1, 1),
-  new Among('os', -1, 1),
-  new Among('i', -1, 1),
-];
-
-StemmerEs.g_v = [
-  17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 10,
-];
 
 export default StemmerEs;

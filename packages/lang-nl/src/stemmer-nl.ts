@@ -2,16 +2,6 @@ import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 
 class StemmerNl extends SnowballStemmer {
   declare B_e_found: boolean;
-  declare static a_0: Among<StemmerNl>[];
-  declare static a_1: Among<StemmerNl>[];
-  declare static a_2: Among<StemmerNl>[];
-  declare static a_3: Among<StemmerNl>[];
-  declare static a_4: Among<StemmerNl>[];
-  declare static a_5: Among<StemmerNl>[];
-  declare static g_v: number[];
-  declare static g_v_I: number[];
-  declare static g_v_j: number[];
-  declare static methodObject: StemmerNl;
 
   constructor(container?) {
     super(container);
@@ -554,66 +544,70 @@ class StemmerNl extends SnowballStemmer {
     this.cursor = v_4;
     return true;
   }
+
+  static methodObject: StemmerNl = new StemmerNl();
+
+  static a_0: Among<StemmerNl>[] = [
+    new Among('', -1, 6),
+    new Among('\u00E1', 0, 1),
+    new Among('\u00E4', 0, 1),
+    new Among('\u00E9', 0, 2),
+    new Among('\u00EB', 0, 2),
+    new Among('\u00ED', 0, 3),
+    new Among('\u00EF', 0, 3),
+    new Among('\u00F3', 0, 4),
+    new Among('\u00F6', 0, 4),
+    new Among('\u00FA', 0, 5),
+    new Among('\u00FC', 0, 5),
+  ];
+
+  static a_1: Among<StemmerNl>[] = [
+    new Among('', -1, 3),
+    new Among('I', 0, 2),
+    new Among('Y', 0, 1),
+  ];
+
+  static a_2: Among<StemmerNl>[] = [
+    new Among('dd', -1, -1),
+    new Among('kk', -1, -1),
+    new Among('tt', -1, -1),
+  ];
+
+  static a_3: Among<StemmerNl>[] = [
+    new Among('ene', -1, 2),
+    new Among('se', -1, 3),
+    new Among('en', -1, 2),
+    new Among('heden', 2, 1),
+    new Among('s', -1, 3),
+  ];
+
+  static a_4: Among<StemmerNl>[] = [
+    new Among('end', -1, 1),
+    new Among('ig', -1, 2),
+    new Among('ing', -1, 1),
+    new Among('lijk', -1, 3),
+    new Among('baar', -1, 4),
+    new Among('bar', -1, 5),
+  ];
+
+  static a_5: Among<StemmerNl>[] = [
+    new Among('aa', -1, -1),
+    new Among('ee', -1, -1),
+    new Among('oo', -1, -1),
+    new Among('uu', -1, -1),
+  ];
+
+  static g_v: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128,
+  ];
+
+  static g_v_I: number[] = [
+    1, 0, 0, 17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128,
+  ];
+
+  static g_v_j: number[] = [
+    17, 67, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128,
+  ];
 }
-
-StemmerNl.methodObject = new StemmerNl();
-
-StemmerNl.a_0 = [
-  new Among('', -1, 6),
-  new Among('\u00E1', 0, 1),
-  new Among('\u00E4', 0, 1),
-  new Among('\u00E9', 0, 2),
-  new Among('\u00EB', 0, 2),
-  new Among('\u00ED', 0, 3),
-  new Among('\u00EF', 0, 3),
-  new Among('\u00F3', 0, 4),
-  new Among('\u00F6', 0, 4),
-  new Among('\u00FA', 0, 5),
-  new Among('\u00FC', 0, 5),
-];
-
-StemmerNl.a_1 = [
-  new Among('', -1, 3),
-  new Among('I', 0, 2),
-  new Among('Y', 0, 1),
-];
-
-StemmerNl.a_2 = [
-  new Among('dd', -1, -1),
-  new Among('kk', -1, -1),
-  new Among('tt', -1, -1),
-];
-
-StemmerNl.a_3 = [
-  new Among('ene', -1, 2),
-  new Among('se', -1, 3),
-  new Among('en', -1, 2),
-  new Among('heden', 2, 1),
-  new Among('s', -1, 3),
-];
-
-StemmerNl.a_4 = [
-  new Among('end', -1, 1),
-  new Among('ig', -1, 2),
-  new Among('ing', -1, 1),
-  new Among('lijk', -1, 3),
-  new Among('baar', -1, 4),
-  new Among('bar', -1, 5),
-];
-
-StemmerNl.a_5 = [
-  new Among('aa', -1, -1),
-  new Among('ee', -1, -1),
-  new Among('oo', -1, -1),
-  new Among('uu', -1, -1),
-];
-
-StemmerNl.g_v = [17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128];
-
-StemmerNl.g_v_I = [
-  1, 0, 0, 17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128,
-];
-
-StemmerNl.g_v_j = [17, 67, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128];
 
 export default StemmerNl;

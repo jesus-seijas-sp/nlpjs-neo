@@ -3,21 +3,6 @@ import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 class StemmerFi extends SnowballStemmer {
   declare B_ending_removed: boolean;
   declare S_x: string;
-  declare static a_0: Among<StemmerFi>[];
-  declare static a_1: Among<StemmerFi>[];
-  declare static a_2: Among<StemmerFi>[];
-  declare static a_3: Among<StemmerFi>[];
-  declare static a_4: Among<StemmerFi>[];
-  declare static a_5: Among<StemmerFi>[];
-  declare static a_6: Among<StemmerFi>[];
-  declare static a_7: Among<StemmerFi>[];
-  declare static a_8: Among<StemmerFi>[];
-  declare static a_9: Among<StemmerFi>[];
-  declare static g_AEI: number[];
-  declare static g_V1: number[];
-  declare static g_V2: number[];
-  declare static g_particle_end: number[];
-  declare static methodObject: StemmerFi;
 
   constructor(container?) {
     super(container);
@@ -626,150 +611,164 @@ class StemmerFi extends SnowballStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static methodObject: StemmerFi = new StemmerFi();
+
+  static a_0: Among<StemmerFi>[] = [
+    new Among('pa', -1, 1),
+    new Among('sti', -1, 2),
+    new Among('kaan', -1, 1),
+    new Among('han', -1, 1),
+    new Among('kin', -1, 1),
+    new Among('h\u00E4n', -1, 1),
+    new Among('k\u00E4\u00E4n', -1, 1),
+    new Among('ko', -1, 1),
+    new Among('p\u00E4', -1, 1),
+    new Among('k\u00F6', -1, 1),
+  ];
+
+  static a_1: Among<StemmerFi>[] = [
+    new Among('lla', -1, -1),
+    new Among('na', -1, -1),
+    new Among('ssa', -1, -1),
+    new Among('ta', -1, -1),
+    new Among('lta', 3, -1),
+    new Among('sta', 3, -1),
+  ];
+
+  static a_2: Among<StemmerFi>[] = [
+    new Among('ll\u00E4', -1, -1),
+    new Among('n\u00E4', -1, -1),
+    new Among('ss\u00E4', -1, -1),
+    new Among('t\u00E4', -1, -1),
+    new Among('lt\u00E4', 3, -1),
+    new Among('st\u00E4', 3, -1),
+  ];
+
+  static a_3: Among<StemmerFi>[] = [
+    new Among('lle', -1, -1),
+    new Among('ine', -1, -1),
+  ];
+
+  static a_4: Among<StemmerFi>[] = [
+    new Among('nsa', -1, 3),
+    new Among('mme', -1, 3),
+    new Among('nne', -1, 3),
+    new Among('ni', -1, 2),
+    new Among('si', -1, 1),
+    new Among('an', -1, 4),
+    new Among('en', -1, 6),
+    new Among('\u00E4n', -1, 5),
+    new Among('ns\u00E4', -1, 3),
+  ];
+
+  static a_5: Among<StemmerFi>[] = [
+    new Among('aa', -1, -1),
+    new Among('ee', -1, -1),
+    new Among('ii', -1, -1),
+    new Among('oo', -1, -1),
+    new Among('uu', -1, -1),
+    new Among('\u00E4\u00E4', -1, -1),
+    new Among('\u00F6\u00F6', -1, -1),
+  ];
+
+  static a_6: Among<StemmerFi>[] = [
+    new Among('a', -1, 8),
+    new Among('lla', 0, -1),
+    new Among('na', 0, -1),
+    new Among('ssa', 0, -1),
+    new Among('ta', 0, -1),
+    new Among('lta', 4, -1),
+    new Among('sta', 4, -1),
+    new Among('tta', 4, 9),
+    new Among('lle', -1, -1),
+    new Among('ine', -1, -1),
+    new Among('ksi', -1, -1),
+    new Among('n', -1, 7),
+    new Among('han', 11, 1),
+    new Among(
+      'den',
+      11,
+      -1,
+      (instance) => instance.r_VI(),
+      StemmerFi.methodObject
+    ),
+    new Among(
+      'seen',
+      11,
+      -1,
+      (instance) => instance.r_LONG(),
+      StemmerFi.methodObject
+    ),
+    new Among('hen', 11, 2),
+    new Among(
+      'tten',
+      11,
+      -1,
+      (instance) => instance.r_VI(),
+      StemmerFi.methodObject
+    ),
+    new Among('hin', 11, 3),
+    new Among(
+      'siin',
+      11,
+      -1,
+      (instance) => instance.r_VI(),
+      StemmerFi.methodObject
+    ),
+    new Among('hon', 11, 4),
+    new Among('h\u00E4n', 11, 5),
+    new Among('h\u00F6n', 11, 6),
+    new Among('\u00E4', -1, 8),
+    new Among('ll\u00E4', 22, -1),
+    new Among('n\u00E4', 22, -1),
+    new Among('ss\u00E4', 22, -1),
+    new Among('t\u00E4', 22, -1),
+    new Among('lt\u00E4', 26, -1),
+    new Among('st\u00E4', 26, -1),
+    new Among('tt\u00E4', 26, 9),
+  ];
+
+  static a_7: Among<StemmerFi>[] = [
+    new Among('eja', -1, -1),
+    new Among('mma', -1, 1),
+    new Among('imma', 1, -1),
+    new Among('mpa', -1, 1),
+    new Among('impa', 3, -1),
+    new Among('mmi', -1, 1),
+    new Among('immi', 5, -1),
+    new Among('mpi', -1, 1),
+    new Among('impi', 7, -1),
+    new Among('ej\u00E4', -1, -1),
+    new Among('mm\u00E4', -1, 1),
+    new Among('imm\u00E4', 10, -1),
+    new Among('mp\u00E4', -1, 1),
+    new Among('imp\u00E4', 12, -1),
+  ];
+
+  static a_8: Among<StemmerFi>[] = [
+    new Among('i', -1, -1),
+    new Among('j', -1, -1),
+  ];
+
+  static a_9: Among<StemmerFi>[] = [
+    new Among('mma', -1, 1),
+    new Among('imma', 0, -1),
+  ];
+
+  static g_AEI: number[] = [17, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8];
+
+  static g_V1: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32,
+  ];
+
+  static g_V2: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32,
+  ];
+
+  static g_particle_end: number[] = [
+    17, 97, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32,
+  ];
 }
-
-StemmerFi.methodObject = new StemmerFi();
-StemmerFi.a_0 = [
-  new Among('pa', -1, 1),
-  new Among('sti', -1, 2),
-  new Among('kaan', -1, 1),
-  new Among('han', -1, 1),
-  new Among('kin', -1, 1),
-  new Among('h\u00E4n', -1, 1),
-  new Among('k\u00E4\u00E4n', -1, 1),
-  new Among('ko', -1, 1),
-  new Among('p\u00E4', -1, 1),
-  new Among('k\u00F6', -1, 1),
-];
-
-StemmerFi.a_1 = [
-  new Among('lla', -1, -1),
-  new Among('na', -1, -1),
-  new Among('ssa', -1, -1),
-  new Among('ta', -1, -1),
-  new Among('lta', 3, -1),
-  new Among('sta', 3, -1),
-];
-
-StemmerFi.a_2 = [
-  new Among('ll\u00E4', -1, -1),
-  new Among('n\u00E4', -1, -1),
-  new Among('ss\u00E4', -1, -1),
-  new Among('t\u00E4', -1, -1),
-  new Among('lt\u00E4', 3, -1),
-  new Among('st\u00E4', 3, -1),
-];
-
-StemmerFi.a_3 = [new Among('lle', -1, -1), new Among('ine', -1, -1)];
-
-StemmerFi.a_4 = [
-  new Among('nsa', -1, 3),
-  new Among('mme', -1, 3),
-  new Among('nne', -1, 3),
-  new Among('ni', -1, 2),
-  new Among('si', -1, 1),
-  new Among('an', -1, 4),
-  new Among('en', -1, 6),
-  new Among('\u00E4n', -1, 5),
-  new Among('ns\u00E4', -1, 3),
-];
-
-StemmerFi.a_5 = [
-  new Among('aa', -1, -1),
-  new Among('ee', -1, -1),
-  new Among('ii', -1, -1),
-  new Among('oo', -1, -1),
-  new Among('uu', -1, -1),
-  new Among('\u00E4\u00E4', -1, -1),
-  new Among('\u00F6\u00F6', -1, -1),
-];
-
-StemmerFi.a_6 = [
-  new Among('a', -1, 8),
-  new Among('lla', 0, -1),
-  new Among('na', 0, -1),
-  new Among('ssa', 0, -1),
-  new Among('ta', 0, -1),
-  new Among('lta', 4, -1),
-  new Among('sta', 4, -1),
-  new Among('tta', 4, 9),
-  new Among('lle', -1, -1),
-  new Among('ine', -1, -1),
-  new Among('ksi', -1, -1),
-  new Among('n', -1, 7),
-  new Among('han', 11, 1),
-  new Among(
-    'den',
-    11,
-    -1,
-    (instance) => instance.r_VI(),
-    StemmerFi.methodObject
-  ),
-  new Among(
-    'seen',
-    11,
-    -1,
-    (instance) => instance.r_LONG(),
-    StemmerFi.methodObject
-  ),
-  new Among('hen', 11, 2),
-  new Among(
-    'tten',
-    11,
-    -1,
-    (instance) => instance.r_VI(),
-    StemmerFi.methodObject
-  ),
-  new Among('hin', 11, 3),
-  new Among(
-    'siin',
-    11,
-    -1,
-    (instance) => instance.r_VI(),
-    StemmerFi.methodObject
-  ),
-  new Among('hon', 11, 4),
-  new Among('h\u00E4n', 11, 5),
-  new Among('h\u00F6n', 11, 6),
-  new Among('\u00E4', -1, 8),
-  new Among('ll\u00E4', 22, -1),
-  new Among('n\u00E4', 22, -1),
-  new Among('ss\u00E4', 22, -1),
-  new Among('t\u00E4', 22, -1),
-  new Among('lt\u00E4', 26, -1),
-  new Among('st\u00E4', 26, -1),
-  new Among('tt\u00E4', 26, 9),
-];
-
-StemmerFi.a_7 = [
-  new Among('eja', -1, -1),
-  new Among('mma', -1, 1),
-  new Among('imma', 1, -1),
-  new Among('mpa', -1, 1),
-  new Among('impa', 3, -1),
-  new Among('mmi', -1, 1),
-  new Among('immi', 5, -1),
-  new Among('mpi', -1, 1),
-  new Among('impi', 7, -1),
-  new Among('ej\u00E4', -1, -1),
-  new Among('mm\u00E4', -1, 1),
-  new Among('imm\u00E4', 10, -1),
-  new Among('mp\u00E4', -1, 1),
-  new Among('imp\u00E4', 12, -1),
-];
-
-StemmerFi.a_8 = [new Among('i', -1, -1), new Among('j', -1, -1)];
-
-StemmerFi.a_9 = [new Among('mma', -1, 1), new Among('imma', 0, -1)];
-
-StemmerFi.g_AEI = [17, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8];
-
-StemmerFi.g_V1 = [17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32];
-
-StemmerFi.g_V2 = [17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32];
-
-StemmerFi.g_particle_end = [
-  17, 97, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32,
-];
 
 export default StemmerFi;

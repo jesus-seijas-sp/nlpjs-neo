@@ -3,12 +3,6 @@ import { Among, BaseStemmer } from '@nlpjs-neo/core';
 class StemmerSv extends BaseStemmer {
   declare I_p1: number;
   declare I_x: number;
-  declare static a_0: Among<StemmerSv>[];
-  declare static a_1: Among<StemmerSv>[];
-  declare static a_2: Among<StemmerSv>[];
-  declare static g_s_ending: number[];
-  declare static g_v: number[];
-  declare static methodObject: StemmerSv;
 
   constructor(container?) {
     super(container);
@@ -201,70 +195,72 @@ class StemmerSv extends BaseStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static methodObject: StemmerSv = new StemmerSv();
+
+  static a_0: Among<StemmerSv>[] = [
+    new Among('a', -1, 1),
+    new Among('arna', 0, 1),
+    new Among('erna', 0, 1),
+    new Among('heterna', 2, 1),
+    new Among('orna', 0, 1),
+    new Among('ad', -1, 1),
+    new Among('e', -1, 1),
+    new Among('ade', 6, 1),
+    new Among('ande', 6, 1),
+    new Among('arne', 6, 1),
+    new Among('are', 6, 1),
+    new Among('aste', 6, 1),
+    new Among('en', -1, 1),
+    new Among('anden', 12, 1),
+    new Among('aren', 12, 1),
+    new Among('heten', 12, 1),
+    new Among('ern', -1, 1),
+    new Among('ar', -1, 1),
+    new Among('er', -1, 1),
+    new Among('heter', 18, 1),
+    new Among('or', -1, 1),
+    new Among('s', -1, 2),
+    new Among('as', 21, 1),
+    new Among('arnas', 22, 1),
+    new Among('ernas', 22, 1),
+    new Among('ornas', 22, 1),
+    new Among('es', 21, 1),
+    new Among('ades', 26, 1),
+    new Among('andes', 26, 1),
+    new Among('ens', 21, 1),
+    new Among('arens', 29, 1),
+    new Among('hetens', 29, 1),
+    new Among('erns', 21, 1),
+    new Among('at', -1, 1),
+    new Among('andet', -1, 1),
+    new Among('het', -1, 1),
+    new Among('ast', -1, 1),
+  ];
+
+  static a_1: Among<StemmerSv>[] = [
+    new Among('dd', -1, -1),
+    new Among('gd', -1, -1),
+    new Among('nn', -1, -1),
+    new Among('dt', -1, -1),
+    new Among('gt', -1, -1),
+    new Among('kt', -1, -1),
+    new Among('tt', -1, -1),
+  ];
+
+  static a_2: Among<StemmerSv>[] = [
+    new Among('ig', -1, 1),
+    new Among('lig', 0, 1),
+    new Among('els', -1, 1),
+    new Among('fullt', -1, 3),
+    new Among('l\u00F6st', -1, 2),
+  ];
+
+  static g_v: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 32,
+  ];
+
+  static g_s_ending: number[] = [119, 127, 149];
 }
-
-StemmerSv.methodObject = new StemmerSv();
-
-StemmerSv.a_0 = [
-  new Among('a', -1, 1),
-  new Among('arna', 0, 1),
-  new Among('erna', 0, 1),
-  new Among('heterna', 2, 1),
-  new Among('orna', 0, 1),
-  new Among('ad', -1, 1),
-  new Among('e', -1, 1),
-  new Among('ade', 6, 1),
-  new Among('ande', 6, 1),
-  new Among('arne', 6, 1),
-  new Among('are', 6, 1),
-  new Among('aste', 6, 1),
-  new Among('en', -1, 1),
-  new Among('anden', 12, 1),
-  new Among('aren', 12, 1),
-  new Among('heten', 12, 1),
-  new Among('ern', -1, 1),
-  new Among('ar', -1, 1),
-  new Among('er', -1, 1),
-  new Among('heter', 18, 1),
-  new Among('or', -1, 1),
-  new Among('s', -1, 2),
-  new Among('as', 21, 1),
-  new Among('arnas', 22, 1),
-  new Among('ernas', 22, 1),
-  new Among('ornas', 22, 1),
-  new Among('es', 21, 1),
-  new Among('ades', 26, 1),
-  new Among('andes', 26, 1),
-  new Among('ens', 21, 1),
-  new Among('arens', 29, 1),
-  new Among('hetens', 29, 1),
-  new Among('erns', 21, 1),
-  new Among('at', -1, 1),
-  new Among('andet', -1, 1),
-  new Among('het', -1, 1),
-  new Among('ast', -1, 1),
-];
-
-StemmerSv.a_1 = [
-  new Among('dd', -1, -1),
-  new Among('gd', -1, -1),
-  new Among('nn', -1, -1),
-  new Among('dt', -1, -1),
-  new Among('gt', -1, -1),
-  new Among('kt', -1, -1),
-  new Among('tt', -1, -1),
-];
-
-StemmerSv.a_2 = [
-  new Among('ig', -1, 1),
-  new Among('lig', 0, 1),
-  new Among('els', -1, 1),
-  new Among('fullt', -1, 3),
-  new Among('l\u00F6st', -1, 2),
-];
-
-StemmerSv.g_v = [17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 32];
-
-StemmerSv.g_s_ending = [119, 127, 149];
 
 export default StemmerSv;

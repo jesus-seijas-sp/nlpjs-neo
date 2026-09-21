@@ -1,17 +1,6 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 
 class StemmerRu extends SnowballStemmer {
-  declare static a_0: Among<StemmerRu>[];
-  declare static a_1: Among<StemmerRu>[];
-  declare static a_2: Among<StemmerRu>[];
-  declare static a_3: Among<StemmerRu>[];
-  declare static a_4: Among<StemmerRu>[];
-  declare static a_5: Among<StemmerRu>[];
-  declare static a_6: Among<StemmerRu>[];
-  declare static a_7: Among<StemmerRu>[];
-  declare static g_v: number[];
-  declare static methodObject: StemmerRu;
-
   constructor(container?) {
     super(container);
     this.name = 'stemmer-ru';
@@ -398,167 +387,167 @@ class StemmerRu extends SnowballStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static methodObject: StemmerRu = new StemmerRu();
+
+  static a_0: Among<StemmerRu>[] = [
+    new Among('\u0432', -1, 1),
+    new Among('\u0438\u0432', 0, 2),
+    new Among('\u044B\u0432', 0, 2),
+    new Among('\u0432\u0448\u0438', -1, 1),
+    new Among('\u0438\u0432\u0448\u0438', 3, 2),
+    new Among('\u044B\u0432\u0448\u0438', 3, 2),
+    new Among('\u0432\u0448\u0438\u0441\u044C', -1, 1),
+    new Among('\u0438\u0432\u0448\u0438\u0441\u044C', 6, 2),
+    new Among('\u044B\u0432\u0448\u0438\u0441\u044C', 6, 2),
+  ];
+
+  static a_1: Among<StemmerRu>[] = [
+    new Among('\u0435\u0435', -1, 1),
+    new Among('\u0438\u0435', -1, 1),
+    new Among('\u043E\u0435', -1, 1),
+    new Among('\u044B\u0435', -1, 1),
+    new Among('\u0438\u043C\u0438', -1, 1),
+    new Among('\u044B\u043C\u0438', -1, 1),
+    new Among('\u0435\u0439', -1, 1),
+    new Among('\u0438\u0439', -1, 1),
+    new Among('\u043E\u0439', -1, 1),
+    new Among('\u044B\u0439', -1, 1),
+    new Among('\u0435\u043C', -1, 1),
+    new Among('\u0438\u043C', -1, 1),
+    new Among('\u043E\u043C', -1, 1),
+    new Among('\u044B\u043C', -1, 1),
+    new Among('\u0435\u0433\u043E', -1, 1),
+    new Among('\u043E\u0433\u043E', -1, 1),
+    new Among('\u0435\u043C\u0443', -1, 1),
+    new Among('\u043E\u043C\u0443', -1, 1),
+    new Among('\u0438\u0445', -1, 1),
+    new Among('\u044B\u0445', -1, 1),
+    new Among('\u0435\u044E', -1, 1),
+    new Among('\u043E\u044E', -1, 1),
+    new Among('\u0443\u044E', -1, 1),
+    new Among('\u044E\u044E', -1, 1),
+    new Among('\u0430\u044F', -1, 1),
+    new Among('\u044F\u044F', -1, 1),
+  ];
+
+  static a_2: Among<StemmerRu>[] = [
+    new Among('\u0435\u043C', -1, 1),
+    new Among('\u043D\u043D', -1, 1),
+    new Among('\u0432\u0448', -1, 1),
+    new Among('\u0438\u0432\u0448', 2, 2),
+    new Among('\u044B\u0432\u0448', 2, 2),
+    new Among('\u0449', -1, 1),
+    new Among('\u044E\u0449', 5, 1),
+    new Among('\u0443\u044E\u0449', 6, 2),
+  ];
+
+  static a_3: Among<StemmerRu>[] = [
+    new Among('\u0441\u044C', -1, 1),
+    new Among('\u0441\u044F', -1, 1),
+  ];
+
+  static a_4: Among<StemmerRu>[] = [
+    new Among('\u043B\u0430', -1, 1),
+    new Among('\u0438\u043B\u0430', 0, 2),
+    new Among('\u044B\u043B\u0430', 0, 2),
+    new Among('\u043D\u0430', -1, 1),
+    new Among('\u0435\u043D\u0430', 3, 2),
+    new Among('\u0435\u0442\u0435', -1, 1),
+    new Among('\u0438\u0442\u0435', -1, 2),
+    new Among('\u0439\u0442\u0435', -1, 1),
+    new Among('\u0435\u0439\u0442\u0435', 7, 2),
+    new Among('\u0443\u0439\u0442\u0435', 7, 2),
+    new Among('\u043B\u0438', -1, 1),
+    new Among('\u0438\u043B\u0438', 10, 2),
+    new Among('\u044B\u043B\u0438', 10, 2),
+    new Among('\u0439', -1, 1),
+    new Among('\u0435\u0439', 13, 2),
+    new Among('\u0443\u0439', 13, 2),
+    new Among('\u043B', -1, 1),
+    new Among('\u0438\u043B', 16, 2),
+    new Among('\u044B\u043B', 16, 2),
+    new Among('\u0435\u043C', -1, 1),
+    new Among('\u0438\u043C', -1, 2),
+    new Among('\u044B\u043C', -1, 2),
+    new Among('\u043D', -1, 1),
+    new Among('\u0435\u043D', 22, 2),
+    new Among('\u043B\u043E', -1, 1),
+    new Among('\u0438\u043B\u043E', 24, 2),
+    new Among('\u044B\u043B\u043E', 24, 2),
+    new Among('\u043D\u043E', -1, 1),
+    new Among('\u0435\u043D\u043E', 27, 2),
+    new Among('\u043D\u043D\u043E', 27, 1),
+    new Among('\u0435\u0442', -1, 1),
+    new Among('\u0443\u0435\u0442', 30, 2),
+    new Among('\u0438\u0442', -1, 2),
+    new Among('\u044B\u0442', -1, 2),
+    new Among('\u044E\u0442', -1, 1),
+    new Among('\u0443\u044E\u0442', 34, 2),
+    new Among('\u044F\u0442', -1, 2),
+    new Among('\u043D\u044B', -1, 1),
+    new Among('\u0435\u043D\u044B', 37, 2),
+    new Among('\u0442\u044C', -1, 1),
+    new Among('\u0438\u0442\u044C', 39, 2),
+    new Among('\u044B\u0442\u044C', 39, 2),
+    new Among('\u0435\u0448\u044C', -1, 1),
+    new Among('\u0438\u0448\u044C', -1, 2),
+    new Among('\u044E', -1, 2),
+    new Among('\u0443\u044E', 44, 2),
+  ];
+
+  static a_5: Among<StemmerRu>[] = [
+    new Among('\u0430', -1, 1),
+    new Among('\u0435\u0432', -1, 1),
+    new Among('\u043E\u0432', -1, 1),
+    new Among('\u0435', -1, 1),
+    new Among('\u0438\u0435', 3, 1),
+    new Among('\u044C\u0435', 3, 1),
+    new Among('\u0438', -1, 1),
+    new Among('\u0435\u0438', 6, 1),
+    new Among('\u0438\u0438', 6, 1),
+    new Among('\u0430\u043C\u0438', 6, 1),
+    new Among('\u044F\u043C\u0438', 6, 1),
+    new Among('\u0438\u044F\u043C\u0438', 10, 1),
+    new Among('\u0439', -1, 1),
+    new Among('\u0435\u0439', 12, 1),
+    new Among('\u0438\u0435\u0439', 13, 1),
+    new Among('\u0438\u0439', 12, 1),
+    new Among('\u043E\u0439', 12, 1),
+    new Among('\u0430\u043C', -1, 1),
+    new Among('\u0435\u043C', -1, 1),
+    new Among('\u0438\u0435\u043C', 18, 1),
+    new Among('\u043E\u043C', -1, 1),
+    new Among('\u044F\u043C', -1, 1),
+    new Among('\u0438\u044F\u043C', 21, 1),
+    new Among('\u043E', -1, 1),
+    new Among('\u0443', -1, 1),
+    new Among('\u0430\u0445', -1, 1),
+    new Among('\u044F\u0445', -1, 1),
+    new Among('\u0438\u044F\u0445', 26, 1),
+    new Among('\u044B', -1, 1),
+    new Among('\u044C', -1, 1),
+    new Among('\u044E', -1, 1),
+    new Among('\u0438\u044E', 30, 1),
+    new Among('\u044C\u044E', 30, 1),
+    new Among('\u044F', -1, 1),
+    new Among('\u0438\u044F', 33, 1),
+    new Among('\u044C\u044F', 33, 1),
+  ];
+
+  static a_6: Among<StemmerRu>[] = [
+    new Among('\u043E\u0441\u0442', -1, 1),
+    new Among('\u043E\u0441\u0442\u044C', -1, 1),
+  ];
+
+  static a_7: Among<StemmerRu>[] = [
+    new Among('\u0435\u0439\u0448\u0435', -1, 1),
+    new Among('\u043D', -1, 2),
+    new Among('\u0435\u0439\u0448', -1, 1),
+    new Among('\u044C', -1, 3),
+  ];
+
+  static g_v: number[] = [33, 65, 8, 232];
 }
-
-StemmerRu.methodObject = new StemmerRu();
-
-StemmerRu.a_0 = [
-  new Among('\u0432', -1, 1),
-  new Among('\u0438\u0432', 0, 2),
-  new Among('\u044B\u0432', 0, 2),
-  new Among('\u0432\u0448\u0438', -1, 1),
-  new Among('\u0438\u0432\u0448\u0438', 3, 2),
-  new Among('\u044B\u0432\u0448\u0438', 3, 2),
-  new Among('\u0432\u0448\u0438\u0441\u044C', -1, 1),
-  new Among('\u0438\u0432\u0448\u0438\u0441\u044C', 6, 2),
-  new Among('\u044B\u0432\u0448\u0438\u0441\u044C', 6, 2),
-];
-
-StemmerRu.a_1 = [
-  new Among('\u0435\u0435', -1, 1),
-  new Among('\u0438\u0435', -1, 1),
-  new Among('\u043E\u0435', -1, 1),
-  new Among('\u044B\u0435', -1, 1),
-  new Among('\u0438\u043C\u0438', -1, 1),
-  new Among('\u044B\u043C\u0438', -1, 1),
-  new Among('\u0435\u0439', -1, 1),
-  new Among('\u0438\u0439', -1, 1),
-  new Among('\u043E\u0439', -1, 1),
-  new Among('\u044B\u0439', -1, 1),
-  new Among('\u0435\u043C', -1, 1),
-  new Among('\u0438\u043C', -1, 1),
-  new Among('\u043E\u043C', -1, 1),
-  new Among('\u044B\u043C', -1, 1),
-  new Among('\u0435\u0433\u043E', -1, 1),
-  new Among('\u043E\u0433\u043E', -1, 1),
-  new Among('\u0435\u043C\u0443', -1, 1),
-  new Among('\u043E\u043C\u0443', -1, 1),
-  new Among('\u0438\u0445', -1, 1),
-  new Among('\u044B\u0445', -1, 1),
-  new Among('\u0435\u044E', -1, 1),
-  new Among('\u043E\u044E', -1, 1),
-  new Among('\u0443\u044E', -1, 1),
-  new Among('\u044E\u044E', -1, 1),
-  new Among('\u0430\u044F', -1, 1),
-  new Among('\u044F\u044F', -1, 1),
-];
-
-StemmerRu.a_2 = [
-  new Among('\u0435\u043C', -1, 1),
-  new Among('\u043D\u043D', -1, 1),
-  new Among('\u0432\u0448', -1, 1),
-  new Among('\u0438\u0432\u0448', 2, 2),
-  new Among('\u044B\u0432\u0448', 2, 2),
-  new Among('\u0449', -1, 1),
-  new Among('\u044E\u0449', 5, 1),
-  new Among('\u0443\u044E\u0449', 6, 2),
-];
-
-StemmerRu.a_3 = [
-  new Among('\u0441\u044C', -1, 1),
-  new Among('\u0441\u044F', -1, 1),
-];
-
-StemmerRu.a_4 = [
-  new Among('\u043B\u0430', -1, 1),
-  new Among('\u0438\u043B\u0430', 0, 2),
-  new Among('\u044B\u043B\u0430', 0, 2),
-  new Among('\u043D\u0430', -1, 1),
-  new Among('\u0435\u043D\u0430', 3, 2),
-  new Among('\u0435\u0442\u0435', -1, 1),
-  new Among('\u0438\u0442\u0435', -1, 2),
-  new Among('\u0439\u0442\u0435', -1, 1),
-  new Among('\u0435\u0439\u0442\u0435', 7, 2),
-  new Among('\u0443\u0439\u0442\u0435', 7, 2),
-  new Among('\u043B\u0438', -1, 1),
-  new Among('\u0438\u043B\u0438', 10, 2),
-  new Among('\u044B\u043B\u0438', 10, 2),
-  new Among('\u0439', -1, 1),
-  new Among('\u0435\u0439', 13, 2),
-  new Among('\u0443\u0439', 13, 2),
-  new Among('\u043B', -1, 1),
-  new Among('\u0438\u043B', 16, 2),
-  new Among('\u044B\u043B', 16, 2),
-  new Among('\u0435\u043C', -1, 1),
-  new Among('\u0438\u043C', -1, 2),
-  new Among('\u044B\u043C', -1, 2),
-  new Among('\u043D', -1, 1),
-  new Among('\u0435\u043D', 22, 2),
-  new Among('\u043B\u043E', -1, 1),
-  new Among('\u0438\u043B\u043E', 24, 2),
-  new Among('\u044B\u043B\u043E', 24, 2),
-  new Among('\u043D\u043E', -1, 1),
-  new Among('\u0435\u043D\u043E', 27, 2),
-  new Among('\u043D\u043D\u043E', 27, 1),
-  new Among('\u0435\u0442', -1, 1),
-  new Among('\u0443\u0435\u0442', 30, 2),
-  new Among('\u0438\u0442', -1, 2),
-  new Among('\u044B\u0442', -1, 2),
-  new Among('\u044E\u0442', -1, 1),
-  new Among('\u0443\u044E\u0442', 34, 2),
-  new Among('\u044F\u0442', -1, 2),
-  new Among('\u043D\u044B', -1, 1),
-  new Among('\u0435\u043D\u044B', 37, 2),
-  new Among('\u0442\u044C', -1, 1),
-  new Among('\u0438\u0442\u044C', 39, 2),
-  new Among('\u044B\u0442\u044C', 39, 2),
-  new Among('\u0435\u0448\u044C', -1, 1),
-  new Among('\u0438\u0448\u044C', -1, 2),
-  new Among('\u044E', -1, 2),
-  new Among('\u0443\u044E', 44, 2),
-];
-
-StemmerRu.a_5 = [
-  new Among('\u0430', -1, 1),
-  new Among('\u0435\u0432', -1, 1),
-  new Among('\u043E\u0432', -1, 1),
-  new Among('\u0435', -1, 1),
-  new Among('\u0438\u0435', 3, 1),
-  new Among('\u044C\u0435', 3, 1),
-  new Among('\u0438', -1, 1),
-  new Among('\u0435\u0438', 6, 1),
-  new Among('\u0438\u0438', 6, 1),
-  new Among('\u0430\u043C\u0438', 6, 1),
-  new Among('\u044F\u043C\u0438', 6, 1),
-  new Among('\u0438\u044F\u043C\u0438', 10, 1),
-  new Among('\u0439', -1, 1),
-  new Among('\u0435\u0439', 12, 1),
-  new Among('\u0438\u0435\u0439', 13, 1),
-  new Among('\u0438\u0439', 12, 1),
-  new Among('\u043E\u0439', 12, 1),
-  new Among('\u0430\u043C', -1, 1),
-  new Among('\u0435\u043C', -1, 1),
-  new Among('\u0438\u0435\u043C', 18, 1),
-  new Among('\u043E\u043C', -1, 1),
-  new Among('\u044F\u043C', -1, 1),
-  new Among('\u0438\u044F\u043C', 21, 1),
-  new Among('\u043E', -1, 1),
-  new Among('\u0443', -1, 1),
-  new Among('\u0430\u0445', -1, 1),
-  new Among('\u044F\u0445', -1, 1),
-  new Among('\u0438\u044F\u0445', 26, 1),
-  new Among('\u044B', -1, 1),
-  new Among('\u044C', -1, 1),
-  new Among('\u044E', -1, 1),
-  new Among('\u0438\u044E', 30, 1),
-  new Among('\u044C\u044E', 30, 1),
-  new Among('\u044F', -1, 1),
-  new Among('\u0438\u044F', 33, 1),
-  new Among('\u044C\u044F', 33, 1),
-];
-
-StemmerRu.a_6 = [
-  new Among('\u043E\u0441\u0442', -1, 1),
-  new Among('\u043E\u0441\u0442\u044C', -1, 1),
-];
-
-StemmerRu.a_7 = [
-  new Among('\u0435\u0439\u0448\u0435', -1, 1),
-  new Among('\u043D', -1, 2),
-  new Among('\u0435\u0439\u0448', -1, 1),
-  new Among('\u044C', -1, 3),
-];
-
-StemmerRu.g_v = [33, 65, 8, 232];
 
 export default StemmerRu;

@@ -5,32 +5,6 @@ class StemmerTa extends BaseStemmer {
   declare B_found_vetrumai_urupu: boolean;
   declare B_found_wrong_ending: boolean;
   declare I_length: number;
-  declare static a_0: Among<StemmerTa>[];
-  declare static a_10: Among<StemmerTa>[];
-  declare static a_11: Among<StemmerTa>[];
-  declare static a_12: Among<StemmerTa>[];
-  declare static a_13: Among<StemmerTa>[];
-  declare static a_14: Among<StemmerTa>[];
-  declare static a_15: Among<StemmerTa>[];
-  declare static a_16: Among<StemmerTa>[];
-  declare static a_17: Among<StemmerTa>[];
-  declare static a_18: Among<StemmerTa>[];
-  declare static a_19: Among<StemmerTa>[];
-  declare static a_1: Among<StemmerTa>[];
-  declare static a_20: Among<StemmerTa>[];
-  declare static a_21: Among<StemmerTa>[];
-  declare static a_22: Among<StemmerTa>[];
-  declare static a_23: Among<StemmerTa>[];
-  declare static a_24: Among<StemmerTa>[];
-  declare static a_25: Among<StemmerTa>[];
-  declare static a_2: Among<StemmerTa>[];
-  declare static a_3: Among<StemmerTa>[];
-  declare static a_4: Among<StemmerTa>[];
-  declare static a_5: Among<StemmerTa>[];
-  declare static a_6: Among<StemmerTa>[];
-  declare static a_7: Among<StemmerTa>[];
-  declare static a_8: Among<StemmerTa>[];
-  declare static a_9: Among<StemmerTa>[];
 
   constructor(container) {
     super(container);
@@ -1620,250 +1594,250 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_10;
     return true;
   }
+
+  static a_0: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B99', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9E', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BA8', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BAE', -1, -1),
+    new Among('\u0BAF', -1, -1),
+    new Among('\u0BB5', -1, -1),
+  ];
+
+  static a_1: Among<StemmerTa>[] = [
+    new Among('\u0BA8\u0BCD\u0BA4', -1, -1),
+    new Among('\u0BA8\u0BCD\u0BA4\u0BCD', -1, -1),
+    new Among('\u0BA8\u0BCD', -1, -1),
+  ];
+
+  static a_2: Among<StemmerTa>[] = [
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_3: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_4: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_5: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_6: Among<StemmerTa>[] = [
+    new Among('\u0BAF', -1, -1),
+    new Among('\u0BB0', -1, -1),
+    new Among('\u0BB2', -1, -1),
+    new Among('\u0BB3', -1, -1),
+    new Among('\u0BB4', -1, -1),
+    new Among('\u0BB5', -1, -1),
+  ];
+
+  static a_7: Among<StemmerTa>[] = [
+    new Among('\u0B99', -1, -1),
+    new Among('\u0B9E', -1, -1),
+    new Among('\u0BA3', -1, -1),
+    new Among('\u0BA8', -1, -1),
+    new Among('\u0BA9', -1, -1),
+    new Among('\u0BAE', -1, -1),
+  ];
+
+  static a_8: Among<StemmerTa>[] = [
+    new Among('\u0BAF', -1, -1),
+    new Among('\u0BB5', -1, -1),
+    new Among('\u0BB5\u0BCD', -1, -1),
+  ];
+
+  static a_9: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_10: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_11: Among<StemmerTa>[] = [
+    new Among('\u0B85', -1, -1),
+    new Among('\u0B87', -1, -1),
+    new Among('\u0B89', -1, -1),
+  ];
+
+  static a_12: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B99', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9E', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BA8', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BAE', -1, -1),
+    new Among('\u0BAF', -1, -1),
+    new Among('\u0BB5', -1, -1),
+  ];
+
+  static a_13: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_14: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BCB', -1, -1),
+  ];
+
+  static a_15: Among<StemmerTa>[] = [
+    new Among('\u0BAA\u0BBF', -1, -1),
+    new Among('\u0BB5\u0BBF', -1, -1),
+  ];
+
+  static a_16: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_17: Among<StemmerTa>[] = [
+    new Among('\u0BAA\u0B9F\u0BCD\u0B9F', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA3', -1, -1),
+    new Among('\u0BA4\u0BBE\u0BA9', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BBF\u0BA4\u0BBE\u0BA9', 2, -1),
+    new Among('\u0B95\u0BC1\u0BB0\u0BBF\u0BAF', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BBF', -1, -1),
+    new Among('\u0BAA\u0BB1\u0BCD\u0BB1\u0BBF', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BC1', -1, -1),
+    new Among('\u0BB5\u0BBF\u0B9F\u0BC1', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BC1', -1, -1),
+    new Among('\u0BB5\u0BBF\u0B9F\u0BCD\u0B9F\u0BC1', -1, -1),
+    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1', -1, -1),
+    new Among('\u0BC6\u0BB2\u0BCD\u0BB2\u0BBE\u0BAE\u0BCD', -1, -1),
+  ];
+
+  static a_18: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_19: Among<StemmerTa>[] = [
+    new Among('\u0B95', -1, -1),
+    new Among('\u0B9A', -1, -1),
+    new Among('\u0B9F', -1, -1),
+    new Among('\u0BA4', -1, -1),
+    new Among('\u0BAA', -1, -1),
+    new Among('\u0BB1', -1, -1),
+  ];
+
+  static a_20: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_21: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_22: Among<StemmerTa>[] = [
+    new Among('\u0BAA\u0B9F\u0BC1', -1, -1),
+    new Among('\u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BBF\u0BB0\u0BCD', -1, -1),
+  ];
+
+  static a_23: Among<StemmerTa>[] = [
+    new Among('\u0B85', -1, -1),
+    new Among('\u0B86', -1, -1),
+    new Among('\u0B87', -1, -1),
+    new Among('\u0B88', -1, -1),
+    new Among('\u0B89', -1, -1),
+    new Among('\u0B8A', -1, -1),
+    new Among('\u0B8E', -1, -1),
+    new Among('\u0B8F', -1, -1),
+    new Among('\u0B90', -1, -1),
+    new Among('\u0B92', -1, -1),
+    new Among('\u0B93', -1, -1),
+    new Among('\u0B94', -1, -1),
+  ];
+
+  static a_24: Among<StemmerTa>[] = [
+    new Among('\u0BBE', -1, -1),
+    new Among('\u0BBF', -1, -1),
+    new Among('\u0BC0', -1, -1),
+    new Among('\u0BC1', -1, -1),
+    new Among('\u0BC2', -1, -1),
+    new Among('\u0BC6', -1, -1),
+    new Among('\u0BC7', -1, -1),
+    new Among('\u0BC8', -1, -1),
+  ];
+
+  static a_25: Among<StemmerTa>[] = [
+    new Among('\u0B95\u0BBF\u0BB1', -1, -1),
+    new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
+    new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
+    new Among('\u0B95\u0BBF\u0BB1\u0BCD', -1, -1),
+    new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
+    new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
+  ];
 }
-
-StemmerTa.a_0 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B99', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9E', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BA8', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BAE', -1, -1),
-  new Among('\u0BAF', -1, -1),
-  new Among('\u0BB5', -1, -1),
-];
-
-StemmerTa.a_1 = [
-  new Among('\u0BA8\u0BCD\u0BA4', -1, -1),
-  new Among('\u0BA8\u0BCD\u0BA4\u0BCD', -1, -1),
-  new Among('\u0BA8\u0BCD', -1, -1),
-];
-
-StemmerTa.a_2 = [
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_3 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_4 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_5 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_6 = [
-  new Among('\u0BAF', -1, -1),
-  new Among('\u0BB0', -1, -1),
-  new Among('\u0BB2', -1, -1),
-  new Among('\u0BB3', -1, -1),
-  new Among('\u0BB4', -1, -1),
-  new Among('\u0BB5', -1, -1),
-];
-
-StemmerTa.a_7 = [
-  new Among('\u0B99', -1, -1),
-  new Among('\u0B9E', -1, -1),
-  new Among('\u0BA3', -1, -1),
-  new Among('\u0BA8', -1, -1),
-  new Among('\u0BA9', -1, -1),
-  new Among('\u0BAE', -1, -1),
-];
-
-StemmerTa.a_8 = [
-  new Among('\u0BAF', -1, -1),
-  new Among('\u0BB5', -1, -1),
-  new Among('\u0BB5\u0BCD', -1, -1),
-];
-
-StemmerTa.a_9 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_10 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_11 = [
-  new Among('\u0B85', -1, -1),
-  new Among('\u0B87', -1, -1),
-  new Among('\u0B89', -1, -1),
-];
-
-StemmerTa.a_12 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B99', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9E', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BA8', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BAE', -1, -1),
-  new Among('\u0BAF', -1, -1),
-  new Among('\u0BB5', -1, -1),
-];
-
-StemmerTa.a_13 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_14 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BCB', -1, -1),
-];
-
-StemmerTa.a_15 = [
-  new Among('\u0BAA\u0BBF', -1, -1),
-  new Among('\u0BB5\u0BBF', -1, -1),
-];
-
-StemmerTa.a_16 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_17 = [
-  new Among('\u0BAA\u0B9F\u0BCD\u0B9F', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA3', -1, -1),
-  new Among('\u0BA4\u0BBE\u0BA9', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BBF\u0BA4\u0BBE\u0BA9', 2, -1),
-  new Among('\u0B95\u0BC1\u0BB0\u0BBF\u0BAF', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BBF', -1, -1),
-  new Among('\u0BAA\u0BB1\u0BCD\u0BB1\u0BBF', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BC1', -1, -1),
-  new Among('\u0BB5\u0BBF\u0B9F\u0BC1', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BC1', -1, -1),
-  new Among('\u0BB5\u0BBF\u0B9F\u0BCD\u0B9F\u0BC1', -1, -1),
-  new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1', -1, -1),
-  new Among('\u0BC6\u0BB2\u0BCD\u0BB2\u0BBE\u0BAE\u0BCD', -1, -1),
-];
-
-StemmerTa.a_18 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_19 = [
-  new Among('\u0B95', -1, -1),
-  new Among('\u0B9A', -1, -1),
-  new Among('\u0B9F', -1, -1),
-  new Among('\u0BA4', -1, -1),
-  new Among('\u0BAA', -1, -1),
-  new Among('\u0BB1', -1, -1),
-];
-
-StemmerTa.a_20 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_21 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_22 = [
-  new Among('\u0BAA\u0B9F\u0BC1', -1, -1),
-  new Among('\u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BBF\u0BB0\u0BCD', -1, -1),
-];
-
-StemmerTa.a_23 = [
-  new Among('\u0B85', -1, -1),
-  new Among('\u0B86', -1, -1),
-  new Among('\u0B87', -1, -1),
-  new Among('\u0B88', -1, -1),
-  new Among('\u0B89', -1, -1),
-  new Among('\u0B8A', -1, -1),
-  new Among('\u0B8E', -1, -1),
-  new Among('\u0B8F', -1, -1),
-  new Among('\u0B90', -1, -1),
-  new Among('\u0B92', -1, -1),
-  new Among('\u0B93', -1, -1),
-  new Among('\u0B94', -1, -1),
-];
-
-StemmerTa.a_24 = [
-  new Among('\u0BBE', -1, -1),
-  new Among('\u0BBF', -1, -1),
-  new Among('\u0BC0', -1, -1),
-  new Among('\u0BC1', -1, -1),
-  new Among('\u0BC2', -1, -1),
-  new Among('\u0BC6', -1, -1),
-  new Among('\u0BC7', -1, -1),
-  new Among('\u0BC8', -1, -1),
-];
-
-StemmerTa.a_25 = [
-  new Among('\u0B95\u0BBF\u0BB1', -1, -1),
-  new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
-  new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
-  new Among('\u0B95\u0BBF\u0BB1\u0BCD', -1, -1),
-  new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
-  new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
-];
 
 export default StemmerTa;

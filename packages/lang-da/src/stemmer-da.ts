@@ -4,11 +4,6 @@ class StemmerDa extends BaseStemmer {
   declare I_p1: number;
   declare I_x: number;
   declare S_ch: string;
-  declare static a_0: Among<StemmerDa>[];
-  declare static a_1: Among<StemmerDa>[];
-  declare static a_2: Among<StemmerDa>[];
-  declare static g_s_ending: number[];
-  declare static g_v: number[];
 
   constructor(container) {
     super(container);
@@ -261,62 +256,64 @@ class StemmerDa extends BaseStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static a_0: Among<StemmerDa>[] = [
+    new Among('hed', -1, 1),
+    new Among('ethed', 0, 1),
+    new Among('ered', -1, 1),
+    new Among('e', -1, 1),
+    new Among('erede', 3, 1),
+    new Among('ende', 3, 1),
+    new Among('erende', 5, 1),
+    new Among('ene', 3, 1),
+    new Among('erne', 3, 1),
+    new Among('ere', 3, 1),
+    new Among('en', -1, 1),
+    new Among('heden', 10, 1),
+    new Among('eren', 10, 1),
+    new Among('er', -1, 1),
+    new Among('heder', 13, 1),
+    new Among('erer', 13, 1),
+    new Among('s', -1, 2),
+    new Among('heds', 16, 1),
+    new Among('es', 16, 1),
+    new Among('endes', 18, 1),
+    new Among('erendes', 19, 1),
+    new Among('enes', 18, 1),
+    new Among('ernes', 18, 1),
+    new Among('eres', 18, 1),
+    new Among('ens', 16, 1),
+    new Among('hedens', 24, 1),
+    new Among('erens', 24, 1),
+    new Among('ers', 16, 1),
+    new Among('ets', 16, 1),
+    new Among('erets', 28, 1),
+    new Among('et', -1, 1),
+    new Among('eret', 30, 1),
+  ];
+
+  static a_1: Among<StemmerDa>[] = [
+    new Among('gd', -1, -1),
+    new Among('dt', -1, -1),
+    new Among('gt', -1, -1),
+    new Among('kt', -1, -1),
+  ];
+
+  static a_2: Among<StemmerDa>[] = [
+    new Among('ig', -1, 1),
+    new Among('lig', 0, 1),
+    new Among('elig', 1, 1),
+    new Among('els', -1, 1),
+    new Among('l\u00F8st', -1, 2),
+  ];
+
+  static g_v: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128,
+  ];
+
+  static g_s_ending: number[] = [
+    239, 254, 42, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
+  ];
 }
-
-StemmerDa.a_0 = [
-  new Among('hed', -1, 1),
-  new Among('ethed', 0, 1),
-  new Among('ered', -1, 1),
-  new Among('e', -1, 1),
-  new Among('erede', 3, 1),
-  new Among('ende', 3, 1),
-  new Among('erende', 5, 1),
-  new Among('ene', 3, 1),
-  new Among('erne', 3, 1),
-  new Among('ere', 3, 1),
-  new Among('en', -1, 1),
-  new Among('heden', 10, 1),
-  new Among('eren', 10, 1),
-  new Among('er', -1, 1),
-  new Among('heder', 13, 1),
-  new Among('erer', 13, 1),
-  new Among('s', -1, 2),
-  new Among('heds', 16, 1),
-  new Among('es', 16, 1),
-  new Among('endes', 18, 1),
-  new Among('erendes', 19, 1),
-  new Among('enes', 18, 1),
-  new Among('ernes', 18, 1),
-  new Among('eres', 18, 1),
-  new Among('ens', 16, 1),
-  new Among('hedens', 24, 1),
-  new Among('erens', 24, 1),
-  new Among('ers', 16, 1),
-  new Among('ets', 16, 1),
-  new Among('erets', 28, 1),
-  new Among('et', -1, 1),
-  new Among('eret', 30, 1),
-];
-
-StemmerDa.a_1 = [
-  new Among('gd', -1, -1),
-  new Among('dt', -1, -1),
-  new Among('gt', -1, -1),
-  new Among('kt', -1, -1),
-];
-
-StemmerDa.a_2 = [
-  new Among('ig', -1, 1),
-  new Among('lig', 0, 1),
-  new Among('elig', 1, 1),
-  new Among('els', -1, 1),
-  new Among('l\u00F8st', -1, 2),
-];
-
-StemmerDa.g_v = [17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128];
-
-StemmerDa.g_s_ending = [
-  239, 254, 42, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
-];
 
 export default StemmerDa;

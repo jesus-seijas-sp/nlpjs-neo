@@ -2,14 +2,6 @@ import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 
 class StemmerDe extends SnowballStemmer {
   declare I_x: number;
-  declare static a_0: Among<StemmerDe>[];
-  declare static a_1: Among<StemmerDe>[];
-  declare static a_2: Among<StemmerDe>[];
-  declare static a_3: Among<StemmerDe>[];
-  declare static a_4: Among<StemmerDe>[];
-  declare static g_s_ending: number[];
-  declare static g_st_ending: number[];
-  declare static g_v: number[];
 
   constructor(container) {
     super(container);
@@ -485,51 +477,56 @@ class StemmerDe extends SnowballStemmer {
     this.cursor = v_4;
     return true;
   }
+
+  static a_0: Among<StemmerDe>[] = [
+    new Among('', -1, 6),
+    new Among('U', 0, 2),
+    new Among('Y', 0, 1),
+    new Among('\u00E4', 0, 3),
+    new Among('\u00F6', 0, 4),
+    new Among('\u00FC', 0, 5),
+  ];
+
+  static a_1: Among<StemmerDe>[] = [
+    new Among('e', -1, 2),
+    new Among('em', -1, 1),
+    new Among('en', -1, 2),
+    new Among('ern', -1, 1),
+    new Among('er', -1, 1),
+    new Among('s', -1, 3),
+    new Among('es', 5, 2),
+  ];
+
+  static a_2: Among<StemmerDe>[] = [
+    new Among('en', -1, 1),
+    new Among('er', -1, 1),
+    new Among('st', -1, 2),
+    new Among('est', 2, 1),
+  ];
+
+  static a_3: Among<StemmerDe>[] = [
+    new Among('ig', -1, 1),
+    new Among('lich', -1, 1),
+  ];
+
+  static a_4: Among<StemmerDe>[] = [
+    new Among('end', -1, 1),
+    new Among('ig', -1, 2),
+    new Among('ung', -1, 1),
+    new Among('lich', -1, 3),
+    new Among('isch', -1, 2),
+    new Among('ik', -1, 2),
+    new Among('heit', -1, 3),
+    new Among('keit', -1, 4),
+  ];
+
+  static g_v: number[] = [
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32, 8,
+  ];
+
+  static g_s_ending: number[] = [117, 30, 5];
+
+  static g_st_ending: number[] = [117, 30, 4];
 }
-
-StemmerDe.a_0 = [
-  new Among('', -1, 6),
-  new Among('U', 0, 2),
-  new Among('Y', 0, 1),
-  new Among('\u00E4', 0, 3),
-  new Among('\u00F6', 0, 4),
-  new Among('\u00FC', 0, 5),
-];
-
-StemmerDe.a_1 = [
-  new Among('e', -1, 2),
-  new Among('em', -1, 1),
-  new Among('en', -1, 2),
-  new Among('ern', -1, 1),
-  new Among('er', -1, 1),
-  new Among('s', -1, 3),
-  new Among('es', 5, 2),
-];
-
-StemmerDe.a_2 = [
-  new Among('en', -1, 1),
-  new Among('er', -1, 1),
-  new Among('st', -1, 2),
-  new Among('est', 2, 1),
-];
-
-StemmerDe.a_3 = [new Among('ig', -1, 1), new Among('lich', -1, 1)];
-
-StemmerDe.a_4 = [
-  new Among('end', -1, 1),
-  new Among('ig', -1, 2),
-  new Among('ung', -1, 1),
-  new Among('lich', -1, 3),
-  new Among('isch', -1, 2),
-  new Among('ik', -1, 2),
-  new Among('heit', -1, 3),
-  new Among('keit', -1, 4),
-];
-
-StemmerDe.g_v = [
-  17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32, 8,
-];
-StemmerDe.g_s_ending = [117, 30, 5];
-StemmerDe.g_st_ending = [117, 30, 4];
 
 export default StemmerDe;
