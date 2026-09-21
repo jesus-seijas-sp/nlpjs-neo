@@ -1,12 +1,15 @@
 import { Container, containerBootstrap } from '@nlpjs-neo/core';
+import type { Logger } from '@nlpjs-neo/core';
+import type { RegisteredPipeline } from '@nlpjs-neo/core';
+import type { ConnectorSettings } from '@nlpjs-neo/connector';
 import { ConsoleConnector } from '../src/index.js';
 
 const container = containerBootstrap();
 
 global.console = {
-  warn: vi.fn<(...args: any[]) => void>(),
-  log: vi.fn<(...args: any[]) => void>(),
-  error: vi.fn<(...args: any[]) => void>(),
+  warn: vi.fn<(...args: unknown[]) => void>(),
+  log: vi.fn<(...args: unknown[]) => void>(),
+  error: vi.fn<(...args: unknown[]) => void>(),
 } as unknown as Console;
 
 afterEach(() => {
@@ -16,15 +19,19 @@ afterEach(() => {
 describe('Console Connector', () => {
   describe('Constructor', () => {
     test('Constructor', () => {
-      const connector = new ConsoleConnector(container);
+      const connector = new ConsoleConnector(
+        container as unknown as ConnectorSettings
+      );
       expect(connector).toBeDefined();
     });
   });
 
   describe('Say', () => {
     test('It should say an string', () => {
-      console.log = vi.fn<(...args: any[]) => void>();
-      const connector = new ConsoleConnector(container);
+      console.log = vi.fn<(...args: unknown[]) => void>();
+      const connector = new ConsoleConnector(
+        container as unknown as ConnectorSettings
+      );
       connector.say('Hello world');
       expect(console.log).toHaveBeenCalledWith('bot> Hello world');
     });
@@ -33,9 +40,9 @@ describe('Console Connector', () => {
   describe('Hear', () => {
     test('It waits for the hear pipeline', async () => {
       const testContainer = containerBootstrap();
-      const pipeline = {};
+      const pipeline = {} as RegisteredPipeline;
       const runPipeline = vi
-        .fn<(...args: any[]) => Promise<void>>()
+        .fn<(...args: unknown[]) => Promise<void>>()
         .mockResolvedValue(undefined);
       vi.spyOn(testContainer, 'getPipeline').mockReturnValue(pipeline);
       vi.spyOn(testContainer, 'runPipeline').mockImplementation(runPipeline);
@@ -58,7 +65,7 @@ describe('Console Connector', () => {
     test('It uses the console conversation id when processing with a bot', async () => {
       const testContainer = containerBootstrap();
       const process = vi
-        .fn<(...args: any[]) => Promise<void>>()
+        .fn<(...args: unknown[]) => Promise<void>>()
         .mockResolvedValue(undefined);
       testContainer.register('bot', { container: testContainer, process });
       const connector = new ConsoleConnector({ container: testContainer });
@@ -75,9 +82,9 @@ describe('Console Connector', () => {
 
     test('It logs a rejected line handler promise', async () => {
       const testContainer = containerBootstrap();
-      const pipeline = {};
+      const pipeline = {} as RegisteredPipeline;
       const error = new Error('pipeline failed');
-      const logger = testContainer.get('logger');
+      const logger = testContainer.get<Logger>('logger');
       const logError = vi
         .spyOn(logger, 'error')
         .mockImplementation(() => undefined);

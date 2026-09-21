@@ -1,4 +1,5 @@
 import ObjToArr from '../src/obj-to-arr.js';
+import type { Token, TokenMap } from '../src/index.js';
 import { Container } from '../src/container.js';
 import containerBootstrap from '../src/container-bootstrap.js';
 
@@ -18,9 +19,9 @@ describe('ObjToArr', () => {
       expect(actual).toEqual(expected);
     });
     test('If an empty object is provided return empty array', () => {
-      const obj: any = {};
+      const obj: TokenMap = {};
       const actual = ObjToArr.objToArr(obj);
-      const expected: any[] = [];
+      const expected: Token[] = [];
       expect(actual).toEqual(expected);
     });
   });
@@ -30,7 +31,7 @@ describe('ObjToArr', () => {
       const container = new Container();
       container.use(ObjToArr);
       const obj = { when: 1, the: 1, moon: 1 };
-      const objToArr = container.get('objToArr');
+      const objToArr = container.get<ObjToArr>('objToArr');
       const actual = objToArr.run(obj);
       const expected = ['when', 'the', 'moon'];
       expect(actual).toEqual(expected);
@@ -39,7 +40,7 @@ describe('ObjToArr', () => {
       const container = new Container();
       container.use(ObjToArr);
       const obj = { when: 1, the: 1, moon: 1 };
-      const objToArr = container.get('objToArr');
+      const objToArr = container.get<ObjToArr>('objToArr');
       const actual = objToArr.run({ tokens: obj });
       const expected = { tokens: ['when', 'the', 'moon'] };
       expect(actual).toEqual(expected);
@@ -50,7 +51,7 @@ describe('ObjToArr', () => {
     test('It is already registered as a plugin', () => {
       const container = containerBootstrap();
       const obj = { when: 1, the: 1, moon: 1 };
-      const objToArr = container.get('objToArr');
+      const objToArr = container.get<ObjToArr>('objToArr');
       const actual = objToArr.run(obj);
       const expected = ['when', 'the', 'moon'];
       expect(actual).toEqual(expected);
@@ -58,7 +59,7 @@ describe('ObjToArr', () => {
     test('It is already registered as a plugin and can use it inside an input as tokens property', () => {
       const container = containerBootstrap();
       const obj = { when: 1, the: 1, moon: 1 };
-      const objToArr = container.get('objToArr');
+      const objToArr = container.get<ObjToArr>('objToArr');
       const actual = objToArr.run({ tokens: obj });
       const expected = { tokens: ['when', 'the', 'moon'] };
       expect(actual).toEqual(expected);

@@ -2,24 +2,32 @@ import fs from 'fs';
 import { BuiltinMicrosoft } from '@nlpjs-neo/builtin-microsoft';
 import { BuiltinDuckling } from '@nlpjs-neo/builtin-duckling';
 import { containerBootstrap } from '@nlpjs-neo/core-loader';
+import type { Container } from '@nlpjs-neo/core-loader';
 import { Language } from '@nlpjs-neo/language';
 import { LangAll } from '@nlpjs-neo/lang-all';
 import { Nlp } from '@nlpjs-neo/nlp';
+import type { NlpResult } from '@nlpjs-neo/nlp';
 import { Evaluator, Template } from '@nlpjs-neo/evaluator';
 import { fs as requestfs } from '@nlpjs-neo/request';
 import { SentimentManager } from '../sentiment/index.js';
 import NlpExcelReader from './nlp-excel-reader.js';
+import type {
+  CorpusTestResult,
+  NlpManagerSettings,
+  TestableCorpus,
+} from '../types.js';
 
 class NlpManager {
-  declare useLRC: any;
-  declare useNeural: any;
+  /** Legacy flags, kept so an old configuration still round trips. */
+  declare useLRC: boolean | undefined;
+  declare useNeural: boolean | undefined;
 
-  declare container: any;
-  declare nlp: any;
-  declare sentimentManager: any;
-  declare settings: any;
+  declare container: Container;
+  declare nlp: Nlp;
+  declare sentimentManager: SentimentManager;
+  declare settings: NlpManagerSettings;
 
-  constructor(settings: any = {}) {
+  constructor(settings: NlpManagerSettings = {}) {
     this.settings = settings;
     if (!this.settings.container) {
       this.settings.container = containerBootstrap();
@@ -188,11 +196,20 @@ class NlpManager {
     return this.nlp.train();
   }
 
-  classify(locale, utterance?, settings?) {
+  classify(
+    locale: Parameters<Nlp['classify']>[0],
+    utterance?: string,
+    settings?: Parameters<Nlp['classify']>[2]
+  ): ReturnType<Nlp['classify']> {
     return this.nlp.classify(locale, utterance, settings);
   }
 
-  async process(locale, utterance?, context?, settings?) {
+  async process(
+    locale: Parameters<Nlp['process']>[0],
+    utterance?: Parameters<Nlp['process']>[1],
+    context?: Parameters<Nlp['process']>[2],
+    settings?: NlpManagerSettings
+  ): Promise<NlpResult> {
     const result = await this.nlp.process(locale, utterance, context, settings);
     if (this.settings.processTransformer) {
       return this.settings.processTransformer(result);
@@ -259,15 +276,15 @@ class NlpManager {
     await reader.load(fileName);
   }
 
-  async testCorpus(corpus) {
+  async testCorpus(corpus: TestableCorpus): Promise<CorpusTestResult> {
     const { data } = corpus;
-    const result = {
+    const result: CorpusTestResult = {
       total: 0,
       good: 0,
       bad: 0,
     };
-    const promises: any[] = [];
-    const intents: any[] = [];
+    const promises: Promise<NlpResult>[] = [];
+    const intents: string[] = [];
     for (let i = 0; i < data.length; i += 1) {
       const intentData = data[i];
       const { tests } = intentData;
@@ -300,7 +317,9 @@ class NlpManager {
   async trainAndEvaluate(fileName) {
     let corpus = fileName;
     if (typeof fileName === 'string') {
-      const nlpfs = this.container.get('fs');
+      const nlpfs = this.container.get<{
+        readFile(name: string): Promise<string>;
+      }>('fs');
       const fileData = await nlpfs.readFile(fileName);
       if (!fileData) {
         throw new Error(`Corpus not found "${fileName}"`);

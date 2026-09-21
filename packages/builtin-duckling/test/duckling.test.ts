@@ -1,4 +1,5 @@
 import { containerBootstrap } from '@nlpjs-neo/core';
+import type { DucklingEdge } from '../src/index.js';
 import { BuiltinDuckling } from '../src/index.js';
 
 const container = containerBootstrap();
@@ -84,10 +85,10 @@ function getManager() {
           case 'raise exception':
             return reject(new Error('Exception!'));
           default:
-            return resolve({});
+            return resolve([]);
         }
       }
-      return resolve({});
+      return resolve([]);
     });
   return manager;
 }
@@ -153,7 +154,7 @@ describe('Duckling Integration', () => {
   describe('English', () => {
     test('When there is an exception, return empty array', async () => {
       const actual = await extract('en', 'raise exception');
-      const expected: any[] = [];
+      const expected: DucklingEdge[] = [];
       expect(actual.edges).toEqual(expected);
     });
     test('Duckling English Email', async () => {

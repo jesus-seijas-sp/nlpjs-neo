@@ -1,11 +1,12 @@
 import Stopwords from '../src/stopwords.js';
+import type { StopwordDictionary } from '../src/index.js';
 import { containerBootstrap } from '../src/index.js';
 import { defaultContainer } from '../src/container.js';
 import { Container } from '../src/container.js';
 
 class MockedStopwords extends Stopwords {
-  declare dictionary: any;
-  declare name: any;
+  declare dictionary: StopwordDictionary;
+  declare name: string;
 
   constructor(container, locale, words) {
     super(container);
@@ -96,7 +97,7 @@ describe('Stopwords', () => {
   describe('Run', () => {
     test('A locale can be set', () => {
       const container = getContainer();
-      const stopwords = container.get('removeStopwords');
+      const stopwords = container.get<Stopwords>('removeStopwords');
       const input = {
         settings: { keepStopwords: false },
         tokens: ['esto', 'debe', 'quitar', 'esto', 'y', 'esto'],
@@ -107,7 +108,7 @@ describe('Stopwords', () => {
     });
     test('If no locale is defined then use locale "en"', () => {
       const container = getContainer();
-      const stopwords = container.get('removeStopwords');
+      const stopwords = container.get<Stopwords>('removeStopwords');
       const input = {
         settings: { keepStopwords: false },
         tokens: ['this', 'should', 'remove', 'this', 'and', 'this'],

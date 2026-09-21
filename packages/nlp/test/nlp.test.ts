@@ -1,4 +1,6 @@
 import { Nlp } from '../src/index.js';
+import type { Language } from '@nlpjs-neo/language-min';
+import type { Context } from '../src/index.js';
 import TemplateMock from './template-mock.js';
 
 const defaultCorpus = {
@@ -39,7 +41,7 @@ describe('NLP', () => {
   describe('Guess language', () => {
     test('Should guess the language of an utterance', () => {
       const manager = new Nlp();
-      const lang = manager.container.get('Language');
+      const lang = manager.container.get<Language>('Language');
       lang.addModel(
         'Latin',
         'eng',
@@ -762,7 +764,7 @@ describe('NLP', () => {
       expect(output.utterance).toEqual(input.utterance);
       expect(output.intent).toEqual('None');
       expect(output.answer).toBeUndefined();
-      expect(output.from.id).toEqual(input.from.id);
+      expect((output.from as { id: string }).id).toEqual(input.from.id);
     });
   });
 
@@ -908,7 +910,7 @@ describe('NLP', () => {
         return data;
       });
       await nlp.train();
-      const context: any = {};
+      const context: Context = {};
       const output = await nlp.process('en', 'Who am i?', context);
       expect(output.utterance).toEqual('Who am i?');
       expect(output.intent).toEqual('who_am_i');
@@ -934,7 +936,7 @@ describe('NLP', () => {
         return data;
       });
       await nlp.train();
-      const context: any = {};
+      const context: Context = {};
       const output = await nlp.process('en', 'Who am i?', context);
       expect(output.utterance).toEqual('Who am i?');
       expect(output.intent).toEqual('who_am_i');
@@ -1149,7 +1151,9 @@ describe('NLP', () => {
       expect(nlp.ner.rules.es.fromCity.rules).toBeDefined();
       expect(nlp.ner.rules.es.fromCity.rules[0]).toBeDefined();
       // Verify betweenlast was converted to a between Rule on example of this es rule
-      expect(nlp.ner.rules.es.fromCity.rules[0].type).toEqual('between');
+      expect(
+        (nlp.ner.rules.es.fromCity.rules[0] as { type: string }).type
+      ).toEqual('between');
     });
 
     test('The corpus can contain entities with slotFilling details', async () => {

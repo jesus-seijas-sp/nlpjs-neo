@@ -1,8 +1,9 @@
 import container from './bootstrap.js';
+import type { CorpusEntry, FeatureSet } from '../src/index.js';
 import Nlu from '../src/nlu.js';
 import srccorpus from './corpus50.json' with { type: 'json' };
 
-const corpus: any[] = [];
+const corpus: CorpusEntry[] = [];
 for (let i = 0; i < srccorpus.data.length; i += 1) {
   const { intent, utterances } = srccorpus.data[i];
   for (let j = 0; j < utterances.length; j += 1) {
@@ -272,7 +273,7 @@ describe('NLU', () => {
         settings: { useNoneFeature: true, nonedeltaValue: 0.5 },
       });
 
-      expect(actual.tokens.nonefeature).toEqual(1.1);
+      expect((actual.tokens as FeatureSet).nonefeature).toEqual(1.1);
     });
   });
 

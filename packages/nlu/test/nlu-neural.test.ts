@@ -1,3 +1,5 @@
+import type { Classification } from '../src/index.js';
+import type { CorpusEntry } from '../src/index.js';
 import {
   ArrToObj,
   Container,
@@ -9,7 +11,7 @@ import {
 import { NluNeural } from '../src/index.js';
 import srccorpus from './corpus50.json' with { type: 'json' };
 
-const corpus: any[] = [];
+const corpus: CorpusEntry[] = [];
 for (let i = 0; i < srccorpus.data.length; i += 1) {
   const { intent, utterances } = srccorpus.data[i];
   for (let j = 0; j < utterances.length; j += 1) {
@@ -42,11 +44,13 @@ describe('NLU Neural', () => {
       for (let i = 0; i < srccorpus.data.length; i += 1) {
         const { intent, tests } = srccorpus.data[i];
         for (let j = 0; j < tests.length; j += 1) {
-          let result = await nlu.process(tests[j]);
-          if (result.classifications) {
-            result = result.classifications;
-          }
-          const best = result[0] || 'None';
+          const answer = (await nlu.process(tests[j])) as {
+            classifications?: Classification[];
+          };
+          const result = (answer.classifications ||
+            answer) as unknown as Classification[];
+          const best = (result[0] ||
+            'None') as unknown as Partial<Classification>;
           if (best.intent === intent) {
             if (intent === 'None' || best.score >= 0.5) {
               good += 1;

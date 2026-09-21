@@ -1,5 +1,6 @@
 import { StemmerKo } from '../src/index.js';
 import { conjugate } from '../src/korean-conjugation.js';
+import type { DictionaryEntry } from '../src/korean-dictionary.js';
 import { dictionary, initDicts } from '../src/korean-dictionary.js';
 
 const tests = [
@@ -43,7 +44,7 @@ describe('Stemmer Korean', () => {
 
       expect(
         Object.values(dictionary).some(
-          (item: any) => item.root && item.root.length > 1
+          (item: DictionaryEntry) => item.root && item.root.length > 1
         )
       ).toBe(true);
     });
@@ -52,7 +53,7 @@ describe('Stemmer Korean', () => {
   describe('tokenize and stem', () => {
     it('Should tokenize and stem correctly', () => {
       const stemmer = new StemmerKo();
-      const actual = stemmer.tokenizeAndStem(tests[0]);
+      const actual = stemmer.tokenizeAndStem(tests[0] as string);
       expect(actual).toEqual([
         '\uadc0\ud558',
         '\ud68c\uc0ac',

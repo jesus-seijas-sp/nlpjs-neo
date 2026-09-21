@@ -1,4 +1,6 @@
 import { NluManager } from '../src/index.js';
+import type { Language } from '@nlpjs-neo/language-min';
+import type { Classification } from '../src/index.js';
 import container from './bootstrap.js';
 import {
   addFoodDomainEn,
@@ -39,7 +41,7 @@ describe('NLU Manager', () => {
   describe('Guess language', () => {
     test('If there is only one language, then return this one', () => {
       const manager = new NluManager({ container });
-      const lang = manager.container.get('Language');
+      const lang = manager.container.get<Language>('Language');
       lang.addModel(
         'Latin',
         'eng',
@@ -265,6 +267,17 @@ describe('NLU Manager', () => {
       addPersonalityDomainEs(manager);
       await manager.train();
     });
+    test('Locales in the settings do not restrict which ones are trained', async () => {
+      const manager = new NluManager({ container, locales: ['en', 'es'] });
+      addFoodDomainEn(manager);
+      addPersonalityDomainEn(manager);
+      addFoodDomainEs(manager);
+      addPersonalityDomainEs(manager);
+      await manager.train({ locales: ['en'] });
+      const actual = await manager.process('es', 'dime quién eres tú');
+      expect(actual.intent).toEqual('agent.acquaintance');
+      expect(actual.score).toBeGreaterThan(0.8);
+    });
   });
 
   describe('Fill Language', () => {
@@ -366,6 +379,21 @@ describe('NLU Manager', () => {
     });
   });
 
+  describe('Nlu answer', () => {
+    test('The whole answer of the classifier is kept under nluAnswer', async () => {
+      const manager = new NluManager({ container, locales: ['en'] });
+      addFoodDomainEn(manager);
+      addPersonalityDomainEn(manager);
+      await manager.train();
+      const actual = await manager.process('en', 'tell me who you are');
+      expect(Array.isArray(actual.nluAnswer)).toBeFalsy();
+      expect(actual.nluAnswer?.classifications).toEqual(actual.classifications);
+      expect(actual.nluAnswer?.classifications[0].intent).toEqual(
+        'agent.acquaintance'
+      );
+    });
+  });
+
   describe('toJSON and fromJSON', () => {
     test('I can export and import and should work', async () => {
       const manager = new NluManager({
@@ -397,7 +425,7 @@ describe('NLU Manager', () => {
   describe('Is equal classification', () => {
     test('Should return true if the two first classifications have the same score', () => {
       const manager = new NluManager({ container });
-      const classifications: any[] = [];
+      const classifications: Classification[] = [];
       classifications.push({ intent: 'a', score: 0.6 });
       classifications.push({ intent: 'b', score: 0.6 });
       classifications.push({ intent: 'c', score: 0.5 });
@@ -409,7 +437,7 @@ describe('NLU Manager', () => {
     });
     test('Should return false if first score is different than second score', () => {
       const manager = new NluManager({ container });
-      const classifications: any[] = [];
+      const classifications: Classification[] = [];
       classifications.push({ intent: 'a', score: 0.7 });
       classifications.push({ intent: 'b', score: 0.6 });
       classifications.push({ intent: 'c', score: 0.6 });
