@@ -1,16 +1,17 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerSl extends BaseStemmer {
   declare I_p1: number;
 
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-sl';
     this.I_p1 = 0;
   }
 
-  innerStem() {
-    let among_var;
+  innerStem(): boolean {
+    let among_var: number;
 
     let v_2;
 

@@ -1,13 +1,14 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerLt extends SnowballStemmer {
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-lt';
     this.I_p1 = 0;
   }
 
-  r_step1() {
+  r_step1(): boolean {
     if (this.cursor < this.I_p1) {
       return false;
     }
@@ -29,7 +30,7 @@ class StemmerLt extends SnowballStemmer {
     return true;
   }
 
-  r_step2() {
+  r_step2(): boolean {
     for (;;) {
       const v_1 = this.limit - this.cursor;
       lab0: {
@@ -56,7 +57,7 @@ class StemmerLt extends SnowballStemmer {
     return true;
   }
 
-  r_fix_conflicts() {
+  r_fix_conflicts(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerLt.a_2);
     if (among_var === 0) {
@@ -108,7 +109,7 @@ class StemmerLt extends SnowballStemmer {
     return true;
   }
 
-  r_fix_chdz() {
+  r_fix_chdz(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerLt.a_3);
     if (among_var === 0) {
@@ -130,7 +131,7 @@ class StemmerLt extends SnowballStemmer {
     return true;
   }
 
-  r_fix_gd() {
+  r_fix_gd(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerLt.a_4) === 0) {
       return false;
@@ -142,7 +143,7 @@ class StemmerLt extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     this.I_p1 = this.limit;
     const v_1 = this.cursor;
     lab0: {

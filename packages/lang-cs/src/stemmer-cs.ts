@@ -1,14 +1,15 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerCs extends SnowballStemmer {
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-cs';
     this.I_p1 = 0;
     this.I_pV = 0;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     const v_1 = this.cursor;
@@ -28,7 +29,7 @@ class StemmerCs extends SnowballStemmer {
     this.cursor = v_1;
     return true;
   }
-  r_palatalise() {
+  r_palatalise(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_0);
     if (among_var === 0) {
@@ -56,7 +57,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_possessive() {
+  r_do_possessive(): boolean {
     let v_1;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_1);
@@ -86,7 +87,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_case() {
+  r_do_case(): boolean {
     let v_1;
     let v_2;
     this.ket = this.cursor;
@@ -124,7 +125,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_derivational() {
+  r_do_derivational(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_3);
     if (among_var === 0) {
@@ -173,7 +174,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_deriv_single() {
+  r_do_deriv_single(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_4);
     if (among_var === 0) {
@@ -189,7 +190,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_augmentative() {
+  r_do_augmentative(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_5);
     if (among_var === 0) {
@@ -211,7 +212,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_diminutive() {
+  r_do_diminutive(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_6);
     if (among_var === 0) {
@@ -263,7 +264,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_comparative() {
+  r_do_comparative(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCs.a_7);
     if (among_var === 0) {
@@ -288,7 +289,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  r_do_aggressive() {
+  r_do_aggressive(): boolean {
     const v_1 = this.limit - this.cursor;
     this.r_do_comparative();
     this.cursor = this.limit - v_1;
@@ -313,7 +314,7 @@ class StemmerCs extends SnowballStemmer {
     }
     return true;
   }
-  innerStem() {
+  innerStem(): boolean {
     if (this.current.length <= 4) {
       return true;
     }

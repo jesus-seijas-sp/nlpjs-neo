@@ -1,18 +1,19 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerHu extends SnowballStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-hu';
     this.I_p1 = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerHu) {
     this.I_p1 = other.I_p1;
     super.copy_from(other);
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     // or
     lab0: {
@@ -56,7 +57,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_v_ending() {
+  r_v_ending(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_1, 2);
     if (among_var === 0) {
@@ -83,7 +84,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_double() {
+  r_double(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     if (this.find_among_b(StemmerHu.a_2, 23) === 0) {
@@ -93,7 +94,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_undouble() {
+  r_undouble(): boolean {
     if (this.cursor <= this.limit_backward) {
       return false;
     }
@@ -113,7 +114,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_instrum() {
+  r_instrum(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_3, 2);
     if (among_var === 0) {
@@ -146,7 +147,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_case() {
+  r_case(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerHu.a_4, 44) === 0) {
       return false;
@@ -164,7 +165,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_case_special() {
+  r_case_special(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_5, 3);
     if (among_var === 0) {
@@ -196,7 +197,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_case_other() {
+  r_case_other(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_6, 6);
     if (among_var === 0) {
@@ -233,7 +234,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_factive() {
+  r_factive(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_7, 2);
     if (among_var === 0) {
@@ -266,7 +267,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_plural() {
+  r_plural(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_8, 7);
     if (among_var === 0) {
@@ -318,7 +319,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_owned() {
+  r_owned(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_9, 12);
     if (among_var === 0) {
@@ -380,7 +381,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_sing_owner() {
+  r_sing_owner(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_10, 31);
     if (among_var === 0) {
@@ -497,7 +498,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  r_plur_owner() {
+  r_plur_owner(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerHu.a_11, 42);
     if (among_var === 0) {
@@ -659,7 +660,7 @@ class StemmerHu extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_mark_regions();

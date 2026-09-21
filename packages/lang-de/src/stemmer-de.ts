@@ -1,9 +1,10 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerDe extends SnowballStemmer {
   declare I_x: number;
 
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-de';
     this.I_x = 0;
@@ -11,14 +12,14 @@ class StemmerDe extends SnowballStemmer {
     this.I_p1 = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerDe) {
     this.I_x = other.I_x;
     this.I_p2 = other.I_p2;
     this.I_p1 = other.I_p1;
     super.copy_from(other);
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // test
     const v_1 = this.cursor;
     // repeat
@@ -108,7 +109,7 @@ class StemmerDe extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // test
@@ -150,7 +151,7 @@ class StemmerDe extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -204,8 +205,8 @@ class StemmerDe extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
-    let among_var;
+  r_standard_suffix(): boolean {
+    let among_var: number;
 
     let v_2;
 
@@ -438,7 +439,7 @@ class StemmerDe extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

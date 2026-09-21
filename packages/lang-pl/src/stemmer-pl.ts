@@ -1,7 +1,8 @@
 import { BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerPl extends BaseStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-pl';
   }
@@ -157,7 +158,7 @@ class StemmerPl extends BaseStemmer {
     return word;
   }
 
-  innerStem() {
+  innerStem(): void {
     let current = this.getCurrent();
     current = this.stemNoun(current);
     current = this.stemDiminutive(current);

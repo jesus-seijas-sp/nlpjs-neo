@@ -1,23 +1,24 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerSv extends BaseStemmer {
   declare I_p1: number;
   declare I_x: number;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-sv';
     this.I_x = 0;
     this.I_p1 = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerSv) {
     this.I_x = other.I_x;
     this.I_p1 = other.I_p1;
     super.copy_from(other);
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     // test
     const v_1 = this.cursor;
@@ -49,7 +50,7 @@ class StemmerSv extends BaseStemmer {
     return true;
   }
 
-  r_main_suffix() {
+  r_main_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -86,7 +87,7 @@ class StemmerSv extends BaseStemmer {
     return true;
   }
 
-  r_consonant_pair() {
+  r_consonant_pair(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -116,7 +117,7 @@ class StemmerSv extends BaseStemmer {
     return true;
   }
 
-  r_other_suffix() {
+  r_other_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -156,7 +157,7 @@ class StemmerSv extends BaseStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_mark_regions();

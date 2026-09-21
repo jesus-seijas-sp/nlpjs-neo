@@ -1,4 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerTa extends BaseStemmer {
   declare B_found_a_match: boolean;
@@ -6,7 +7,7 @@ class StemmerTa extends BaseStemmer {
   declare B_found_wrong_ending: boolean;
   declare I_length: number;
 
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ta';
     this.I_length = 0;
@@ -15,14 +16,14 @@ class StemmerTa extends BaseStemmer {
     this.B_found_a_match = false;
   }
 
-  r_has_min_length() {
+  r_has_min_length(): boolean {
     this.I_length = this.current.length;
     if (!(this.I_length > 4)) {
       return false;
     }
     return true;
   }
-  r_fix_va_start() {
+  r_fix_va_start(): boolean {
     lab0: {
       const v_1 = this.cursor;
       lab1: {
@@ -100,7 +101,7 @@ class StemmerTa extends BaseStemmer {
     }
     return true;
   }
-  r_fix_endings() {
+  r_fix_endings(): boolean {
     this.B_found_wrong_ending = true;
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -118,7 +119,7 @@ class StemmerTa extends BaseStemmer {
     }
     return true;
   }
-  r_remove_question_prefixes() {
+  r_remove_question_prefixes(): boolean {
     this.bra = this.cursor;
     if (!this.eq_s('\u0B8E')) {
       return false;
@@ -136,7 +137,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_1;
     return true;
   }
-  r_fix_ending() {
+  r_fix_ending(): boolean {
     this.B_found_wrong_ending = false;
     this.I_length = this.current.length;
     if (!(this.I_length > 3)) {
@@ -425,7 +426,7 @@ class StemmerTa extends BaseStemmer {
     this.B_found_wrong_ending = true;
     return true;
   }
-  r_remove_pronoun_prefixes() {
+  r_remove_pronoun_prefixes(): boolean {
     this.B_found_a_match = false;
     this.bra = this.cursor;
     if (this.find_among(StemmerTa.a_11) === 0) {
@@ -445,7 +446,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_1;
     return true;
   }
-  r_remove_plural_suffix() {
+  r_remove_plural_suffix(): boolean {
     this.B_found_a_match = false;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
@@ -504,7 +505,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
-  r_remove_question_suffixes() {
+  r_remove_question_suffixes(): boolean {
     if (!this.r_has_min_length()) {
       return false;
     }
@@ -528,7 +529,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_2;
     return true;
   }
-  r_remove_command_suffixes() {
+  r_remove_command_suffixes(): boolean {
     if (!this.r_has_min_length()) {
       return false;
     }
@@ -545,7 +546,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = this.limit_backward;
     return true;
   }
-  r_remove_um() {
+  r_remove_um(): boolean {
     this.B_found_a_match = false;
     if (!this.r_has_min_length()) {
       return false;
@@ -565,7 +566,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_1;
     return true;
   }
-  r_remove_common_word_endings() {
+  r_remove_common_word_endings(): boolean {
     this.B_found_a_match = false;
     if (!this.r_has_min_length()) {
       return false;
@@ -709,7 +710,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_7;
     return true;
   }
-  r_remove_vetrumai_urupukal() {
+  r_remove_vetrumai_urupukal(): boolean {
     this.B_found_a_match = false;
     this.B_found_vetrumai_urupu = false;
     if (!this.r_has_min_length()) {
@@ -1012,7 +1013,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_21;
     return true;
   }
-  r_remove_tense_suffixes() {
+  r_remove_tense_suffixes(): boolean {
     this.B_found_a_match = true;
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -1030,7 +1031,7 @@ class StemmerTa extends BaseStemmer {
     }
     return true;
   }
-  r_remove_tense_suffix() {
+  r_remove_tense_suffix(): boolean {
     this.B_found_a_match = false;
     if (!this.r_has_min_length()) {
       return false;
@@ -1481,7 +1482,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = v_18;
     return true;
   }
-  innerStem() {
+  innerStem(): boolean {
     this.B_found_vetrumai_urupu = false;
     const v_1 = this.cursor;
     this.r_fix_ending();

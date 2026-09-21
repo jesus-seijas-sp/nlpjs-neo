@@ -1,9 +1,10 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerNl extends SnowballStemmer {
   declare B_e_found: boolean;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-nl';
     this.I_p2 = 0;
@@ -11,14 +12,14 @@ class StemmerNl extends SnowballStemmer {
     this.B_e_found = false;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerNl) {
     this.I_p2 = other.I_p2;
     this.I_p1 = other.I_p1;
     this.B_e_found = other.B_e_found;
     super.copy_from(other);
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // test
     const v_1 = this.cursor;
     // repeat
@@ -139,7 +140,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // gopast
@@ -170,7 +171,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -209,7 +210,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_undouble() {
+  r_undouble(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     if (this.find_among_b(StemmerNl.a_2, 3) === 0) {
@@ -228,7 +229,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_e_ending() {
+  r_e_ending(): boolean {
     // unset e_found
     this.B_e_found = false;
     this.ket = this.cursor;
@@ -256,7 +257,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_en_ending() {
+  r_en_ending(): boolean {
     if (!this.r_R1()) {
       return false;
     }
@@ -286,8 +287,8 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
-    let among_var;
+  r_standard_suffix(): boolean {
+    let among_var: number;
 
     // do
     const v_1 = this.limit - this.cursor;
@@ -502,7 +503,7 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

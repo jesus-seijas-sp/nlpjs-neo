@@ -1,7 +1,8 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerIt extends SnowballStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-it';
     this.I_p2 = 0;
@@ -9,7 +10,7 @@ class StemmerIt extends SnowballStemmer {
     this.I_pV = 0;
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // test
     const v_1 = this.cursor;
     // repeat
@@ -125,7 +126,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -219,7 +220,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -258,7 +259,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_attached_pronoun() {
+  r_attached_pronoun(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerIt.a_2, 37) === 0) {
       return false;
@@ -288,7 +289,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     let v_1;
     let v_2;
     let v_3;
@@ -488,7 +489,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
@@ -518,7 +519,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  r_vowel_suffix() {
+  r_vowel_suffix(): boolean {
     // try
     const v_1 = this.limit - this.cursor;
     lab0: {
@@ -573,7 +574,7 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

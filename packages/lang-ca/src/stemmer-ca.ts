@@ -1,14 +1,15 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerCa extends SnowballStemmer {
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ca';
     this.I_p1 = 0;
     this.I_p2 = 0;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     const v_1 = this.cursor;
@@ -68,7 +69,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  r_cleaning() {
+  r_cleaning(): boolean {
     replab0: for (;;) {
       const v_1 = this.cursor;
       lab1: {
@@ -132,7 +133,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  r_attached_pronoun() {
+  r_attached_pronoun(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCa.a_1);
     if (among_var === 0) {
@@ -152,7 +153,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCa.a_2);
     if (among_var === 0) {
@@ -196,7 +197,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCa.a_3);
     if (among_var === 0) {
@@ -222,7 +223,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  r_residual_suffix() {
+  r_residual_suffix(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerCa.a_4);
     if (among_var === 0) {
@@ -248,7 +249,7 @@ class StemmerCa extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     const v_1 = this.cursor;
     this.r_mark_regions();
     this.cursor = v_1;

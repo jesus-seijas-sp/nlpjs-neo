@@ -1,7 +1,8 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerFr extends SnowballStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-fr';
     this.I_p2 = 0;
@@ -9,7 +10,7 @@ class StemmerFr extends SnowballStemmer {
     this.I_pV = 0;
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -112,7 +113,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -181,7 +182,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -225,7 +226,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     let v_1;
 
     let v_3;
@@ -600,7 +601,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_i_verb_suffix() {
+  r_i_verb_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
@@ -634,7 +635,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     let v_3;
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
@@ -692,7 +693,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_residual_suffix() {
+  r_residual_suffix(): boolean {
     // try
     const v_1 = this.limit - this.cursor;
     lab0: {
@@ -780,7 +781,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_un_double() {
+  r_un_double(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     if (this.find_among_b(StemmerFr.a_8, 5) === 0) {
@@ -799,7 +800,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  r_un_accent() {
+  r_un_accent(): boolean {
     // atleast
     {
       let v_1 = 1;
@@ -840,7 +841,7 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

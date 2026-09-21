@@ -1,24 +1,25 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerTr extends BaseStemmer {
   declare B_continue_stemming_noun_suffixes: boolean;
   declare I_strlen: number;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-tr';
     this.B_continue_stemming_noun_suffixes = false;
     this.I_strlen = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerTr) {
     this.B_continue_stemming_noun_suffixes =
       other.B_continue_stemming_noun_suffixes;
     this.I_strlen = other.I_strlen;
     super.copy_from(other);
   }
 
-  r_check_vowel_harmony() {
+  r_check_vowel_harmony(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     // goto
@@ -117,7 +118,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_suffix_with_optional_n_consonant() {
+  r_mark_suffix_with_optional_n_consonant(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -172,7 +173,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_suffix_with_optional_s_consonant() {
+  r_mark_suffix_with_optional_s_consonant(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -227,7 +228,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_suffix_with_optional_y_consonant() {
+  r_mark_suffix_with_optional_y_consonant(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -282,7 +283,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_suffix_with_optional_U_vowel() {
+  r_mark_suffix_with_optional_U_vowel(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -337,7 +338,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_possessives() {
+  r_mark_possessives(): boolean {
     if (this.find_among_b(StemmerTr.a_0, 10) === 0) {
       return false;
     }
@@ -347,7 +348,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_sU() {
+  r_mark_sU(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -360,14 +361,14 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_lArI() {
+  r_mark_lArI(): boolean {
     if (this.find_among_b(StemmerTr.a_1, 2) === 0) {
       return false;
     }
     return true;
   }
 
-  r_mark_yU() {
+  r_mark_yU(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -380,7 +381,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_nU() {
+  r_mark_nU(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -390,7 +391,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_nUn() {
+  r_mark_nUn(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -403,7 +404,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_yA() {
+  r_mark_yA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -416,7 +417,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_nA() {
+  r_mark_nA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -426,7 +427,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_DA() {
+  r_mark_DA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -436,7 +437,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ndA() {
+  r_mark_ndA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -446,7 +447,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_DAn() {
+  r_mark_DAn(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -456,7 +457,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ndAn() {
+  r_mark_ndAn(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -466,7 +467,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ylA() {
+  r_mark_ylA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -479,14 +480,14 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ki() {
+  r_mark_ki(): boolean {
     if (!this.eq_s_b(2, 'ki')) {
       return false;
     }
     return true;
   }
 
-  r_mark_ncA() {
+  r_mark_ncA(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -499,7 +500,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_yUm() {
+  r_mark_yUm(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -512,7 +513,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_sUn() {
+  r_mark_sUn(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -522,7 +523,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_yUz() {
+  r_mark_yUz(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -535,14 +536,14 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_sUnUz() {
+  r_mark_sUnUz(): boolean {
     if (this.find_among_b(StemmerTr.a_15, 4) === 0) {
       return false;
     }
     return true;
   }
 
-  r_mark_lAr() {
+  r_mark_lAr(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -552,7 +553,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_nUz() {
+  r_mark_nUz(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -562,7 +563,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_DUr() {
+  r_mark_DUr(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -572,14 +573,14 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_cAsInA() {
+  r_mark_cAsInA(): boolean {
     if (this.find_among_b(StemmerTr.a_19, 2) === 0) {
       return false;
     }
     return true;
   }
 
-  r_mark_yDU() {
+  r_mark_yDU(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -592,7 +593,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ysA() {
+  r_mark_ysA(): boolean {
     if (this.find_among_b(StemmerTr.a_21, 8) === 0) {
       return false;
     }
@@ -602,7 +603,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_ymUs() {
+  r_mark_ymUs(): boolean {
     if (!this.r_check_vowel_harmony()) {
       return false;
     }
@@ -615,7 +616,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_mark_yken() {
+  r_mark_yken(): boolean {
     if (!this.eq_s_b(3, 'ken')) {
       return false;
     }
@@ -625,7 +626,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_stem_nominal_verb_suffixes() {
+  r_stem_nominal_verb_suffixes(): boolean {
     this.ket = this.cursor;
     // set continue_stemming_noun_suffixes
     this.B_continue_stemming_noun_suffixes = true;
@@ -889,7 +890,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_stem_suffix_chain_before_ki() {
+  r_stem_suffix_chain_before_ki(): boolean {
     this.ket = this.cursor;
     if (!this.r_mark_ki()) {
       return false;
@@ -1089,7 +1090,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_stem_noun_suffixes() {
+  r_stem_noun_suffixes(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -1610,7 +1611,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_post_process_last_consonants() {
+  r_post_process_last_consonants(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerTr.a_23, 4);
     if (among_var === 0) {
@@ -1644,7 +1645,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_append_U_to_stems_ending_with_d_or_g() {
+  r_append_U_to_stems_ending_with_d_or_g(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     // or
@@ -1785,7 +1786,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_more_than_one_syllable_word() {
+  r_more_than_one_syllable_word(): boolean {
     // test
     const v_1 = this.cursor;
     // atleast
@@ -1813,7 +1814,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_is_reserved_word() {
+  r_is_reserved_word(): boolean {
     // or
     lab0: {
       const v_1 = this.cursor;
@@ -1865,7 +1866,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // not
     {
       const v_1 = this.cursor;
@@ -1892,7 +1893,7 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     if (!this.r_more_than_one_syllable_word()) {
       return false;
     }

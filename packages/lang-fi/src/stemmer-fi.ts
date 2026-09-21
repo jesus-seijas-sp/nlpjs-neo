@@ -1,10 +1,11 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerFi extends SnowballStemmer {
   declare B_ending_removed: boolean;
   declare S_x: string;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-fi';
     this.B_ending_removed = false;
@@ -13,7 +14,7 @@ class StemmerFi extends SnowballStemmer {
     this.I_p1 = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerFi) {
     this.B_ending_removed = other.B_ending_removed;
     this.S_x = other.S_x;
     this.I_p2 = other.I_p2;
@@ -21,7 +22,7 @@ class StemmerFi extends SnowballStemmer {
     super.copy_from(other);
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // goto
@@ -45,7 +46,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_particle_etc() {
+  r_particle_etc(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -82,7 +83,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_possessive() {
+  r_possessive(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -164,14 +165,14 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_LONG() {
+  r_LONG(): boolean {
     if (this.find_among_b(StemmerFi.a_5, 7) === 0) {
       return false;
     }
     return true;
   }
 
-  r_VI() {
+  r_VI(): boolean {
     if (!this.eq_s_b(1, 'i')) {
       return false;
     }
@@ -181,7 +182,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_case_ending() {
+  r_case_ending(): boolean {
     let v_3;
 
     const v_1 = this.limit - this.cursor;
@@ -285,7 +286,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_other_endings() {
+  r_other_endings(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p2) {
       return false;
@@ -325,7 +326,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_i_plural() {
+  r_i_plural(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -347,7 +348,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_t_plural() {
+  r_t_plural(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -412,7 +413,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  r_tidy() {
+  r_tidy(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_p1) {
       return false;
@@ -526,7 +527,7 @@ class StemmerFi extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_mark_regions();

@@ -1,4 +1,5 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 import dictionary from './dictionary-es.json' with { type: 'json' };
 
 /**
@@ -23,7 +24,7 @@ class StemmerEs extends SnowballStemmer {
   declare static a_8_tree: AmongTree;
   declare static a_9_tree: AmongTree;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container, dictionary);
     this.name = 'stemmer-es';
     this.I_p2 = 0;
@@ -89,7 +90,7 @@ class StemmerEs extends SnowballStemmer {
     return result;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -183,7 +184,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -237,14 +238,14 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_R2b() {
+  r_R2b(): boolean {
     if (this.cursor < this.current.length / 2) {
       return false;
     }
     return true;
   }
 
-  r_attached_pronoun() {
+  r_attached_pronoun(): boolean {
     this.ket = this.cursor;
     if (this.findAmongBTree(StemmerEs.a_1_tree) === 0) {
       return false;
@@ -307,7 +308,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     let v_1;
     let v_2;
     let v_3;
@@ -520,7 +521,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_y_verb_suffix() {
+  r_y_verb_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
@@ -552,7 +553,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     let v_3;
 
     const v_1 = this.limit - this.cursor;
@@ -605,7 +606,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  r_residual_suffix() {
+  r_residual_suffix(): boolean {
     let v_1;
 
     this.ket = this.cursor;
@@ -711,7 +712,7 @@ class StemmerEs extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): void {
     const current = this.getCurrent();
     if (current.endsWith('rme')) {
       this.setCurrent(current.slice(0, -2));

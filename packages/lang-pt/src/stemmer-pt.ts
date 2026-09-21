@@ -1,7 +1,8 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerPt extends SnowballStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-pt';
     this.I_p2 = 0;
@@ -9,7 +10,7 @@ class StemmerPt extends SnowballStemmer {
     this.I_pV = 0;
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -48,7 +49,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -142,7 +143,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -181,7 +182,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     let v_1;
     let v_2;
     let v_3;
@@ -379,7 +380,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
@@ -409,7 +410,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_residual_suffix() {
+  r_residual_suffix(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerPt.a_7, 7);
     if (among_var === 0) {
@@ -431,7 +432,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  r_residual_form() {
+  r_residual_form(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerPt.a_8, 4);
     if (among_var === 0) {
@@ -493,7 +494,7 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

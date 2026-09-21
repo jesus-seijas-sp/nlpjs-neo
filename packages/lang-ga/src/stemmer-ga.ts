@@ -1,7 +1,8 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerGa extends SnowballStemmer {
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ga';
     this.I_p1 = 0;
@@ -9,7 +10,7 @@ class StemmerGa extends SnowballStemmer {
     this.I_pV = 0;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -41,7 +42,7 @@ class StemmerGa extends SnowballStemmer {
     this.cursor = v_3;
     return true;
   }
-  r_initial_morph() {
+  r_initial_morph(): boolean {
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerGa.a_0);
     if (among_var === 0) {
@@ -117,7 +118,7 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
-  r_noun_sfx() {
+  r_noun_sfx(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerGa.a_1);
     if (among_var === 0) {
@@ -142,7 +143,7 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
-  r_deriv() {
+  r_deriv(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerGa.a_2);
     if (among_var === 0) {
@@ -176,7 +177,7 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
-  r_verb_sfx() {
+  r_verb_sfx(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerGa.a_3);
     if (among_var === 0) {
@@ -201,7 +202,7 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
-  innerStem() {
+  innerStem(): boolean {
     const v_1 = this.cursor;
     this.r_initial_morph();
     this.cursor = v_1;

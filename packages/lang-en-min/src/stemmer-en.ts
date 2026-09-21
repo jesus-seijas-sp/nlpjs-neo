@@ -1,4 +1,5 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 import TokenizerEn from './tokenizer-en.js';
 
 /**
@@ -8,7 +9,7 @@ import TokenizerEn from './tokenizer-en.js';
 class StemmerEn extends SnowballStemmer {
   declare B_Y_found: boolean;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-en';
     this.B_Y_found = false;
@@ -28,7 +29,7 @@ class StemmerEn extends SnowballStemmer {
     return this.tokenizer;
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // unset Y_found
     this.B_Y_found = false;
     // do
@@ -102,7 +103,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
     // do
@@ -142,7 +143,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_shortv() {
+  r_shortv(): boolean {
     // or
     lab0: {
       const v_1 = this.limit - this.cursor;
@@ -173,8 +174,8 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_1a() {
-    let among_var;
+  r_Step_1a(): boolean {
+    let among_var: number;
 
     // try
     const v_1 = this.limit - this.cursor;
@@ -251,7 +252,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_1b() {
+  r_Step_1b(): boolean {
     let v_1;
     let v_3;
     let v_4;
@@ -334,7 +335,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_1c() {
+  r_Step_1c(): boolean {
     this.ket = this.cursor;
     // or
     lab0: {
@@ -372,7 +373,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_2() {
+  r_Step_2(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerEn.a_5, 24);
     if (among_var === 0) {
@@ -475,7 +476,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_3() {
+  r_Step_3(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerEn.a_6, 9);
     if (among_var === 0) {
@@ -525,7 +526,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_4() {
+  r_Step_4(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerEn.a_7, 18);
     if (among_var === 0) {
@@ -566,7 +567,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_Step_5() {
+  r_Step_5(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerEn.a_8, 2);
     if (among_var === 0) {
@@ -621,7 +622,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_exception2() {
+  r_exception2(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerEn.a_9, 8) === 0) {
       return false;
@@ -634,7 +635,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_exception1() {
+  r_exception1(): boolean {
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerEn.a_10, 18);
     if (among_var === 0) {
@@ -707,7 +708,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // Boolean test Y_found
     if (!this.B_Y_found) {
       return false;
@@ -745,7 +746,7 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // or
     lab0: {
       const v_1 = this.cursor;

@@ -1,20 +1,21 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerRu extends SnowballStemmer {
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ru';
     this.I_p2 = 0;
     this.I_pV = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerRu) {
     this.I_p2 = other.I_p2;
     this.I_pV = other.I_pV;
     super.copy_from(other);
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p2 = this.limit;
     // do
@@ -43,7 +44,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_perfective_gerund() {
+  r_perfective_gerund(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_0, 9);
     if (among_var === 0) {
@@ -81,7 +82,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_adjective() {
+  r_adjective(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_1, 26);
     if (among_var === 0) {
@@ -100,7 +101,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_adjectival() {
+  r_adjectival(): boolean {
     if (!this.r_adjective()) {
       return false;
     }
@@ -148,7 +149,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_reflexive() {
+  r_reflexive(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_3, 2);
     if (among_var === 0) {
@@ -167,7 +168,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_verb() {
+  r_verb(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_4, 46);
     if (among_var === 0) {
@@ -205,7 +206,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_noun() {
+  r_noun(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_5, 36);
     if (among_var === 0) {
@@ -224,7 +225,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_derivational() {
+  r_derivational(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_6, 2);
     if (among_var === 0) {
@@ -246,7 +247,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  r_tidy_up() {
+  r_tidy_up(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRu.a_7, 4);
     if (among_var === 0) {
@@ -289,7 +290,7 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_mark_regions();

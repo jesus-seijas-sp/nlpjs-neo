@@ -1,15 +1,16 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerNe extends BaseStemmer {
   declare I_p1: number;
 
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ne';
     this.I_p1 = 0;
   }
 
-  r_remove_category_1() {
+  r_remove_category_1(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerNe.a_0);
     if (among_var === 0) {
@@ -51,7 +52,7 @@ class StemmerNe extends BaseStemmer {
     return true;
   }
 
-  r_check_category_2() {
+  r_check_category_2(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerNe.a_1) === 0) {
       return false;
@@ -60,7 +61,7 @@ class StemmerNe extends BaseStemmer {
     return true;
   }
 
-  r_remove_category_2() {
+  r_remove_category_2(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerNe.a_2);
     if (among_var === 0) {
@@ -112,7 +113,7 @@ class StemmerNe extends BaseStemmer {
     return true;
   }
 
-  r_remove_category_3() {
+  r_remove_category_3(): boolean {
     this.ket = this.cursor;
     if (this.find_among_b(StemmerNe.a_3) === 0) {
       return false;
@@ -124,7 +125,7 @@ class StemmerNe extends BaseStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     const v_1 = this.limit - this.cursor;

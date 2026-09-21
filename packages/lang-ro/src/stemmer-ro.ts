@@ -1,9 +1,10 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerRo extends SnowballStemmer {
   declare B_standard_suffix_removed: boolean;
 
-  constructor(container?) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ro';
     this.B_standard_suffix_removed = false;
@@ -12,7 +13,7 @@ class StemmerRo extends SnowballStemmer {
     this.I_pV = 0;
   }
 
-  copy_from(other) {
+  copy_from(other: StemmerRo) {
     this.B_standard_suffix_removed = other.B_standard_suffix_removed;
     this.I_p2 = other.I_p2;
     this.I_p1 = other.I_p1;
@@ -20,7 +21,7 @@ class StemmerRo extends SnowballStemmer {
     super.copy_from(other);
   }
 
-  r_prelude() {
+  r_prelude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -78,7 +79,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_mark_regions() {
+  r_mark_regions(): boolean {
     this.I_pV = this.limit;
     this.I_p1 = this.limit;
     this.I_p2 = this.limit;
@@ -172,7 +173,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_postlude() {
+  r_postlude(): boolean {
     // repeat
     replab0: for (;;) {
       const v_1 = this.cursor;
@@ -211,7 +212,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_step_0() {
+  r_step_0(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRo.a_1, 16);
     if (among_var === 0) {
@@ -274,7 +275,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_combo_suffix() {
+  r_combo_suffix(): boolean {
     // test
     const v_1 = this.limit - this.cursor;
     this.ket = this.cursor;
@@ -326,7 +327,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_standard_suffix() {
+  r_standard_suffix(): boolean {
     // unset standard_suffix_removed
     this.B_standard_suffix_removed = false;
     // repeat
@@ -378,7 +379,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_verb_suffix() {
+  r_verb_suffix(): boolean {
     const v_1 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
@@ -428,7 +429,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  r_vowel_suffix() {
+  r_vowel_suffix(): boolean {
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerRo.a_5, 5);
     if (among_var === 0) {
@@ -450,7 +451,7 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  innerStem() {
+  innerStem(): boolean {
     // do
     const v_1 = this.cursor;
     this.r_prelude();

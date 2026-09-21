@@ -1,4 +1,5 @@
 import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import type { ContainerHolder } from '@nlpjs-neo/core';
 
 class StemmerAr extends BaseStemmer {
   declare B_is_defined: boolean;
@@ -6,7 +7,7 @@ class StemmerAr extends BaseStemmer {
   declare B_is_verb: boolean;
   declare I_word_len: number;
 
-  constructor(container) {
+  constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ar';
     this.B_is_defined = false;
@@ -15,7 +16,7 @@ class StemmerAr extends BaseStemmer {
     this.I_word_len = 0;
   }
 
-  r_Normalize_pre() {
+  r_Normalize_pre(): boolean {
     let v_1;
 
     for (v_1 = this.current.length; v_1 > 0; v_1--) {
@@ -208,8 +209,8 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Normalize_post() {
-    let among_var;
+  r_Normalize_post(): boolean {
+    let among_var: number;
 
     let v_3;
 
@@ -277,7 +278,7 @@ class StemmerAr extends BaseStemmer {
     this.cursor = v_2;
     return true;
   }
-  r_Checks1() {
+  r_Checks1(): boolean {
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerAr.a_3);
@@ -307,7 +308,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step1() {
+  r_Prefix_Step1(): boolean {
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerAr.a_4);
@@ -351,7 +352,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step2() {
+  r_Prefix_Step2(): boolean {
     this.I_word_len = this.current.length;
     {
       const v_1 = this.cursor;
@@ -397,7 +398,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step3a_Noun() {
+  r_Prefix_Step3a_Noun(): boolean {
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerAr.a_6);
@@ -423,7 +424,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step3b_Noun() {
+  r_Prefix_Step3b_Noun(): boolean {
     this.I_word_len = this.current.length;
     {
       const v_1 = this.cursor;
@@ -465,7 +466,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step3_Verb() {
+  r_Prefix_Step3_Verb(): boolean {
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerAr.a_8);
@@ -503,7 +504,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Prefix_Step4_Verb() {
+  r_Prefix_Step4_Verb(): boolean {
     this.I_word_len = this.current.length;
     this.bra = this.cursor;
     const among_var = this.find_among(StemmerAr.a_9);
@@ -525,7 +526,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step1a() {
+  r_Suffix_Noun_Step1a(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_10);
@@ -557,7 +558,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step1b() {
+  r_Suffix_Noun_Step1b(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_11);
@@ -577,7 +578,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step2a() {
+  r_Suffix_Noun_Step2a(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_12);
@@ -597,7 +598,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step2b() {
+  r_Suffix_Noun_Step2b(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_13);
@@ -617,7 +618,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step2c1() {
+  r_Suffix_Noun_Step2c1(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_14);
@@ -637,7 +638,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step2c2() {
+  r_Suffix_Noun_Step2c2(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_15);
@@ -657,7 +658,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Noun_Step3() {
+  r_Suffix_Noun_Step3(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_16);
@@ -677,7 +678,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Verb_Step1() {
+  r_Suffix_Verb_Step1(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_17);
@@ -709,7 +710,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Verb_Step2a() {
+  r_Suffix_Verb_Step2a(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_18);
@@ -753,7 +754,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Verb_Step2b() {
+  r_Suffix_Verb_Step2b(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_19);
@@ -773,7 +774,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_Verb_Step2c() {
+  r_Suffix_Verb_Step2c(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_20);
@@ -799,7 +800,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  r_Suffix_All_alef_maqsura() {
+  r_Suffix_All_alef_maqsura(): boolean {
     this.I_word_len = this.current.length;
     this.ket = this.cursor;
     const among_var = this.find_among_b(StemmerAr.a_21);
@@ -816,7 +817,7 @@ class StemmerAr extends BaseStemmer {
     }
     return true;
   }
-  innerStem() {
+  innerStem(): boolean {
     this.B_is_noun = true;
     this.B_is_verb = true;
     this.B_is_defined = false;
