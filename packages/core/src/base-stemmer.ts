@@ -411,7 +411,7 @@ class BaseStemmer {
         if (w.method === undefined || w.method === null) {
           return w.result;
         }
-        const res = w.method(w.instance);
+        const res = w.method(this);
         this.cursor = c + w.s_size;
         if (res) {
           return w.result;

@@ -2,6 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { generate } from '../generate.ts';
 import { parseProgram, parseSource } from '../sbl.ts';
+import { render, STEMMERS } from '../stemmers.ts';
 
 const here = fileURLToPath(new URL('.', import.meta.url));
 const generated = `${here}.generated`;
@@ -60,23 +61,17 @@ describe('Snowball compiler', () => {
   });
 
   describe('the stemmers of the packages', () => {
-    test('It should be what the tool writes from the Snowball program', () => {
-      const root = fileURLToPath(new URL('../../../', import.meta.url));
-      const code = generate(
-        parseProgram(`${root}tools/snowball/algorithms/english.sbl`),
-        {
-          className: 'SnowballStemmerEn',
-          name: 'stemmer-en',
-          source: 'english.sbl',
-          inheritRegions: true,
-        }
-      );
-      const committed = readFileSync(
-        `${root}packages/lang-en-min/src/stemmer-en.generated.ts`,
-        'utf8'
-      );
-      expect(committed.split(String.fromCharCode(13)).join('')).toEqual(code);
-    });
+    const root = fileURLToPath(new URL('../../../', import.meta.url));
+
+    test.each(STEMMERS.map((stemmer) => [stemmer.out, stemmer] as const))(
+      'It should have %s as the tool writes it from its program',
+      (_out, stemmer) => {
+        const committed = readFileSync(`${root}${stemmer.out}`, 'utf8');
+        expect(committed.split(String.fromCharCode(13)).join('')).toEqual(
+          render(root, stemmer)
+        );
+      }
+    );
   });
 
   describe('reading a program', () => {

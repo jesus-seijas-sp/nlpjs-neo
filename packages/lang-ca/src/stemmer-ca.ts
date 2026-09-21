@@ -1,6 +1,10 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from catalan.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerCa extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
@@ -14,54 +18,18 @@ class StemmerCa extends SnowballStemmer {
     this.I_p2 = this.limit;
     const v_1 = this.cursor;
     lab0: {
-      golab1: for (;;) {
-        try0: {
-          if (!this.in_grouping(StemmerCa.g_v, 97, 252)) {
-            break try0;
-          }
-          break golab1;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerCa.g_v, 97, 252)) {
+        break lab0;
       }
-      golab3: for (;;) {
-        try1: {
-          if (!this.out_grouping(StemmerCa.g_v, 97, 252)) {
-            break try1;
-          }
-          break golab3;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerCa.g_v, 97, 252)) {
+        break lab0;
       }
       this.I_p1 = this.cursor;
-      golab5: for (;;) {
-        try2: {
-          if (!this.in_grouping(StemmerCa.g_v, 97, 252)) {
-            break try2;
-          }
-          break golab5;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_in_grouping(StemmerCa.g_v, 97, 252)) {
+        break lab0;
       }
-      golab7: for (;;) {
-        try3: {
-          if (!this.out_grouping(StemmerCa.g_v, 97, 252)) {
-            break try3;
-          }
-          break golab7;
-        }
-        if (this.cursor >= this.limit) {
-          break lab0;
-        }
-        this.cursor++;
+      if (!this.gopast_out_grouping(StemmerCa.g_v, 97, 252)) {
+        break lab0;
       }
       this.I_p2 = this.cursor;
     }
@@ -70,62 +38,37 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_cleaning(): boolean {
-    replab0: for (;;) {
+    for (;;) {
       const v_1 = this.cursor;
-      lab1: {
-        this.bra = this.cursor;
-        const among_var = this.find_among(StemmerCa.a_0);
-        if (among_var === 0) {
-          break lab1;
-        }
-        this.ket = this.cursor;
+      lab0: {
+        const among_var = this.find_slice(StemmerCa.a_0);
         switch (among_var) {
-          case 0:
-            break lab1;
           case 1:
             this.slice_from('a');
             break;
           case 2:
-            this.slice_from('a');
+            this.slice_from('e');
             break;
           case 3:
-            this.slice_from('e');
+            this.slice_from('i');
             break;
           case 4:
-            this.slice_from('e');
+            this.slice_from('o');
             break;
           case 5:
-            this.slice_from('i');
+            this.slice_from('u');
             break;
           case 6:
-            this.slice_from('i');
-            break;
-          case 7:
-            this.slice_from('o');
-            break;
-          case 8:
-            this.slice_from('o');
-            break;
-          case 9:
-            this.slice_from('u');
-            break;
-          case 10:
-            this.slice_from('u');
-            break;
-          case 11:
-            this.slice_from('i');
-            break;
-          case 12:
             this.slice_from('.');
             break;
-          case 13:
+          case 7:
             if (this.cursor >= this.limit) {
-              break lab1;
+              break lab0;
             }
             this.cursor++;
             break;
         }
-        continue replab0;
+        continue;
       }
       this.cursor = v_1;
       break;
@@ -134,12 +77,10 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_attached_pronoun(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerCa.a_1);
+    const among_var = this.find_slice_b(StemmerCa.a_1);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -152,12 +93,10 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_standard_suffix(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerCa.a_2);
+    const among_var = this.find_slice_b(StemmerCa.a_2);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -194,12 +133,10 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_verb_suffix(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerCa.a_3);
+    const among_var = this.find_slice_b(StemmerCa.a_3);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -218,12 +155,10 @@ class StemmerCa extends SnowballStemmer {
   }
 
   r_residual_suffix(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerCa.a_4);
+    const among_var = this.find_slice_b(StemmerCa.a_4);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -242,55 +177,51 @@ class StemmerCa extends SnowballStemmer {
   }
 
   innerStem(): boolean {
-    const v_1 = this.cursor;
     this.r_mark_regions();
-    this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
+    this.do_backward(this.r_attached_pronoun);
     const v_2 = this.limit - this.cursor;
-    this.r_attached_pronoun();
-    this.cursor = this.limit - v_2;
-    const v_3 = this.limit - this.cursor;
-    lab2: {
-      lab3: {
-        const v_4 = this.limit - this.cursor;
-        try6: {
+    lab0: {
+      lab1: {
+        const v_3 = this.limit - this.cursor;
+        lab2: {
           if (!this.r_standard_suffix()) {
-            break try6;
+            break lab2;
           }
-          break lab3;
+          break lab1;
         }
-        this.cursor = this.limit - v_4;
+        this.cursor = this.limit - v_3;
         if (!this.r_verb_suffix()) {
-          break lab2;
+          break lab0;
         }
       }
     }
-    this.cursor = this.limit - v_3;
-    const v_5 = this.limit - this.cursor;
-    this.r_residual_suffix();
-    this.cursor = this.limit - v_5;
+    this.cursor = this.limit - v_2;
+    this.do_backward(this.r_residual_suffix);
     this.cursor = this.limit_backward;
-    const v_6 = this.cursor;
-    this.r_cleaning();
-    this.cursor = v_6;
+    this.do_forward(this.r_cleaning);
     return true;
   }
 
+  static g_v: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 129, 81, 6, 10,
+  ];
+
   static a_0: Among<StemmerCa>[] = [
-    new Among('', -1, 13),
-    new Among('\u00B7', 0, 12),
-    new Among('\u00E0', 0, 2),
+    new Among('', -1, 7),
+    new Among('\u00B7', 0, 6),
+    new Among('\u00E0', 0, 1),
     new Among('\u00E1', 0, 1),
-    new Among('\u00E8', 0, 4),
-    new Among('\u00E9', 0, 3),
-    new Among('\u00EC', 0, 6),
-    new Among('\u00ED', 0, 5),
-    new Among('\u00EF', 0, 11),
-    new Among('\u00F2', 0, 8),
-    new Among('\u00F3', 0, 7),
-    new Among('\u00FA', 0, 9),
-    new Among('\u00FC', 0, 10),
+    new Among('\u00E8', 0, 2),
+    new Among('\u00E9', 0, 2),
+    new Among('\u00EC', 0, 3),
+    new Among('\u00ED', 0, 3),
+    new Among('\u00EF', 0, 3),
+    new Among('\u00F2', 0, 4),
+    new Among('\u00F3', 0, 4),
+    new Among('\u00FA', 0, 5),
+    new Among('\u00FC', 0, 5),
   ];
 
   static a_1: Among<StemmerCa>[] = [
@@ -847,10 +778,6 @@ class StemmerCa extends SnowballStemmer {
     new Among('\u00ED', -1, 1),
     new Among('\u00EF', -1, 1),
     new Among('\u00F3', -1, 1),
-  ];
-
-  static g_v: number[] = [
-    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 129, 81, 6, 10,
   ];
 }
 

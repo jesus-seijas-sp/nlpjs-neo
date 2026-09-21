@@ -40,6 +40,14 @@ class StemmerEn extends SnowballStemmerEn {
 A change to the algorithm itself is made in the `.sbl` file, with a comment that says what
 differs from Snowball, and then `pnpm stemmers` writes the TypeScript again.
 
+## What is generated so far
+
+English (`lang-en-min`, with our tokenizer on top), and Catalan, Basque, Irish, Armenian,
+Indonesian, Nepali, Tamil and Turkish, whose stemmers had nothing of ours in them: their generated
+file is the stemmer (`stemmer-xx.ts`). All of them are the current programs of Snowball, except
+English, which is 2.2.0. `stemmers.ts` lists them, and a test checks that each committed file is
+what the tool writes.
+
 ## Adding a language
 
 Put the `.sbl` in `tools/snowball/algorithms/`, add an entry to `STEMMERS` in `build.ts`, and run

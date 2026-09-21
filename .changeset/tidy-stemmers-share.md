@@ -54,3 +54,8 @@ it answers does not change.
 
 `BaseStemmer` also has `find_slice` and `find_slice_b` for `[substring]`, and `do_forward`
 and `do_backward` to run a rule and put the cursor back.
+
+The Catalan, Basque, Irish, Armenian, Indonesian, Nepali, Tamil and Turkish stemmers are
+generated too, from the current Snowball programs. They answer what they did, and
+`find_among` runs the guards of a table on the stemmer that searches it, as `find_among_b`
+already did.

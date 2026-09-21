@@ -1,12 +1,16 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from armenian.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerHy extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-hy';
-    this.I_p2 = 0;
     this.I_pV = 0;
+    this.I_p2 = 0;
   }
 
   r_mark_regions(): boolean {
@@ -32,13 +36,12 @@ class StemmerHy extends SnowballStemmer {
     this.cursor = v_1;
     return true;
   }
+
   r_adjective(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHy.a_0);
+    const among_var = this.find_slice_b(StemmerHy.a_0);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         this.slice_del();
@@ -46,13 +49,12 @@ class StemmerHy extends SnowballStemmer {
     }
     return true;
   }
+
   r_verb(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHy.a_1);
+    const among_var = this.find_slice_b(StemmerHy.a_1);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         this.slice_del();
@@ -60,13 +62,12 @@ class StemmerHy extends SnowballStemmer {
     }
     return true;
   }
+
   r_noun(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHy.a_2);
+    const among_var = this.find_slice_b(StemmerHy.a_2);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         this.slice_del();
@@ -74,13 +75,12 @@ class StemmerHy extends SnowballStemmer {
     }
     return true;
   }
+
   r_ending(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerHy.a_3);
+    const among_var = this.find_slice_b(StemmerHy.a_3);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     if (!this.r_R2()) {
       return false;
     }
@@ -91,36 +91,26 @@ class StemmerHy extends SnowballStemmer {
     }
     return true;
   }
+
   innerStem(): boolean {
-    const v_1 = this.cursor;
     this.r_mark_regions();
-    this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    const v_2 = this.limit - this.cursor;
     if (this.cursor < this.I_pV) {
       return false;
     }
-    this.cursor = this.I_pV;
-    const v_3 = this.limit_backward;
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit - v_2;
-    const v_4 = this.limit - this.cursor;
-    this.r_ending();
-    this.cursor = this.limit - v_4;
-    const v_5 = this.limit - this.cursor;
-    this.r_verb();
-    this.cursor = this.limit - v_5;
-    const v_6 = this.limit - this.cursor;
-    this.r_adjective();
-    this.cursor = this.limit - v_6;
-    const v_7 = this.limit - this.cursor;
-    this.r_noun();
-    this.cursor = this.limit - v_7;
-    this.limit_backward = v_3;
+    const v_1 = this.limit_backward;
+    this.limit_backward = this.I_pV;
+    this.do_backward(this.r_ending);
+    this.do_backward(this.r_verb);
+    this.do_backward(this.r_adjective);
+    this.do_backward(this.r_noun);
+    this.limit_backward = v_1;
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static g_v: number[] = [209, 4, 128, 0, 18];
 
   static a_0: Among<StemmerHy>[] = [
     new Among('\u0580\u0578\u0580\u0564', -1, 1),
@@ -324,8 +314,6 @@ class StemmerHy extends SnowballStemmer {
     new Among('\u0578\u0581', 47, 1),
     new Among('\u0578\u0582\u0581', 47, 1),
   ];
-
-  static g_v: number[] = [209, 4, 128, 0, 18];
 }
 
 export default StemmerHy;

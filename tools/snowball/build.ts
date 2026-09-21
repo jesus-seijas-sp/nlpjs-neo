@@ -1,32 +1,11 @@
 /**
- * Generates the stemmers that are written in Snowball.
- *
- * Every entry of `STEMMERS` names a Snowball program and the TypeScript file
- * made from it. Run it with `pnpm stemmers`, and commit the result.
+ * Generates the stemmers that are written in Snowball, the ones `stemmers.ts`
+ * lists. Run it with `pnpm stemmers`, and commit the result.
  */
 import { writeFileSync } from 'node:fs';
-import { basename, dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { generate } from './generate.ts';
-import { parseProgram } from './sbl.ts';
-
-interface Stemmer {
-  /** The Snowball program. */
-  sbl: string;
-  /** The TypeScript file to write. */
-  out: string;
-  className: string;
-  name: string;
-}
-
-const STEMMERS: Stemmer[] = [
-  {
-    sbl: 'tools/snowball/algorithms/english.sbl',
-    out: 'packages/lang-en-min/src/stemmer-en.generated.ts',
-    className: 'SnowballStemmerEn',
-    name: 'stemmer-en',
-  },
-];
+import { render, STEMMERS } from './stemmers.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const only = process.argv.slice(2);
@@ -35,14 +14,6 @@ for (const stemmer of STEMMERS) {
   if (only.length > 0 && !only.some((part) => stemmer.out.includes(part))) {
     continue;
   }
-  const program = parseProgram(join(root, stemmer.sbl));
-  const code = generate(program, {
-    className: stemmer.className,
-    name: stemmer.name,
-    source: basename(stemmer.sbl),
-    inheritRegions: true,
-  });
-  const out = join(root, stemmer.out);
-  writeFileSync(out, code);
+  writeFileSync(join(root, stemmer.out), render(root, stemmer));
   console.log(`${stemmer.sbl} -> ${stemmer.out}`);
 }

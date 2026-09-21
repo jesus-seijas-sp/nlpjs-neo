@@ -1,115 +1,99 @@
-import { Among, BaseStemmer } from '@nlpjs-neo/core';
+import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
-class StemmerTr extends BaseStemmer {
+/**
+ * Stemmer written by tools/snowball from turkish.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
+class StemmerTr extends SnowballStemmer {
   declare B_continue_stemming_noun_suffixes: boolean;
-  declare I_strlen: number;
 
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-tr';
     this.B_continue_stemming_noun_suffixes = false;
-    this.I_strlen = 0;
-  }
-
-  copy_from(other: StemmerTr) {
-    this.B_continue_stemming_noun_suffixes =
-      other.B_continue_stemming_noun_suffixes;
-    this.I_strlen = other.I_strlen;
-    super.copy_from(other);
   }
 
   r_check_vowel_harmony(): boolean {
-    // test
     const v_1 = this.limit - this.cursor;
-    // goto
     if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
       return false;
     }
-    // or
-    lab2: {
-      const v_3 = this.limit - this.cursor;
-      lab3: {
+    lab0: {
+      const v_2 = this.limit - this.cursor;
+      lab1: {
         if (!this.eq_s_b('a')) {
-          break lab3;
+          break lab1;
         }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel1, 97, 305)) {
+          break lab1;
+        }
+        break lab0;
+      }
+      this.cursor = this.limit - v_2;
+      lab2: {
+        if (!this.eq_s_b('e')) {
+          break lab2;
+        }
+        if (!this.goto_in_grouping_b(StemmerTr.g_vowel2, 101, 252)) {
+          break lab2;
+        }
+        break lab0;
+      }
+      this.cursor = this.limit - v_2;
+      lab3: {
+        if (!this.eq_s_b('\u0131')) {
           break lab3;
         }
-        break lab2;
-      }
-      this.cursor = this.limit - v_3;
-      lab6: {
-        if (!this.eq_s_b('e')) {
-          break lab6;
-        }
-        // goto
-        if (!this.goto_in_grouping_b(StemmerTr.g_vowel2, 101, 252)) {
-          break lab6;
-        }
-        break lab2;
-      }
-      this.cursor = this.limit - v_3;
-      lab9: {
-        if (!this.eq_s_b('\u0131')) {
-          break lab9;
-        }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel3, 97, 305)) {
-          break lab9;
+          break lab3;
         }
-        break lab2;
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
-      lab12: {
+      this.cursor = this.limit - v_2;
+      lab4: {
         if (!this.eq_s_b('i')) {
-          break lab12;
+          break lab4;
         }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel4, 101, 105)) {
-          break lab12;
+          break lab4;
         }
-        break lab2;
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
-      lab15: {
+      this.cursor = this.limit - v_2;
+      lab5: {
         if (!this.eq_s_b('o')) {
-          break lab15;
+          break lab5;
         }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
-          break lab15;
+          break lab5;
         }
-        break lab2;
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
-      lab18: {
+      this.cursor = this.limit - v_2;
+      lab6: {
         if (!this.eq_s_b('\u00F6')) {
-          break lab18;
+          break lab6;
         }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
-          break lab18;
+          break lab6;
         }
-        break lab2;
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
-      lab21: {
+      this.cursor = this.limit - v_2;
+      lab7: {
         if (!this.eq_s_b('u')) {
-          break lab21;
+          break lab7;
         }
-        // goto
         if (!this.goto_in_grouping_b(StemmerTr.g_vowel5, 111, 117)) {
-          break lab21;
+          break lab7;
         }
-        break lab2;
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
+      this.cursor = this.limit - v_2;
       if (!this.eq_s_b('\u00FC')) {
         return false;
       }
-      // goto
       if (!this.goto_in_grouping_b(StemmerTr.g_vowel6, 246, 252)) {
         return false;
       }
@@ -119,221 +103,125 @@ class StemmerTr extends BaseStemmer {
   }
 
   r_mark_suffix_with_optional_n_consonant(): boolean {
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
-        // test
-        const v_2 = this.limit - this.cursor;
         if (!this.eq_s_b('n')) {
           break lab1;
         }
-        this.cursor = this.limit - v_2;
-        if (this.cursor <= this.limit_backward) {
-          break lab1;
-        }
-        this.cursor--;
-        // test
-        const v_3 = this.limit - this.cursor;
+        const v_2 = this.limit - this.cursor;
         if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
           break lab1;
         }
-        this.cursor = this.limit - v_3;
+        this.cursor = this.limit - v_2;
         break lab0;
       }
       this.cursor = this.limit - v_1;
-      // not
-      {
-        const v_4 = this.limit - this.cursor;
-        lab2: {
-          // test
-          const v_5 = this.limit - this.cursor;
-          if (!this.eq_s_b('n')) {
-            break lab2;
-          }
-          this.cursor = this.limit - v_5;
-          return false;
-        }
-        this.cursor = this.limit - v_4;
+      if (this.eq_s_b('n')) {
+        return false;
       }
-      // test
-      const v_6 = this.limit - this.cursor;
+      const v_3 = this.limit - this.cursor;
       if (this.cursor <= this.limit_backward) {
         return false;
       }
       this.cursor--;
-      // test
-      const v_7 = this.limit - this.cursor;
       if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
         return false;
       }
-      this.cursor = this.limit - v_7;
-      this.cursor = this.limit - v_6;
+      this.cursor = this.limit - v_3;
     }
     return true;
   }
 
   r_mark_suffix_with_optional_s_consonant(): boolean {
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
-        // test
-        const v_2 = this.limit - this.cursor;
         if (!this.eq_s_b('s')) {
           break lab1;
         }
-        this.cursor = this.limit - v_2;
-        if (this.cursor <= this.limit_backward) {
-          break lab1;
-        }
-        this.cursor--;
-        // test
-        const v_3 = this.limit - this.cursor;
+        const v_2 = this.limit - this.cursor;
         if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
           break lab1;
         }
-        this.cursor = this.limit - v_3;
+        this.cursor = this.limit - v_2;
         break lab0;
       }
       this.cursor = this.limit - v_1;
-      // not
-      {
-        const v_4 = this.limit - this.cursor;
-        lab2: {
-          // test
-          const v_5 = this.limit - this.cursor;
-          if (!this.eq_s_b('s')) {
-            break lab2;
-          }
-          this.cursor = this.limit - v_5;
-          return false;
-        }
-        this.cursor = this.limit - v_4;
+      if (this.eq_s_b('s')) {
+        return false;
       }
-      // test
-      const v_6 = this.limit - this.cursor;
+      const v_3 = this.limit - this.cursor;
       if (this.cursor <= this.limit_backward) {
         return false;
       }
       this.cursor--;
-      // test
-      const v_7 = this.limit - this.cursor;
       if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
         return false;
       }
-      this.cursor = this.limit - v_7;
-      this.cursor = this.limit - v_6;
+      this.cursor = this.limit - v_3;
     }
     return true;
   }
 
   r_mark_suffix_with_optional_y_consonant(): boolean {
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
-        // test
-        const v_2 = this.limit - this.cursor;
         if (!this.eq_s_b('y')) {
           break lab1;
         }
-        this.cursor = this.limit - v_2;
-        if (this.cursor <= this.limit_backward) {
-          break lab1;
-        }
-        this.cursor--;
-        // test
-        const v_3 = this.limit - this.cursor;
+        const v_2 = this.limit - this.cursor;
         if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
           break lab1;
         }
-        this.cursor = this.limit - v_3;
+        this.cursor = this.limit - v_2;
         break lab0;
       }
       this.cursor = this.limit - v_1;
-      // not
-      {
-        const v_4 = this.limit - this.cursor;
-        lab2: {
-          // test
-          const v_5 = this.limit - this.cursor;
-          if (!this.eq_s_b('y')) {
-            break lab2;
-          }
-          this.cursor = this.limit - v_5;
-          return false;
-        }
-        this.cursor = this.limit - v_4;
+      if (this.eq_s_b('y')) {
+        return false;
       }
-      // test
-      const v_6 = this.limit - this.cursor;
+      const v_3 = this.limit - this.cursor;
       if (this.cursor <= this.limit_backward) {
         return false;
       }
       this.cursor--;
-      // test
-      const v_7 = this.limit - this.cursor;
       if (!this.in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
         return false;
       }
-      this.cursor = this.limit - v_7;
-      this.cursor = this.limit - v_6;
+      this.cursor = this.limit - v_3;
     }
     return true;
   }
 
   r_mark_suffix_with_optional_U_vowel(): boolean {
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
-        // test
-        const v_2 = this.limit - this.cursor;
         if (!this.in_grouping_b(StemmerTr.g_U, 105, 305)) {
           break lab1;
         }
-        this.cursor = this.limit - v_2;
-        if (this.cursor <= this.limit_backward) {
-          break lab1;
-        }
-        this.cursor--;
-        // test
-        const v_3 = this.limit - this.cursor;
+        const v_2 = this.limit - this.cursor;
         if (!this.out_grouping_b(StemmerTr.g_vowel, 97, 305)) {
           break lab1;
         }
-        this.cursor = this.limit - v_3;
+        this.cursor = this.limit - v_2;
         break lab0;
       }
       this.cursor = this.limit - v_1;
-      // not
-      {
-        const v_4 = this.limit - this.cursor;
-        lab2: {
-          // test
-          const v_5 = this.limit - this.cursor;
-          if (!this.in_grouping_b(StemmerTr.g_U, 105, 305)) {
-            break lab2;
-          }
-          this.cursor = this.limit - v_5;
-          return false;
-        }
-        this.cursor = this.limit - v_4;
+      if (this.in_grouping_b(StemmerTr.g_U, 105, 305)) {
+        return false;
       }
-      // test
-      const v_6 = this.limit - this.cursor;
+      const v_3 = this.limit - this.cursor;
       if (this.cursor <= this.limit_backward) {
         return false;
       }
       this.cursor--;
-      // test
-      const v_7 = this.limit - this.cursor;
       if (!this.out_grouping_b(StemmerTr.g_vowel, 97, 305)) {
         return false;
       }
-      this.cursor = this.limit - v_7;
-      this.cursor = this.limit - v_6;
+      this.cursor = this.limit - v_3;
     }
     return true;
   }
@@ -342,10 +230,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_0) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_U_vowel()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_U_vowel();
   }
 
   r_mark_sU(): boolean {
@@ -355,10 +240,7 @@ class StemmerTr extends BaseStemmer {
     if (!this.in_grouping_b(StemmerTr.g_U, 105, 305)) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_s_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_s_consonant();
   }
 
   r_mark_lArI(): boolean {
@@ -375,10 +257,7 @@ class StemmerTr extends BaseStemmer {
     if (!this.in_grouping_b(StemmerTr.g_U, 105, 305)) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_nU(): boolean {
@@ -398,10 +277,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_3) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_n_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_n_consonant();
   }
 
   r_mark_yA(): boolean {
@@ -411,10 +287,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_4) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_nA(): boolean {
@@ -474,17 +347,11 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_10) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_ki(): boolean {
-    if (!this.eq_s_b('ki')) {
-      return false;
-    }
-    return true;
+    return this.eq_s_b('ki');
   }
 
   r_mark_ncA(): boolean {
@@ -494,10 +361,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_11) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_n_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_n_consonant();
   }
 
   r_mark_yUm(): boolean {
@@ -507,10 +371,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_12) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_sUn(): boolean {
@@ -530,10 +391,7 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_14) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_sUnUz(): boolean {
@@ -587,20 +445,14 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_20) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_ysA(): boolean {
     if (this.find_among_b(StemmerTr.a_21) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_ymUs(): boolean {
@@ -610,31 +462,22 @@ class StemmerTr extends BaseStemmer {
     if (this.find_among_b(StemmerTr.a_22) === 0) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_mark_yken(): boolean {
     if (!this.eq_s_b('ken')) {
       return false;
     }
-    if (!this.r_mark_suffix_with_optional_y_consonant()) {
-      return false;
-    }
-    return true;
+    return this.r_mark_suffix_with_optional_y_consonant();
   }
 
   r_stem_nominal_verb_suffixes(): boolean {
     this.ket = this.cursor;
-    // set continue_stemming_noun_suffixes
     this.B_continue_stemming_noun_suffixes = true;
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
-        // or
         lab2: {
           const v_2 = this.limit - this.cursor;
           lab3: {
@@ -669,7 +512,6 @@ class StemmerTr extends BaseStemmer {
         if (!this.r_mark_cAsInA()) {
           break lab6;
         }
-        // or
         lab7: {
           const v_3 = this.limit - this.cursor;
           lab8: {
@@ -719,14 +561,10 @@ class StemmerTr extends BaseStemmer {
           break lab13;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_4 = this.limit - this.cursor;
         lab14: {
           this.ket = this.cursor;
-          // or
           lab15: {
             const v_5 = this.limit - this.cursor;
             lab16: {
@@ -756,7 +594,6 @@ class StemmerTr extends BaseStemmer {
             }
           }
         }
-        // unset continue_stemming_noun_suffixes
         this.B_continue_stemming_noun_suffixes = false;
         break lab0;
       }
@@ -765,7 +602,6 @@ class StemmerTr extends BaseStemmer {
         if (!this.r_mark_nUz()) {
           break lab19;
         }
-        // or
         lab20: {
           const v_6 = this.limit - this.cursor;
           lab21: {
@@ -783,7 +619,6 @@ class StemmerTr extends BaseStemmer {
       }
       this.cursor = this.limit - v_1;
       lab22: {
-        // or
         lab23: {
           const v_7 = this.limit - this.cursor;
           lab24: {
@@ -812,10 +647,7 @@ class StemmerTr extends BaseStemmer {
           }
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_8 = this.limit - this.cursor;
         lab27: {
           this.ket = this.cursor;
@@ -831,14 +663,10 @@ class StemmerTr extends BaseStemmer {
         return false;
       }
       this.bra = this.cursor;
-      if (!this.slice_del()) {
-        return false;
-      }
-      // try
+      this.slice_del();
       const v_9 = this.limit - this.cursor;
       lab28: {
         this.ket = this.cursor;
-        // or
         lab29: {
           const v_10 = this.limit - this.cursor;
           lab30: {
@@ -884,9 +712,7 @@ class StemmerTr extends BaseStemmer {
       }
     }
     this.bra = this.cursor;
-    if (!this.slice_del()) {
-      return false;
-    }
+    this.slice_del();
     return true;
   }
 
@@ -895,7 +721,6 @@ class StemmerTr extends BaseStemmer {
     if (!this.r_mark_ki()) {
       return false;
     }
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
@@ -903,14 +728,10 @@ class StemmerTr extends BaseStemmer {
           break lab1;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_2 = this.limit - this.cursor;
         lab2: {
           this.ket = this.cursor;
-          // or
           lab3: {
             const v_3 = this.limit - this.cursor;
             lab4: {
@@ -918,10 +739,7 @@ class StemmerTr extends BaseStemmer {
                 break lab4;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_4 = this.limit - this.cursor;
               lab5: {
                 if (!this.r_stem_suffix_chain_before_ki()) {
@@ -937,10 +755,7 @@ class StemmerTr extends BaseStemmer {
               break lab2;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
-            // try
+            this.slice_del();
             const v_5 = this.limit - this.cursor;
             lab6: {
               this.ket = this.cursor;
@@ -949,9 +764,7 @@ class StemmerTr extends BaseStemmer {
                 break lab6;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               if (!this.r_stem_suffix_chain_before_ki()) {
                 this.cursor = this.limit - v_5;
                 break lab6;
@@ -967,14 +780,10 @@ class StemmerTr extends BaseStemmer {
           break lab7;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_6 = this.limit - this.cursor;
         lab8: {
           this.ket = this.cursor;
-          // or
           lab9: {
             const v_7 = this.limit - this.cursor;
             lab10: {
@@ -982,15 +791,12 @@ class StemmerTr extends BaseStemmer {
                 break lab10;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               break lab9;
             }
             this.cursor = this.limit - v_7;
             lab11: {
               this.ket = this.cursor;
-              // or
               lab12: {
                 const v_8 = this.limit - this.cursor;
                 lab13: {
@@ -1005,10 +811,7 @@ class StemmerTr extends BaseStemmer {
                 }
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_9 = this.limit - this.cursor;
               lab14: {
                 this.ket = this.cursor;
@@ -1017,9 +820,7 @@ class StemmerTr extends BaseStemmer {
                   break lab14;
                 }
                 this.bra = this.cursor;
-                if (!this.slice_del()) {
-                  return false;
-                }
+                this.slice_del();
                 if (!this.r_stem_suffix_chain_before_ki()) {
                   this.cursor = this.limit - v_9;
                   break lab14;
@@ -1040,7 +841,6 @@ class StemmerTr extends BaseStemmer {
       if (!this.r_mark_ndA()) {
         return false;
       }
-      // or
       lab15: {
         const v_10 = this.limit - this.cursor;
         lab16: {
@@ -1048,9 +848,7 @@ class StemmerTr extends BaseStemmer {
             break lab16;
           }
           this.bra = this.cursor;
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
           break lab15;
         }
         this.cursor = this.limit - v_10;
@@ -1059,10 +857,7 @@ class StemmerTr extends BaseStemmer {
             break lab17;
           }
           this.bra = this.cursor;
-          if (!this.slice_del()) {
-            return false;
-          }
-          // try
+          this.slice_del();
           const v_11 = this.limit - this.cursor;
           lab18: {
             this.ket = this.cursor;
@@ -1071,9 +866,7 @@ class StemmerTr extends BaseStemmer {
               break lab18;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
+            this.slice_del();
             if (!this.r_stem_suffix_chain_before_ki()) {
               this.cursor = this.limit - v_11;
               break lab18;
@@ -1082,16 +875,13 @@ class StemmerTr extends BaseStemmer {
           break lab15;
         }
         this.cursor = this.limit - v_10;
-        if (!this.r_stem_suffix_chain_before_ki()) {
-          return false;
-        }
+        return this.r_stem_suffix_chain_before_ki();
       }
     }
     return true;
   }
 
   r_stem_noun_suffixes(): boolean {
-    // or
     lab0: {
       const v_1 = this.limit - this.cursor;
       lab1: {
@@ -1100,10 +890,7 @@ class StemmerTr extends BaseStemmer {
           break lab1;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_2 = this.limit - this.cursor;
         lab2: {
           if (!this.r_stem_suffix_chain_before_ki()) {
@@ -1120,13 +907,9 @@ class StemmerTr extends BaseStemmer {
           break lab3;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_3 = this.limit - this.cursor;
         lab4: {
-          // or
           lab5: {
             const v_4 = this.limit - this.cursor;
             lab6: {
@@ -1135,15 +918,12 @@ class StemmerTr extends BaseStemmer {
                 break lab6;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               break lab5;
             }
             this.cursor = this.limit - v_4;
             lab7: {
               this.ket = this.cursor;
-              // or
               lab8: {
                 const v_5 = this.limit - this.cursor;
                 lab9: {
@@ -1158,10 +938,7 @@ class StemmerTr extends BaseStemmer {
                 }
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_6 = this.limit - this.cursor;
               lab10: {
                 this.ket = this.cursor;
@@ -1170,9 +947,7 @@ class StemmerTr extends BaseStemmer {
                   break lab10;
                 }
                 this.bra = this.cursor;
-                if (!this.slice_del()) {
-                  return false;
-                }
+                this.slice_del();
                 if (!this.r_stem_suffix_chain_before_ki()) {
                   this.cursor = this.limit - v_6;
                   break lab10;
@@ -1187,9 +962,7 @@ class StemmerTr extends BaseStemmer {
               break lab4;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
+            this.slice_del();
             if (!this.r_stem_suffix_chain_before_ki()) {
               this.cursor = this.limit - v_3;
               break lab4;
@@ -1201,7 +974,6 @@ class StemmerTr extends BaseStemmer {
       this.cursor = this.limit - v_1;
       lab11: {
         this.ket = this.cursor;
-        // or
         lab12: {
           const v_7 = this.limit - this.cursor;
           lab13: {
@@ -1215,7 +987,6 @@ class StemmerTr extends BaseStemmer {
             break lab11;
           }
         }
-        // or
         lab14: {
           const v_8 = this.limit - this.cursor;
           lab15: {
@@ -1223,9 +994,7 @@ class StemmerTr extends BaseStemmer {
               break lab15;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
+            this.slice_del();
             break lab14;
           }
           this.cursor = this.limit - v_8;
@@ -1234,10 +1003,7 @@ class StemmerTr extends BaseStemmer {
               break lab16;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
-            // try
+            this.slice_del();
             const v_9 = this.limit - this.cursor;
             lab17: {
               this.ket = this.cursor;
@@ -1246,9 +1012,7 @@ class StemmerTr extends BaseStemmer {
                 break lab17;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               if (!this.r_stem_suffix_chain_before_ki()) {
                 this.cursor = this.limit - v_9;
                 break lab17;
@@ -1266,7 +1030,6 @@ class StemmerTr extends BaseStemmer {
       this.cursor = this.limit - v_1;
       lab18: {
         this.ket = this.cursor;
-        // or
         lab19: {
           const v_10 = this.limit - this.cursor;
           lab20: {
@@ -1280,7 +1043,6 @@ class StemmerTr extends BaseStemmer {
             break lab18;
           }
         }
-        // or
         lab21: {
           const v_11 = this.limit - this.cursor;
           lab22: {
@@ -1288,10 +1050,7 @@ class StemmerTr extends BaseStemmer {
               break lab22;
             }
             this.bra = this.cursor;
-            if (!this.slice_del()) {
-              return false;
-            }
-            // try
+            this.slice_del();
             const v_12 = this.limit - this.cursor;
             lab23: {
               this.ket = this.cursor;
@@ -1300,9 +1059,7 @@ class StemmerTr extends BaseStemmer {
                 break lab23;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               if (!this.r_stem_suffix_chain_before_ki()) {
                 this.cursor = this.limit - v_12;
                 break lab23;
@@ -1324,14 +1081,10 @@ class StemmerTr extends BaseStemmer {
           break lab24;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_13 = this.limit - this.cursor;
         lab25: {
           this.ket = this.cursor;
-          // or
           lab26: {
             const v_14 = this.limit - this.cursor;
             lab27: {
@@ -1339,10 +1092,7 @@ class StemmerTr extends BaseStemmer {
                 break lab27;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_15 = this.limit - this.cursor;
               lab28: {
                 this.ket = this.cursor;
@@ -1351,9 +1101,7 @@ class StemmerTr extends BaseStemmer {
                   break lab28;
                 }
                 this.bra = this.cursor;
-                if (!this.slice_del()) {
-                  return false;
-                }
+                this.slice_del();
                 if (!this.r_stem_suffix_chain_before_ki()) {
                   this.cursor = this.limit - v_15;
                   break lab28;
@@ -1367,10 +1115,7 @@ class StemmerTr extends BaseStemmer {
                 break lab29;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_16 = this.limit - this.cursor;
               lab30: {
                 if (!this.r_stem_suffix_chain_before_ki()) {
@@ -1392,7 +1137,6 @@ class StemmerTr extends BaseStemmer {
       this.cursor = this.limit - v_1;
       lab31: {
         this.ket = this.cursor;
-        // or
         lab32: {
           const v_17 = this.limit - this.cursor;
           lab33: {
@@ -1407,13 +1151,9 @@ class StemmerTr extends BaseStemmer {
           }
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_18 = this.limit - this.cursor;
         lab34: {
-          // or
           lab35: {
             const v_19 = this.limit - this.cursor;
             lab36: {
@@ -1422,9 +1162,7 @@ class StemmerTr extends BaseStemmer {
                 break lab36;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
+              this.slice_del();
               if (!this.r_stem_suffix_chain_before_ki()) {
                 break lab36;
               }
@@ -1433,7 +1171,6 @@ class StemmerTr extends BaseStemmer {
             this.cursor = this.limit - v_19;
             lab37: {
               this.ket = this.cursor;
-              // or
               lab38: {
                 const v_20 = this.limit - this.cursor;
                 lab39: {
@@ -1448,10 +1185,7 @@ class StemmerTr extends BaseStemmer {
                 }
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_21 = this.limit - this.cursor;
               lab40: {
                 this.ket = this.cursor;
@@ -1460,9 +1194,7 @@ class StemmerTr extends BaseStemmer {
                   break lab40;
                 }
                 this.bra = this.cursor;
-                if (!this.slice_del()) {
-                  return false;
-                }
+                this.slice_del();
                 if (!this.r_stem_suffix_chain_before_ki()) {
                   this.cursor = this.limit - v_21;
                   break lab40;
@@ -1486,9 +1218,7 @@ class StemmerTr extends BaseStemmer {
           break lab41;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         break lab0;
       }
       this.cursor = this.limit - v_1;
@@ -1501,7 +1231,6 @@ class StemmerTr extends BaseStemmer {
       this.cursor = this.limit - v_1;
       lab43: {
         this.ket = this.cursor;
-        // or
         lab44: {
           const v_22 = this.limit - this.cursor;
           lab45: {
@@ -1523,14 +1252,10 @@ class StemmerTr extends BaseStemmer {
           }
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
-        // try
+        this.slice_del();
         const v_23 = this.limit - this.cursor;
         lab47: {
           this.ket = this.cursor;
-          // or
           lab48: {
             const v_24 = this.limit - this.cursor;
             lab49: {
@@ -1538,10 +1263,7 @@ class StemmerTr extends BaseStemmer {
                 break lab49;
               }
               this.bra = this.cursor;
-              if (!this.slice_del()) {
-                return false;
-              }
-              // try
+              this.slice_del();
               const v_25 = this.limit - this.cursor;
               lab50: {
                 this.ket = this.cursor;
@@ -1559,9 +1281,7 @@ class StemmerTr extends BaseStemmer {
             }
           }
           this.bra = this.cursor;
-          if (!this.slice_del()) {
-            return false;
-          }
+          this.slice_del();
           this.ket = this.cursor;
           if (!this.r_stem_suffix_chain_before_ki()) {
             this.cursor = this.limit - v_23;
@@ -1572,7 +1292,6 @@ class StemmerTr extends BaseStemmer {
       }
       this.cursor = this.limit - v_1;
       this.ket = this.cursor;
-      // or
       lab51: {
         const v_26 = this.limit - this.cursor;
         lab52: {
@@ -1587,10 +1306,7 @@ class StemmerTr extends BaseStemmer {
         }
       }
       this.bra = this.cursor;
-      if (!this.slice_del()) {
-        return false;
-      }
-      // try
+      this.slice_del();
       const v_27 = this.limit - this.cursor;
       lab53: {
         this.ket = this.cursor;
@@ -1599,9 +1315,7 @@ class StemmerTr extends BaseStemmer {
           break lab53;
         }
         this.bra = this.cursor;
-        if (!this.slice_del()) {
-          return false;
-        }
+        this.slice_del();
         if (!this.r_stem_suffix_chain_before_ki()) {
           this.cursor = this.limit - v_27;
           break lab53;
@@ -1612,199 +1326,141 @@ class StemmerTr extends BaseStemmer {
   }
 
   r_post_process_last_consonants(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerTr.a_23);
+    const among_var = this.find_slice_b(StemmerTr.a_23);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
-        if (!this.slice_from('p')) {
-          return false;
-        }
+        this.slice_from('p');
         break;
       case 2:
-        if (!this.slice_from('\u00E7')) {
-          return false;
-        }
+        this.slice_from('\u00E7');
         break;
       case 3:
-        if (!this.slice_from('t')) {
-          return false;
-        }
+        this.slice_from('t');
         break;
       case 4:
-        if (!this.slice_from('k')) {
-          return false;
-        }
+        this.slice_from('k');
         break;
     }
     return true;
   }
 
   r_append_U_to_stems_ending_with_d_or_g(): boolean {
-    // test
-    const v_1 = this.limit - this.cursor;
-    // or
+    this.ket = this.cursor;
+    this.bra = this.cursor;
+    if (!this.eq_s_b('d') && !this.eq_s_b('g')) {
+      return false;
+    }
+    if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+      return false;
+    }
     lab0: {
-      const v_2 = this.limit - this.cursor;
+      const v_1 = this.limit - this.cursor;
       lab1: {
-        if (!this.eq_s_b('d')) {
+        if (!this.eq_s_b('a') && !this.eq_s_b('\u0131')) {
           break lab1;
         }
+        this.slice_from('\u0131');
         break lab0;
       }
-      this.cursor = this.limit - v_2;
-      if (!this.eq_s_b('g')) {
-        return false;
+      this.cursor = this.limit - v_1;
+      lab2: {
+        if (!this.eq_s_b('e') && !this.eq_s_b('i')) {
+          break lab2;
+        }
+        this.slice_from('i');
+        break lab0;
       }
-    }
-    this.cursor = this.limit - v_1;
-    // or
-    lab2: {
-      const v_3 = this.limit - this.cursor;
+      this.cursor = this.limit - v_1;
       lab3: {
-        // test
-        const v_4 = this.limit - this.cursor;
-        // goto
-        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+        if (!this.eq_s_b('o') && !this.eq_s_b('u')) {
           break lab3;
         }
-        // or
-        lab6: {
-          const v_6 = this.limit - this.cursor;
-          lab7: {
-            if (!this.eq_s_b('a')) {
-              break lab7;
-            }
-            break lab6;
-          }
-          this.cursor = this.limit - v_6;
-          if (!this.eq_s_b('\u0131')) {
-            break lab3;
-          }
-        }
-        this.cursor = this.limit - v_4;
-        {
-          const c = this.cursor;
-          this.insert(this.cursor, this.cursor, '\u0131');
-          this.cursor = c;
-        }
-        break lab2;
+        this.slice_from('u');
+        break lab0;
       }
-      this.cursor = this.limit - v_3;
-      lab8: {
-        // test
-        const v_7 = this.limit - this.cursor;
-        // goto
-        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-          break lab8;
-        }
-        // or
-        lab11: {
-          const v_9 = this.limit - this.cursor;
-          lab12: {
-            if (!this.eq_s_b('e')) {
-              break lab12;
-            }
-            break lab11;
-          }
-          this.cursor = this.limit - v_9;
-          if (!this.eq_s_b('i')) {
-            break lab8;
-          }
-        }
-        this.cursor = this.limit - v_7;
-        {
-          const c = this.cursor;
-          this.insert(this.cursor, this.cursor, 'i');
-          this.cursor = c;
-        }
-        break lab2;
-      }
-      this.cursor = this.limit - v_3;
-      lab13: {
-        // test
-        const v_10 = this.limit - this.cursor;
-        // goto
-        if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
-          break lab13;
-        }
-        // or
-        lab16: {
-          const v_12 = this.limit - this.cursor;
-          lab17: {
-            if (!this.eq_s_b('o')) {
-              break lab17;
-            }
-            break lab16;
-          }
-          this.cursor = this.limit - v_12;
-          if (!this.eq_s_b('u')) {
-            break lab13;
-          }
-        }
-        this.cursor = this.limit - v_10;
-        {
-          const c = this.cursor;
-          this.insert(this.cursor, this.cursor, 'u');
-          this.cursor = c;
-        }
-        break lab2;
-      }
-      this.cursor = this.limit - v_3;
-      // test
-      const v_13 = this.limit - this.cursor;
-      // goto
-      if (!this.goto_in_grouping_b(StemmerTr.g_vowel, 97, 305)) {
+      this.cursor = this.limit - v_1;
+      if (!this.eq_s_b('\u00F6') && !this.eq_s_b('\u00FC')) {
         return false;
       }
-      // or
-      lab20: {
-        const v_15 = this.limit - this.cursor;
-        lab21: {
-          if (!this.eq_s_b('\u00F6')) {
-            break lab21;
-          }
-          break lab20;
-        }
-        this.cursor = this.limit - v_15;
-        if (!this.eq_s_b('\u00FC')) {
-          return false;
-        }
-      }
-      this.cursor = this.limit - v_13;
-      {
-        const c = this.cursor;
-        this.insert(this.cursor, this.cursor, '\u00FC');
-        this.cursor = c;
-      }
+      this.slice_from('\u00FC');
     }
     return true;
   }
 
-  r_more_than_one_syllable_word(): boolean {
-    // test
-    const v_1 = this.cursor;
-    // atleast
-    {
-      let v_2 = 2;
-      // atleast
-      replab0: for (;;) {
-        const v_3 = this.cursor;
-        lab1: {
-          // gopast
-          if (!this.gopast_in_grouping(StemmerTr.g_vowel, 97, 305)) {
-            break lab1;
-          }
-          v_2--;
-          continue replab0;
-        }
-        this.cursor = v_3;
-        break;
+  r_is_reserved_word(): boolean {
+    if (!this.eq_s_b('ad')) {
+      return false;
+    }
+    const v_1 = this.limit - this.cursor;
+    lab0: {
+      if (!this.eq_s_b('soy')) {
+        this.cursor = this.limit - v_1;
+        break lab0;
       }
-      if (v_2 > 0) {
+    }
+    return this.cursor <= this.limit_backward;
+  }
+
+  r_remove_proper_noun_suffix(): boolean {
+    const v_1 = this.cursor;
+    lab0: {
+      this.bra = this.cursor;
+      lab1: for (;;) {
+        const v_2 = this.cursor;
+        lab2: {
+          if (this.eq_s("'")) {
+            break lab2;
+          }
+          this.cursor = v_2;
+          break lab1;
+        }
+        this.cursor = v_2;
+        if (this.cursor >= this.limit) {
+          break lab0;
+        }
+        this.cursor++;
+      }
+      this.ket = this.cursor;
+      this.slice_del();
+    }
+    this.cursor = v_1;
+    const v_3 = this.cursor;
+    lab3: {
+      if (this.cursor + 2 > this.limit) {
+        break lab3;
+      }
+      this.cursor += 2;
+      lab4: for (;;) {
+        const v_4 = this.cursor;
+        lab5: {
+          if (!this.eq_s("'")) {
+            break lab5;
+          }
+          this.cursor = v_4;
+          break lab4;
+        }
+        this.cursor = v_4;
+        if (this.cursor >= this.limit) {
+          break lab3;
+        }
+        this.cursor++;
+      }
+      this.bra = this.cursor;
+      this.cursor = this.limit;
+      this.ket = this.cursor;
+      this.slice_del();
+    }
+    this.cursor = v_3;
+    return true;
+  }
+
+  r_more_than_one_syllable_word(): boolean {
+    const v_1 = this.cursor;
+    for (let v_2 = 2; v_2 > 0; v_2--) {
+      if (!this.gopast_in_grouping(StemmerTr.g_vowel, 97, 305)) {
         return false;
       }
     }
@@ -1812,110 +1468,70 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  r_is_reserved_word(): boolean {
-    // or
-    lab0: {
-      const v_1 = this.cursor;
-      lab1: {
-        // test
-        const v_2 = this.cursor;
-        // gopast
-        golab2: for (;;) {
-          lab3: {
-            if (!this.eq_s('ad')) {
-              break lab3;
-            }
-            break golab2;
-          }
-          if (this.cursor >= this.limit) {
-            break lab1;
-          }
-          this.cursor++;
-        }
-        this.I_strlen = 2;
-        if (!(this.I_strlen === this.limit)) {
-          break lab1;
-        }
-        this.cursor = v_2;
-        break lab0;
-      }
-      this.cursor = v_1;
-      // test
-      const v_4 = this.cursor;
-      // gopast
-      golab4: for (;;) {
-        lab5: {
-          if (!this.eq_s('soyad')) {
-            break lab5;
-          }
-          break golab4;
-        }
-        if (this.cursor >= this.limit) {
-          return false;
-        }
-        this.cursor++;
-      }
-      this.I_strlen = 5;
-      if (!(this.I_strlen === this.limit)) {
-        return false;
-      }
-      this.cursor = v_4;
-    }
-    return true;
-  }
-
   r_postlude(): boolean {
-    // not
+    this.limit_backward = this.cursor;
+    this.cursor = this.limit;
     {
-      const v_1 = this.cursor;
+      const v_1 = this.limit - this.cursor;
       lab0: {
         if (!this.r_is_reserved_word()) {
           break lab0;
         }
         return false;
       }
-      this.cursor = v_1;
+      this.cursor = this.limit - v_1;
     }
-    // backwards
-    this.limit_backward = this.cursor;
-    this.cursor = this.limit;
-    // do
-    const v_2 = this.limit - this.cursor;
-    this.r_append_U_to_stems_ending_with_d_or_g();
-    this.cursor = this.limit - v_2;
-    // do
-    const v_3 = this.limit - this.cursor;
-    this.r_post_process_last_consonants();
-    this.cursor = this.limit - v_3;
+    this.do_backward(this.r_append_U_to_stems_ending_with_d_or_g);
+    this.do_backward(this.r_post_process_last_consonants);
     this.cursor = this.limit_backward;
     return true;
   }
 
   innerStem(): boolean {
+    this.r_remove_proper_noun_suffix();
     if (!this.r_more_than_one_syllable_word()) {
       return false;
     }
-    // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    // do
-    const v_1 = this.limit - this.cursor;
-    this.r_stem_nominal_verb_suffixes();
-    this.cursor = this.limit - v_1;
-    // Boolean test continue_stemming_noun_suffixes
+    this.do_backward(this.r_stem_nominal_verb_suffixes);
     if (!this.B_continue_stemming_noun_suffixes) {
       return false;
     }
-    // do
-    const v_2 = this.limit - this.cursor;
-    this.r_stem_noun_suffixes();
-    this.cursor = this.limit - v_2;
-    this.cursor = this.limit_backward; // call postlude
-    if (!this.r_postlude()) {
-      return false;
-    }
-    return true;
+    this.do_backward(this.r_stem_noun_suffixes);
+    this.cursor = this.limit_backward;
+    return this.r_postlude();
   }
+
+  static g_vowel: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 8, 0, 0, 0, 0,
+    0, 0, 1,
+  ];
+
+  static g_U: number[] = [
+    1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0,
+    1,
+  ];
+
+  static g_vowel1: number[] = [
+    1, 64, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1,
+  ];
+
+  static g_vowel2: number[] = [
+    17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130,
+  ];
+
+  static g_vowel3: number[] = [
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1,
+  ];
+
+  static g_vowel4: number[] = [17];
+
+  static g_vowel5: number[] = [65];
+
+  static g_vowel6: number[] = [65];
 
   static a_0: Among<StemmerTr>[] = [
     new Among('m', -1, -1),
@@ -2108,36 +1724,6 @@ class StemmerTr extends BaseStemmer {
     new Among('d', -1, 3),
     new Among('\u011F', -1, 4),
   ];
-
-  static g_vowel: number[] = [
-    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 8, 0, 0, 0, 0,
-    0, 0, 1,
-  ];
-
-  static g_U: number[] = [
-    1, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0,
-    1,
-  ];
-
-  static g_vowel1: number[] = [
-    1, 64, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 1,
-  ];
-
-  static g_vowel2: number[] = [
-    17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130,
-  ];
-
-  static g_vowel3: number[] = [
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 1,
-  ];
-
-  static g_vowel4: number[] = [17];
-
-  static g_vowel5: number[] = [65];
-
-  static g_vowel6: number[] = [65];
 }
 
 export default StemmerTr;

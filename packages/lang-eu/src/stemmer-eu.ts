@@ -1,13 +1,17 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from basque.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerEu extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-eu';
+    this.I_pV = 0;
     this.I_p1 = 0;
     this.I_p2 = 0;
-    this.I_pV = 0;
   }
 
   r_mark_regions(): boolean {
@@ -47,18 +51,18 @@ class StemmerEu extends SnowballStemmer {
         if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
           break lab0;
         }
-        lab9: {
-          const v_6 = this.cursor;
-          lab10: {
+        lab5: {
+          const v_4 = this.cursor;
+          lab6: {
             if (!this.out_grouping(StemmerEu.g_v, 97, 117)) {
-              break lab10;
+              break lab6;
             }
             if (!this.gopast_in_grouping(StemmerEu.g_v, 97, 117)) {
-              break lab10;
+              break lab6;
             }
-            break lab9;
+            break lab5;
           }
-          this.cursor = v_6;
+          this.cursor = v_4;
           if (!this.in_grouping(StemmerEu.g_v, 97, 117)) {
             break lab0;
           }
@@ -71,33 +75,32 @@ class StemmerEu extends SnowballStemmer {
       this.I_pV = this.cursor;
     }
     this.cursor = v_1;
-    const v_8 = this.cursor;
-    lab13: {
+    const v_5 = this.cursor;
+    lab7: {
       if (!this.gopast_in_grouping(StemmerEu.g_v, 97, 117)) {
-        break lab13;
+        break lab7;
       }
       if (!this.gopast_out_grouping(StemmerEu.g_v, 97, 117)) {
-        break lab13;
+        break lab7;
       }
       this.I_p1 = this.cursor;
       if (!this.gopast_in_grouping(StemmerEu.g_v, 97, 117)) {
-        break lab13;
+        break lab7;
       }
       if (!this.gopast_out_grouping(StemmerEu.g_v, 97, 117)) {
-        break lab13;
+        break lab7;
       }
       this.I_p2 = this.cursor;
     }
-    this.cursor = v_8;
+    this.cursor = v_5;
     return true;
   }
+
   r_aditzak(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerEu.a_0);
+    const among_var = this.find_slice_b(StemmerEu.a_0);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_RV()) {
@@ -111,25 +114,15 @@ class StemmerEu extends SnowballStemmer {
         }
         this.slice_del();
         break;
-      case 3:
-        this.slice_from('atseden');
-        break;
-      case 4:
-        this.slice_from('arabera');
-        break;
-      case 5:
-        this.slice_from('baditu');
-        break;
     }
     return true;
   }
+
   r_izenak(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerEu.a_1);
+    const among_var = this.find_slice_b(StemmerEu.a_1);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_RV()) {
@@ -158,28 +151,15 @@ class StemmerEu extends SnowballStemmer {
       case 6:
         this.slice_from('minutu');
         break;
-      case 7:
-        this.slice_from('zehar');
-        break;
-      case 8:
-        this.slice_from('geldi');
-        break;
-      case 9:
-        this.slice_from('igaro');
-        break;
-      case 10:
-        this.slice_from('aurka');
-        break;
     }
     return true;
   }
+
   r_adjetiboak(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerEu.a_2);
+    const among_var = this.find_slice_b(StemmerEu.a_2);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_RV()) {
@@ -193,40 +173,39 @@ class StemmerEu extends SnowballStemmer {
     }
     return true;
   }
+
   innerStem(): boolean {
-    const v_1 = this.cursor;
     this.r_mark_regions();
-    this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    replab1: for (;;) {
-      const v_2 = this.limit - this.cursor;
-      lab2: {
+    for (;;) {
+      const v_1 = this.limit - this.cursor;
+      lab0: {
         if (!this.r_aditzak()) {
-          break lab2;
+          break lab0;
         }
-        continue replab1;
+        continue;
+      }
+      this.cursor = this.limit - v_1;
+      break;
+    }
+    for (;;) {
+      const v_2 = this.limit - this.cursor;
+      lab1: {
+        if (!this.r_izenak()) {
+          break lab1;
+        }
+        continue;
       }
       this.cursor = this.limit - v_2;
-      break replab1;
+      break;
     }
-    replab3: for (;;) {
-      const v_3 = this.limit - this.cursor;
-      lab4: {
-        if (!this.r_izenak()) {
-          break lab4;
-        }
-        continue replab3;
-      }
-      this.cursor = this.limit - v_3;
-      break replab3;
-    }
-    const v_4 = this.limit - this.cursor;
-    this.r_adjetiboak();
-    this.cursor = this.limit - v_4;
+    this.do_backward(this.r_adjetiboak);
     this.cursor = this.limit_backward;
     return true;
   }
+
+  static g_v: number[] = [17, 65, 16];
 
   static a_0: Among<StemmerEu>[] = [
     new Among('idea', -1, 1),
@@ -259,7 +238,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('kizuna', -1, 1),
     new Among('era', -1, 1),
     new Among('bera', 28, 1),
-    new Among('arabera', 29, 4),
+    new Among('arabera', 29, -1),
     new Among('kera', 28, 1),
     new Among('pera', 28, 1),
     new Among('orra', -1, 1),
@@ -310,7 +289,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('rean', 77, 1),
     new Among('kan', 76, 1),
     new Among('etan', 76, 1),
-    new Among('atseden', -1, 3),
+    new Among('atseden', -1, -1),
     new Among('men', -1, 1),
     new Among('pen', -1, 1),
     new Among('kin', -1, 1),
@@ -332,7 +311,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('atu', 99, 1),
     new Among('aldatu', 100, 1),
     new Among('tatu', 100, 1),
-    new Among('baditu', 99, 5),
+    new Among('baditu', 99, -1),
     new Among('ez', -1, 1),
     new Among('errez', 104, 1),
     new Among('tzez', 104, 1),
@@ -403,7 +382,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('ontzia', -1, 1),
     new Among('ka', -1, 1),
     new Among('joka', 60, 3),
-    new Among('aurka', 60, 10),
+    new Among('aurka', 60, -1),
     new Among('ska', 60, 1),
     new Among('xka', 60, 1),
     new Among('zka', 60, 1),
@@ -520,7 +499,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('di', -1, 1),
     new Among('aldi', 176, 1),
     new Among('taldi', 177, 1),
-    new Among('geldi', 176, 8),
+    new Among('geldi', 176, -1),
     new Among('handi', 176, 1),
     new Among('mendi', 176, 1),
     new Among('gei', -1, 1),
@@ -589,7 +568,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('zino', 244, 1),
     new Among('ro', -1, 1),
     new Among('aro', 246, 1),
-    new Among('igaro', 247, 9),
+    new Among('igaro', 247, -1),
     new Among('taro', 247, 1),
     new Among('zaro', 247, 1),
     new Among('ero', 246, 1),
@@ -607,7 +586,7 @@ class StemmerEu extends SnowballStemmer {
     new Among('ar', -1, 1),
     new Among('dar', 263, 1),
     new Among('behar', 263, 1),
-    new Among('zehar', 263, 7),
+    new Among('zehar', 263, -1),
     new Among('liar', 263, 1),
     new Among('tiar', 263, 1),
     new Among('tar', 263, 1),
@@ -659,8 +638,6 @@ class StemmerEu extends SnowballStemmer {
     new Among('ero', 16, 1),
     new Among('to', -1, 1),
   ];
-
-  static g_v: number[] = [17, 65, 16];
 }
 
 export default StemmerEu;

@@ -1,13 +1,17 @@
 import { Among, SnowballStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * Stemmer written by tools/snowball from irish.sbl. Do not edit it by hand:
+ * change the Snowball program and generate it again.
+ */
 class StemmerGa extends SnowballStemmer {
   constructor(container?: ContainerHolder) {
     super(container);
     this.name = 'stemmer-ga';
+    this.I_pV = 0;
     this.I_p1 = 0;
     this.I_p2 = 0;
-    this.I_pV = 0;
   }
 
   r_mark_regions(): boolean {
@@ -20,109 +24,67 @@ class StemmerGa extends SnowballStemmer {
         break lab0;
       }
       this.I_pV = this.cursor;
-    }
-    this.cursor = v_1;
-    const v_3 = this.cursor;
-    lab3: {
-      if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
-        break lab3;
-      }
       if (!this.gopast_out_grouping(StemmerGa.g_v, 97, 250)) {
-        break lab3;
+        break lab0;
       }
       this.I_p1 = this.cursor;
       if (!this.gopast_in_grouping(StemmerGa.g_v, 97, 250)) {
-        break lab3;
+        break lab0;
       }
       if (!this.gopast_out_grouping(StemmerGa.g_v, 97, 250)) {
-        break lab3;
+        break lab0;
       }
       this.I_p2 = this.cursor;
     }
-    this.cursor = v_3;
+    this.cursor = v_1;
     return true;
   }
+
   r_initial_morph(): boolean {
-    this.bra = this.cursor;
-    const among_var = this.find_among(StemmerGa.a_0);
+    const among_var = this.find_slice(StemmerGa.a_0);
     if (among_var === 0) {
       return false;
     }
-    this.ket = this.cursor;
     switch (among_var) {
       case 1:
         this.slice_del();
         break;
       case 2:
-        this.slice_del();
+        this.slice_from('f');
         break;
       case 3:
-        this.slice_from('f');
+        this.slice_from('s');
         break;
       case 4:
-        this.slice_del();
+        this.slice_from('b');
         break;
       case 5:
-        this.slice_from('s');
+        this.slice_from('c');
         break;
       case 6:
-        this.slice_from('b');
+        this.slice_from('d');
         break;
       case 7:
-        this.slice_from('c');
+        this.slice_from('g');
         break;
       case 8:
-        this.slice_from('d');
+        this.slice_from('p');
         break;
       case 9:
-        this.slice_from('f');
+        this.slice_from('t');
         break;
       case 10:
-        this.slice_from('g');
-        break;
-      case 11:
-        this.slice_from('p');
-        break;
-      case 12:
-        this.slice_from('s');
-        break;
-      case 13:
-        this.slice_from('t');
-        break;
-      case 14:
-        this.slice_from('b');
-        break;
-      case 15:
-        this.slice_from('c');
-        break;
-      case 16:
-        this.slice_from('d');
-        break;
-      case 17:
-        this.slice_from('f');
-        break;
-      case 18:
-        this.slice_from('g');
-        break;
-      case 19:
         this.slice_from('m');
-        break;
-      case 20:
-        this.slice_from('p');
-        break;
-      case 21:
-        this.slice_from('t');
         break;
     }
     return true;
   }
+
   r_noun_sfx(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerGa.a_1);
+    const among_var = this.find_slice_b(StemmerGa.a_1);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R1()) {
@@ -139,13 +101,12 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
+
   r_deriv(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerGa.a_2);
+    const among_var = this.find_slice_b(StemmerGa.a_2);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_R2()) {
@@ -171,13 +132,12 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
+
   r_verb_sfx(): boolean {
-    this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerGa.a_3);
+    const among_var = this.find_slice_b(StemmerGa.a_3);
     if (among_var === 0) {
       return false;
     }
-    this.bra = this.cursor;
     switch (among_var) {
       case 1:
         if (!this.r_RV()) {
@@ -194,53 +154,48 @@ class StemmerGa extends SnowballStemmer {
     }
     return true;
   }
+
   innerStem(): boolean {
-    const v_1 = this.cursor;
-    this.r_initial_morph();
-    this.cursor = v_1;
-    const v_2 = this.cursor;
+    this.do_forward(this.r_initial_morph);
     this.r_mark_regions();
-    this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    const v_3 = this.limit - this.cursor;
-    this.r_noun_sfx();
-    this.cursor = this.limit - v_3;
-    const v_4 = this.limit - this.cursor;
-    this.r_deriv();
-    this.cursor = this.limit - v_4;
-    const v_5 = this.limit - this.cursor;
-    this.r_verb_sfx();
-    this.cursor = this.limit - v_5;
+    this.do_backward(this.r_noun_sfx);
+    this.do_backward(this.r_deriv);
+    this.do_backward(this.r_verb_sfx);
     this.cursor = this.limit_backward;
     return true;
   }
 
+  static g_v: number[] = [
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 2,
+  ];
+
   static a_0: Among<StemmerGa>[] = [
-    new Among("b'", -1, 4),
-    new Among('bh', -1, 14),
-    new Among('bhf', 1, 9),
-    new Among('bp', -1, 11),
-    new Among('ch', -1, 15),
-    new Among("d'", -1, 2),
-    new Among("d'fh", 5, 3),
-    new Among('dh', -1, 16),
-    new Among('dt', -1, 13),
-    new Among('fh', -1, 17),
-    new Among('gc', -1, 7),
-    new Among('gh', -1, 18),
+    new Among("b'", -1, 1),
+    new Among('bh', -1, 4),
+    new Among('bhf', 1, 2),
+    new Among('bp', -1, 8),
+    new Among('ch', -1, 5),
+    new Among("d'", -1, 1),
+    new Among("d'fh", 5, 2),
+    new Among('dh', -1, 6),
+    new Among('dt', -1, 9),
+    new Among('fh', -1, 2),
+    new Among('gc', -1, 5),
+    new Among('gh', -1, 7),
     new Among('h-', -1, 1),
-    new Among("m'", -1, 4),
-    new Among('mb', -1, 6),
-    new Among('mh', -1, 19),
+    new Among("m'", -1, 1),
+    new Among('mb', -1, 4),
+    new Among('mh', -1, 10),
     new Among('n-', -1, 1),
-    new Among('nd', -1, 8),
-    new Among('ng', -1, 10),
-    new Among('ph', -1, 20),
-    new Among('sh', -1, 5),
+    new Among('nd', -1, 6),
+    new Among('ng', -1, 7),
+    new Among('ph', -1, 8),
+    new Among('sh', -1, 3),
     new Among('t-', -1, 1),
-    new Among('th', -1, 21),
-    new Among('ts', -1, 12),
+    new Among('th', -1, 9),
+    new Among('ts', -1, 3),
   ];
 
   static a_1: Among<StemmerGa>[] = [
@@ -303,10 +258,6 @@ class StemmerGa extends SnowballStemmer {
     new Among('ain', -1, 2),
     new Among('tear', -1, 2),
     new Among('tar', -1, 2),
-  ];
-
-  static g_v: number[] = [
-    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 2,
   ];
 }
 

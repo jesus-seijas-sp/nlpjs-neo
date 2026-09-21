@@ -921,8 +921,14 @@ class Generator {
   }
 
   private methodOf(name: string): string {
-    return this.program.names.get(name) === 'external' && name === 'stem'
-      ? 'innerStem'
+    if (this.program.names.get(name) === 'external' && name === 'stem') {
+      return 'innerStem';
+    }
+    // A trailing underscore is dropped (Turkish has `mark_ymUs_`), unless
+    // that would give two routines the same name.
+    const bare = name.replace(/_+$/, '');
+    return bare !== name && !this.routines.has(bare)
+      ? `r_${bare}`
       : `r_${name}`;
   }
 
