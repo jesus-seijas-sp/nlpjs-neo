@@ -59,3 +59,7 @@ The Catalan, Basque, Irish, Armenian, Indonesian, Nepali, Tamil and Turkish stem
 generated too, from the current Snowball programs. They answer what they did, and
 `find_among` runs the guards of a table on the stemmer that searches it, as `find_among_b`
 already did.
+
+The Czech stemmer is generated from the Snowball program of Jim O'Regan for the stemmer of
+Ljiljana Dolamic, and its answers do not change. The credits of the Czech and Polish stemmers are in
+their READMEs.

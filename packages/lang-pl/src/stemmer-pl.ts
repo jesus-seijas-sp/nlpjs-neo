@@ -1,6 +1,14 @@
 import { BaseStemmer } from '@nlpjs-neo/core';
 import type { ContainerHolder } from '@nlpjs-neo/core';
 
+/**
+ * The Polish stemmer: a port of `pl_stemmer` by Błażej Kubiński
+ * (https://github.com/Tutanchamon/pl_stemmer, MIT license), a simple stemmer
+ * for Polish based on Porter's algorithm. It takes off, in turn, the endings
+ * of nouns, diminutives, adjectives, verbs, adverbs and plurals. The rules
+ * that end in `ą` are not here, because the normalizer has taken the accents
+ * off by the time a word is stemmed.
+ */
 class StemmerPl extends BaseStemmer {
   constructor(container?: ContainerHolder) {
     super(container);

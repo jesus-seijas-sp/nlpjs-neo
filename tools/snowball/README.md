@@ -42,10 +42,10 @@ differs from Snowball, and then `pnpm stemmers` writes the TypeScript again.
 
 ## What is generated so far
 
-Twenty-five languages: English (`lang-en-min`, with our tokenizer on top), Spanish (`lang-es`,
+Twenty-six languages: English (`lang-en-min`, with our tokenizer on top), Spanish (`lang-es`,
 with the changes below), and Arabic, Catalan, Danish, German, Basque, Finnish, French, Irish,
 Hungarian, Armenian, Indonesian, Italian, Lithuanian, Nepali, Dutch, Norwegian, Portuguese,
-Romanian, Russian, Serbian, Swedish, Tamil and Turkish, whose generated file is the stemmer
+Romanian, Russian, Serbian, Swedish, Tamil, Turkish and Czech, whose generated file is the stemmer
 (`stemmer-xx.ts`). All of them are the current programs of Snowball except English, Arabic,
 German, Danish, Finnish, French, Hungarian, Italian, Lithuanian, Dutch, Norwegian, Portuguese,
 Romanian, Russian, Serbian, Swedish and Spanish, which are Snowball 2.2.0, the version the stemmers
@@ -53,7 +53,14 @@ were generated from before: later versions changed the algorithms of several of 
 of its words, Romanian on 15%). `stemmers.ts` lists them, and a test checks that each committed file
 is what the tool writes.
 
-Polish and Czech are not here: theirs are not Snowball 2.x algorithms.
+Czech is generated too, from the program that Jim O'Regan sent to Snowball in 2012 for the stemmer
+of Ljiljana Dolamic and Jacques Savoy (Snowball's own Czech program, added in 2026, is another
+algorithm: it stems 15% of the words differently). Its stringdefs number the characters in
+ISO-8859-2, which `stemmers.ts` says with `charset`. It has one change of ours, marked
+`nlpjs-neo`: a word of up to four letters is left alone.
+
+Polish is not Snowball at all: `lang-pl` is a port of `pl_stemmer` by Błażej Kubiński, written by
+hand, and its credits are in the package.
 
 ## Spanish, which has changes of its own
 

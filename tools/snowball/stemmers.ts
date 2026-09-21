@@ -13,6 +13,8 @@ export interface Stemmer {
   out: string;
   className: string;
   name: string;
+  /** Character set of the numbers of the stringdefs, when it is not Unicode. */
+  charset?: string;
 }
 
 export const STEMMERS: Stemmer[] = [
@@ -166,14 +168,24 @@ export const STEMMERS: Stemmer[] = [
     className: 'StemmerSv',
     name: 'stemmer-sv',
   },
+  {
+    sbl: 'tools/snowball/algorithms/czech.sbl',
+    out: 'packages/lang-cs/src/stemmer-cs.ts',
+    className: 'StemmerCs',
+    name: 'stemmer-cs',
+    charset: 'iso-8859-2',
+  },
 ];
 
 /** The TypeScript that the tool writes for a stemmer; `root` is the root of the repository. */
 export function render(root: string, stemmer: Stemmer): string {
-  return generate(parseProgram(join(root, stemmer.sbl)), {
-    className: stemmer.className,
-    name: stemmer.name,
-    source: basename(stemmer.sbl),
-    inheritRegions: true,
-  });
+  return generate(
+    parseProgram(join(root, stemmer.sbl), { charset: stemmer.charset }),
+    {
+      className: stemmer.className,
+      name: stemmer.name,
+      source: basename(stemmer.sbl),
+      inheritRegions: true,
+    }
+  );
 }

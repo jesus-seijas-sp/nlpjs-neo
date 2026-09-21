@@ -220,9 +220,13 @@ class Lexer {
   private src: string;
   private file: string;
 
-  constructor(src: string, file: string) {
+  /** Character set of the numbers of `hex` and `decimal` stringdefs, when it is not Unicode. */
+  private readonly charset: string | undefined;
+
+  constructor(src: string, file: string, charset?: string) {
     this.src = src;
     this.file = file;
+    this.charset = charset;
   }
 
   private fail(message: string): never {
@@ -301,6 +305,13 @@ class Lexer {
     return this.src[this.pos++];
   }
 
+  /** The character that a number of a `hex` or `decimal` stringdef stands for. */
+  private character(code: number): string {
+    return this.charset === undefined
+      ? String.fromCharCode(code)
+      : new TextDecoder(this.charset).decode(Uint8Array.of(code));
+  }
+
   private stringdef(): void {
     // The name is the run of characters up to the next space.
     while (this.pos < this.src.length && /\s/.test(this.src[this.pos])) {
@@ -331,7 +342,7 @@ class Lexer {
       value = value
         .split(' ')
         .filter(Boolean)
-        .map((n) => String.fromCharCode(parseInt(n, base)))
+        .map((n) => this.character(parseInt(n, base)))
         .join('');
     }
     this.macros.set(name, value);
@@ -442,16 +453,23 @@ class Lexer {
 }
 
 /** Reads a program and everything it `get`s. */
-export function parseProgram(file: string): Program {
+export function parseProgram(
+  file: string,
+  options: { charset?: string } = {}
+): Program {
   return new Parser(
-    new Lexer(readFileSync(file, 'utf8'), file),
+    new Lexer(readFileSync(file, 'utf8'), file, options.charset),
     file
   ).program();
 }
 
 /** Reads a program from text. */
-export function parseSource(source: string, file = 'input.sbl'): Program {
-  return new Parser(new Lexer(source, file), file).program();
+export function parseSource(
+  source: string,
+  file = 'input.sbl',
+  options: { charset?: string } = {}
+): Program {
+  return new Parser(new Lexer(source, file, options.charset), file).program();
 }
 
 class Parser {

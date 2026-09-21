@@ -119,6 +119,26 @@ describe('Snowball compiler', () => {
       expect(items.map((item) => item.s)).toEqual(['café', "'"]);
     });
 
+    test('It should read the numbers of a stringdef in the character set it is given', () => {
+      const source = `
+        routines ( r )
+        externals ( stem )
+        stringescapes {}
+        stringdef z^ hex 'BE'
+        define r as ('{z^}')
+        define stem as r
+      `;
+      const chars = (charset?: string) =>
+        (
+          parseSource(source, 'input.sbl', { charset }).routines[0].body as {
+            s: string;
+          }
+        ).s;
+      // 0xBE is the letter ž in ISO-8859-2, and the fraction ¾ in Latin-1.
+      expect(chars('iso-8859-2')).toBe('ž');
+      expect(chars()).toBe('¾');
+    });
+
     test('It should refuse a name that was not declared', () => {
       expect(() =>
         parseSource('externals ( stem )\ndefine stem as missing')
