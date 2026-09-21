@@ -84,4 +84,89 @@ describe('Compile', () => {
       expect(answer).toEqual({ name: 'Jesus', nested: { id: '106' } });
     });
   });
+  describe('objects and arrays inside a string', () => {
+    it('Should print an object as JSON, not as [object Object]', () => {
+      const answer = compile('a {{ o }} b')({ o: { x: 1 } });
+      expect(answer).toEqual(`a ${JSON.stringify({ x: 1 }, null, 2)} b`);
+    });
+    it('Should keep the placeholder of an expression without a value', () => {
+      const answer = compile('a {{ missing }} b')({ missing: null });
+      expect(answer).toEqual('a {{ missing }} b');
+    });
+  });
+
+  describe('sections', () => {
+    it('Should repeat a section for each item of an array', () => {
+      const answer = compile('{{#items}}{{ name }},{{/#}}')({
+        items: [{ name: 'a' }, { name: 'b' }],
+      });
+      expect(answer).toEqual('a,b,');
+    });
+    it('Should give the section the current item, its index and the parent', () => {
+      const answer = compile(
+        '{{#items}}{{ _index_ }}:{{ _current_.name }}@{{ _parent_.tag }} {{/#}}'
+      )({
+        items: [{ name: 'a' }, { name: 'b' }],
+        tag: 't',
+      });
+      expect(answer).toEqual('0:a@t 1:b@t ');
+    });
+    it('Should treat a value that is not an array as a single item', () => {
+      const answer = compile('{{#one}}{{ name }}{{/#}}')({
+        one: { name: 'a' },
+      });
+      expect(answer).toEqual('a');
+    });
+    it('Should nest sections', () => {
+      const answer = compile('{{#rows}}[{{#cells}}{{ v }}{{/#}}]{{/#}}')({
+        rows: [{ cells: [{ v: 1 }, { v: 2 }] }, { cells: [{ v: 3 }] }],
+      });
+      expect(answer).toEqual('[12][3]');
+    });
+    it('Should ignore a close that has no section to close', () => {
+      expect(compile('a{{/#}}b')({})).toEqual('ab');
+    });
+    it('Should give an empty string for a section of an empty array', () => {
+      expect(compile('a{{#items}}x{{/#}}b')({ items: [] })).toEqual('ab');
+    });
+  });
+
+  describe('_iterator_', () => {
+    it('Should repeat an array item for each item of the context array', () => {
+      const answer = compile([
+        { _iterator_: '#items', label: '{{ name }}' },
+        'end',
+      ])({
+        items: [{ name: 'a' }, { name: 'b' }],
+      });
+      expect(answer).toEqual([{ label: 'a' }, { label: 'b' }, 'end']);
+    });
+    it('Should give nothing when the context has no such array', () => {
+      const answer = compile([{ _iterator_: '#items', label: 'x' }])({});
+      expect(answer).toEqual([]);
+    });
+  });
+
+  describe('native', () => {
+    it('Should keep the type of a string that is one expression', () => {
+      const context = { n: 5, o: { x: 1 } };
+      expect(compile('{{ n }}', { native: true })(context)).toBe(5);
+      expect(compile('{{ o }}', { native: true })(context)).toBe(context.o);
+    });
+    it('Should keep a string as text when native is not asked for', () => {
+      expect(compile('{{ n }}')({ n: 5 })).toBe('5');
+    });
+    it('Should still answer text when the string holds more than the expression', () => {
+      expect(compile('n: {{ n }}', { native: true })({ n: 5 })).toBe('n: 5');
+    });
+    it('Should keep native values inside objects and arrays', () => {
+      const answer = compile({ list: ['{{ n }}'] }, { native: true })({ n: 5 });
+      expect(answer).toEqual({ list: [5] });
+    });
+    it('Should keep the placeholder of an expression without a value', () => {
+      expect(compile('{{ missing }}', { native: true })({})).toBe(
+        '{{ missing }}'
+      );
+    });
+  });
 });
