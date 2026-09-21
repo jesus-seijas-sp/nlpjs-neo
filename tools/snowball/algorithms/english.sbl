@@ -1,7 +1,7 @@
 // English stemmer (Porter2), from the Snowball project: https://snowballstem.org/algorithms/english/stemmer.html
 // This is english.sbl of Snowball 2.2.0 as it was published, so the stemmer answers
 // what the previous generated one did. Snowball is BSD licensed, see tools/snowball/LICENSE-SNOWBALL.
-// Regenerate the stemmer with: pnpm stemmers
+// Regenerate the stemmers with: pnpm stemmers
 
 integers ( p1 p2 )
 booleans ( Y_found )

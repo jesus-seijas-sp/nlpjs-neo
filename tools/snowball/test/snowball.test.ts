@@ -63,7 +63,7 @@ describe('Snowball compiler', () => {
     test('It should be what the tool writes from the Snowball program', () => {
       const root = fileURLToPath(new URL('../../../', import.meta.url));
       const code = generate(
-        parseProgram(`${root}packages/lang-en-min/snowball/english.sbl`),
+        parseProgram(`${root}tools/snowball/algorithms/english.sbl`),
         {
           className: 'SnowballStemmerEn',
           name: 'stemmer-en',

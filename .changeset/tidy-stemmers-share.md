@@ -48,6 +48,6 @@ own copies.
 each time: `gopast_in_grouping`, `gopast_out_grouping`, `goto_in_grouping` and
 `goto_out_grouping`, and their `_b` versions that move backward.
 
-The English stemmer is now generated from `snowball/english.sbl` by `tools/snowball`
+The English stemmer is now generated from `tools/snowball/algorithms/english.sbl` by `tools/snowball`
 (`pnpm stemmers`), and `StemmerEn` extends the generated class with the tokenizer. What
 it answers does not change.

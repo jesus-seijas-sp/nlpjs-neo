@@ -14,16 +14,19 @@ pnpm stemmers lang-en-min  # only the ones whose output path contains this
 The stemmers used to be output of the old Snowball JavaScript generator, edited by hand over the
 years. Nobody could tell what was Snowball and what was ours, they carried their own lint
 exemptions, and updating an algorithm meant rewriting it. Now the algorithm is the Snowball
-program, kept in the package next to the code it makes, and the generated file is never edited.
+program, kept with the tool, and the generated file is never edited.
 
 ## How a package uses it
 
 ```
+tools/snowball/algorithms/english.sbl     the Snowball program
 packages/lang-en-min/
-  snowball/english.sbl           the Snowball program
-  src/stemmer-en.generated.ts    what the tool writes (do not edit)
-  src/stemmer-en.ts              our class: extends the generated one and adds what is ours
+  src/stemmer-en.generated.ts             what the tool writes (do not edit)
+  src/stemmer-en.ts                       our class: extends the generated one and adds what is ours
 ```
+
+The programs of all the languages live together in `tools/snowball/algorithms/`, so one place has
+every algorithm, and a package holds only TypeScript.
 
 What is ours goes in the class that extends the generated one. For English that is the
 tokenizer, which expands `I'll` before the words are stemmed:
@@ -39,7 +42,7 @@ differs from Snowball, and then `pnpm stemmers` writes the TypeScript again.
 
 ## Adding a language
 
-Put the `.sbl` in `packages/lang-xx/snowball/`, add an entry to `STEMMERS` in `build.ts`, and run
+Put the `.sbl` in `tools/snowball/algorithms/`, add an entry to `STEMMERS` in `build.ts`, and run
 `pnpm stemmers`. The Snowball programs of every language are in
 <https://github.com/snowballstem/snowball/tree/master/algorithms>.
 
@@ -67,7 +70,7 @@ programs and run what they generate.
 
 ## Where the English program comes from
 
-`packages/lang-en-min/snowball/english.sbl` is the program of Snowball 2.2.0, which is the one the
+`tools/snowball/algorithms/english.sbl` is the program of Snowball 2.2.0, which is the one the
 old stemmer was generated from, so the stemmer answers what it always did (tested over 100,000
 words). The current program of Snowball (`test/fixtures/english.sbl`) stems 57 of the 42,000
 words of the official vocabulary differently, such as `added`, which it stems to `add`. Replacing

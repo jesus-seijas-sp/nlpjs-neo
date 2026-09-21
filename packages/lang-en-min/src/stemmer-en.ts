@@ -3,9 +3,9 @@ import TokenizerEn from './tokenizer-en.js';
 
 /**
  * The English stemmer. The algorithm is the Snowball one, generated from
- * `snowball/english.sbl` into `stemmer-en.generated.ts`; what this class adds
- * is the tokenizer of the language, which expands the contractions before the
- * words are stemmed.
+ * `tools/snowball/algorithms/english.sbl` into `stemmer-en.generated.ts`;
+ * what this class adds is the tokenizer of the language, which expands the
+ * contractions before the words are stemmed.
  */
 class StemmerEn extends SnowballStemmerEn {
   getTokenizer() {

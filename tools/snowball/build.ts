@@ -21,7 +21,7 @@ interface Stemmer {
 
 const STEMMERS: Stemmer[] = [
   {
-    sbl: 'packages/lang-en-min/snowball/english.sbl',
+    sbl: 'tools/snowball/algorithms/english.sbl',
     out: 'packages/lang-en-min/src/stemmer-en.generated.ts',
     className: 'SnowballStemmerEn',
     name: 'stemmer-en',
