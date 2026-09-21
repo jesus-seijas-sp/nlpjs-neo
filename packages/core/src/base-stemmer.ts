@@ -10,7 +10,6 @@ import type {
   TokenizerService,
 } from './types.js';
 
-/* oxlint-disable */
 /**
  * Runtime the generated Snowball stemmers are compiled against: a cursor over
  * `current`, the grouping and among primitives their rules call, and the
@@ -89,7 +88,7 @@ class BaseStemmer {
 
   /** Tests one character against a grouping table: `true` when it is absent. */
   bc(s: number[], ch: number): boolean {
-    if ((s[ch >>> 3] & (0x1 << (ch & 0x7))) == 0) {
+    if ((s[ch >>> 3] & (0x1 << (ch & 0x7))) === 0) {
       return true;
     }
     return false;
@@ -252,7 +251,7 @@ class BaseStemmer {
     }
     if (
       this.limit - this.cursor < s_size ||
-      this.current.slice(this.cursor, this.cursor + s_size) != s
+      this.current.slice(this.cursor, this.cursor + s_size) !== s
     ) {
       return false;
     }
@@ -267,7 +266,7 @@ class BaseStemmer {
     }
     if (
       this.cursor - this.limit_backward < s_size ||
-      this.current.slice(this.cursor - s_size, this.cursor) != s
+      this.current.slice(this.cursor - s_size, this.cursor) !== s
     ) {
       return false;
     }
@@ -287,19 +286,18 @@ class BaseStemmer {
 
     let first_key_inspected = false;
 
-    while (true) {
+    for (;;) {
       const k = i + ((j - i) >>> 1);
       let diff = 0;
       let common = common_i < common_j ? common_i : common_j; // smaller
-      var w = v[k];
-      var i2;
-      for (i2 = common; i2 < w.s_size; i2++) {
-        if (c + common == l) {
+      const w = v[k];
+      for (let i2 = common; i2 < w.s_size; i2++) {
+        if (c + common === l) {
           diff = -1;
           break;
         }
         diff = this.current.charCodeAt(c + common) - w.s.charCodeAt(i2);
-        if (diff != 0) break;
+        if (diff !== 0) break;
         common++;
       }
       if (diff < 0) {
@@ -311,7 +309,7 @@ class BaseStemmer {
       }
       if (j - i <= 1) {
         if (i > 0) break; // v->s has been inspected
-        if (j == i) break; // only one item in v
+        if (j === i) break; // only one item in v
 
         // - but now we need to go round once more to get
         // v->s inspected. This looks messy, but is actually
@@ -321,11 +319,11 @@ class BaseStemmer {
         first_key_inspected = true;
       }
     }
-    while (true) {
-      var w = v[i];
+    for (;;) {
+      const w = v[i];
       if (common_i >= w.s_size) {
         this.cursor = c + w.s_size;
-        if (w.method == null) {
+        if (w.method === undefined || w.method === null) {
           return w.result;
         }
         const res = w.method(w.instance);
@@ -340,7 +338,6 @@ class BaseStemmer {
       i = w.substring_i as number;
       if (i < 0) return 0;
     }
-    return -1; // not reachable
   }
 
   // find_among_b is for backwards processing. Same comments apply
@@ -356,19 +353,18 @@ class BaseStemmer {
 
     let first_key_inspected = false;
 
-    while (true) {
+    for (;;) {
       const k = i + ((j - i) >> 1);
       let diff = 0;
       let common = common_i < common_j ? common_i : common_j;
-      var w = v[k];
-      var i2;
-      for (i2 = w.s_size - 1 - common; i2 >= 0; i2--) {
-        if (c - common == lb) {
+      const w = v[k];
+      for (let i2 = w.s_size - 1 - common; i2 >= 0; i2--) {
+        if (c - common === lb) {
           diff = -1;
           break;
         }
         diff = this.current.charCodeAt(c - 1 - common) - w.s.charCodeAt(i2);
-        if (diff != 0) break;
+        if (diff !== 0) break;
         common++;
       }
       if (diff < 0) {
@@ -380,16 +376,16 @@ class BaseStemmer {
       }
       if (j - i <= 1) {
         if (i > 0) break;
-        if (j == i) break;
+        if (j === i) break;
         if (first_key_inspected) break;
         first_key_inspected = true;
       }
     }
-    while (true) {
-      var w = v[i];
+    for (;;) {
+      const w = v[i];
       if (common_i >= w.s_size) {
         this.cursor = c - w.s_size;
-        if (w.method == null) return w.result;
+        if (w.method === undefined || w.method === null) return w.result;
         const res = w.method(this);
         this.cursor = c - w.s_size;
         if (res) return w.result;
@@ -400,7 +396,6 @@ class BaseStemmer {
       i = w.substring_i as number;
       if (i < 0) return 0;
     }
-    return -1; // not reachable
   }
 
   /* to replace chars between c_bra and c_ket in this.current by the
@@ -446,7 +441,7 @@ class BaseStemmer {
   }
 
   /* Copy the slice into the supplied StringBuffer */
-  slice_to(s?: string): string {
+  slice_to(_s?: string): string {
     let result = '';
     if (this.slice_check()) {
       result = this.current.slice(this.bra, this.ket);
@@ -456,7 +451,7 @@ class BaseStemmer {
 
   stemWord(word: Token): Token {
     let result = this.cache[`.${word}`];
-    if (result == null) {
+    if (result === undefined || result === null) {
       if (this.dictionary.before.hasOwnProperty(word)) {
         result = this.dictionary.before[word];
       } else {
@@ -492,7 +487,7 @@ class BaseStemmer {
    */
   stem(
     tokens: Token | Token[] | undefined,
-    input?: PipelineInput
+    _input?: PipelineInput
   ): Token | Token[] | Promise<Token[]> | undefined {
     if (tokens === undefined || tokens === null) {
       return tokens;
