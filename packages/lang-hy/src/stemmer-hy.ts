@@ -100,11 +100,7 @@ class StemmerHy extends SnowballStemmer {
   }
   innerStem() {
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
@@ -117,32 +113,16 @@ class StemmerHy extends SnowballStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_2;
     const v_4 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_ending()) {
-        break lab1;
-      }
-    }
+    this.r_ending();
     this.cursor = this.limit - v_4;
     const v_5 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_verb()) {
-        break lab2;
-      }
-    }
+    this.r_verb();
     this.cursor = this.limit - v_5;
     const v_6 = this.limit - this.cursor;
-    lab3: {
-      if (!this.r_adjective()) {
-        break lab3;
-      }
-    }
+    this.r_adjective();
     this.cursor = this.limit - v_6;
     const v_7 = this.limit - this.cursor;
-    lab4: {
-      if (!this.r_noun()) {
-        break lab4;
-      }
-    }
+    this.r_noun();
     this.cursor = this.limit - v_7;
     this.limit_backward = v_3;
     this.cursor = this.limit_backward;

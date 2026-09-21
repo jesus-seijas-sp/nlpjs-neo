@@ -162,11 +162,7 @@ class StemmerDa extends BaseStemmer {
         }
         // do
         v_4 = this.limit - this.cursor;
-        lab1: {
-          if (!this.r_consonant_pair()) {
-            break lab1;
-          }
-        }
+        this.r_consonant_pair();
         this.cursor = this.limit - v_4;
         break;
       case 2:
@@ -212,46 +208,26 @@ class StemmerDa extends BaseStemmer {
   innerStem() {
     // do
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_main_suffix()) {
-        break lab1;
-      }
-    }
+    this.r_main_suffix();
     this.cursor = this.limit - v_2;
     // do
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_consonant_pair()) {
-        break lab2;
-      }
-    }
+    this.r_consonant_pair();
     this.cursor = this.limit - v_3;
     // do
     const v_4 = this.limit - this.cursor;
-    lab3: {
-      if (!this.r_other_suffix()) {
-        break lab3;
-      }
-    }
+    this.r_other_suffix();
     this.cursor = this.limit - v_4;
     // do
     const v_5 = this.limit - this.cursor;
-    lab4: {
-      if (!this.r_undouble()) {
-        break lab4;
-      }
-    }
+    this.r_undouble();
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward;
     return true;

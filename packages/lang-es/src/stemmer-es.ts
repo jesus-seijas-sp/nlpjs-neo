@@ -665,22 +665,14 @@ class StemmerEs extends SnowballStemmer {
   innerbStem() {
     // do
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_attached_pronoun()) {
-        break lab1;
-      }
-    }
+    this.r_attached_pronoun();
     this.cursor = this.limit - v_2;
     // do
     const v_3 = this.limit - this.cursor;
@@ -710,19 +702,11 @@ class StemmerEs extends SnowballStemmer {
     this.cursor = this.limit - v_3;
     // do
     const v_5 = this.limit - this.cursor;
-    lab6: {
-      if (!this.r_residual_suffix()) {
-        break lab6;
-      }
-    }
+    this.r_residual_suffix();
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward; // do
     const v_6 = this.cursor;
-    lab7: {
-      if (!this.r_postlude()) {
-        break lab7;
-      }
-    }
+    this.r_postlude();
     this.cursor = v_6;
     return true;
   }

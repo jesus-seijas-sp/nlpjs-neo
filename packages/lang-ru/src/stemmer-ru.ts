@@ -292,11 +292,7 @@ class StemmerRu extends SnowballStemmer {
   innerStem() {
     // do
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     // backwards
     this.limit_backward = this.cursor;
@@ -369,19 +365,11 @@ class StemmerRu extends SnowballStemmer {
     }
     // do
     const v_9 = this.limit - this.cursor;
-    lab9: {
-      if (!this.r_derivational()) {
-        break lab9;
-      }
-    }
+    this.r_derivational();
     this.cursor = this.limit - v_9;
     // do
     const v_10 = this.limit - this.cursor;
-    lab10: {
-      if (!this.r_tidy_up()) {
-        break lab10;
-      }
-    }
+    this.r_tidy_up();
     this.cursor = this.limit - v_10;
     this.limit_backward = v_3;
     this.cursor = this.limit_backward;

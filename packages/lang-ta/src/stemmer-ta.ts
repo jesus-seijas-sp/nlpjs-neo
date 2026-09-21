@@ -109,11 +109,7 @@ class StemmerTa extends BaseStemmer {
           break lab1;
         }
         const v_2 = this.cursor;
-        lab2: {
-          if (!this.r_fix_ending()) {
-            break lab2;
-          }
-        }
+        this.r_fix_ending();
         this.cursor = v_2;
         continue replab0;
       }
@@ -136,11 +132,7 @@ class StemmerTa extends BaseStemmer {
     this.ket = this.cursor;
     this.slice_del();
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_fix_va_start()) {
-        break lab0;
-      }
-    }
+    this.r_fix_va_start();
     this.cursor = v_1;
     return true;
   }
@@ -449,11 +441,7 @@ class StemmerTa extends BaseStemmer {
     this.slice_del();
     this.B_found_a_match = true;
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_fix_va_start()) {
-        break lab0;
-      }
-    }
+    this.r_fix_va_start();
     this.cursor = v_1;
     return true;
   }
@@ -536,11 +524,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = this.limit - v_1;
     this.cursor = this.limit_backward;
     const v_2 = this.cursor;
-    lab1: {
-      if (!this.r_fix_endings()) {
-        break lab1;
-      }
-    }
+    this.r_fix_endings();
     this.cursor = v_2;
     return true;
   }
@@ -577,11 +561,7 @@ class StemmerTa extends BaseStemmer {
     this.B_found_a_match = true;
     this.cursor = this.limit_backward;
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_fix_ending()) {
-        break lab0;
-      }
-    }
+    this.r_fix_ending();
     this.cursor = v_1;
     return true;
   }
@@ -725,11 +705,7 @@ class StemmerTa extends BaseStemmer {
     }
     this.cursor = this.limit_backward;
     const v_7 = this.cursor;
-    lab17: {
-      if (!this.r_fix_endings()) {
-        break lab17;
-      }
-    }
+    this.r_fix_endings();
     this.cursor = v_7;
     return true;
   }
@@ -1032,11 +1008,7 @@ class StemmerTa extends BaseStemmer {
     this.cursor = this.limit - v_20;
     this.cursor = this.limit_backward;
     const v_21 = this.cursor;
-    lab35: {
-      if (!this.r_fix_endings()) {
-        break lab35;
-      }
-    }
+    this.r_fix_endings();
     this.cursor = v_21;
     return true;
   }
@@ -1049,11 +1021,7 @@ class StemmerTa extends BaseStemmer {
           break lab1;
         }
         const v_2 = this.cursor;
-        lab2: {
-          if (!this.r_remove_tense_suffix()) {
-            break lab2;
-          }
-        }
+        this.r_remove_tense_suffix();
         this.cursor = v_2;
         continue replab0;
       }
@@ -1509,88 +1477,44 @@ class StemmerTa extends BaseStemmer {
     this.cursor = this.limit - v_17;
     this.cursor = this.limit_backward;
     const v_18 = this.cursor;
-    lab58: {
-      if (!this.r_fix_endings()) {
-        break lab58;
-      }
-    }
+    this.r_fix_endings();
     this.cursor = v_18;
     return true;
   }
   innerStem() {
     this.B_found_vetrumai_urupu = false;
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_fix_ending()) {
-        break lab0;
-      }
-    }
+    this.r_fix_ending();
     this.cursor = v_1;
     if (!this.r_has_min_length()) {
       return false;
     }
     const v_2 = this.cursor;
-    lab1: {
-      if (!this.r_remove_question_prefixes()) {
-        break lab1;
-      }
-    }
+    this.r_remove_question_prefixes();
     this.cursor = v_2;
     const v_3 = this.cursor;
-    lab2: {
-      if (!this.r_remove_pronoun_prefixes()) {
-        break lab2;
-      }
-    }
+    this.r_remove_pronoun_prefixes();
     this.cursor = v_3;
     const v_4 = this.cursor;
-    lab3: {
-      if (!this.r_remove_question_suffixes()) {
-        break lab3;
-      }
-    }
+    this.r_remove_question_suffixes();
     this.cursor = v_4;
     const v_5 = this.cursor;
-    lab4: {
-      if (!this.r_remove_um()) {
-        break lab4;
-      }
-    }
+    this.r_remove_um();
     this.cursor = v_5;
     const v_6 = this.cursor;
-    lab5: {
-      if (!this.r_remove_common_word_endings()) {
-        break lab5;
-      }
-    }
+    this.r_remove_common_word_endings();
     this.cursor = v_6;
     const v_7 = this.cursor;
-    lab6: {
-      if (!this.r_remove_vetrumai_urupukal()) {
-        break lab6;
-      }
-    }
+    this.r_remove_vetrumai_urupukal();
     this.cursor = v_7;
     const v_8 = this.cursor;
-    lab7: {
-      if (!this.r_remove_plural_suffix()) {
-        break lab7;
-      }
-    }
+    this.r_remove_plural_suffix();
     this.cursor = v_8;
     const v_9 = this.cursor;
-    lab8: {
-      if (!this.r_remove_command_suffixes()) {
-        break lab8;
-      }
-    }
+    this.r_remove_command_suffixes();
     this.cursor = v_9;
     const v_10 = this.cursor;
-    lab9: {
-      if (!this.r_remove_tense_suffixes()) {
-        break lab9;
-      }
-    }
+    this.r_remove_tense_suffixes();
     this.cursor = v_10;
     return true;
   }

@@ -529,11 +529,7 @@ class StemmerFi extends SnowballStemmer {
   innerStem() {
     // do
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     // unset ending_removed
     this.B_ending_removed = false;
@@ -542,35 +538,19 @@ class StemmerFi extends SnowballStemmer {
     this.cursor = this.limit;
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_particle_etc()) {
-        break lab1;
-      }
-    }
+    this.r_particle_etc();
     this.cursor = this.limit - v_2;
     // do
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_possessive()) {
-        break lab2;
-      }
-    }
+    this.r_possessive();
     this.cursor = this.limit - v_3;
     // do
     const v_4 = this.limit - this.cursor;
-    lab3: {
-      if (!this.r_case_ending()) {
-        break lab3;
-      }
-    }
+    this.r_case_ending();
     this.cursor = this.limit - v_4;
     // do
     const v_5 = this.limit - this.cursor;
-    lab4: {
-      if (!this.r_other_endings()) {
-        break lab4;
-      }
-    }
+    this.r_other_endings();
     this.cursor = this.limit - v_5;
     // or
     lab5: {
@@ -582,31 +562,19 @@ class StemmerFi extends SnowballStemmer {
         }
         // do
         const v_7 = this.limit - this.cursor;
-        lab7: {
-          if (!this.r_i_plural()) {
-            break lab7;
-          }
-        }
+        this.r_i_plural();
         this.cursor = this.limit - v_7;
         break lab5;
       }
       this.cursor = this.limit - v_6;
       // do
       const v_8 = this.limit - this.cursor;
-      lab8: {
-        if (!this.r_t_plural()) {
-          break lab8;
-        }
-      }
+      this.r_t_plural();
       this.cursor = this.limit - v_8;
     }
     // do
     const v_9 = this.limit - this.cursor;
-    lab9: {
-      if (!this.r_tidy()) {
-        break lab9;
-      }
-    }
+    this.r_tidy();
     this.cursor = this.limit - v_9;
     this.cursor = this.limit_backward;
     return true;

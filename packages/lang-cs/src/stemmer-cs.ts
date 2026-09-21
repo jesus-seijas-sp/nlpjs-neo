@@ -290,25 +290,13 @@ class StemmerCs extends SnowballStemmer {
   }
   r_do_aggressive() {
     const v_1 = this.limit - this.cursor;
-    lab0: {
-      if (!this.r_do_comparative()) {
-        break lab0;
-      }
-    }
+    this.r_do_comparative();
     this.cursor = this.limit - v_1;
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_do_diminutive()) {
-        break lab1;
-      }
-    }
+    this.r_do_diminutive();
     this.cursor = this.limit - v_2;
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_do_augmentative()) {
-        break lab2;
-      }
-    }
+    this.r_do_augmentative();
     this.cursor = this.limit - v_3;
     lab3: {
       const v_4 = this.limit - this.cursor;
@@ -331,11 +319,7 @@ class StemmerCs extends SnowballStemmer {
     }
 
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;

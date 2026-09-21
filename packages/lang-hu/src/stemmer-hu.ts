@@ -662,86 +662,46 @@ class StemmerHu extends SnowballStemmer {
   innerStem() {
     // do
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_mark_regions()) {
-        break lab0;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_1;
     // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_instrum()) {
-        break lab1;
-      }
-    }
+    this.r_instrum();
     this.cursor = this.limit - v_2;
     // do
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_case()) {
-        break lab2;
-      }
-    }
+    this.r_case();
     this.cursor = this.limit - v_3;
     // do
     const v_4 = this.limit - this.cursor;
-    lab3: {
-      if (!this.r_case_special()) {
-        break lab3;
-      }
-    }
+    this.r_case_special();
     this.cursor = this.limit - v_4;
     // do
     const v_5 = this.limit - this.cursor;
-    lab4: {
-      if (!this.r_case_other()) {
-        break lab4;
-      }
-    }
+    this.r_case_other();
     this.cursor = this.limit - v_5;
     // do
     const v_6 = this.limit - this.cursor;
-    lab5: {
-      if (!this.r_factive()) {
-        break lab5;
-      }
-    }
+    this.r_factive();
     this.cursor = this.limit - v_6;
     // do
     const v_7 = this.limit - this.cursor;
-    lab6: {
-      if (!this.r_owned()) {
-        break lab6;
-      }
-    }
+    this.r_owned();
     this.cursor = this.limit - v_7;
     // do
     const v_8 = this.limit - this.cursor;
-    lab7: {
-      if (!this.r_sing_owner()) {
-        break lab7;
-      }
-    }
+    this.r_sing_owner();
     this.cursor = this.limit - v_8;
     // do
     const v_9 = this.limit - this.cursor;
-    lab8: {
-      if (!this.r_plur_owner()) {
-        break lab8;
-      }
-    }
+    this.r_plur_owner();
     this.cursor = this.limit - v_9;
     // do
     const v_10 = this.limit - this.cursor;
-    lab9: {
-      if (!this.r_plural()) {
-        break lab9;
-      }
-    }
+    this.r_plural();
     this.cursor = this.limit - v_10;
     this.cursor = this.limit_backward;
     return true;

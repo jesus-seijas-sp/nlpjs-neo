@@ -203,41 +203,21 @@ class StemmerGa extends SnowballStemmer {
   }
   innerStem() {
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_initial_morph()) {
-        break lab0;
-      }
-    }
+    this.r_initial_morph();
     this.cursor = v_1;
     const v_2 = this.cursor;
-    lab1: {
-      if (!this.r_mark_regions()) {
-        break lab1;
-      }
-    }
+    this.r_mark_regions();
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_noun_sfx()) {
-        break lab2;
-      }
-    }
+    this.r_noun_sfx();
     this.cursor = this.limit - v_3;
     const v_4 = this.limit - this.cursor;
-    lab3: {
-      if (!this.r_deriv()) {
-        break lab3;
-      }
-    }
+    this.r_deriv();
     this.cursor = this.limit - v_4;
     const v_5 = this.limit - this.cursor;
-    lab4: {
-      if (!this.r_verb_sfx()) {
-        break lab4;
-      }
-    }
+    this.r_verb_sfx();
     this.cursor = this.limit - v_5;
     this.cursor = this.limit_backward;
     return true;

@@ -1882,19 +1882,11 @@ class StemmerTr extends BaseStemmer {
     this.cursor = this.limit;
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_append_U_to_stems_ending_with_d_or_g()) {
-        break lab1;
-      }
-    }
+    this.r_append_U_to_stems_ending_with_d_or_g();
     this.cursor = this.limit - v_2;
     // do
     const v_3 = this.limit - this.cursor;
-    lab2: {
-      if (!this.r_post_process_last_consonants()) {
-        break lab2;
-      }
-    }
+    this.r_post_process_last_consonants();
     this.cursor = this.limit - v_3;
     this.cursor = this.limit_backward;
     return true;
@@ -1909,11 +1901,7 @@ class StemmerTr extends BaseStemmer {
     this.cursor = this.limit;
     // do
     const v_1 = this.limit - this.cursor;
-    lab0: {
-      if (!this.r_stem_nominal_verb_suffixes()) {
-        break lab0;
-      }
-    }
+    this.r_stem_nominal_verb_suffixes();
     this.cursor = this.limit - v_1;
     // Boolean test continue_stemming_noun_suffixes
     if (!this.B_continue_stemming_noun_suffixes) {
@@ -1921,11 +1909,7 @@ class StemmerTr extends BaseStemmer {
     }
     // do
     const v_2 = this.limit - this.cursor;
-    lab1: {
-      if (!this.r_stem_noun_suffixes()) {
-        break lab1;
-      }
-    }
+    this.r_stem_noun_suffixes();
     this.cursor = this.limit - v_2;
     this.cursor = this.limit_backward; // call postlude
     if (!this.r_postlude()) {

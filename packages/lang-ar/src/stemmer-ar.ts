@@ -821,18 +821,10 @@ class StemmerAr extends BaseStemmer {
     this.B_is_verb = true;
     this.B_is_defined = false;
     const v_1 = this.cursor;
-    lab0: {
-      if (!this.r_Checks1()) {
-        break lab0;
-      }
-    }
+    this.r_Checks1();
     this.cursor = v_1;
     const v_2 = this.cursor;
-    lab1: {
-      if (!this.r_Normalize_pre()) {
-        break lab1;
-      }
-    }
+    this.r_Normalize_pre();
     this.cursor = v_2;
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
@@ -1070,11 +1062,7 @@ class StemmerAr extends BaseStemmer {
     }
     this.cursor = v_15;
     const v_20 = this.cursor;
-    lab36: {
-      if (!this.r_Normalize_post()) {
-        break lab36;
-      }
-    }
+    this.r_Normalize_post();
     this.cursor = v_20;
     return true;
   }

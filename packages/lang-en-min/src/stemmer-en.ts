@@ -777,30 +777,18 @@ class StemmerEn extends SnowballStemmer {
       this.cursor = v_1;
       // do
       const v_3 = this.cursor;
-      lab4: {
-        if (!this.r_prelude()) {
-          break lab4;
-        }
-      }
+      this.r_prelude();
       this.cursor = v_3;
       // do
       const v_4 = this.cursor;
-      lab5: {
-        if (!this.r_mark_regions()) {
-          break lab5;
-        }
-      }
+      this.r_mark_regions();
       this.cursor = v_4;
       // backwards
       this.limit_backward = this.cursor;
       this.cursor = this.limit;
       // do
       const v_5 = this.limit - this.cursor;
-      lab6: {
-        if (!this.r_Step_1a()) {
-          break lab6;
-        }
-      }
+      this.r_Step_1a();
       this.cursor = this.limit - v_5;
       // or
       lab7: {
@@ -814,60 +802,32 @@ class StemmerEn extends SnowballStemmer {
         this.cursor = this.limit - v_6;
         // do
         const v_7 = this.limit - this.cursor;
-        lab9: {
-          if (!this.r_Step_1b()) {
-            break lab9;
-          }
-        }
+        this.r_Step_1b();
         this.cursor = this.limit - v_7;
         // do
         const v_8 = this.limit - this.cursor;
-        lab10: {
-          if (!this.r_Step_1c()) {
-            break lab10;
-          }
-        }
+        this.r_Step_1c();
         this.cursor = this.limit - v_8;
         // do
         const v_9 = this.limit - this.cursor;
-        lab11: {
-          if (!this.r_Step_2()) {
-            break lab11;
-          }
-        }
+        this.r_Step_2();
         this.cursor = this.limit - v_9;
         // do
         const v_10 = this.limit - this.cursor;
-        lab12: {
-          if (!this.r_Step_3()) {
-            break lab12;
-          }
-        }
+        this.r_Step_3();
         this.cursor = this.limit - v_10;
         // do
         const v_11 = this.limit - this.cursor;
-        lab13: {
-          if (!this.r_Step_4()) {
-            break lab13;
-          }
-        }
+        this.r_Step_4();
         this.cursor = this.limit - v_11;
         // do
         const v_12 = this.limit - this.cursor;
-        lab14: {
-          if (!this.r_Step_5()) {
-            break lab14;
-          }
-        }
+        this.r_Step_5();
         this.cursor = this.limit - v_12;
       }
       this.cursor = this.limit_backward; // do
       const v_13 = this.cursor;
-      lab15: {
-        if (!this.r_postlude()) {
-          break lab15;
-        }
-      }
+      this.r_postlude();
       this.cursor = v_13;
     }
     return true;
