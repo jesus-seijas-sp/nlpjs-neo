@@ -10,8 +10,8 @@ import { fileURLToPath } from 'node:url';
  *
  * The words are the vocabulary the language packs already ship, the endings
  * those words have, and words made of the two, plus a seeded run of random
- * ones. The answers are kept as a hash for each slice of the words, in
- * `stemmers.golden.json`. When a stemmer changes on purpose, regenerate the
+ * ones. The answers are kept as a hash for each slice of the words, one line
+ * for each language, in `stemmers.golden.json`. When a stemmer changes on purpose, regenerate the
  * file with `UPDATE_STEMMER_GOLDEN=1` and review what moved.
  */
 
@@ -153,15 +153,15 @@ function hashOf(stems: string[]): string {
 }
 
 const update = process.env.UPDATE_STEMMER_GOLDEN === '1';
-const golden: Record<string, string[]> =
+const golden: Record<string, string> =
   !update && existsSync(GOLDEN_FILE)
     ? JSON.parse(readFileSync(GOLDEN_FILE, 'utf8'))
     : {};
-const written: Record<string, string[]> = {};
+const written: Record<string, string> = {};
 
 afterAll(() => {
   if (update) {
-    writeFileSync(GOLDEN_FILE, `${JSON.stringify(written, null, 2)}\n`);
+    writeFileSync(GOLDEN_FILE, `${JSON.stringify(written, null, 1)}\n`);
   }
 });
 
@@ -181,10 +181,13 @@ describe('Snowball stemmers', () => {
       for (let i = 0; i < stems.length; i += SLICE) {
         hashes.push(hashOf(stems.slice(i, i + SLICE)));
       }
-      written[code] = hashes;
+      written[code] = hashes.join(' ');
       // When the file is being rewritten there is nothing to compare with.
-      const expected = update ? hashes : golden[code];
+      const expected = (update ? written[code] : golden[code])?.split(' ');
       expect(expected, `no hashes are kept for ${code}`).toBeDefined();
+      if (!expected) {
+        return;
+      }
       const moved = hashes
         .map((hash, i) => (hash === expected[i] ? -1 : i))
         .filter((i) => i >= 0)
