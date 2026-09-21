@@ -38,32 +38,31 @@ describe('Snowball compiler', () => {
 
     // These download, so they run when SNOWBALL_ONLINE=1 (the freshness ones
     // also run when the programs were downloaded before, by `pnpm stemmers`).
-    test.skipIf(!online)(
-      'It should stem the vocabulary of English as the current Snowball does',
-      async () => {
-        const raw = 'https://raw.githubusercontent.com/snowballstem/';
-        const get = async (url: string) =>
-          (await (await fetch(raw + url)).text())
-            .split(String.fromCharCode(10))
-            .filter(Boolean);
-        const stemmer: Stemmer = await compile(
-          (await get('snowball/master/algorithms/english.sbl')).join(
-            String.fromCharCode(10)
-          ),
-          'english',
-          true
-        );
-        const words = await get('snowball-data/master/english/voc.txt');
-        const expected = await get('snowball-data/master/english/output.txt');
-        expect(words.length).toBeGreaterThan(5000);
-        const wrong = words
-          .map((word, at) => [word, expected[at], stemmer.stemWord(word)])
-          .filter(([, official, ours]) => official !== ours)
-          .map(([word, official, ours]) => `${word}: ${official} / ${ours}`);
-        expect(wrong).toEqual([]);
-      },
-      60000
-    );
+    test('It should stem the vocabulary of English as the current Snowball does', async () => {
+      if (!online) {
+        return;
+      }
+      const raw = 'https://raw.githubusercontent.com/snowballstem/';
+      const get = async (url: string) =>
+        (await (await fetch(raw + url)).text())
+          .split(String.fromCharCode(10))
+          .filter(Boolean);
+      const stemmer: Stemmer = await compile(
+        (await get('snowball/master/algorithms/english.sbl')).join(
+          String.fromCharCode(10)
+        ),
+        'english',
+        true
+      );
+      const words = await get('snowball-data/master/english/voc.txt');
+      const expected = await get('snowball-data/master/english/output.txt');
+      expect(words.length).toBeGreaterThan(5000);
+      const wrong = words
+        .map((word, at) => [word, expected[at], stemmer.stemWord(word)])
+        .filter(([, official, ours]) => official !== ours)
+        .map(([word, official, ours]) => `${word}: ${official} / ${ours}`);
+      expect(wrong).toEqual([]);
+    }, 60000);
 
     test.each(STEMMERS.map((stemmer) => [stemmer.out, stemmer] as const))(
       'It should have %s as the tool writes it from its program',
