@@ -388,8 +388,6 @@ class StemmerRu extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerRu = new StemmerRu();
-
   static a_0: Among<StemmerRu>[] = [
     new Among('\u0432', -1, 1),
     new Among('\u0438\u0432', 0, 2),

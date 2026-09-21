@@ -525,8 +525,6 @@ class StemmerRo extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerRo = new StemmerRo();
-
   static a_0: Among<StemmerRo>[] = [
     new Among('', -1, 3),
     new Among('I', 0, 1),

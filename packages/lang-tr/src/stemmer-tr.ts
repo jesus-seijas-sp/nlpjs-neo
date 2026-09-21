@@ -1934,8 +1934,6 @@ class StemmerTr extends BaseStemmer {
     return true;
   }
 
-  static methodObject: StemmerTr = new StemmerTr();
-
   static a_0: Among<StemmerTr>[] = [
     new Among('m', -1, -1),
     new Among('n', -1, -1),

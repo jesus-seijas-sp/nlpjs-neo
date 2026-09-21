@@ -196,8 +196,6 @@ class StemmerSv extends BaseStemmer {
     return true;
   }
 
-  static methodObject: StemmerSv = new StemmerSv();
-
   static a_0: Among<StemmerSv>[] = [
     new Among('a', -1, 1),
     new Among('arna', 0, 1),

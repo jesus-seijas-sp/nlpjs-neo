@@ -545,8 +545,6 @@ class StemmerNl extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerNl = new StemmerNl();
-
   static a_0: Among<StemmerNl>[] = [
     new Among('', -1, 6),
     new Among('\u00E1', 0, 1),

@@ -955,8 +955,6 @@ class StemmerFr extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerFr = new StemmerFr();
-
   static a_0: Among<StemmerFr>[] = [
     new Among('col', -1, -1),
     new Among('par', -1, -1),

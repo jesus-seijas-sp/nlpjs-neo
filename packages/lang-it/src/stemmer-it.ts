@@ -639,8 +639,6 @@ class StemmerIt extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerIt = new StemmerIt();
-
   static a_0: Among<StemmerIt>[] = [
     new Among('', -1, 7),
     new Among('qu', 0, 6),

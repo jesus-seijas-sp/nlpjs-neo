@@ -587,8 +587,6 @@ class StemmerPt extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerPt = new StemmerPt();
-
   static a_0: Among<StemmerPt>[] = [
     new Among('', -1, 3),
     new Among('\u00E3', 0, 1),

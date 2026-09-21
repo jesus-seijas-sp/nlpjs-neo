@@ -873,8 +873,6 @@ class StemmerEn extends SnowballStemmer {
     return true;
   }
 
-  static methodObject: StemmerEn = new StemmerEn();
-
   static a_0: Among<StemmerEn>[] = [
     new Among('arsen', -1, -1),
     new Among('commun', -1, -1),

@@ -209,8 +209,6 @@ class StemmerNo extends BaseStemmer {
     return true;
   }
 
-  static methodObject: StemmerNo = new StemmerNo();
-
   static a_0: Among<StemmerNo>[] = [
     new Among('a', -1, 1),
     new Among('e', -1, 1),
