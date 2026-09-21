@@ -99,8 +99,6 @@ class StemmerEu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_RV()) {
           return false;
@@ -133,8 +131,6 @@ class StemmerEu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_RV()) {
           return false;
@@ -185,8 +181,6 @@ class StemmerEu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_RV()) {
           return false;

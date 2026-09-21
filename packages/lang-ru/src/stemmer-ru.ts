@@ -52,8 +52,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // or
         lab0: {
@@ -90,8 +88,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -157,8 +153,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -176,8 +170,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // or
         lab0: {
@@ -214,8 +206,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -236,8 +226,6 @@ class StemmerRu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -255,8 +243,6 @@ class StemmerRu extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;

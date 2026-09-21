@@ -40,8 +40,6 @@ class StemmerCs extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_from('k');
         break;
@@ -69,8 +67,6 @@ class StemmerCs extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -97,8 +93,6 @@ class StemmerCs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -136,8 +130,6 @@ class StemmerCs extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -182,8 +174,6 @@ class StemmerCs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -198,8 +188,6 @@ class StemmerCs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -220,8 +208,6 @@ class StemmerCs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -272,8 +258,6 @@ class StemmerCs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_from('\u011B');
         if (!this.r_palatalise()) {

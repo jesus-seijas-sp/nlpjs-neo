@@ -259,8 +259,6 @@ class StemmerEs extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.bra = this.cursor;
         if (!this.slice_from('iendo')) {
@@ -321,8 +319,6 @@ class StemmerEs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_R2()) {
           return false;
@@ -539,8 +535,6 @@ class StemmerEs extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.eq_s_b(1, 'u')) {
           return false;
@@ -574,8 +568,6 @@ class StemmerEs extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // try
         v_3 = this.limit - this.cursor;
@@ -617,8 +609,6 @@ class StemmerEs extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_RV()) {
           return false;

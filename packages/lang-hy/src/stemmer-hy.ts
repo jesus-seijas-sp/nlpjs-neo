@@ -40,8 +40,6 @@ class StemmerHy extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -56,8 +54,6 @@ class StemmerHy extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -72,8 +68,6 @@ class StemmerHy extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -91,8 +85,6 @@ class StemmerHy extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;

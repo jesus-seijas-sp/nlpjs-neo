@@ -68,8 +68,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('a')) {
           return false;
@@ -125,8 +123,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_double()) {
           return false;
@@ -176,8 +172,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('e')) {
           return false;
@@ -208,8 +202,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -245,8 +237,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_double()) {
           return false;
@@ -278,8 +268,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('a')) {
           return false;
@@ -330,8 +318,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -392,8 +378,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -509,8 +493,6 @@ class StemmerHu extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;

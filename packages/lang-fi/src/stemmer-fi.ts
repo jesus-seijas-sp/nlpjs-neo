@@ -64,8 +64,6 @@ class StemmerFi extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.in_grouping_b(StemmerFi.g_particle_end, 97, 246)) {
           return false;
@@ -101,8 +99,6 @@ class StemmerFi extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // not
         {
@@ -202,8 +198,6 @@ class StemmerFi extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.eq_s_b(1, 'a')) {
           return false;
@@ -304,8 +298,6 @@ class StemmerFi extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // not
         {
@@ -391,8 +383,6 @@ class StemmerFi extends SnowballStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_5;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // not
         {

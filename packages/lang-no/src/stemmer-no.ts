@@ -73,8 +73,6 @@ class StemmerNo extends BaseStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -159,8 +157,6 @@ class StemmerNo extends BaseStemmer {
     this.bra = this.cursor;
     this.limit_backward = v_2;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;

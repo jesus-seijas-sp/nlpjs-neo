@@ -205,8 +205,6 @@ class StemmerEn extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('ss')) {
           return false;
@@ -263,8 +261,6 @@ class StemmerEn extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_R1()) {
           return false;
@@ -292,8 +288,6 @@ class StemmerEn extends SnowballStemmer {
         }
         this.cursor = this.limit - v_3;
         switch (among_var) {
-          case 0:
-            return false;
           case 1:
             {
               const c = this.cursor;
@@ -384,8 +378,6 @@ class StemmerEn extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('tion')) {
           return false;
@@ -487,8 +479,6 @@ class StemmerEn extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('tion')) {
           return false;
@@ -537,8 +527,6 @@ class StemmerEn extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_del()) {
           return false;
@@ -575,8 +563,6 @@ class StemmerEn extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         // or
         lab0: {
@@ -647,8 +633,6 @@ class StemmerEn extends SnowballStemmer {
       return false;
     }
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.slice_from('ski')) {
           return false;

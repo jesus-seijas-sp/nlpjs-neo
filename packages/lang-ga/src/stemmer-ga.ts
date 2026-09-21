@@ -50,8 +50,6 @@ class StemmerGa extends SnowballStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_del();
         break;
@@ -126,8 +124,6 @@ class StemmerGa extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_R1()) {
           return false;
@@ -151,8 +147,6 @@ class StemmerGa extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_R2()) {
           return false;
@@ -185,8 +179,6 @@ class StemmerGa extends SnowballStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!this.r_RV()) {
           return false;

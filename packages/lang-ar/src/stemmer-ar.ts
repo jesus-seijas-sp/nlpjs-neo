@@ -287,8 +287,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 4)) {
           return false;
@@ -317,8 +315,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 3)) {
           return false;
@@ -381,8 +377,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 3)) {
           return false;
@@ -407,8 +401,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 5)) {
           return false;
@@ -443,8 +435,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 3)) {
           return false;
@@ -475,8 +465,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 4)) {
           return false;
@@ -513,8 +501,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.ket = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 4)) {
           return false;
@@ -535,8 +521,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -567,8 +551,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 5)) {
           return false;
@@ -587,8 +569,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len > 4)) {
           return false;
@@ -607,8 +587,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 5)) {
           return false;
@@ -627,8 +605,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -647,8 +623,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -667,8 +641,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 3)) {
           return false;
@@ -687,8 +659,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -719,8 +689,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -763,8 +731,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 5)) {
           return false;
@@ -783,8 +749,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         if (!(this.I_word_len >= 4)) {
           return false;
@@ -809,8 +773,6 @@ class StemmerAr extends BaseStemmer {
     }
     this.bra = this.cursor;
     switch (among_var) {
-      case 0:
-        return false;
       case 1:
         this.slice_from('\u064A');
         break;
