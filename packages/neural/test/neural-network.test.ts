@@ -67,6 +67,70 @@ describe('Neural Network', () => {
     });
   });
 
+  describe('Learning rate', () => {
+    test('It is derived from the size of the corpus when it is not set', () => {
+      const net = new NeuralNetwork();
+      net.train(corpus);
+      expect(net.settings.learningRate).toBeUndefined();
+      expect(net.baseLearningRate).toBeCloseTo(
+        1 / Math.sqrt(corpus.length),
+        10
+      );
+    });
+
+    test('A bigger corpus learns slower', () => {
+      const big = Array.from({ length: 4 }, () => corpus).flat();
+      const small = new NeuralNetwork();
+      small.train(corpus);
+      const large = new NeuralNetwork();
+      large.train(big);
+      expect(large.baseLearningRate).toBeCloseTo(
+        small.baseLearningRate / 2,
+        10
+      );
+    });
+
+    test('A learning rate in the settings is used as it is', () => {
+      const net = new NeuralNetwork({ learningRate: 0.01 });
+      net.train(corpus);
+      expect(net.baseLearningRate).toEqual(0.01);
+    });
+  });
+
+  describe('Inputs', () => {
+    test('The known features of an input keep their values, in order', () => {
+      const net = new NeuralNetwork();
+      net.train(corpus);
+      const { inputLookup } = net.lookup;
+      const vector = net.lookup.transformInput({
+        unknown: 5,
+        when: 2,
+        birthday: 3,
+      });
+      expect(vector.keys).toEqual([
+        inputLookup.dict.get('when'),
+        inputLookup.dict.get('birthday'),
+      ]);
+      expect(vector.values).toEqual([2, 3]);
+    });
+
+    test('A feature named like a member of Object is just a feature', () => {
+      const net = new NeuralNetwork();
+      net.train(corpus);
+      // `run` answers one object it reuses, so it is copied before the next run.
+      const plain = { ...net.run({ when: 1, birthday: 1 }) };
+      const actual = net.run({
+        when: 1,
+        birthday: 1,
+        constructor: 1,
+        toString: 1,
+        valueOf: 1,
+      });
+      expect(actual).toEqual(plain);
+      expect(Number.isNaN(actual.birthday)).toBe(false);
+    });
+  });
+
   describe('Import and export', () => {
     test('Should export and import', () => {
       const net = new NeuralNetwork();
@@ -87,9 +151,9 @@ describe('Neural Network', () => {
       net.train(corpus);
       const explanation = net.explain({ when: 1, birthday: 1 }, 'birthday');
       expect(explanation.weights).toBeDefined();
-      expect(explanation.weights.when).toEqual(5.242532253265381);
-      expect(explanation.weights.birthday).toEqual(4.492748260498047);
-      expect(explanation.bias).toEqual(1.6587271811334132);
+      expect(explanation.weights.when).toEqual(7.89713716506958);
+      expect(explanation.weights.birthday).toEqual(6.401824951171875);
+      expect(explanation.bias).toEqual(-0.14768101345231271);
     });
   });
 });

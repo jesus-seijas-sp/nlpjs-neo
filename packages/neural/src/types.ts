@@ -25,11 +25,11 @@ export type Corpus = CorpusEntry[];
 
 /**
  * A vector in the compact form the network trains on: the ids of the terms
- * that are present, and their values by id.
+ * that are present, and the value of each one at the same position.
  */
 export interface SparseVector {
   keys: number[];
-  data: Record<number, number>;
+  values: number[];
 }
 
 /** A corpus entry with both sides translated into sparse vectors. */
@@ -60,6 +60,10 @@ export interface NeuralNetworkSettings {
   errorThresh?: number;
   /** Stop once the error moves less than this between iterations. */
   deltaErrorThresh?: number;
+  /**
+   * How far a wrong answer moves the weights. When it is not set, it is
+   * computed from the size of the corpus that is trained.
+   */
   learningRate?: number;
   momentum?: number;
   /** Leak of the activation function for negative sums. */

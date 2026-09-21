@@ -15,12 +15,21 @@ import type {
   TrainStatus,
 } from './types.js';
 
+/**
+ * The perceptrons learn one utterance at a time, so what one pass over the
+ * corpus moves them grows with its size. Unless the settings give a
+ * `learningRate`, it is this over the square root of the number of samples:
+ * 0.06 for 250 utterances, 0.01 for 10,000. A fixed rate that suits a small
+ * corpus never settles on a big one, and one that suits a big corpus needs
+ * hundreds of passes on a small one.
+ */
+const learningRateScale = 1;
+
 const defaultSettings: NeuralNetworkSettings = {
   iterations: 20000,
   errorThresh: 0.00005,
-  deltaErrorThresh: 0.000001,
-  learningRate: 0.6,
-  momentum: 0.5,
+  deltaErrorThresh: 0.00001,
+  momentum: 0.9,
   alpha: 0.07,
   log: false,
 };
@@ -28,6 +37,8 @@ const defaultSettings: NeuralNetworkSettings = {
 class NeuralNetwork {
   /** Learning rate of the current iteration, decayed over time. */
   declare decayLearningRate: number;
+  /** Learning rate of the current training, before it decays. */
+  declare baseLearningRate: number;
   declare logFn: TrainLogger | undefined;
   declare lookup: CorpusLookup | undefined;
   declare numPerceptrons: number;
@@ -85,10 +96,12 @@ class NeuralNetwork {
   }
 
   runInputPerceptron(perceptron: Perceptron, input: SparseVector): number {
-    const sum = input.keys.reduce(
-      (prev, key) => prev + input.data[key] * perceptron.weights[key],
-      perceptron.bias
-    );
+    const { keys, values } = input;
+    const { weights } = perceptron;
+    let sum = perceptron.bias;
+    for (let i = 0; i < keys.length; i += 1) {
+      sum += values[i] * weights[keys[i]];
+    }
     return sum <= 0 ? 0 : this.settings.alpha * sum;
   }
 
@@ -128,12 +141,18 @@ class NeuralNetwork {
   /** Trains one perceptron over the corpus, returning its squared error. */
   trainPerceptron(perceptron: Perceptron, data: PreparedEntry[]): number {
     const { alpha, momentum } = this.settings;
-    const { changes, weights } = perceptron;
+    const { changes, id, weights } = perceptron;
     let error = 0;
     for (let i = 0; i < data.length; i += 1) {
       const { input, output } = data[i];
       const actualOutput = this.runInputPerceptron(perceptron, input);
-      const expectedOutput = output.data[perceptron.id] || 0;
+      let expectedOutput = 0;
+      for (let j = 0; j < output.keys.length; j += 1) {
+        if (output.keys[j] === id) {
+          expectedOutput = output.values[j] || 0;
+          break;
+        }
+      }
       const currentError = expectedOutput - actualOutput;
       if (currentError) {
         error += currentError ** 2;
@@ -141,9 +160,10 @@ class NeuralNetwork {
           (actualOutput > 0 ? 1 : alpha) *
           currentError *
           this.decayLearningRate;
-        for (let j = 0; j < input.keys.length; j += 1) {
-          const key = input.keys[j];
-          const change = delta * input.data[key] + momentum * changes[key];
+        const { keys, values } = input;
+        for (let j = 0; j < keys.length; j += 1) {
+          const key = keys[j];
+          const change = delta * values[j] + momentum * changes[key];
           changes[key] = change;
           weights[key] += change;
         }
@@ -180,6 +200,8 @@ class NeuralNetwork {
       this.status = { error: Infinity, deltaError: Infinity, iterations: 0 };
     }
     this.verifyIsInitialized();
+    this.baseLearningRate =
+      this.settings.learningRate ?? learningRateScale / Math.sqrt(data.length);
     const minError = this.settings.errorThresh;
     const minDelta = this.settings.deltaErrorThresh;
     while (
@@ -190,7 +212,7 @@ class NeuralNetwork {
       const hrstart = new Date();
       this.status.iterations += 1;
       this.decayLearningRate =
-        this.settings.learningRate / (1 + 0.001 * this.status.iterations);
+        this.baseLearningRate / (1 + 0.001 * this.status.iterations);
       const lastError = this.status.error;
       this.status.error = 0;
       for (let i = 0; i < this.numPerceptrons; i += 1) {
@@ -217,7 +239,7 @@ class NeuralNetwork {
     }
     const transformedInput = lookup.transformInput(input);
     const result: Record<string, number> = {};
-    const intentIndex = lookup.outputLookup.dict[intent];
+    const intentIndex = lookup.outputLookup.dict.get(intent);
     if (intentIndex === undefined) {
       return {};
     }
