@@ -108,7 +108,9 @@ Add an entry to `STEMMERS` in `stemmers.ts` with the address of the program and 
 - `gopast` and `goto` on a grouping are calls (`gopast_in_grouping`, `goto_out_grouping_b`).
 - A routine that ends on a test returns it, and one that only tests a region (`R1`, `R2`, `RV`) is
   left out, because `SnowballStemmer` has it.
-- Among tables and groupings are static fields.
+- Among tables and groupings are static fields. A table is written as text that `Among.table`
+  reads (`ing,-1,1 ed,-1,2`, wrapped to the width) unless it has a guard or a string with white
+  space, a comma, a backtick, a `$` or a backslash; then it is a list of `new Among(...)`.
 
 ## Layout
 
