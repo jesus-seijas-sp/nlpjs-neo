@@ -35,7 +35,7 @@ class StemmerSr extends BaseStemmer {
             lab3: {
               this.bra = this.cursor;
               among_var = this.find_among(StemmerSr.a_0);
-              if (among_var == 0) {
+              if (among_var === 0) {
                 break lab3;
               }
               this.ket = this.cursor;
@@ -379,7 +379,7 @@ class StemmerSr extends BaseStemmer {
     }
     this.cursor = v_5;
     lab9: {
-      if (!(this.I_p2 != 0)) {
+      if (!(this.I_p2 !== 0)) {
         break lab9;
       }
       if (!(this.I_p2 < this.I_p1)) {
@@ -427,7 +427,7 @@ class StemmerSr extends BaseStemmer {
         break lab10;
       }
       this.cursor = v_8;
-      if (!(this.I_p1 != this.I_p2)) {
+      if (!(this.I_p1 !== this.I_p2)) {
         return false;
       }
       golab16: for (;;) {
@@ -477,7 +477,7 @@ class StemmerSr extends BaseStemmer {
     var among_var;
     this.ket = this.cursor;
     among_var = this.find_among_b(StemmerSr.a_1);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
     this.bra = this.cursor;
@@ -969,7 +969,7 @@ class StemmerSr extends BaseStemmer {
     var among_var;
     this.ket = this.cursor;
     among_var = this.find_among_b(StemmerSr.a_2);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
     this.bra = this.cursor;
@@ -1935,7 +1935,7 @@ class StemmerSr extends BaseStemmer {
 
   r_Step_3() {
     this.ket = this.cursor;
-    if (this.find_among_b(StemmerSr.a_3) == 0) {
+    if (this.find_among_b(StemmerSr.a_3) === 0) {
       return false;
     }
     this.bra = this.cursor;

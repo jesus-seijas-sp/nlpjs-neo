@@ -32,17 +32,15 @@ class StemmerHu extends BaseStemmer {
     let v_1;
     let v_2;
     let v_3;
-    // (, line 44
     this.I_p1 = this.limit;
-    // or, line 51
+    // or
     lab0: {
       v_1 = this.cursor;
       lab1: {
-        // (, line 48
         if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
           break lab1;
         }
-        // goto, line 48
+        // goto
         golab2: for (;;) {
           v_2 = this.cursor;
           lab3: {
@@ -58,33 +56,29 @@ class StemmerHu extends BaseStemmer {
           }
           this.cursor++;
         }
-        // or, line 49
+        // or
         lab4: {
           v_3 = this.cursor;
           lab5: {
-            // among, line 49
-            if (this.find_among(StemmerHu.a_0, 8) == 0) {
+            if (this.find_among(StemmerHu.a_0, 8) === 0) {
               break lab5;
             }
             break lab4;
           }
           this.cursor = v_3;
-          // next, line 49
           if (this.cursor >= this.limit) {
             break lab1;
           }
           this.cursor++;
         }
-        // setmark p1, line 50
         this.I_p1 = this.cursor;
         break lab0;
       }
       this.cursor = v_1;
-      // (, line 53
       if (!this.out_grouping(StemmerHu.g_v, 97, 252)) {
         return false;
       }
-      // gopast, line 53
+      // gopast
       golab6: for (;;) {
         lab7: {
           if (!this.in_grouping(StemmerHu.g_v, 97, 252)) {
@@ -97,7 +91,6 @@ class StemmerHu extends BaseStemmer {
         }
         this.cursor++;
       }
-      // setmark p1, line 53
       this.I_p1 = this.cursor;
     }
     return true;
@@ -112,17 +105,12 @@ class StemmerHu extends BaseStemmer {
 
   r_v_ending() {
     let among_var;
-    // (, line 60
-    // [, line 61
     this.ket = this.cursor;
-    // substring, line 61
     among_var = this.find_among_b(StemmerHu.a_1, 2);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 61
     this.bra = this.cursor;
-    // call R1, line 61
     if (!this.r_R1()) {
       return false;
     }
@@ -130,15 +118,11 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 62
-        // <-, line 62
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 2:
-        // (, line 63
-        // <-, line 63
         if (!this.slice_from('e')) {
           return false;
         }
@@ -149,11 +133,9 @@ class StemmerHu extends BaseStemmer {
 
   r_double() {
     let v_1;
-    // (, line 67
-    // test, line 68
+    // test
     v_1 = this.limit - this.cursor;
-    // among, line 68
-    if (this.find_among_b(StemmerHu.a_2, 23) == 0) {
+    if (this.find_among_b(StemmerHu.a_2, 23) === 0) {
       return false;
     }
     this.cursor = this.limit - v_1;
@@ -161,15 +143,11 @@ class StemmerHu extends BaseStemmer {
   }
 
   r_undouble() {
-    // (, line 72
-    // next, line 73
     if (this.cursor <= this.limit_backward) {
       return false;
     }
     this.cursor--;
-    // [, line 73
     this.ket = this.cursor;
-    // hop, line 73
     {
       const c = this.cursor - 1;
       if (this.limit_backward > c || c > this.limit) {
@@ -177,9 +155,7 @@ class StemmerHu extends BaseStemmer {
       }
       this.cursor = c;
     }
-    // ], line 73
     this.bra = this.cursor;
-    // delete, line 73
     if (!this.slice_del()) {
       return false;
     }
@@ -188,17 +164,12 @@ class StemmerHu extends BaseStemmer {
 
   r_instrum() {
     let among_var;
-    // (, line 76
-    // [, line 77
     this.ket = this.cursor;
-    // substring, line 77
     among_var = this.find_among_b(StemmerHu.a_3, 2);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 77
     this.bra = this.cursor;
-    // call R1, line 77
     if (!this.r_R1()) {
       return false;
     }
@@ -206,25 +177,19 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 78
-        // call double, line 78
         if (!this.r_double()) {
           return false;
         }
         break;
       case 2:
-        // (, line 79
-        // call double, line 79
         if (!this.r_double()) {
           return false;
         }
         break;
     }
-    // delete, line 81
     if (!this.slice_del()) {
       return false;
     }
-    // call undouble, line 82
     if (!this.r_undouble()) {
       return false;
     }
@@ -232,24 +197,17 @@ class StemmerHu extends BaseStemmer {
   }
 
   r_case() {
-    // (, line 86
-    // [, line 87
     this.ket = this.cursor;
-    // substring, line 87
-    if (this.find_among_b(StemmerHu.a_4, 44) == 0) {
+    if (this.find_among_b(StemmerHu.a_4, 44) === 0) {
       return false;
     }
-    // ], line 87
     this.bra = this.cursor;
-    // call R1, line 87
     if (!this.r_R1()) {
       return false;
     }
-    // delete, line 111
     if (!this.slice_del()) {
       return false;
     }
-    // call v_ending, line 112
     if (!this.r_v_ending()) {
       return false;
     }
@@ -258,17 +216,12 @@ class StemmerHu extends BaseStemmer {
 
   r_case_special() {
     let among_var;
-    // (, line 115
-    // [, line 116
     this.ket = this.cursor;
-    // substring, line 116
     among_var = this.find_among_b(StemmerHu.a_5, 3);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 116
     this.bra = this.cursor;
-    // call R1, line 116
     if (!this.r_R1()) {
       return false;
     }
@@ -276,22 +229,16 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 117
-        // <-, line 117
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 2:
-        // (, line 118
-        // <-, line 118
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 3:
-        // (, line 119
-        // <-, line 119
         if (!this.slice_from('a')) {
           return false;
         }
@@ -302,17 +249,12 @@ class StemmerHu extends BaseStemmer {
 
   r_case_other() {
     let among_var;
-    // (, line 123
-    // [, line 124
     this.ket = this.cursor;
-    // substring, line 124
     among_var = this.find_among_b(StemmerHu.a_6, 6);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 124
     this.bra = this.cursor;
-    // call R1, line 124
     if (!this.r_R1()) {
       return false;
     }
@@ -320,29 +262,21 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 125
-        // delete, line 125
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 2:
-        // (, line 126
-        // delete, line 126
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 3:
-        // (, line 127
-        // <-, line 127
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 4:
-        // (, line 128
-        // <-, line 128
         if (!this.slice_from('e')) {
           return false;
         }
@@ -353,17 +287,12 @@ class StemmerHu extends BaseStemmer {
 
   r_factive() {
     let among_var;
-    // (, line 132
-    // [, line 133
     this.ket = this.cursor;
-    // substring, line 133
     among_var = this.find_among_b(StemmerHu.a_7, 2);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 133
     this.bra = this.cursor;
-    // call R1, line 133
     if (!this.r_R1()) {
       return false;
     }
@@ -371,25 +300,19 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 134
-        // call double, line 134
         if (!this.r_double()) {
           return false;
         }
         break;
       case 2:
-        // (, line 135
-        // call double, line 135
         if (!this.r_double()) {
           return false;
         }
         break;
     }
-    // delete, line 137
     if (!this.slice_del()) {
       return false;
     }
-    // call undouble, line 138
     if (!this.r_undouble()) {
       return false;
     }
@@ -398,17 +321,12 @@ class StemmerHu extends BaseStemmer {
 
   r_plural() {
     let among_var;
-    // (, line 141
-    // [, line 142
     this.ket = this.cursor;
-    // substring, line 142
     among_var = this.find_among_b(StemmerHu.a_8, 7);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 142
     this.bra = this.cursor;
-    // call R1, line 142
     if (!this.r_R1()) {
       return false;
     }
@@ -416,50 +334,36 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 143
-        // <-, line 143
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 2:
-        // (, line 144
-        // <-, line 144
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 3:
-        // (, line 145
-        // delete, line 145
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 4:
-        // (, line 146
-        // delete, line 146
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 5:
-        // (, line 147
-        // delete, line 147
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 6:
-        // (, line 148
-        // delete, line 148
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 7:
-        // (, line 149
-        // delete, line 149
         if (!this.slice_del()) {
           return false;
         }
@@ -470,17 +374,12 @@ class StemmerHu extends BaseStemmer {
 
   r_owned() {
     let among_var;
-    // (, line 153
-    // [, line 154
     this.ket = this.cursor;
-    // substring, line 154
     among_var = this.find_among_b(StemmerHu.a_9, 12);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 154
     this.bra = this.cursor;
-    // call R1, line 154
     if (!this.r_R1()) {
       return false;
     }
@@ -488,64 +387,46 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 155
-        // delete, line 155
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 2:
-        // (, line 156
-        // <-, line 156
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 3:
-        // (, line 157
-        // <-, line 157
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 4:
-        // (, line 158
-        // delete, line 158
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 5:
-        // (, line 159
-        // <-, line 159
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 6:
-        // (, line 160
-        // <-, line 160
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 7:
-        // (, line 161
-        // delete, line 161
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 8:
-        // (, line 162
-        // <-, line 162
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 9:
-        // (, line 163
-        // delete, line 163
         if (!this.slice_del()) {
           return false;
         }
@@ -556,17 +437,12 @@ class StemmerHu extends BaseStemmer {
 
   r_sing_owner() {
     let among_var;
-    // (, line 167
-    // [, line 168
     this.ket = this.cursor;
-    // substring, line 168
     among_var = this.find_among_b(StemmerHu.a_10, 31);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 168
     this.bra = this.cursor;
-    // call R1, line 168
     if (!this.r_R1()) {
       return false;
     }
@@ -574,141 +450,101 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 169
-        // delete, line 169
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 2:
-        // (, line 170
-        // <-, line 170
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 3:
-        // (, line 171
-        // <-, line 171
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 4:
-        // (, line 172
-        // delete, line 172
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 5:
-        // (, line 173
-        // <-, line 173
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 6:
-        // (, line 174
-        // <-, line 174
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 7:
-        // (, line 175
-        // delete, line 175
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 8:
-        // (, line 176
-        // delete, line 176
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 9:
-        // (, line 177
-        // delete, line 177
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 10:
-        // (, line 178
-        // <-, line 178
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 11:
-        // (, line 179
-        // <-, line 179
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 12:
-        // (, line 180
-        // delete, line 180
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 13:
-        // (, line 181
-        // delete, line 181
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 14:
-        // (, line 182
-        // <-, line 182
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 15:
-        // (, line 183
-        // <-, line 183
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 16:
-        // (, line 184
-        // delete, line 184
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 17:
-        // (, line 185
-        // delete, line 185
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 18:
-        // (, line 186
-        // delete, line 186
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 19:
-        // (, line 187
-        // <-, line 187
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 20:
-        // (, line 188
-        // <-, line 188
         if (!this.slice_from('e')) {
           return false;
         }
@@ -719,17 +555,12 @@ class StemmerHu extends BaseStemmer {
 
   r_plur_owner() {
     let among_var;
-    // (, line 192
-    // [, line 193
     this.ket = this.cursor;
-    // substring, line 193
     among_var = this.find_among_b(StemmerHu.a_11, 42);
-    if (among_var == 0) {
+    if (among_var === 0) {
       return false;
     }
-    // ], line 193
     this.bra = this.cursor;
-    // call R1, line 193
     if (!this.r_R1()) {
       return false;
     }
@@ -737,204 +568,146 @@ class StemmerHu extends BaseStemmer {
       case 0:
         return false;
       case 1:
-        // (, line 194
-        // delete, line 194
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 2:
-        // (, line 195
-        // <-, line 195
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 3:
-        // (, line 196
-        // <-, line 196
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 4:
-        // (, line 197
-        // delete, line 197
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 5:
-        // (, line 198
-        // delete, line 198
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 6:
-        // (, line 199
-        // delete, line 199
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 7:
-        // (, line 200
-        // <-, line 200
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 8:
-        // (, line 201
-        // <-, line 201
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 9:
-        // (, line 202
-        // delete, line 202
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 10:
-        // (, line 203
-        // delete, line 203
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 11:
-        // (, line 204
-        // delete, line 204
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 12:
-        // (, line 205
-        // <-, line 205
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 13:
-        // (, line 206
-        // <-, line 206
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 14:
-        // (, line 207
-        // delete, line 207
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 15:
-        // (, line 208
-        // delete, line 208
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 16:
-        // (, line 209
-        // delete, line 209
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 17:
-        // (, line 210
-        // delete, line 210
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 18:
-        // (, line 211
-        // <-, line 211
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 19:
-        // (, line 212
-        // <-, line 212
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 20:
-        // (, line 214
-        // delete, line 214
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 21:
-        // (, line 215
-        // delete, line 215
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 22:
-        // (, line 216
-        // <-, line 216
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 23:
-        // (, line 217
-        // <-, line 217
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 24:
-        // (, line 218
-        // delete, line 218
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 25:
-        // (, line 219
-        // delete, line 219
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 26:
-        // (, line 220
-        // delete, line 220
         if (!this.slice_del()) {
           return false;
         }
         break;
       case 27:
-        // (, line 221
-        // <-, line 221
         if (!this.slice_from('a')) {
           return false;
         }
         break;
       case 28:
-        // (, line 222
-        // <-, line 222
         if (!this.slice_from('e')) {
           return false;
         }
         break;
       case 29:
-        // (, line 223
-        // delete, line 223
         if (!this.slice_del()) {
           return false;
         }
@@ -954,96 +727,84 @@ class StemmerHu extends BaseStemmer {
     let v_8;
     let v_9;
     let v_10;
-    // (, line 228
-    // do, line 229
+    // do
     v_1 = this.cursor;
     lab0: {
-      // call mark_regions, line 229
       if (!this.r_mark_regions()) {
         break lab0;
       }
     }
     this.cursor = v_1;
-    // backwards, line 230
+    // backwards
     this.limit_backward = this.cursor;
     this.cursor = this.limit;
-    // (, line 230
-    // do, line 231
+    // do
     v_2 = this.limit - this.cursor;
     lab1: {
-      // call instrum, line 231
       if (!this.r_instrum()) {
         break lab1;
       }
     }
     this.cursor = this.limit - v_2;
-    // do, line 232
+    // do
     v_3 = this.limit - this.cursor;
     lab2: {
-      // call case, line 232
       if (!this.r_case()) {
         break lab2;
       }
     }
     this.cursor = this.limit - v_3;
-    // do, line 233
+    // do
     v_4 = this.limit - this.cursor;
     lab3: {
-      // call case_special, line 233
       if (!this.r_case_special()) {
         break lab3;
       }
     }
     this.cursor = this.limit - v_4;
-    // do, line 234
+    // do
     v_5 = this.limit - this.cursor;
     lab4: {
-      // call case_other, line 234
       if (!this.r_case_other()) {
         break lab4;
       }
     }
     this.cursor = this.limit - v_5;
-    // do, line 235
+    // do
     v_6 = this.limit - this.cursor;
     lab5: {
-      // call factive, line 235
       if (!this.r_factive()) {
         break lab5;
       }
     }
     this.cursor = this.limit - v_6;
-    // do, line 236
+    // do
     v_7 = this.limit - this.cursor;
     lab6: {
-      // call owned, line 236
       if (!this.r_owned()) {
         break lab6;
       }
     }
     this.cursor = this.limit - v_7;
-    // do, line 237
+    // do
     v_8 = this.limit - this.cursor;
     lab7: {
-      // call sing_owner, line 237
       if (!this.r_sing_owner()) {
         break lab7;
       }
     }
     this.cursor = this.limit - v_8;
-    // do, line 238
+    // do
     v_9 = this.limit - this.cursor;
     lab8: {
-      // call plur_owner, line 238
       if (!this.r_plur_owner()) {
         break lab8;
       }
     }
     this.cursor = this.limit - v_9;
-    // do, line 239
+    // do
     v_10 = this.limit - this.cursor;
     lab9: {
-      // call plural, line 239
       if (!this.r_plural()) {
         break lab9;
       }

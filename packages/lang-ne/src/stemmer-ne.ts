@@ -120,7 +120,7 @@ class StemmerNe extends BaseStemmer {
 
   r_remove_category_3() {
     this.ket = this.cursor;
-    if (this.find_among_b(StemmerNe.a_3) == 0) {
+    if (this.find_among_b(StemmerNe.a_3) === 0) {
       return false;
     }
     this.bra = this.cursor;
