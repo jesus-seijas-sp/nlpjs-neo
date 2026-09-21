@@ -750,11 +750,9 @@ class StemmerFr extends SnowballStemmer {
     1, 65, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128,
   ];
 
-  static a_0: Among<StemmerFr>[] = [
-    new Among('col', -1, -1),
-    new Among('par', -1, -1),
-    new Among('tap', -1, -1),
-  ];
+  static a_0 = Among.table<StemmerFr>(`
+    col,-1,-1 par,-1,-1 tap,-1,-1
+  `);
 
   static a_1: Among<StemmerFr>[] = [
     new Among('', -1, 7),
@@ -766,162 +764,48 @@ class StemmerFr extends SnowballStemmer {
     new Among('Y', 0, 3),
   ];
 
-  static a_2: Among<StemmerFr>[] = [
-    new Among('iqU', -1, 3),
-    new Among('abl', -1, 3),
-    new Among('I\u00E8r', -1, 4),
-    new Among('i\u00E8r', -1, 4),
-    new Among('eus', -1, 2),
-    new Among('iv', -1, 1),
-  ];
+  static a_2 = Among.table<StemmerFr>(`
+    iqU,-1,3 abl,-1,3 Ièr,-1,4 ièr,-1,4 eus,-1,2 iv,-1,1
+  `);
 
-  static a_3: Among<StemmerFr>[] = [
-    new Among('ic', -1, 2),
-    new Among('abil', -1, 1),
-    new Among('iv', -1, 3),
-  ];
+  static a_3 = Among.table<StemmerFr>(`
+    ic,-1,2 abil,-1,1 iv,-1,3
+  `);
 
-  static a_4: Among<StemmerFr>[] = [
-    new Among('iqUe', -1, 1),
-    new Among('atrice', -1, 2),
-    new Among('ance', -1, 1),
-    new Among('ence', -1, 5),
-    new Among('logie', -1, 3),
-    new Among('able', -1, 1),
-    new Among('isme', -1, 1),
-    new Among('euse', -1, 11),
-    new Among('iste', -1, 1),
-    new Among('ive', -1, 8),
-    new Among('if', -1, 8),
-    new Among('usion', -1, 4),
-    new Among('ation', -1, 2),
-    new Among('ution', -1, 4),
-    new Among('ateur', -1, 2),
-    new Among('iqUes', -1, 1),
-    new Among('atrices', -1, 2),
-    new Among('ances', -1, 1),
-    new Among('ences', -1, 5),
-    new Among('logies', -1, 3),
-    new Among('ables', -1, 1),
-    new Among('ismes', -1, 1),
-    new Among('euses', -1, 11),
-    new Among('istes', -1, 1),
-    new Among('ives', -1, 8),
-    new Among('ifs', -1, 8),
-    new Among('usions', -1, 4),
-    new Among('ations', -1, 2),
-    new Among('utions', -1, 4),
-    new Among('ateurs', -1, 2),
-    new Among('ments', -1, 15),
-    new Among('ements', 30, 6),
-    new Among('issements', 31, 12),
-    new Among('it\u00E9s', -1, 7),
-    new Among('ment', -1, 15),
-    new Among('ement', 34, 6),
-    new Among('issement', 35, 12),
-    new Among('amment', 34, 13),
-    new Among('emment', 34, 14),
-    new Among('aux', -1, 10),
-    new Among('eaux', 39, 9),
-    new Among('eux', -1, 1),
-    new Among('it\u00E9', -1, 7),
-  ];
+  static a_4 = Among.table<StemmerFr>(`
+    iqUe,-1,1 atrice,-1,2 ance,-1,1 ence,-1,5 logie,-1,3 able,-1,1 isme,-1,1
+    euse,-1,11 iste,-1,1 ive,-1,8 if,-1,8 usion,-1,4 ation,-1,2 ution,-1,4
+    ateur,-1,2 iqUes,-1,1 atrices,-1,2 ances,-1,1 ences,-1,5 logies,-1,3
+    ables,-1,1 ismes,-1,1 euses,-1,11 istes,-1,1 ives,-1,8 ifs,-1,8 usions,-1,4
+    ations,-1,2 utions,-1,4 ateurs,-1,2 ments,-1,15 ements,30,6 issements,31,12
+    ités,-1,7 ment,-1,15 ement,34,6 issement,35,12 amment,34,13 emment,34,14
+    aux,-1,10 eaux,39,9 eux,-1,1 ité,-1,7
+  `);
 
-  static a_5: Among<StemmerFr>[] = [
-    new Among('ira', -1, 1),
-    new Among('ie', -1, 1),
-    new Among('isse', -1, 1),
-    new Among('issante', -1, 1),
-    new Among('i', -1, 1),
-    new Among('irai', 4, 1),
-    new Among('ir', -1, 1),
-    new Among('iras', -1, 1),
-    new Among('ies', -1, 1),
-    new Among('\u00EEmes', -1, 1),
-    new Among('isses', -1, 1),
-    new Among('issantes', -1, 1),
-    new Among('\u00EEtes', -1, 1),
-    new Among('is', -1, 1),
-    new Among('irais', 13, 1),
-    new Among('issais', 13, 1),
-    new Among('irions', -1, 1),
-    new Among('issions', -1, 1),
-    new Among('irons', -1, 1),
-    new Among('issons', -1, 1),
-    new Among('issants', -1, 1),
-    new Among('it', -1, 1),
-    new Among('irait', 21, 1),
-    new Among('issait', 21, 1),
-    new Among('issant', -1, 1),
-    new Among('iraIent', -1, 1),
-    new Among('issaIent', -1, 1),
-    new Among('irent', -1, 1),
-    new Among('issent', -1, 1),
-    new Among('iront', -1, 1),
-    new Among('\u00EEt', -1, 1),
-    new Among('iriez', -1, 1),
-    new Among('issiez', -1, 1),
-    new Among('irez', -1, 1),
-    new Among('issez', -1, 1),
-  ];
+  static a_5 = Among.table<StemmerFr>(`
+    ira,-1,1 ie,-1,1 isse,-1,1 issante,-1,1 i,-1,1 irai,4,1 ir,-1,1 iras,-1,1
+    ies,-1,1 îmes,-1,1 isses,-1,1 issantes,-1,1 îtes,-1,1 is,-1,1 irais,13,1
+    issais,13,1 irions,-1,1 issions,-1,1 irons,-1,1 issons,-1,1 issants,-1,1
+    it,-1,1 irait,21,1 issait,21,1 issant,-1,1 iraIent,-1,1 issaIent,-1,1
+    irent,-1,1 issent,-1,1 iront,-1,1 ît,-1,1 iriez,-1,1 issiez,-1,1 irez,-1,1
+    issez,-1,1
+  `);
 
-  static a_6: Among<StemmerFr>[] = [
-    new Among('a', -1, 3),
-    new Among('era', 0, 2),
-    new Among('asse', -1, 3),
-    new Among('ante', -1, 3),
-    new Among('\u00E9e', -1, 2),
-    new Among('ai', -1, 3),
-    new Among('erai', 5, 2),
-    new Among('er', -1, 2),
-    new Among('as', -1, 3),
-    new Among('eras', 8, 2),
-    new Among('\u00E2mes', -1, 3),
-    new Among('asses', -1, 3),
-    new Among('antes', -1, 3),
-    new Among('\u00E2tes', -1, 3),
-    new Among('\u00E9es', -1, 2),
-    new Among('ais', -1, 3),
-    new Among('erais', 15, 2),
-    new Among('ions', -1, 1),
-    new Among('erions', 17, 2),
-    new Among('assions', 17, 3),
-    new Among('erons', -1, 2),
-    new Among('ants', -1, 3),
-    new Among('\u00E9s', -1, 2),
-    new Among('ait', -1, 3),
-    new Among('erait', 23, 2),
-    new Among('ant', -1, 3),
-    new Among('aIent', -1, 3),
-    new Among('eraIent', 26, 2),
-    new Among('\u00E8rent', -1, 2),
-    new Among('assent', -1, 3),
-    new Among('eront', -1, 2),
-    new Among('\u00E2t', -1, 3),
-    new Among('ez', -1, 2),
-    new Among('iez', 32, 2),
-    new Among('eriez', 33, 2),
-    new Among('assiez', 33, 3),
-    new Among('erez', 32, 2),
-    new Among('\u00E9', -1, 2),
-  ];
+  static a_6 = Among.table<StemmerFr>(`
+    a,-1,3 era,0,2 asse,-1,3 ante,-1,3 ée,-1,2 ai,-1,3 erai,5,2 er,-1,2 as,-1,3
+    eras,8,2 âmes,-1,3 asses,-1,3 antes,-1,3 âtes,-1,3 ées,-1,2 ais,-1,3
+    erais,15,2 ions,-1,1 erions,17,2 assions,17,3 erons,-1,2 ants,-1,3 és,-1,2
+    ait,-1,3 erait,23,2 ant,-1,3 aIent,-1,3 eraIent,26,2 èrent,-1,2 assent,-1,3
+    eront,-1,2 ât,-1,3 ez,-1,2 iez,32,2 eriez,33,2 assiez,33,3 erez,32,2 é,-1,2
+  `);
 
-  static a_7: Among<StemmerFr>[] = [
-    new Among('e', -1, 3),
-    new Among('I\u00E8re', 0, 2),
-    new Among('i\u00E8re', 0, 2),
-    new Among('ion', -1, 1),
-    new Among('Ier', -1, 2),
-    new Among('ier', -1, 2),
-  ];
+  static a_7 = Among.table<StemmerFr>(`
+    e,-1,3 Ière,0,2 ière,0,2 ion,-1,1 Ier,-1,2 ier,-1,2
+  `);
 
-  static a_8: Among<StemmerFr>[] = [
-    new Among('ell', -1, -1),
-    new Among('eill', -1, -1),
-    new Among('enn', -1, -1),
-    new Among('onn', -1, -1),
-    new Among('ett', -1, -1),
-  ];
+  static a_8 = Among.table<StemmerFr>(`
+    ell,-1,-1 eill,-1,-1 enn,-1,-1 onn,-1,-1 ett,-1,-1
+  `);
 }
 
 export default StemmerFr;

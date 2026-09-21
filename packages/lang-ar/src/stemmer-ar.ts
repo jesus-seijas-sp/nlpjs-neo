@@ -1062,138 +1062,92 @@ class StemmerAr extends SnowballStemmer {
     new Among('\uFEFC', -1, 48),
   ];
 
-  static a_1: Among<StemmerAr>[] = [
-    new Among('\u0622', -1, 1),
-    new Among('\u0623', -1, 1),
-    new Among('\u0624', -1, 1),
-    new Among('\u0625', -1, 1),
-    new Among('\u0626', -1, 1),
-  ];
+  static a_1 = Among.table<StemmerAr>(`
+    آ,-1,1 أ,-1,1 ؤ,-1,1 إ,-1,1 ئ,-1,1
+  `);
 
-  static a_2: Among<StemmerAr>[] = [
-    new Among('\u0622', -1, 1),
-    new Among('\u0623', -1, 1),
-    new Among('\u0624', -1, 2),
-    new Among('\u0625', -1, 1),
-    new Among('\u0626', -1, 3),
-  ];
+  static a_2 = Among.table<StemmerAr>(`
+    آ,-1,1 أ,-1,1 ؤ,-1,2 إ,-1,1 ئ,-1,3
+  `);
 
-  static a_3: Among<StemmerAr>[] = [
-    new Among('\u0627\u0644', -1, 2),
-    new Among('\u0628\u0627\u0644', -1, 1),
-    new Among('\u0643\u0627\u0644', -1, 1),
-    new Among('\u0644\u0644', -1, 2),
-  ];
+  static a_3 = Among.table<StemmerAr>(`
+    ال,-1,2 بال,-1,1 كال,-1,1 لل,-1,2
+  `);
 
-  static a_4: Among<StemmerAr>[] = [
-    new Among('\u0623\u0622', -1, 2),
-    new Among('\u0623\u0623', -1, 1),
-    new Among('\u0623\u0624', -1, 1),
-    new Among('\u0623\u0625', -1, 4),
-    new Among('\u0623\u0627', -1, 3),
-  ];
+  static a_4 = Among.table<StemmerAr>(`
+    أآ,-1,2 أأ,-1,1 أؤ,-1,1 أإ,-1,4 أا,-1,3
+  `);
 
-  static a_5: Among<StemmerAr>[] = [
-    new Among('\u0641', -1, 1),
-    new Among('\u0648', -1, 1),
-  ];
+  static a_5 = Among.table<StemmerAr>(`
+    ف,-1,1 و,-1,1
+  `);
 
-  static a_6: Among<StemmerAr>[] = [
-    new Among('\u0627\u0644', -1, 2),
-    new Among('\u0628\u0627\u0644', -1, 1),
-    new Among('\u0643\u0627\u0644', -1, 1),
-    new Among('\u0644\u0644', -1, 2),
-  ];
+  static a_6 = Among.table<StemmerAr>(`
+    ال,-1,2 بال,-1,1 كال,-1,1 لل,-1,2
+  `);
 
-  static a_7: Among<StemmerAr>[] = [
-    new Among('\u0628', -1, 1),
-    new Among('\u0628\u0627', 0, -1),
-    new Among('\u0628\u0628', 0, 2),
-    new Among('\u0643\u0643', -1, 3),
-  ];
+  static a_7 = Among.table<StemmerAr>(`
+    ب,-1,1 با,0,-1 بب,0,2 كك,-1,3
+  `);
 
-  static a_8: Among<StemmerAr>[] = [
-    new Among('\u0633\u0623', -1, 4),
-    new Among('\u0633\u062A', -1, 2),
-    new Among('\u0633\u0646', -1, 3),
-    new Among('\u0633\u064A', -1, 1),
-  ];
+  static a_8 = Among.table<StemmerAr>(`
+    سأ,-1,4 ست,-1,2 سن,-1,3 سي,-1,1
+  `);
 
-  static a_9: Among<StemmerAr>[] = [
-    new Among('\u062A\u0633\u062A', -1, 1),
-    new Among('\u0646\u0633\u062A', -1, 1),
-    new Among('\u064A\u0633\u062A', -1, 1),
-  ];
+  static a_9 = Among.table<StemmerAr>(`
+    تست,-1,1 نست,-1,1 يست,-1,1
+  `);
 
-  static a_10: Among<StemmerAr>[] = [
-    new Among('\u0643\u0645\u0627', -1, 3),
-    new Among('\u0647\u0645\u0627', -1, 3),
-    new Among('\u0646\u0627', -1, 2),
-    new Among('\u0647\u0627', -1, 2),
-    new Among('\u0643', -1, 1),
-    new Among('\u0643\u0645', -1, 2),
-    new Among('\u0647\u0645', -1, 2),
-    new Among('\u0647\u0646', -1, 2),
-    new Among('\u0647', -1, 1),
-    new Among('\u064A', -1, 1),
-  ];
+  static a_10 = Among.table<StemmerAr>(`
+    كما,-1,3 هما,-1,3 نا,-1,2 ها,-1,2 ك,-1,1 كم,-1,2 هم,-1,2 هن,-1,2 ه,-1,1
+    ي,-1,1
+  `);
 
-  static a_11: Among<StemmerAr>[] = [
-    new Among('\u0627', -1, 1),
-    new Among('\u0648', -1, 1),
-    new Among('\u064A', -1, 1),
-  ];
+  static a_11 = Among.table<StemmerAr>(`
+    ا,-1,1 و,-1,1 ي,-1,1
+  `);
 
-  static a_12: Among<StemmerAr>[] = [
-    new Among('\u0643\u0645\u0627', -1, 3),
-    new Among('\u0647\u0645\u0627', -1, 3),
-    new Among('\u0646\u0627', -1, 2),
-    new Among('\u0647\u0627', -1, 2),
-    new Among('\u0643', -1, 1),
-    new Among('\u0643\u0645', -1, 2),
-    new Among('\u0647\u0645', -1, 2),
-    new Among('\u0643\u0646', -1, 2),
-    new Among('\u0647\u0646', -1, 2),
-    new Among('\u0647', -1, 1),
-    new Among('\u0643\u0645\u0648', -1, 3),
-    new Among('\u0646\u064A', -1, 2),
-  ];
+  static a_12 = Among.table<StemmerAr>(`
+    كما,-1,3 هما,-1,3 نا,-1,2 ها,-1,2 ك,-1,1 كم,-1,2 هم,-1,2 كن,-1,2 هن,-1,2
+    ه,-1,1 كمو,-1,3 ني,-1,2
+  `);
 
-  static a_13: Among<StemmerAr>[] = [
-    new Among('\u0627', -1, 1),
-    new Among('\u062A\u0627', 0, 2),
-    new Among('\u062A\u0645\u0627', 0, 4),
-    new Among('\u0646\u0627', 0, 2),
-    new Among('\u062A', -1, 1),
-    new Among('\u0646', -1, 1),
-    new Among('\u0627\u0646', 5, 3),
-    new Among('\u062A\u0646', 5, 2),
-    new Among('\u0648\u0646', 5, 3),
-    new Among('\u064A\u0646', 5, 3),
-    new Among('\u064A', -1, 1),
-  ];
+  static a_13 = Among.table<StemmerAr>(`
+    ا,-1,1 تا,0,2 تما,0,4 نا,0,2 ت,-1,1 ن,-1,1 ان,5,3 تن,5,2 ون,5,3 ين,5,3
+    ي,-1,1
+  `);
 
-  static a_14: Among<StemmerAr>[] = [
-    new Among('\u0648\u0627', -1, 1),
-    new Among('\u062A\u0645', -1, 1),
-  ];
+  static a_14 = Among.table<StemmerAr>(`
+    وا,-1,1 تم,-1,1
+  `);
 
-  static a_15: Among<StemmerAr>[] = [
-    new Among('\u0648', -1, 1),
-    new Among('\u062A\u0645\u0648', 0, 2),
-  ];
+  static a_15 = Among.table<StemmerAr>(`
+    و,-1,1 تمو,0,2
+  `);
 
-  static a_16: Among<StemmerAr>[] = [new Among('\u0649', -1, 1)];
+  static a_16 = Among.table<StemmerAr>(`
+    ى,-1,1
+  `);
 
-  static a_17: Among<StemmerAr>[] = [new Among('\u0629', -1, 1)];
+  static a_17 = Among.table<StemmerAr>(`
+    ة,-1,1
+  `);
 
-  static a_18: Among<StemmerAr>[] = [new Among('\u0627\u062A', -1, 1)];
+  static a_18 = Among.table<StemmerAr>(`
+    ات,-1,1
+  `);
 
-  static a_19: Among<StemmerAr>[] = [new Among('\u062A', -1, 1)];
+  static a_19 = Among.table<StemmerAr>(`
+    ت,-1,1
+  `);
 
-  static a_20: Among<StemmerAr>[] = [new Among('\u0646', -1, 1)];
+  static a_20 = Among.table<StemmerAr>(`
+    ن,-1,1
+  `);
 
-  static a_21: Among<StemmerAr>[] = [new Among('\u064A', -1, 1)];
+  static a_21 = Among.table<StemmerAr>(`
+    ي,-1,1
+  `);
 }
 
 export default StemmerAr;

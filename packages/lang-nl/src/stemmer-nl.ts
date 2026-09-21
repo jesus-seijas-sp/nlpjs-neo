@@ -409,35 +409,21 @@ class StemmerNl extends SnowballStemmer {
     new Among('Y', 0, 1),
   ];
 
-  static a_2: Among<StemmerNl>[] = [
-    new Among('dd', -1, -1),
-    new Among('kk', -1, -1),
-    new Among('tt', -1, -1),
-  ];
+  static a_2 = Among.table<StemmerNl>(`
+    dd,-1,-1 kk,-1,-1 tt,-1,-1
+  `);
 
-  static a_3: Among<StemmerNl>[] = [
-    new Among('ene', -1, 2),
-    new Among('se', -1, 3),
-    new Among('en', -1, 2),
-    new Among('heden', 2, 1),
-    new Among('s', -1, 3),
-  ];
+  static a_3 = Among.table<StemmerNl>(`
+    ene,-1,2 se,-1,3 en,-1,2 heden,2,1 s,-1,3
+  `);
 
-  static a_4: Among<StemmerNl>[] = [
-    new Among('end', -1, 1),
-    new Among('ig', -1, 2),
-    new Among('ing', -1, 1),
-    new Among('lijk', -1, 3),
-    new Among('baar', -1, 4),
-    new Among('bar', -1, 5),
-  ];
+  static a_4 = Among.table<StemmerNl>(`
+    end,-1,1 ig,-1,2 ing,-1,1 lijk,-1,3 baar,-1,4 bar,-1,5
+  `);
 
-  static a_5: Among<StemmerNl>[] = [
-    new Among('aa', -1, -1),
-    new Among('ee', -1, -1),
-    new Among('oo', -1, -1),
-    new Among('uu', -1, -1),
-  ];
+  static a_5 = Among.table<StemmerNl>(`
+    aa,-1,-1 ee,-1,-1 oo,-1,-1 uu,-1,-1
+  `);
 }
 
 export default StemmerNl;

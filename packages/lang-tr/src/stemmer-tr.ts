@@ -1533,197 +1533,108 @@ class StemmerTr extends SnowballStemmer {
 
   static g_vowel6: number[] = [65];
 
-  static a_0: Among<StemmerTr>[] = [
-    new Among('m', -1, -1),
-    new Among('n', -1, -1),
-    new Among('miz', -1, -1),
-    new Among('niz', -1, -1),
-    new Among('muz', -1, -1),
-    new Among('nuz', -1, -1),
-    new Among('m\u00FCz', -1, -1),
-    new Among('n\u00FCz', -1, -1),
-    new Among('m\u0131z', -1, -1),
-    new Among('n\u0131z', -1, -1),
-  ];
+  static a_0 = Among.table<StemmerTr>(`
+    m,-1,-1 n,-1,-1 miz,-1,-1 niz,-1,-1 muz,-1,-1 nuz,-1,-1 müz,-1,-1 nüz,-1,-1
+    mız,-1,-1 nız,-1,-1
+  `);
 
-  static a_1: Among<StemmerTr>[] = [
-    new Among('leri', -1, -1),
-    new Among('lar\u0131', -1, -1),
-  ];
+  static a_1 = Among.table<StemmerTr>(`
+    leri,-1,-1 ları,-1,-1
+  `);
 
-  static a_2: Among<StemmerTr>[] = [
-    new Among('ni', -1, -1),
-    new Among('nu', -1, -1),
-    new Among('n\u00FC', -1, -1),
-    new Among('n\u0131', -1, -1),
-  ];
+  static a_2 = Among.table<StemmerTr>(`
+    ni,-1,-1 nu,-1,-1 nü,-1,-1 nı,-1,-1
+  `);
 
-  static a_3: Among<StemmerTr>[] = [
-    new Among('in', -1, -1),
-    new Among('un', -1, -1),
-    new Among('\u00FCn', -1, -1),
-    new Among('\u0131n', -1, -1),
-  ];
+  static a_3 = Among.table<StemmerTr>(`
+    in,-1,-1 un,-1,-1 ün,-1,-1 ın,-1,-1
+  `);
 
-  static a_4: Among<StemmerTr>[] = [
-    new Among('a', -1, -1),
-    new Among('e', -1, -1),
-  ];
+  static a_4 = Among.table<StemmerTr>(`
+    a,-1,-1 e,-1,-1
+  `);
 
-  static a_5: Among<StemmerTr>[] = [
-    new Among('na', -1, -1),
-    new Among('ne', -1, -1),
-  ];
+  static a_5 = Among.table<StemmerTr>(`
+    na,-1,-1 ne,-1,-1
+  `);
 
-  static a_6: Among<StemmerTr>[] = [
-    new Among('da', -1, -1),
-    new Among('ta', -1, -1),
-    new Among('de', -1, -1),
-    new Among('te', -1, -1),
-  ];
+  static a_6 = Among.table<StemmerTr>(`
+    da,-1,-1 ta,-1,-1 de,-1,-1 te,-1,-1
+  `);
 
-  static a_7: Among<StemmerTr>[] = [
-    new Among('nda', -1, -1),
-    new Among('nde', -1, -1),
-  ];
+  static a_7 = Among.table<StemmerTr>(`
+    nda,-1,-1 nde,-1,-1
+  `);
 
-  static a_8: Among<StemmerTr>[] = [
-    new Among('dan', -1, -1),
-    new Among('tan', -1, -1),
-    new Among('den', -1, -1),
-    new Among('ten', -1, -1),
-  ];
+  static a_8 = Among.table<StemmerTr>(`
+    dan,-1,-1 tan,-1,-1 den,-1,-1 ten,-1,-1
+  `);
 
-  static a_9: Among<StemmerTr>[] = [
-    new Among('ndan', -1, -1),
-    new Among('nden', -1, -1),
-  ];
+  static a_9 = Among.table<StemmerTr>(`
+    ndan,-1,-1 nden,-1,-1
+  `);
 
-  static a_10: Among<StemmerTr>[] = [
-    new Among('la', -1, -1),
-    new Among('le', -1, -1),
-  ];
+  static a_10 = Among.table<StemmerTr>(`
+    la,-1,-1 le,-1,-1
+  `);
 
-  static a_11: Among<StemmerTr>[] = [
-    new Among('ca', -1, -1),
-    new Among('ce', -1, -1),
-  ];
+  static a_11 = Among.table<StemmerTr>(`
+    ca,-1,-1 ce,-1,-1
+  `);
 
-  static a_12: Among<StemmerTr>[] = [
-    new Among('im', -1, -1),
-    new Among('um', -1, -1),
-    new Among('\u00FCm', -1, -1),
-    new Among('\u0131m', -1, -1),
-  ];
+  static a_12 = Among.table<StemmerTr>(`
+    im,-1,-1 um,-1,-1 üm,-1,-1 ım,-1,-1
+  `);
 
-  static a_13: Among<StemmerTr>[] = [
-    new Among('sin', -1, -1),
-    new Among('sun', -1, -1),
-    new Among('s\u00FCn', -1, -1),
-    new Among('s\u0131n', -1, -1),
-  ];
+  static a_13 = Among.table<StemmerTr>(`
+    sin,-1,-1 sun,-1,-1 sün,-1,-1 sın,-1,-1
+  `);
 
-  static a_14: Among<StemmerTr>[] = [
-    new Among('iz', -1, -1),
-    new Among('uz', -1, -1),
-    new Among('\u00FCz', -1, -1),
-    new Among('\u0131z', -1, -1),
-  ];
+  static a_14 = Among.table<StemmerTr>(`
+    iz,-1,-1 uz,-1,-1 üz,-1,-1 ız,-1,-1
+  `);
 
-  static a_15: Among<StemmerTr>[] = [
-    new Among('siniz', -1, -1),
-    new Among('sunuz', -1, -1),
-    new Among('s\u00FCn\u00FCz', -1, -1),
-    new Among('s\u0131n\u0131z', -1, -1),
-  ];
+  static a_15 = Among.table<StemmerTr>(`
+    siniz,-1,-1 sunuz,-1,-1 sünüz,-1,-1 sınız,-1,-1
+  `);
 
-  static a_16: Among<StemmerTr>[] = [
-    new Among('lar', -1, -1),
-    new Among('ler', -1, -1),
-  ];
+  static a_16 = Among.table<StemmerTr>(`
+    lar,-1,-1 ler,-1,-1
+  `);
 
-  static a_17: Among<StemmerTr>[] = [
-    new Among('niz', -1, -1),
-    new Among('nuz', -1, -1),
-    new Among('n\u00FCz', -1, -1),
-    new Among('n\u0131z', -1, -1),
-  ];
+  static a_17 = Among.table<StemmerTr>(`
+    niz,-1,-1 nuz,-1,-1 nüz,-1,-1 nız,-1,-1
+  `);
 
-  static a_18: Among<StemmerTr>[] = [
-    new Among('dir', -1, -1),
-    new Among('tir', -1, -1),
-    new Among('dur', -1, -1),
-    new Among('tur', -1, -1),
-    new Among('d\u00FCr', -1, -1),
-    new Among('t\u00FCr', -1, -1),
-    new Among('d\u0131r', -1, -1),
-    new Among('t\u0131r', -1, -1),
-  ];
+  static a_18 = Among.table<StemmerTr>(`
+    dir,-1,-1 tir,-1,-1 dur,-1,-1 tur,-1,-1 dür,-1,-1 tür,-1,-1 dır,-1,-1
+    tır,-1,-1
+  `);
 
-  static a_19: Among<StemmerTr>[] = [
-    new Among('cas\u0131na', -1, -1),
-    new Among('cesine', -1, -1),
-  ];
+  static a_19 = Among.table<StemmerTr>(`
+    casına,-1,-1 cesine,-1,-1
+  `);
 
-  static a_20: Among<StemmerTr>[] = [
-    new Among('di', -1, -1),
-    new Among('ti', -1, -1),
-    new Among('dik', -1, -1),
-    new Among('tik', -1, -1),
-    new Among('duk', -1, -1),
-    new Among('tuk', -1, -1),
-    new Among('d\u00FCk', -1, -1),
-    new Among('t\u00FCk', -1, -1),
-    new Among('d\u0131k', -1, -1),
-    new Among('t\u0131k', -1, -1),
-    new Among('dim', -1, -1),
-    new Among('tim', -1, -1),
-    new Among('dum', -1, -1),
-    new Among('tum', -1, -1),
-    new Among('d\u00FCm', -1, -1),
-    new Among('t\u00FCm', -1, -1),
-    new Among('d\u0131m', -1, -1),
-    new Among('t\u0131m', -1, -1),
-    new Among('din', -1, -1),
-    new Among('tin', -1, -1),
-    new Among('dun', -1, -1),
-    new Among('tun', -1, -1),
-    new Among('d\u00FCn', -1, -1),
-    new Among('t\u00FCn', -1, -1),
-    new Among('d\u0131n', -1, -1),
-    new Among('t\u0131n', -1, -1),
-    new Among('du', -1, -1),
-    new Among('tu', -1, -1),
-    new Among('d\u00FC', -1, -1),
-    new Among('t\u00FC', -1, -1),
-    new Among('d\u0131', -1, -1),
-    new Among('t\u0131', -1, -1),
-  ];
+  static a_20 = Among.table<StemmerTr>(`
+    di,-1,-1 ti,-1,-1 dik,-1,-1 tik,-1,-1 duk,-1,-1 tuk,-1,-1 dük,-1,-1
+    tük,-1,-1 dık,-1,-1 tık,-1,-1 dim,-1,-1 tim,-1,-1 dum,-1,-1 tum,-1,-1
+    düm,-1,-1 tüm,-1,-1 dım,-1,-1 tım,-1,-1 din,-1,-1 tin,-1,-1 dun,-1,-1
+    tun,-1,-1 dün,-1,-1 tün,-1,-1 dın,-1,-1 tın,-1,-1 du,-1,-1 tu,-1,-1 dü,-1,-1
+    tü,-1,-1 dı,-1,-1 tı,-1,-1
+  `);
 
-  static a_21: Among<StemmerTr>[] = [
-    new Among('sa', -1, -1),
-    new Among('se', -1, -1),
-    new Among('sak', -1, -1),
-    new Among('sek', -1, -1),
-    new Among('sam', -1, -1),
-    new Among('sem', -1, -1),
-    new Among('san', -1, -1),
-    new Among('sen', -1, -1),
-  ];
+  static a_21 = Among.table<StemmerTr>(`
+    sa,-1,-1 se,-1,-1 sak,-1,-1 sek,-1,-1 sam,-1,-1 sem,-1,-1 san,-1,-1
+    sen,-1,-1
+  `);
 
-  static a_22: Among<StemmerTr>[] = [
-    new Among('mi\u015F', -1, -1),
-    new Among('mu\u015F', -1, -1),
-    new Among('m\u00FC\u015F', -1, -1),
-    new Among('m\u0131\u015F', -1, -1),
-  ];
+  static a_22 = Among.table<StemmerTr>(`
+    miş,-1,-1 muş,-1,-1 müş,-1,-1 mış,-1,-1
+  `);
 
-  static a_23: Among<StemmerTr>[] = [
-    new Among('b', -1, 1),
-    new Among('c', -1, 2),
-    new Among('d', -1, 3),
-    new Among('\u011F', -1, 4),
-  ];
+  static a_23 = Among.table<StemmerTr>(`
+    b,-1,1 c,-1,2 d,-1,3 ğ,-1,4
+  `);
 }
 
 export default StemmerTr;

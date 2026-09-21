@@ -285,162 +285,48 @@ class StemmerRu extends SnowballStemmer {
 
   static g_v: number[] = [33, 65, 8, 232];
 
-  static a_0: Among<StemmerRu>[] = [
-    new Among('\u0432', -1, 1),
-    new Among('\u0438\u0432', 0, 2),
-    new Among('\u044B\u0432', 0, 2),
-    new Among('\u0432\u0448\u0438', -1, 1),
-    new Among('\u0438\u0432\u0448\u0438', 3, 2),
-    new Among('\u044B\u0432\u0448\u0438', 3, 2),
-    new Among('\u0432\u0448\u0438\u0441\u044C', -1, 1),
-    new Among('\u0438\u0432\u0448\u0438\u0441\u044C', 6, 2),
-    new Among('\u044B\u0432\u0448\u0438\u0441\u044C', 6, 2),
-  ];
+  static a_0 = Among.table<StemmerRu>(`
+    в,-1,1 ив,0,2 ыв,0,2 вши,-1,1 ивши,3,2 ывши,3,2 вшись,-1,1 ившись,6,2
+    ывшись,6,2
+  `);
 
-  static a_1: Among<StemmerRu>[] = [
-    new Among('\u0435\u0435', -1, 1),
-    new Among('\u0438\u0435', -1, 1),
-    new Among('\u043E\u0435', -1, 1),
-    new Among('\u044B\u0435', -1, 1),
-    new Among('\u0438\u043C\u0438', -1, 1),
-    new Among('\u044B\u043C\u0438', -1, 1),
-    new Among('\u0435\u0439', -1, 1),
-    new Among('\u0438\u0439', -1, 1),
-    new Among('\u043E\u0439', -1, 1),
-    new Among('\u044B\u0439', -1, 1),
-    new Among('\u0435\u043C', -1, 1),
-    new Among('\u0438\u043C', -1, 1),
-    new Among('\u043E\u043C', -1, 1),
-    new Among('\u044B\u043C', -1, 1),
-    new Among('\u0435\u0433\u043E', -1, 1),
-    new Among('\u043E\u0433\u043E', -1, 1),
-    new Among('\u0435\u043C\u0443', -1, 1),
-    new Among('\u043E\u043C\u0443', -1, 1),
-    new Among('\u0438\u0445', -1, 1),
-    new Among('\u044B\u0445', -1, 1),
-    new Among('\u0435\u044E', -1, 1),
-    new Among('\u043E\u044E', -1, 1),
-    new Among('\u0443\u044E', -1, 1),
-    new Among('\u044E\u044E', -1, 1),
-    new Among('\u0430\u044F', -1, 1),
-    new Among('\u044F\u044F', -1, 1),
-  ];
+  static a_1 = Among.table<StemmerRu>(`
+    ее,-1,1 ие,-1,1 ое,-1,1 ые,-1,1 ими,-1,1 ыми,-1,1 ей,-1,1 ий,-1,1 ой,-1,1
+    ый,-1,1 ем,-1,1 им,-1,1 ом,-1,1 ым,-1,1 его,-1,1 ого,-1,1 ему,-1,1 ому,-1,1
+    их,-1,1 ых,-1,1 ею,-1,1 ою,-1,1 ую,-1,1 юю,-1,1 ая,-1,1 яя,-1,1
+  `);
 
-  static a_2: Among<StemmerRu>[] = [
-    new Among('\u0435\u043C', -1, 1),
-    new Among('\u043D\u043D', -1, 1),
-    new Among('\u0432\u0448', -1, 1),
-    new Among('\u0438\u0432\u0448', 2, 2),
-    new Among('\u044B\u0432\u0448', 2, 2),
-    new Among('\u0449', -1, 1),
-    new Among('\u044E\u0449', 5, 1),
-    new Among('\u0443\u044E\u0449', 6, 2),
-  ];
+  static a_2 = Among.table<StemmerRu>(`
+    ем,-1,1 нн,-1,1 вш,-1,1 ивш,2,2 ывш,2,2 щ,-1,1 ющ,5,1 ующ,6,2
+  `);
 
-  static a_3: Among<StemmerRu>[] = [
-    new Among('\u0441\u044C', -1, 1),
-    new Among('\u0441\u044F', -1, 1),
-  ];
+  static a_3 = Among.table<StemmerRu>(`
+    сь,-1,1 ся,-1,1
+  `);
 
-  static a_4: Among<StemmerRu>[] = [
-    new Among('\u043B\u0430', -1, 1),
-    new Among('\u0438\u043B\u0430', 0, 2),
-    new Among('\u044B\u043B\u0430', 0, 2),
-    new Among('\u043D\u0430', -1, 1),
-    new Among('\u0435\u043D\u0430', 3, 2),
-    new Among('\u0435\u0442\u0435', -1, 1),
-    new Among('\u0438\u0442\u0435', -1, 2),
-    new Among('\u0439\u0442\u0435', -1, 1),
-    new Among('\u0435\u0439\u0442\u0435', 7, 2),
-    new Among('\u0443\u0439\u0442\u0435', 7, 2),
-    new Among('\u043B\u0438', -1, 1),
-    new Among('\u0438\u043B\u0438', 10, 2),
-    new Among('\u044B\u043B\u0438', 10, 2),
-    new Among('\u0439', -1, 1),
-    new Among('\u0435\u0439', 13, 2),
-    new Among('\u0443\u0439', 13, 2),
-    new Among('\u043B', -1, 1),
-    new Among('\u0438\u043B', 16, 2),
-    new Among('\u044B\u043B', 16, 2),
-    new Among('\u0435\u043C', -1, 1),
-    new Among('\u0438\u043C', -1, 2),
-    new Among('\u044B\u043C', -1, 2),
-    new Among('\u043D', -1, 1),
-    new Among('\u0435\u043D', 22, 2),
-    new Among('\u043B\u043E', -1, 1),
-    new Among('\u0438\u043B\u043E', 24, 2),
-    new Among('\u044B\u043B\u043E', 24, 2),
-    new Among('\u043D\u043E', -1, 1),
-    new Among('\u0435\u043D\u043E', 27, 2),
-    new Among('\u043D\u043D\u043E', 27, 1),
-    new Among('\u0435\u0442', -1, 1),
-    new Among('\u0443\u0435\u0442', 30, 2),
-    new Among('\u0438\u0442', -1, 2),
-    new Among('\u044B\u0442', -1, 2),
-    new Among('\u044E\u0442', -1, 1),
-    new Among('\u0443\u044E\u0442', 34, 2),
-    new Among('\u044F\u0442', -1, 2),
-    new Among('\u043D\u044B', -1, 1),
-    new Among('\u0435\u043D\u044B', 37, 2),
-    new Among('\u0442\u044C', -1, 1),
-    new Among('\u0438\u0442\u044C', 39, 2),
-    new Among('\u044B\u0442\u044C', 39, 2),
-    new Among('\u0435\u0448\u044C', -1, 1),
-    new Among('\u0438\u0448\u044C', -1, 2),
-    new Among('\u044E', -1, 2),
-    new Among('\u0443\u044E', 44, 2),
-  ];
+  static a_4 = Among.table<StemmerRu>(`
+    ла,-1,1 ила,0,2 ыла,0,2 на,-1,1 ена,3,2 ете,-1,1 ите,-1,2 йте,-1,1 ейте,7,2
+    уйте,7,2 ли,-1,1 или,10,2 ыли,10,2 й,-1,1 ей,13,2 уй,13,2 л,-1,1 ил,16,2
+    ыл,16,2 ем,-1,1 им,-1,2 ым,-1,2 н,-1,1 ен,22,2 ло,-1,1 ило,24,2 ыло,24,2
+    но,-1,1 ено,27,2 нно,27,1 ет,-1,1 ует,30,2 ит,-1,2 ыт,-1,2 ют,-1,1 уют,34,2
+    ят,-1,2 ны,-1,1 ены,37,2 ть,-1,1 ить,39,2 ыть,39,2 ешь,-1,1 ишь,-1,2 ю,-1,2
+    ую,44,2
+  `);
 
-  static a_5: Among<StemmerRu>[] = [
-    new Among('\u0430', -1, 1),
-    new Among('\u0435\u0432', -1, 1),
-    new Among('\u043E\u0432', -1, 1),
-    new Among('\u0435', -1, 1),
-    new Among('\u0438\u0435', 3, 1),
-    new Among('\u044C\u0435', 3, 1),
-    new Among('\u0438', -1, 1),
-    new Among('\u0435\u0438', 6, 1),
-    new Among('\u0438\u0438', 6, 1),
-    new Among('\u0430\u043C\u0438', 6, 1),
-    new Among('\u044F\u043C\u0438', 6, 1),
-    new Among('\u0438\u044F\u043C\u0438', 10, 1),
-    new Among('\u0439', -1, 1),
-    new Among('\u0435\u0439', 12, 1),
-    new Among('\u0438\u0435\u0439', 13, 1),
-    new Among('\u0438\u0439', 12, 1),
-    new Among('\u043E\u0439', 12, 1),
-    new Among('\u0430\u043C', -1, 1),
-    new Among('\u0435\u043C', -1, 1),
-    new Among('\u0438\u0435\u043C', 18, 1),
-    new Among('\u043E\u043C', -1, 1),
-    new Among('\u044F\u043C', -1, 1),
-    new Among('\u0438\u044F\u043C', 21, 1),
-    new Among('\u043E', -1, 1),
-    new Among('\u0443', -1, 1),
-    new Among('\u0430\u0445', -1, 1),
-    new Among('\u044F\u0445', -1, 1),
-    new Among('\u0438\u044F\u0445', 26, 1),
-    new Among('\u044B', -1, 1),
-    new Among('\u044C', -1, 1),
-    new Among('\u044E', -1, 1),
-    new Among('\u0438\u044E', 30, 1),
-    new Among('\u044C\u044E', 30, 1),
-    new Among('\u044F', -1, 1),
-    new Among('\u0438\u044F', 33, 1),
-    new Among('\u044C\u044F', 33, 1),
-  ];
+  static a_5 = Among.table<StemmerRu>(`
+    а,-1,1 ев,-1,1 ов,-1,1 е,-1,1 ие,3,1 ье,3,1 и,-1,1 еи,6,1 ии,6,1 ами,6,1
+    ями,6,1 иями,10,1 й,-1,1 ей,12,1 ией,13,1 ий,12,1 ой,12,1 ам,-1,1 ем,-1,1
+    ием,18,1 ом,-1,1 ям,-1,1 иям,21,1 о,-1,1 у,-1,1 ах,-1,1 ях,-1,1 иях,26,1
+    ы,-1,1 ь,-1,1 ю,-1,1 ию,30,1 ью,30,1 я,-1,1 ия,33,1 ья,33,1
+  `);
 
-  static a_6: Among<StemmerRu>[] = [
-    new Among('\u043E\u0441\u0442', -1, 1),
-    new Among('\u043E\u0441\u0442\u044C', -1, 1),
-  ];
+  static a_6 = Among.table<StemmerRu>(`
+    ост,-1,1 ость,-1,1
+  `);
 
-  static a_7: Among<StemmerRu>[] = [
-    new Among('\u0435\u0439\u0448\u0435', -1, 1),
-    new Among('\u043D', -1, 2),
-    new Among('\u0435\u0439\u0448', -1, 1),
-    new Among('\u044C', -1, 3),
-  ];
+  static a_7 = Among.table<StemmerRu>(`
+    ейше,-1,1 н,-1,2 ейш,-1,1 ь,-1,3
+  `);
 }
 
 export default StemmerRu;

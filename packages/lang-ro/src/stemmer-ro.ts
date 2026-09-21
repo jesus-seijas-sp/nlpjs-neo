@@ -362,243 +362,53 @@ class StemmerRo extends SnowballStemmer {
     new Among('U', 0, 2),
   ];
 
-  static a_1: Among<StemmerRo>[] = [
-    new Among('ea', -1, 3),
-    new Among('a\u0163ia', -1, 7),
-    new Among('aua', -1, 2),
-    new Among('iua', -1, 4),
-    new Among('a\u0163ie', -1, 7),
-    new Among('ele', -1, 3),
-    new Among('ile', -1, 5),
-    new Among('iile', 6, 4),
-    new Among('iei', -1, 4),
-    new Among('atei', -1, 6),
-    new Among('ii', -1, 4),
-    new Among('ului', -1, 1),
-    new Among('ul', -1, 1),
-    new Among('elor', -1, 3),
-    new Among('ilor', -1, 4),
-    new Among('iilor', 14, 4),
-  ];
+  static a_1 = Among.table<StemmerRo>(`
+    ea,-1,3 aţia,-1,7 aua,-1,2 iua,-1,4 aţie,-1,7 ele,-1,3 ile,-1,5 iile,6,4
+    iei,-1,4 atei,-1,6 ii,-1,4 ului,-1,1 ul,-1,1 elor,-1,3 ilor,-1,4 iilor,14,4
+  `);
 
-  static a_2: Among<StemmerRo>[] = [
-    new Among('icala', -1, 4),
-    new Among('iciva', -1, 4),
-    new Among('ativa', -1, 5),
-    new Among('itiva', -1, 6),
-    new Among('icale', -1, 4),
-    new Among('a\u0163iune', -1, 5),
-    new Among('i\u0163iune', -1, 6),
-    new Among('atoare', -1, 5),
-    new Among('itoare', -1, 6),
-    new Among('\u0103toare', -1, 5),
-    new Among('icitate', -1, 4),
-    new Among('abilitate', -1, 1),
-    new Among('ibilitate', -1, 2),
-    new Among('ivitate', -1, 3),
-    new Among('icive', -1, 4),
-    new Among('ative', -1, 5),
-    new Among('itive', -1, 6),
-    new Among('icali', -1, 4),
-    new Among('atori', -1, 5),
-    new Among('icatori', 18, 4),
-    new Among('itori', -1, 6),
-    new Among('\u0103tori', -1, 5),
-    new Among('icitati', -1, 4),
-    new Among('abilitati', -1, 1),
-    new Among('ivitati', -1, 3),
-    new Among('icivi', -1, 4),
-    new Among('ativi', -1, 5),
-    new Among('itivi', -1, 6),
-    new Among('icit\u0103i', -1, 4),
-    new Among('abilit\u0103i', -1, 1),
-    new Among('ivit\u0103i', -1, 3),
-    new Among('icit\u0103\u0163i', -1, 4),
-    new Among('abilit\u0103\u0163i', -1, 1),
-    new Among('ivit\u0103\u0163i', -1, 3),
-    new Among('ical', -1, 4),
-    new Among('ator', -1, 5),
-    new Among('icator', 35, 4),
-    new Among('itor', -1, 6),
-    new Among('\u0103tor', -1, 5),
-    new Among('iciv', -1, 4),
-    new Among('ativ', -1, 5),
-    new Among('itiv', -1, 6),
-    new Among('ical\u0103', -1, 4),
-    new Among('iciv\u0103', -1, 4),
-    new Among('ativ\u0103', -1, 5),
-    new Among('itiv\u0103', -1, 6),
-  ];
+  static a_2 = Among.table<StemmerRo>(`
+    icala,-1,4 iciva,-1,4 ativa,-1,5 itiva,-1,6 icale,-1,4 aţiune,-1,5
+    iţiune,-1,6 atoare,-1,5 itoare,-1,6 ătoare,-1,5 icitate,-1,4 abilitate,-1,1
+    ibilitate,-1,2 ivitate,-1,3 icive,-1,4 ative,-1,5 itive,-1,6 icali,-1,4
+    atori,-1,5 icatori,18,4 itori,-1,6 ători,-1,5 icitati,-1,4 abilitati,-1,1
+    ivitati,-1,3 icivi,-1,4 ativi,-1,5 itivi,-1,6 icităi,-1,4 abilităi,-1,1
+    ivităi,-1,3 icităţi,-1,4 abilităţi,-1,1 ivităţi,-1,3 ical,-1,4 ator,-1,5
+    icator,35,4 itor,-1,6 ător,-1,5 iciv,-1,4 ativ,-1,5 itiv,-1,6 icală,-1,4
+    icivă,-1,4 ativă,-1,5 itivă,-1,6
+  `);
 
-  static a_3: Among<StemmerRo>[] = [
-    new Among('ica', -1, 1),
-    new Among('abila', -1, 1),
-    new Among('ibila', -1, 1),
-    new Among('oasa', -1, 1),
-    new Among('ata', -1, 1),
-    new Among('ita', -1, 1),
-    new Among('anta', -1, 1),
-    new Among('ista', -1, 3),
-    new Among('uta', -1, 1),
-    new Among('iva', -1, 1),
-    new Among('ic', -1, 1),
-    new Among('ice', -1, 1),
-    new Among('abile', -1, 1),
-    new Among('ibile', -1, 1),
-    new Among('isme', -1, 3),
-    new Among('iune', -1, 2),
-    new Among('oase', -1, 1),
-    new Among('ate', -1, 1),
-    new Among('itate', 17, 1),
-    new Among('ite', -1, 1),
-    new Among('ante', -1, 1),
-    new Among('iste', -1, 3),
-    new Among('ute', -1, 1),
-    new Among('ive', -1, 1),
-    new Among('ici', -1, 1),
-    new Among('abili', -1, 1),
-    new Among('ibili', -1, 1),
-    new Among('iuni', -1, 2),
-    new Among('atori', -1, 1),
-    new Among('osi', -1, 1),
-    new Among('ati', -1, 1),
-    new Among('itati', 30, 1),
-    new Among('iti', -1, 1),
-    new Among('anti', -1, 1),
-    new Among('isti', -1, 3),
-    new Among('uti', -1, 1),
-    new Among('i\u015Fti', -1, 3),
-    new Among('ivi', -1, 1),
-    new Among('it\u0103i', -1, 1),
-    new Among('o\u015Fi', -1, 1),
-    new Among('it\u0103\u0163i', -1, 1),
-    new Among('abil', -1, 1),
-    new Among('ibil', -1, 1),
-    new Among('ism', -1, 3),
-    new Among('ator', -1, 1),
-    new Among('os', -1, 1),
-    new Among('at', -1, 1),
-    new Among('it', -1, 1),
-    new Among('ant', -1, 1),
-    new Among('ist', -1, 3),
-    new Among('ut', -1, 1),
-    new Among('iv', -1, 1),
-    new Among('ic\u0103', -1, 1),
-    new Among('abil\u0103', -1, 1),
-    new Among('ibil\u0103', -1, 1),
-    new Among('oas\u0103', -1, 1),
-    new Among('at\u0103', -1, 1),
-    new Among('it\u0103', -1, 1),
-    new Among('ant\u0103', -1, 1),
-    new Among('ist\u0103', -1, 3),
-    new Among('ut\u0103', -1, 1),
-    new Among('iv\u0103', -1, 1),
-  ];
+  static a_3 = Among.table<StemmerRo>(`
+    ica,-1,1 abila,-1,1 ibila,-1,1 oasa,-1,1 ata,-1,1 ita,-1,1 anta,-1,1
+    ista,-1,3 uta,-1,1 iva,-1,1 ic,-1,1 ice,-1,1 abile,-1,1 ibile,-1,1 isme,-1,3
+    iune,-1,2 oase,-1,1 ate,-1,1 itate,17,1 ite,-1,1 ante,-1,1 iste,-1,3
+    ute,-1,1 ive,-1,1 ici,-1,1 abili,-1,1 ibili,-1,1 iuni,-1,2 atori,-1,1
+    osi,-1,1 ati,-1,1 itati,30,1 iti,-1,1 anti,-1,1 isti,-1,3 uti,-1,1 işti,-1,3
+    ivi,-1,1 ităi,-1,1 oşi,-1,1 ităţi,-1,1 abil,-1,1 ibil,-1,1 ism,-1,3
+    ator,-1,1 os,-1,1 at,-1,1 it,-1,1 ant,-1,1 ist,-1,3 ut,-1,1 iv,-1,1 ică,-1,1
+    abilă,-1,1 ibilă,-1,1 oasă,-1,1 ată,-1,1 ită,-1,1 antă,-1,1 istă,-1,3
+    ută,-1,1 ivă,-1,1
+  `);
 
-  static a_4: Among<StemmerRo>[] = [
-    new Among('ea', -1, 1),
-    new Among('ia', -1, 1),
-    new Among('esc', -1, 1),
-    new Among('\u0103sc', -1, 1),
-    new Among('ind', -1, 1),
-    new Among('\u00E2nd', -1, 1),
-    new Among('are', -1, 1),
-    new Among('ere', -1, 1),
-    new Among('ire', -1, 1),
-    new Among('\u00E2re', -1, 1),
-    new Among('se', -1, 2),
-    new Among('ase', 10, 1),
-    new Among('sese', 10, 2),
-    new Among('ise', 10, 1),
-    new Among('use', 10, 1),
-    new Among('\u00E2se', 10, 1),
-    new Among('e\u015Fte', -1, 1),
-    new Among('\u0103\u015Fte', -1, 1),
-    new Among('eze', -1, 1),
-    new Among('ai', -1, 1),
-    new Among('eai', 19, 1),
-    new Among('iai', 19, 1),
-    new Among('sei', -1, 2),
-    new Among('e\u015Fti', -1, 1),
-    new Among('\u0103\u015Fti', -1, 1),
-    new Among('ui', -1, 1),
-    new Among('ezi', -1, 1),
-    new Among('\u00E2i', -1, 1),
-    new Among('a\u015Fi', -1, 1),
-    new Among('se\u015Fi', -1, 2),
-    new Among('ase\u015Fi', 29, 1),
-    new Among('sese\u015Fi', 29, 2),
-    new Among('ise\u015Fi', 29, 1),
-    new Among('use\u015Fi', 29, 1),
-    new Among('\u00E2se\u015Fi', 29, 1),
-    new Among('i\u015Fi', -1, 1),
-    new Among('u\u015Fi', -1, 1),
-    new Among('\u00E2\u015Fi', -1, 1),
-    new Among('a\u0163i', -1, 2),
-    new Among('ea\u0163i', 38, 1),
-    new Among('ia\u0163i', 38, 1),
-    new Among('e\u0163i', -1, 2),
-    new Among('i\u0163i', -1, 2),
-    new Among('\u00E2\u0163i', -1, 2),
-    new Among('ar\u0103\u0163i', -1, 1),
-    new Among('ser\u0103\u0163i', -1, 2),
-    new Among('aser\u0103\u0163i', 45, 1),
-    new Among('seser\u0103\u0163i', 45, 2),
-    new Among('iser\u0103\u0163i', 45, 1),
-    new Among('user\u0103\u0163i', 45, 1),
-    new Among('\u00E2ser\u0103\u0163i', 45, 1),
-    new Among('ir\u0103\u0163i', -1, 1),
-    new Among('ur\u0103\u0163i', -1, 1),
-    new Among('\u00E2r\u0103\u0163i', -1, 1),
-    new Among('am', -1, 1),
-    new Among('eam', 54, 1),
-    new Among('iam', 54, 1),
-    new Among('em', -1, 2),
-    new Among('asem', 57, 1),
-    new Among('sesem', 57, 2),
-    new Among('isem', 57, 1),
-    new Among('usem', 57, 1),
-    new Among('\u00E2sem', 57, 1),
-    new Among('im', -1, 2),
-    new Among('\u00E2m', -1, 2),
-    new Among('\u0103m', -1, 2),
-    new Among('ar\u0103m', 65, 1),
-    new Among('ser\u0103m', 65, 2),
-    new Among('aser\u0103m', 67, 1),
-    new Among('seser\u0103m', 67, 2),
-    new Among('iser\u0103m', 67, 1),
-    new Among('user\u0103m', 67, 1),
-    new Among('\u00E2ser\u0103m', 67, 1),
-    new Among('ir\u0103m', 65, 1),
-    new Among('ur\u0103m', 65, 1),
-    new Among('\u00E2r\u0103m', 65, 1),
-    new Among('au', -1, 1),
-    new Among('eau', 76, 1),
-    new Among('iau', 76, 1),
-    new Among('indu', -1, 1),
-    new Among('\u00E2ndu', -1, 1),
-    new Among('ez', -1, 1),
-    new Among('easc\u0103', -1, 1),
-    new Among('ar\u0103', -1, 1),
-    new Among('ser\u0103', -1, 2),
-    new Among('aser\u0103', 84, 1),
-    new Among('seser\u0103', 84, 2),
-    new Among('iser\u0103', 84, 1),
-    new Among('user\u0103', 84, 1),
-    new Among('\u00E2ser\u0103', 84, 1),
-    new Among('ir\u0103', -1, 1),
-    new Among('ur\u0103', -1, 1),
-    new Among('\u00E2r\u0103', -1, 1),
-    new Among('eaz\u0103', -1, 1),
-  ];
+  static a_4 = Among.table<StemmerRo>(`
+    ea,-1,1 ia,-1,1 esc,-1,1 ăsc,-1,1 ind,-1,1 ând,-1,1 are,-1,1 ere,-1,1
+    ire,-1,1 âre,-1,1 se,-1,2 ase,10,1 sese,10,2 ise,10,1 use,10,1 âse,10,1
+    eşte,-1,1 ăşte,-1,1 eze,-1,1 ai,-1,1 eai,19,1 iai,19,1 sei,-1,2 eşti,-1,1
+    ăşti,-1,1 ui,-1,1 ezi,-1,1 âi,-1,1 aşi,-1,1 seşi,-1,2 aseşi,29,1 seseşi,29,2
+    iseşi,29,1 useşi,29,1 âseşi,29,1 işi,-1,1 uşi,-1,1 âşi,-1,1 aţi,-1,2
+    eaţi,38,1 iaţi,38,1 eţi,-1,2 iţi,-1,2 âţi,-1,2 arăţi,-1,1 serăţi,-1,2
+    aserăţi,45,1 seserăţi,45,2 iserăţi,45,1 userăţi,45,1 âserăţi,45,1 irăţi,-1,1
+    urăţi,-1,1 ârăţi,-1,1 am,-1,1 eam,54,1 iam,54,1 em,-1,2 asem,57,1 sesem,57,2
+    isem,57,1 usem,57,1 âsem,57,1 im,-1,2 âm,-1,2 ăm,-1,2 arăm,65,1 serăm,65,2
+    aserăm,67,1 seserăm,67,2 iserăm,67,1 userăm,67,1 âserăm,67,1 irăm,65,1
+    urăm,65,1 ârăm,65,1 au,-1,1 eau,76,1 iau,76,1 indu,-1,1 ându,-1,1 ez,-1,1
+    ească,-1,1 ară,-1,1 seră,-1,2 aseră,84,1 seseră,84,2 iseră,84,1 useră,84,1
+    âseră,84,1 iră,-1,1 ură,-1,1 âră,-1,1 ează,-1,1
+  `);
 
-  static a_5: Among<StemmerRo>[] = [
-    new Among('a', -1, 1),
-    new Among('e', -1, 1),
-    new Among('ie', 1, 1),
-    new Among('i', -1, 1),
-    new Among('\u0103', -1, 1),
-  ];
+  static a_5 = Among.table<StemmerRo>(`
+    a,-1,1 e,-1,1 ie,1,1 i,-1,1 ă,-1,1
+  `);
 }
 
 export default StemmerRo;

@@ -133,56 +133,21 @@ class StemmerNo extends SnowballStemmer {
 
   static g_s_ending: number[] = [119, 125, 149, 1];
 
-  static a_0: Among<StemmerNo>[] = [
-    new Among('a', -1, 1),
-    new Among('e', -1, 1),
-    new Among('ede', 1, 1),
-    new Among('ande', 1, 1),
-    new Among('ende', 1, 1),
-    new Among('ane', 1, 1),
-    new Among('ene', 1, 1),
-    new Among('hetene', 6, 1),
-    new Among('erte', 1, 3),
-    new Among('en', -1, 1),
-    new Among('heten', 9, 1),
-    new Among('ar', -1, 1),
-    new Among('er', -1, 1),
-    new Among('heter', 12, 1),
-    new Among('s', -1, 2),
-    new Among('as', 14, 1),
-    new Among('es', 14, 1),
-    new Among('edes', 16, 1),
-    new Among('endes', 16, 1),
-    new Among('enes', 16, 1),
-    new Among('hetenes', 19, 1),
-    new Among('ens', 14, 1),
-    new Among('hetens', 21, 1),
-    new Among('ers', 14, 1),
-    new Among('ets', 14, 1),
-    new Among('et', -1, 1),
-    new Among('het', 25, 1),
-    new Among('ert', -1, 3),
-    new Among('ast', -1, 1),
-  ];
+  static a_0 = Among.table<StemmerNo>(`
+    a,-1,1 e,-1,1 ede,1,1 ande,1,1 ende,1,1 ane,1,1 ene,1,1 hetene,6,1 erte,1,3
+    en,-1,1 heten,9,1 ar,-1,1 er,-1,1 heter,12,1 s,-1,2 as,14,1 es,14,1
+    edes,16,1 endes,16,1 enes,16,1 hetenes,19,1 ens,14,1 hetens,21,1 ers,14,1
+    ets,14,1 et,-1,1 het,25,1 ert,-1,3 ast,-1,1
+  `);
 
-  static a_1: Among<StemmerNo>[] = [
-    new Among('dt', -1, -1),
-    new Among('vt', -1, -1),
-  ];
+  static a_1 = Among.table<StemmerNo>(`
+    dt,-1,-1 vt,-1,-1
+  `);
 
-  static a_2: Among<StemmerNo>[] = [
-    new Among('leg', -1, 1),
-    new Among('eleg', 0, 1),
-    new Among('ig', -1, 1),
-    new Among('eig', 2, 1),
-    new Among('lig', 2, 1),
-    new Among('elig', 4, 1),
-    new Among('els', -1, 1),
-    new Among('lov', -1, 1),
-    new Among('elov', 7, 1),
-    new Among('slov', 7, 1),
-    new Among('hetslov', 9, 1),
-  ];
+  static a_2 = Among.table<StemmerNo>(`
+    leg,-1,1 eleg,0,1 ig,-1,1 eig,2,1 lig,2,1 elig,4,1 els,-1,1 lov,-1,1
+    elov,7,1 slov,7,1 hetslov,9,1
+  `);
 }
 
 export default StemmerNo;

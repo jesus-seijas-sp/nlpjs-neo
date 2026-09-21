@@ -133,63 +133,21 @@ class StemmerSv extends SnowballStemmer {
 
   static g_s_ending: number[] = [119, 127, 149];
 
-  static a_0: Among<StemmerSv>[] = [
-    new Among('a', -1, 1),
-    new Among('arna', 0, 1),
-    new Among('erna', 0, 1),
-    new Among('heterna', 2, 1),
-    new Among('orna', 0, 1),
-    new Among('ad', -1, 1),
-    new Among('e', -1, 1),
-    new Among('ade', 6, 1),
-    new Among('ande', 6, 1),
-    new Among('arne', 6, 1),
-    new Among('are', 6, 1),
-    new Among('aste', 6, 1),
-    new Among('en', -1, 1),
-    new Among('anden', 12, 1),
-    new Among('aren', 12, 1),
-    new Among('heten', 12, 1),
-    new Among('ern', -1, 1),
-    new Among('ar', -1, 1),
-    new Among('er', -1, 1),
-    new Among('heter', 18, 1),
-    new Among('or', -1, 1),
-    new Among('s', -1, 2),
-    new Among('as', 21, 1),
-    new Among('arnas', 22, 1),
-    new Among('ernas', 22, 1),
-    new Among('ornas', 22, 1),
-    new Among('es', 21, 1),
-    new Among('ades', 26, 1),
-    new Among('andes', 26, 1),
-    new Among('ens', 21, 1),
-    new Among('arens', 29, 1),
-    new Among('hetens', 29, 1),
-    new Among('erns', 21, 1),
-    new Among('at', -1, 1),
-    new Among('andet', -1, 1),
-    new Among('het', -1, 1),
-    new Among('ast', -1, 1),
-  ];
+  static a_0 = Among.table<StemmerSv>(`
+    a,-1,1 arna,0,1 erna,0,1 heterna,2,1 orna,0,1 ad,-1,1 e,-1,1 ade,6,1
+    ande,6,1 arne,6,1 are,6,1 aste,6,1 en,-1,1 anden,12,1 aren,12,1 heten,12,1
+    ern,-1,1 ar,-1,1 er,-1,1 heter,18,1 or,-1,1 s,-1,2 as,21,1 arnas,22,1
+    ernas,22,1 ornas,22,1 es,21,1 ades,26,1 andes,26,1 ens,21,1 arens,29,1
+    hetens,29,1 erns,21,1 at,-1,1 andet,-1,1 het,-1,1 ast,-1,1
+  `);
 
-  static a_1: Among<StemmerSv>[] = [
-    new Among('dd', -1, -1),
-    new Among('gd', -1, -1),
-    new Among('nn', -1, -1),
-    new Among('dt', -1, -1),
-    new Among('gt', -1, -1),
-    new Among('kt', -1, -1),
-    new Among('tt', -1, -1),
-  ];
+  static a_1 = Among.table<StemmerSv>(`
+    dd,-1,-1 gd,-1,-1 nn,-1,-1 dt,-1,-1 gt,-1,-1 kt,-1,-1 tt,-1,-1
+  `);
 
-  static a_2: Among<StemmerSv>[] = [
-    new Among('ig', -1, 1),
-    new Among('lig', 0, 1),
-    new Among('els', -1, 1),
-    new Among('fullt', -1, 3),
-    new Among('l\u00F6st', -1, 2),
-  ];
+  static a_2 = Among.table<StemmerSv>(`
+    ig,-1,1 lig,0,1 els,-1,1 fullt,-1,3 löst,-1,2
+  `);
 }
 
 export default StemmerSv;

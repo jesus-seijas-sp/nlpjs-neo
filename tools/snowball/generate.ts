@@ -109,6 +109,30 @@ function arrayField(head: string, items: string[], pack: boolean): string {
   return [`  ${head} = [`, ...lines, '  ];'].join(NEWLINE);
 }
 
+/**
+ * A table written as the text `Among.table` reads, wrapped to the width, when
+ * it can be: no guards, and no string that the text cannot hold.
+ */
+function amongText(table: AmongTable, className: string): string | undefined {
+  const safe = /^[^\s,`$\\\p{Cc}]+$/u;
+  if (table.rows.some((row) => row.guard || !safe.test(row.s))) {
+    return undefined;
+  }
+  const head = `  static ${table.name} = Among.table<${className}>(\``;
+  const lines: string[] = [];
+  let line = '   ';
+  for (const row of table.rows) {
+    const entry = `${row.s},${row.i},${row.result}`;
+    if (line.length + 1 + entry.length > WIDTH && line.trim() !== '') {
+      lines.push(line);
+      line = '   ';
+    }
+    line += ` ${entry}`;
+  }
+  lines.push(line);
+  return [head, ...lines, '  `);'].join(NEWLINE);
+}
+
 function strip(node: unknown): unknown {
   return JSON.parse(
     JSON.stringify(node, (key, value) =>
@@ -1715,7 +1739,8 @@ class Generator {
         return `new Among(${quote(row.s)}, ${row.i}, ${row.result}${guard})`;
       });
       tables.push(
-        arrayField(`static ${table.name}: Among<${className}>[]`, rows, false)
+        amongText(table, className) ??
+          arrayField(`static ${table.name}: Among<${className}>[]`, rows, false)
       );
     }
 

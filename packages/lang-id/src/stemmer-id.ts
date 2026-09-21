@@ -345,40 +345,26 @@ class StemmerId extends SnowballStemmer {
 
   static g_vowel: number[] = [17, 65, 16];
 
-  static a_0: Among<StemmerId>[] = [
-    new Among('kah', -1, 1),
-    new Among('lah', -1, 1),
-    new Among('pun', -1, 1),
-  ];
+  static a_0 = Among.table<StemmerId>(`
+    kah,-1,1 lah,-1,1 pun,-1,1
+  `);
 
-  static a_1: Among<StemmerId>[] = [
-    new Among('nya', -1, 1),
-    new Among('ku', -1, 1),
-    new Among('mu', -1, 1),
-  ];
+  static a_1 = Among.table<StemmerId>(`
+    nya,-1,1 ku,-1,1 mu,-1,1
+  `);
 
-  static a_2: Among<StemmerId>[] = [
-    new Among('i', -1, 2),
-    new Among('an', -1, 1),
-  ];
+  static a_2 = Among.table<StemmerId>(`
+    i,-1,2 an,-1,1
+  `);
 
-  static a_3: Among<StemmerId>[] = [
-    new Among('di', -1, 1),
-    new Among('ke', -1, 3),
-    new Among('me', -1, 1),
-    new Among('mem', 2, 5),
-    new Among('men', 2, 2),
-    new Among('meng', 4, 1),
-    new Among('pem', -1, 6),
-    new Among('pen', -1, 4),
-    new Among('peng', 7, 3),
-    new Among('ter', -1, 1),
-  ];
+  static a_3 = Among.table<StemmerId>(`
+    di,-1,1 ke,-1,3 me,-1,1 mem,2,5 men,2,2 meng,4,1 pem,-1,6 pen,-1,4 peng,7,3
+    ter,-1,1
+  `);
 
-  static a_4: Among<StemmerId>[] = [
-    new Among('be', -1, 2),
-    new Among('pe', -1, 1),
-  ];
+  static a_4 = Among.table<StemmerId>(`
+    be,-1,2 pe,-1,1
+  `);
 }
 
 export default StemmerId;

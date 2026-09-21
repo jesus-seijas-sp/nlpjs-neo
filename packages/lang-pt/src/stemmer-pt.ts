@@ -457,212 +457,56 @@ class StemmerPt extends SnowballStemmer {
     new Among('o~', 0, 2),
   ];
 
-  static a_2: Among<StemmerPt>[] = [
-    new Among('ic', -1, -1),
-    new Among('ad', -1, -1),
-    new Among('os', -1, -1),
-    new Among('iv', -1, 1),
-  ];
+  static a_2 = Among.table<StemmerPt>(`
+    ic,-1,-1 ad,-1,-1 os,-1,-1 iv,-1,1
+  `);
 
-  static a_3: Among<StemmerPt>[] = [
-    new Among('ante', -1, 1),
-    new Among('avel', -1, 1),
-    new Among('\u00EDvel', -1, 1),
-  ];
+  static a_3 = Among.table<StemmerPt>(`
+    ante,-1,1 avel,-1,1 ível,-1,1
+  `);
 
-  static a_4: Among<StemmerPt>[] = [
-    new Among('ic', -1, 1),
-    new Among('abil', -1, 1),
-    new Among('iv', -1, 1),
-  ];
+  static a_4 = Among.table<StemmerPt>(`
+    ic,-1,1 abil,-1,1 iv,-1,1
+  `);
 
-  static a_5: Among<StemmerPt>[] = [
-    new Among('ica', -1, 1),
-    new Among('\u00E2ncia', -1, 1),
-    new Among('\u00EAncia', -1, 4),
-    new Among('logia', -1, 2),
-    new Among('ira', -1, 9),
-    new Among('adora', -1, 1),
-    new Among('osa', -1, 1),
-    new Among('ista', -1, 1),
-    new Among('iva', -1, 8),
-    new Among('eza', -1, 1),
-    new Among('idade', -1, 7),
-    new Among('ante', -1, 1),
-    new Among('mente', -1, 6),
-    new Among('amente', 12, 5),
-    new Among('\u00E1vel', -1, 1),
-    new Among('\u00EDvel', -1, 1),
-    new Among('ico', -1, 1),
-    new Among('ismo', -1, 1),
-    new Among('oso', -1, 1),
-    new Among('amento', -1, 1),
-    new Among('imento', -1, 1),
-    new Among('ivo', -1, 8),
-    new Among('a\u00E7a~o', -1, 1),
-    new Among('u\u00E7a~o', -1, 3),
-    new Among('ador', -1, 1),
-    new Among('icas', -1, 1),
-    new Among('\u00EAncias', -1, 4),
-    new Among('logias', -1, 2),
-    new Among('iras', -1, 9),
-    new Among('adoras', -1, 1),
-    new Among('osas', -1, 1),
-    new Among('istas', -1, 1),
-    new Among('ivas', -1, 8),
-    new Among('ezas', -1, 1),
-    new Among('idades', -1, 7),
-    new Among('adores', -1, 1),
-    new Among('antes', -1, 1),
-    new Among('a\u00E7o~es', -1, 1),
-    new Among('u\u00E7o~es', -1, 3),
-    new Among('icos', -1, 1),
-    new Among('ismos', -1, 1),
-    new Among('osos', -1, 1),
-    new Among('amentos', -1, 1),
-    new Among('imentos', -1, 1),
-    new Among('ivos', -1, 8),
-  ];
+  static a_5 = Among.table<StemmerPt>(`
+    ica,-1,1 ância,-1,1 ência,-1,4 logia,-1,2 ira,-1,9 adora,-1,1 osa,-1,1
+    ista,-1,1 iva,-1,8 eza,-1,1 idade,-1,7 ante,-1,1 mente,-1,6 amente,12,5
+    ável,-1,1 ível,-1,1 ico,-1,1 ismo,-1,1 oso,-1,1 amento,-1,1 imento,-1,1
+    ivo,-1,8 aça~o,-1,1 uça~o,-1,3 ador,-1,1 icas,-1,1 ências,-1,4 logias,-1,2
+    iras,-1,9 adoras,-1,1 osas,-1,1 istas,-1,1 ivas,-1,8 ezas,-1,1 idades,-1,7
+    adores,-1,1 antes,-1,1 aço~es,-1,1 uço~es,-1,3 icos,-1,1 ismos,-1,1
+    osos,-1,1 amentos,-1,1 imentos,-1,1 ivos,-1,8
+  `);
 
-  static a_6: Among<StemmerPt>[] = [
-    new Among('ada', -1, 1),
-    new Among('ida', -1, 1),
-    new Among('ia', -1, 1),
-    new Among('aria', 2, 1),
-    new Among('eria', 2, 1),
-    new Among('iria', 2, 1),
-    new Among('ara', -1, 1),
-    new Among('era', -1, 1),
-    new Among('ira', -1, 1),
-    new Among('ava', -1, 1),
-    new Among('asse', -1, 1),
-    new Among('esse', -1, 1),
-    new Among('isse', -1, 1),
-    new Among('aste', -1, 1),
-    new Among('este', -1, 1),
-    new Among('iste', -1, 1),
-    new Among('ei', -1, 1),
-    new Among('arei', 16, 1),
-    new Among('erei', 16, 1),
-    new Among('irei', 16, 1),
-    new Among('am', -1, 1),
-    new Among('iam', 20, 1),
-    new Among('ariam', 21, 1),
-    new Among('eriam', 21, 1),
-    new Among('iriam', 21, 1),
-    new Among('aram', 20, 1),
-    new Among('eram', 20, 1),
-    new Among('iram', 20, 1),
-    new Among('avam', 20, 1),
-    new Among('em', -1, 1),
-    new Among('arem', 29, 1),
-    new Among('erem', 29, 1),
-    new Among('irem', 29, 1),
-    new Among('assem', 29, 1),
-    new Among('essem', 29, 1),
-    new Among('issem', 29, 1),
-    new Among('ado', -1, 1),
-    new Among('ido', -1, 1),
-    new Among('ando', -1, 1),
-    new Among('endo', -1, 1),
-    new Among('indo', -1, 1),
-    new Among('ara~o', -1, 1),
-    new Among('era~o', -1, 1),
-    new Among('ira~o', -1, 1),
-    new Among('ar', -1, 1),
-    new Among('er', -1, 1),
-    new Among('ir', -1, 1),
-    new Among('as', -1, 1),
-    new Among('adas', 47, 1),
-    new Among('idas', 47, 1),
-    new Among('ias', 47, 1),
-    new Among('arias', 50, 1),
-    new Among('erias', 50, 1),
-    new Among('irias', 50, 1),
-    new Among('aras', 47, 1),
-    new Among('eras', 47, 1),
-    new Among('iras', 47, 1),
-    new Among('avas', 47, 1),
-    new Among('es', -1, 1),
-    new Among('ardes', 58, 1),
-    new Among('erdes', 58, 1),
-    new Among('irdes', 58, 1),
-    new Among('ares', 58, 1),
-    new Among('eres', 58, 1),
-    new Among('ires', 58, 1),
-    new Among('asses', 58, 1),
-    new Among('esses', 58, 1),
-    new Among('isses', 58, 1),
-    new Among('astes', 58, 1),
-    new Among('estes', 58, 1),
-    new Among('istes', 58, 1),
-    new Among('is', -1, 1),
-    new Among('ais', 71, 1),
-    new Among('eis', 71, 1),
-    new Among('areis', 73, 1),
-    new Among('ereis', 73, 1),
-    new Among('ireis', 73, 1),
-    new Among('\u00E1reis', 73, 1),
-    new Among('\u00E9reis', 73, 1),
-    new Among('\u00EDreis', 73, 1),
-    new Among('\u00E1sseis', 73, 1),
-    new Among('\u00E9sseis', 73, 1),
-    new Among('\u00EDsseis', 73, 1),
-    new Among('\u00E1veis', 73, 1),
-    new Among('\u00EDeis', 73, 1),
-    new Among('ar\u00EDeis', 84, 1),
-    new Among('er\u00EDeis', 84, 1),
-    new Among('ir\u00EDeis', 84, 1),
-    new Among('ados', -1, 1),
-    new Among('idos', -1, 1),
-    new Among('amos', -1, 1),
-    new Among('\u00E1ramos', 90, 1),
-    new Among('\u00E9ramos', 90, 1),
-    new Among('\u00EDramos', 90, 1),
-    new Among('\u00E1vamos', 90, 1),
-    new Among('\u00EDamos', 90, 1),
-    new Among('ar\u00EDamos', 95, 1),
-    new Among('er\u00EDamos', 95, 1),
-    new Among('ir\u00EDamos', 95, 1),
-    new Among('emos', -1, 1),
-    new Among('aremos', 99, 1),
-    new Among('eremos', 99, 1),
-    new Among('iremos', 99, 1),
-    new Among('\u00E1ssemos', 99, 1),
-    new Among('\u00EAssemos', 99, 1),
-    new Among('\u00EDssemos', 99, 1),
-    new Among('imos', -1, 1),
-    new Among('armos', -1, 1),
-    new Among('ermos', -1, 1),
-    new Among('irmos', -1, 1),
-    new Among('\u00E1mos', -1, 1),
-    new Among('ar\u00E1s', -1, 1),
-    new Among('er\u00E1s', -1, 1),
-    new Among('ir\u00E1s', -1, 1),
-    new Among('eu', -1, 1),
-    new Among('iu', -1, 1),
-    new Among('ou', -1, 1),
-    new Among('ar\u00E1', -1, 1),
-    new Among('er\u00E1', -1, 1),
-    new Among('ir\u00E1', -1, 1),
-  ];
+  static a_6 = Among.table<StemmerPt>(`
+    ada,-1,1 ida,-1,1 ia,-1,1 aria,2,1 eria,2,1 iria,2,1 ara,-1,1 era,-1,1
+    ira,-1,1 ava,-1,1 asse,-1,1 esse,-1,1 isse,-1,1 aste,-1,1 este,-1,1
+    iste,-1,1 ei,-1,1 arei,16,1 erei,16,1 irei,16,1 am,-1,1 iam,20,1 ariam,21,1
+    eriam,21,1 iriam,21,1 aram,20,1 eram,20,1 iram,20,1 avam,20,1 em,-1,1
+    arem,29,1 erem,29,1 irem,29,1 assem,29,1 essem,29,1 issem,29,1 ado,-1,1
+    ido,-1,1 ando,-1,1 endo,-1,1 indo,-1,1 ara~o,-1,1 era~o,-1,1 ira~o,-1,1
+    ar,-1,1 er,-1,1 ir,-1,1 as,-1,1 adas,47,1 idas,47,1 ias,47,1 arias,50,1
+    erias,50,1 irias,50,1 aras,47,1 eras,47,1 iras,47,1 avas,47,1 es,-1,1
+    ardes,58,1 erdes,58,1 irdes,58,1 ares,58,1 eres,58,1 ires,58,1 asses,58,1
+    esses,58,1 isses,58,1 astes,58,1 estes,58,1 istes,58,1 is,-1,1 ais,71,1
+    eis,71,1 areis,73,1 ereis,73,1 ireis,73,1 áreis,73,1 éreis,73,1 íreis,73,1
+    ásseis,73,1 ésseis,73,1 ísseis,73,1 áveis,73,1 íeis,73,1 aríeis,84,1
+    eríeis,84,1 iríeis,84,1 ados,-1,1 idos,-1,1 amos,-1,1 áramos,90,1
+    éramos,90,1 íramos,90,1 ávamos,90,1 íamos,90,1 aríamos,95,1 eríamos,95,1
+    iríamos,95,1 emos,-1,1 aremos,99,1 eremos,99,1 iremos,99,1 ássemos,99,1
+    êssemos,99,1 íssemos,99,1 imos,-1,1 armos,-1,1 ermos,-1,1 irmos,-1,1
+    ámos,-1,1 arás,-1,1 erás,-1,1 irás,-1,1 eu,-1,1 iu,-1,1 ou,-1,1 ará,-1,1
+    erá,-1,1 irá,-1,1
+  `);
 
-  static a_7: Among<StemmerPt>[] = [
-    new Among('a', -1, 1),
-    new Among('i', -1, 1),
-    new Among('o', -1, 1),
-    new Among('os', -1, 1),
-    new Among('\u00E1', -1, 1),
-    new Among('\u00ED', -1, 1),
-    new Among('\u00F3', -1, 1),
-  ];
+  static a_7 = Among.table<StemmerPt>(`
+    a,-1,1 i,-1,1 o,-1,1 os,-1,1 á,-1,1 í,-1,1 ó,-1,1
+  `);
 
-  static a_8: Among<StemmerPt>[] = [
-    new Among('e', -1, 1),
-    new Among('\u00E7', -1, 2),
-    new Among('\u00E9', -1, 1),
-    new Among('\u00EA', -1, 1),
-  ];
+  static a_8 = Among.table<StemmerPt>(`
+    e,-1,1 ç,-1,2 é,-1,1 ê,-1,1
+  `);
 }
 
 export default StemmerPt;

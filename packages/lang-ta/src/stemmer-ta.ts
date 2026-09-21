@@ -534,49 +534,23 @@ class StemmerTa extends SnowballStemmer {
     return true;
   }
 
-  static a_0: Among<StemmerTa>[] = [
-    new Among('\u0BB5\u0BC1', -1, 3),
-    new Among('\u0BB5\u0BC2', -1, 4),
-    new Among('\u0BB5\u0BCA', -1, 2),
-    new Among('\u0BB5\u0BCB', -1, 1),
-  ];
+  static a_0 = Among.table<StemmerTa>(`
+    வு,-1,3 வூ,-1,4 வொ,-1,2 வோ,-1,1
+  `);
 
-  static a_1: Among<StemmerTa>[] = [
-    new Among('\u0BA8\u0BCD\u0BA4', -1, 1),
-    new Among('\u0BAF', -1, 1),
-    new Among('\u0BB5', -1, 1),
-    new Among('\u0BA9\u0BC1', -1, 8),
-    new Among('\u0BC1\u0B95\u0BCD', -1, 7),
-    new Among('\u0BC1\u0B95\u0BCD\u0B95\u0BCD', -1, 7),
-    new Among('\u0B9F\u0BCD\u0B95\u0BCD', -1, 3),
-    new Among('\u0BB1\u0BCD\u0B95\u0BCD', -1, 4),
-    new Among('\u0B99\u0BCD', -1, 9),
-    new Among('\u0B9F\u0BCD\u0B9F\u0BCD', -1, 5),
-    new Among('\u0BA4\u0BCD\u0BA4\u0BCD', -1, 6),
-    new Among('\u0BA8\u0BCD\u0BA4\u0BCD', -1, 1),
-    new Among('\u0BA8\u0BCD', -1, 1),
-    new Among('\u0B9F\u0BCD\u0BAA\u0BCD', -1, 3),
-    new Among('\u0BAF\u0BCD', -1, 2),
-    new Among('\u0BA9\u0BCD\u0BB1\u0BCD', -1, 4),
-    new Among('\u0BB5\u0BCD', -1, 1),
-  ];
+  static a_1 = Among.table<StemmerTa>(`
+    ந்த,-1,1 ய,-1,1 வ,-1,1 னு,-1,8 ுக்,-1,7 ுக்க்,-1,7 ட்க்,-1,3 ற்க்,-1,4
+    ங்,-1,9 ட்ட்,-1,5 த்த்,-1,6 ந்த்,-1,1 ந்,-1,1 ட்ப்,-1,3 ய்,-1,2 ன்ற்,-1,4
+    வ்,-1,1
+  `);
 
-  static a_2: Among<StemmerTa>[] = [
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_2 = Among.table<StemmerTa>(`
+    ி,-1,-1 ீ,-1,-1 ை,-1,-1
+  `);
 
-  static a_3: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_3 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1
+  `);
 
   static a_4: Among<StemmerTa>[] = [
     new Among('', -1, 2),
@@ -584,297 +558,107 @@ class StemmerTa extends SnowballStemmer {
     new Among('\u0BCD', 0, 1),
   ];
 
-  static a_5: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9F', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BB1', -1, -1),
-  ];
+  static a_5 = Among.table<StemmerTa>(`
+    க,-1,-1 ச,-1,-1 ட,-1,-1 த,-1,-1 ப,-1,-1 ற,-1,-1
+  `);
 
-  static a_6: Among<StemmerTa>[] = [
-    new Among('\u0B9E', -1, -1),
-    new Among('\u0BA3', -1, -1),
-    new Among('\u0BA8', -1, -1),
-    new Among('\u0BA9', -1, -1),
-    new Among('\u0BAE', -1, -1),
-    new Among('\u0BAF', -1, -1),
-    new Among('\u0BB0', -1, -1),
-    new Among('\u0BB2', -1, -1),
-    new Among('\u0BB3', -1, -1),
-    new Among('\u0BB4', -1, -1),
-    new Among('\u0BB5', -1, -1),
-  ];
+  static a_6 = Among.table<StemmerTa>(`
+    ஞ,-1,-1 ண,-1,-1 ந,-1,-1 ன,-1,-1 ம,-1,-1 ய,-1,-1 ர,-1,-1 ல,-1,-1 ள,-1,-1
+    ழ,-1,-1 வ,-1,-1
+  `);
 
-  static a_7: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-    new Among('\u0BCD', -1, -1),
-  ];
+  static a_7 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1 ்,-1,-1
+  `);
 
-  static a_8: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B99', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9E', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BA8', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BAE', -1, -1),
-    new Among('\u0BAF', -1, -1),
-    new Among('\u0BB5', -1, -1),
-  ];
+  static a_8 = Among.table<StemmerTa>(`
+    க,-1,-1 ங,-1,-1 ச,-1,-1 ஞ,-1,-1 த,-1,-1 ந,-1,-1 ப,-1,-1 ம,-1,-1 ய,-1,-1
+    வ,-1,-1
+  `);
 
-  static a_9: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9F', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BB1', -1, -1),
-  ];
+  static a_9 = Among.table<StemmerTa>(`
+    க,-1,-1 ச,-1,-1 ட,-1,-1 த,-1,-1 ப,-1,-1 ற,-1,-1
+  `);
 
-  static a_10: Among<StemmerTa>[] = [
-    new Among('\u0B85', -1, -1),
-    new Among('\u0B87', -1, -1),
-    new Among('\u0B89', -1, -1),
-  ];
+  static a_10 = Among.table<StemmerTa>(`
+    அ,-1,-1 இ,-1,-1 உ,-1,-1
+  `);
 
-  static a_11: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B99', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9E', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BA8', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BAE', -1, -1),
-    new Among('\u0BAF', -1, -1),
-    new Among('\u0BB5', -1, -1),
-  ];
+  static a_11 = Among.table<StemmerTa>(`
+    க,-1,-1 ங,-1,-1 ச,-1,-1 ஞ,-1,-1 த,-1,-1 ந,-1,-1 ப,-1,-1 ம,-1,-1 ய,-1,-1
+    வ,-1,-1
+  `);
 
-  static a_12: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9F', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BB1', -1, -1),
-  ];
+  static a_12 = Among.table<StemmerTa>(`
+    க,-1,-1 ச,-1,-1 ட,-1,-1 த,-1,-1 ப,-1,-1 ற,-1,-1
+  `);
 
-  static a_13: Among<StemmerTa>[] = [
-    new Among('\u0B95\u0BB3\u0BCD', -1, 4),
-    new Among('\u0BC1\u0B99\u0BCD\u0B95\u0BB3\u0BCD', 0, 1),
-    new Among('\u0B9F\u0BCD\u0B95\u0BB3\u0BCD', 0, 3),
-    new Among('\u0BB1\u0BCD\u0B95\u0BB3\u0BCD', 0, 2),
-  ];
+  static a_13 = Among.table<StemmerTa>(`
+    கள்,-1,4 ுங்கள்,0,1 ட்கள்,0,3 ற்கள்,0,2
+  `);
 
-  static a_14: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BCB', -1, -1),
-  ];
+  static a_14 = Among.table<StemmerTa>(`
+    ா,-1,-1 ே,-1,-1 ோ,-1,-1
+  `);
 
-  static a_15: Among<StemmerTa>[] = [
-    new Among('\u0BAA\u0BBF', -1, -1),
-    new Among('\u0BB5\u0BBF', -1, -1),
-  ];
+  static a_15 = Among.table<StemmerTa>(`
+    பி,-1,-1 வி,-1,-1
+  `);
 
-  static a_16: Among<StemmerTa>[] = [
-    new Among('\u0BAA\u0B9F\u0BCD\u0B9F', -1, 3),
-    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA3', -1, 3),
-    new Among('\u0BA4\u0BBE\u0BA9', -1, 3),
-    new Among('\u0BAA\u0B9F\u0BBF\u0BA4\u0BBE\u0BA9', 2, 3),
-    new Among('\u0BC6\u0BA9', -1, 1),
-    new Among('\u0BBE\u0B95\u0BBF\u0BAF', -1, 1),
-    new Among('\u0B95\u0BC1\u0BB0\u0BBF\u0BAF', -1, 3),
-    new Among('\u0BC1\u0B9F\u0BC8\u0BAF', -1, 1),
-    new Among('\u0BB2\u0BCD\u0BB2', -1, 2),
-    new Among('\u0BC1\u0BB3\u0BCD\u0BB3', -1, 1),
-    new Among('\u0BBE\u0B95\u0BBF', -1, 1),
-    new Among('\u0BAA\u0B9F\u0BBF', -1, 3),
-    new Among('\u0BBF\u0BA9\u0BCD\u0BB1\u0BBF', -1, 1),
-    new Among('\u0BAA\u0BB1\u0BCD\u0BB1\u0BBF', -1, 3),
-    new Among('\u0BAA\u0B9F\u0BC1', -1, 3),
-    new Among('\u0BB5\u0BBF\u0B9F\u0BC1', -1, 3),
-    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BC1', -1, 3),
-    new Among('\u0BB5\u0BBF\u0B9F\u0BCD\u0B9F\u0BC1', -1, 3),
-    new Among('\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1', -1, 3),
-    new Among('\u0BC6\u0BA9\u0BCD\u0BB1\u0BC1', -1, 1),
-    new Among('\u0BC1\u0B9F\u0BC8', -1, 1),
-    new Among('\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8', -1, 1),
-    new Among('\u0BC1\u0B9F\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BBF\u0B9F\u0BAE\u0BCD', -1, 1),
-    new Among('\u0BC6\u0BB2\u0BCD\u0BB2\u0BBE\u0BAE\u0BCD', -1, 3),
-    new Among('\u0BC6\u0BA9\u0BC1\u0BAE\u0BCD', -1, 1),
-  ];
+  static a_16 = Among.table<StemmerTa>(`
+    பட்ட,-1,3 பட்டண,-1,3 தான,-1,3 படிதான,2,3 ென,-1,1 ாகிய,-1,1 குரிய,-1,3
+    ுடைய,-1,1 ல்ல,-1,2 ுள்ள,-1,1 ாகி,-1,1 படி,-1,3 ின்றி,-1,1 பற்றி,-1,3
+    படு,-1,3 விடு,-1,3 பட்டு,-1,3 விட்டு,-1,3 பட்டது,-1,3 ென்று,-1,1 ுடை,-1,1
+    ில்லை,-1,1 ுடன்,-1,1 ிடம்,-1,1 ெல்லாம்,-1,3 ெனும்,-1,1
+  `);
 
-  static a_17: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_17 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1
+  `);
 
-  static a_18: Among<StemmerTa>[] = [
-    new Among('\u0BB5\u0BBF\u0B9F', -1, 2),
-    new Among('\u0BC0', -1, 7),
-    new Among('\u0BCA\u0B9F\u0BC1', -1, 2),
-    new Among('\u0BCB\u0B9F\u0BC1', -1, 2),
-    new Among('\u0BA4\u0BC1', -1, 6),
-    new Among('\u0BBF\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1', 4, 2),
-    new Among('\u0BBF\u0BA9\u0BCD\u0BB1\u0BC1', -1, 2),
-    new Among('\u0BC1\u0B9F\u0BC8', -1, 2),
-    new Among('\u0BA9\u0BC8', -1, 1),
-    new Among('\u0B95\u0BA3\u0BCD', -1, 1),
-    new Among('\u0BBF\u0BA9\u0BCD', -1, 3),
-    new Among('\u0BAE\u0BC1\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BBF\u0B9F\u0BAE\u0BCD', -1, 4),
-    new Among('\u0BBF\u0BB1\u0BCD', -1, 2),
-    new Among('\u0BAE\u0BC7\u0BB1\u0BCD', -1, 1),
-    new Among('\u0BB2\u0BCD', -1, 5),
-    new Among('\u0BBE\u0BAE\u0BB2\u0BCD', 15, 2),
-    new Among('\u0BBE\u0BB2\u0BCD', 15, 2),
-    new Among('\u0BBF\u0BB2\u0BCD', 15, 2),
-    new Among('\u0BAE\u0BC7\u0BB2\u0BCD', 15, 1),
-    new Among('\u0BC1\u0BB3\u0BCD', -1, 2),
-    new Among('\u0B95\u0BC0\u0BB4\u0BCD', -1, 1),
-  ];
+  static a_18 = Among.table<StemmerTa>(`
+    விட,-1,2 ீ,-1,7 ொடு,-1,2 ோடு,-1,2 து,-1,6 ிருந்து,4,2 ின்று,-1,2 ுடை,-1,2
+    னை,-1,1 கண்,-1,1 ின்,-1,3 முன்,-1,1 ிடம்,-1,4 ிற்,-1,2 மேற்,-1,1 ல்,-1,5
+    ாமல்,15,2 ால்,15,2 ில்,15,2 மேல்,15,1 ுள்,-1,2 கீழ்,-1,1
+  `);
 
-  static a_19: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9F', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BB1', -1, -1),
-  ];
+  static a_19 = Among.table<StemmerTa>(`
+    க,-1,-1 ச,-1,-1 ட,-1,-1 த,-1,-1 ப,-1,-1 ற,-1,-1
+  `);
 
-  static a_20: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_20 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1
+  `);
 
-  static a_21: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_21 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1
+  `);
 
-  static a_22: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, -1),
-    new Among('\u0B9A', -1, -1),
-    new Among('\u0B9F', -1, -1),
-    new Among('\u0BA4', -1, -1),
-    new Among('\u0BAA', -1, -1),
-    new Among('\u0BB1', -1, -1),
-  ];
+  static a_22 = Among.table<StemmerTa>(`
+    க,-1,-1 ச,-1,-1 ட,-1,-1 த,-1,-1 ப,-1,-1 ற,-1,-1
+  `);
 
-  static a_23: Among<StemmerTa>[] = [
-    new Among('\u0B95', -1, 1),
-    new Among('\u0BA4', -1, 1),
-    new Among('\u0BA9', -1, 1),
-    new Among('\u0BAA', -1, 1),
-    new Among('\u0BAF', -1, 1),
-    new Among('\u0BBE', -1, 5),
-    new Among('\u0B95\u0BC1', -1, 6),
-    new Among('\u0BAA\u0B9F\u0BC1', -1, 1),
-    new Among('\u0BA4\u0BC1', -1, 3),
-    new Among('\u0BBF\u0BB1\u0BCD\u0BB1\u0BC1', -1, 1),
-    new Among('\u0BA9\u0BC8', -1, 1),
-    new Among('\u0BB5\u0BC8', -1, 1),
-    new Among('\u0BA9\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BAA\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BB5\u0BA9\u0BCD', -1, 2),
-    new Among('\u0BBE\u0BA9\u0BCD', -1, 4),
-    new Among('\u0BA9\u0BBE\u0BA9\u0BCD', 15, 1),
-    new Among('\u0BAE\u0BBF\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BA9\u0BC6\u0BA9\u0BCD', -1, 1),
-    new Among('\u0BC7\u0BA9\u0BCD', -1, 5),
-    new Among('\u0BA9\u0BAE\u0BCD', -1, 1),
-    new Among('\u0BAA\u0BAE\u0BCD', -1, 1),
-    new Among('\u0BBE\u0BAE\u0BCD', -1, 5),
-    new Among('\u0B95\u0BC1\u0BAE\u0BCD', -1, 1),
-    new Among('\u0B9F\u0BC1\u0BAE\u0BCD', -1, 5),
-    new Among('\u0BA4\u0BC1\u0BAE\u0BCD', -1, 1),
-    new Among('\u0BB1\u0BC1\u0BAE\u0BCD', -1, 1),
-    new Among('\u0BC6\u0BAE\u0BCD', -1, 5),
-    new Among('\u0BC7\u0BAE\u0BCD', -1, 5),
-    new Among('\u0BCB\u0BAE\u0BCD', -1, 5),
-    new Among('\u0BBE\u0BAF\u0BCD', -1, 5),
-    new Among('\u0BA9\u0BB0\u0BCD', -1, 1),
-    new Among('\u0BAA\u0BB0\u0BCD', -1, 1),
-    new Among('\u0BC0\u0BAF\u0BB0\u0BCD', -1, 5),
-    new Among('\u0BB5\u0BB0\u0BCD', -1, 1),
-    new Among('\u0BBE\u0BB0\u0BCD', -1, 5),
-    new Among('\u0BA9\u0BBE\u0BB0\u0BCD', 35, 1),
-    new Among('\u0BAE\u0BBE\u0BB0\u0BCD', 35, 1),
-    new Among('\u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BBF\u0BB0\u0BCD', -1, 1),
-    new Among('\u0BA9\u0BBF\u0BB0\u0BCD', -1, 5),
-    new Among('\u0BC0\u0BB0\u0BCD', -1, 5),
-    new Among('\u0BA9\u0BB3\u0BCD', -1, 1),
-    new Among('\u0BAA\u0BB3\u0BCD', -1, 1),
-    new Among('\u0BB5\u0BB3\u0BCD', -1, 1),
-    new Among('\u0BBE\u0BB3\u0BCD', -1, 5),
-    new Among('\u0BA9\u0BBE\u0BB3\u0BCD', 44, 1),
-  ];
+  static a_23 = Among.table<StemmerTa>(`
+    க,-1,1 த,-1,1 ன,-1,1 ப,-1,1 ய,-1,1 ா,-1,5 கு,-1,6 படு,-1,1 து,-1,3
+    ிற்று,-1,1 னை,-1,1 வை,-1,1 னன்,-1,1 பன்,-1,1 வன்,-1,2 ான்,-1,4 னான்,15,1
+    மின்,-1,1 னென்,-1,1 ேன்,-1,5 னம்,-1,1 பம்,-1,1 ாம்,-1,5 கும்,-1,1 டும்,-1,5
+    தும்,-1,1 றும்,-1,1 ெம்,-1,5 ேம்,-1,5 ோம்,-1,5 ாய்,-1,5 னர்,-1,1 பர்,-1,1
+    ீயர்,-1,5 வர்,-1,1 ார்,-1,5 னார்,35,1 மார்,35,1 கொண்டிர்,-1,1 னிர்,-1,5
+    ீர்,-1,5 னள்,-1,1 பள்,-1,1 வள்,-1,1 ாள்,-1,5 னாள்,44,1
+  `);
 
-  static a_24: Among<StemmerTa>[] = [
-    new Among('\u0B95\u0BBF\u0BB1', -1, -1),
-    new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
-    new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1', -1, -1),
-    new Among('\u0B95\u0BBF\u0BB1\u0BCD', -1, -1),
-    new Among('\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
-    new Among('\u0BBE\u0BA8\u0BBF\u0BA9\u0BCD\u0BB1\u0BCD', -1, -1),
-  ];
+  static a_24 = Among.table<StemmerTa>(`
+    கிற,-1,-1 கின்ற,-1,-1 ாநின்ற,-1,-1 கிற்,-1,-1 கின்ற்,-1,-1 ாநின்ற்,-1,-1
+  `);
 
-  static a_25: Among<StemmerTa>[] = [
-    new Among('\u0B85', -1, -1),
-    new Among('\u0B86', -1, -1),
-    new Among('\u0B87', -1, -1),
-    new Among('\u0B88', -1, -1),
-    new Among('\u0B89', -1, -1),
-    new Among('\u0B8A', -1, -1),
-    new Among('\u0B8E', -1, -1),
-    new Among('\u0B8F', -1, -1),
-    new Among('\u0B90', -1, -1),
-    new Among('\u0B92', -1, -1),
-    new Among('\u0B93', -1, -1),
-    new Among('\u0B94', -1, -1),
-  ];
+  static a_25 = Among.table<StemmerTa>(`
+    அ,-1,-1 ஆ,-1,-1 இ,-1,-1 ஈ,-1,-1 உ,-1,-1 ஊ,-1,-1 எ,-1,-1 ஏ,-1,-1 ஐ,-1,-1
+    ஒ,-1,-1 ஓ,-1,-1 ஔ,-1,-1
+  `);
 
-  static a_26: Among<StemmerTa>[] = [
-    new Among('\u0BBE', -1, -1),
-    new Among('\u0BBF', -1, -1),
-    new Among('\u0BC0', -1, -1),
-    new Among('\u0BC1', -1, -1),
-    new Among('\u0BC2', -1, -1),
-    new Among('\u0BC6', -1, -1),
-    new Among('\u0BC7', -1, -1),
-    new Among('\u0BC8', -1, -1),
-  ];
+  static a_26 = Among.table<StemmerTa>(`
+    ா,-1,-1 ி,-1,-1 ீ,-1,-1 ு,-1,-1 ூ,-1,-1 ெ,-1,-1 ே,-1,-1 ை,-1,-1
+  `);
 }
 
 export default StemmerTa;

@@ -555,35 +555,21 @@ class SnowballStemmerEn extends SnowballStemmer {
 
   static g_valid_LI: number[] = [55, 141, 2];
 
-  static a_0: Among<SnowballStemmerEn>[] = [
-    new Among('arsen', -1, -1),
-    new Among('commun', -1, -1),
-    new Among('gener', -1, -1),
-  ];
+  static a_0 = Among.table<SnowballStemmerEn>(`
+    arsen,-1,-1 commun,-1,-1 gener,-1,-1
+  `);
 
-  static a_1: Among<SnowballStemmerEn>[] = [
-    new Among("'", -1, 1),
-    new Among("'s'", 0, 1),
-    new Among("'s", -1, 1),
-  ];
+  static a_1 = Among.table<SnowballStemmerEn>(`
+    ',-1,1 's',0,1 's,-1,1
+  `);
 
-  static a_2: Among<SnowballStemmerEn>[] = [
-    new Among('ied', -1, 2),
-    new Among('s', -1, 3),
-    new Among('ies', 1, 2),
-    new Among('sses', 1, 1),
-    new Among('ss', 1, -1),
-    new Among('us', 1, -1),
-  ];
+  static a_2 = Among.table<SnowballStemmerEn>(`
+    ied,-1,2 s,-1,3 ies,1,2 sses,1,1 ss,1,-1 us,1,-1
+  `);
 
-  static a_3: Among<SnowballStemmerEn>[] = [
-    new Among('ed', -1, 2),
-    new Among('eed', 0, 1),
-    new Among('ing', -1, 2),
-    new Among('edly', -1, 2),
-    new Among('eedly', 3, 1),
-    new Among('ingly', -1, 2),
-  ];
+  static a_3 = Among.table<SnowballStemmerEn>(`
+    ed,-1,2 eed,0,1 ing,-1,2 edly,-1,2 eedly,3,1 ingly,-1,2
+  `);
 
   static a_4: Among<SnowballStemmerEn>[] = [
     new Among('', -1, 3),
@@ -601,102 +587,38 @@ class SnowballStemmerEn extends SnowballStemmer {
     new Among('iz', 0, 1),
   ];
 
-  static a_5: Among<SnowballStemmerEn>[] = [
-    new Among('anci', -1, 3),
-    new Among('enci', -1, 2),
-    new Among('ogi', -1, 13),
-    new Among('li', -1, 15),
-    new Among('bli', 3, 12),
-    new Among('abli', 4, 4),
-    new Among('alli', 3, 8),
-    new Among('fulli', 3, 9),
-    new Among('lessli', 3, 14),
-    new Among('ousli', 3, 10),
-    new Among('entli', 3, 5),
-    new Among('aliti', -1, 8),
-    new Among('biliti', -1, 12),
-    new Among('iviti', -1, 11),
-    new Among('tional', -1, 1),
-    new Among('ational', 14, 7),
-    new Among('alism', -1, 8),
-    new Among('ation', -1, 7),
-    new Among('ization', 17, 6),
-    new Among('izer', -1, 6),
-    new Among('ator', -1, 7),
-    new Among('iveness', -1, 11),
-    new Among('fulness', -1, 9),
-    new Among('ousness', -1, 10),
-  ];
+  static a_5 = Among.table<SnowballStemmerEn>(`
+    anci,-1,3 enci,-1,2 ogi,-1,13 li,-1,15 bli,3,12 abli,4,4 alli,3,8 fulli,3,9
+    lessli,3,14 ousli,3,10 entli,3,5 aliti,-1,8 biliti,-1,12 iviti,-1,11
+    tional,-1,1 ational,14,7 alism,-1,8 ation,-1,7 ization,17,6 izer,-1,6
+    ator,-1,7 iveness,-1,11 fulness,-1,9 ousness,-1,10
+  `);
 
-  static a_6: Among<SnowballStemmerEn>[] = [
-    new Among('icate', -1, 4),
-    new Among('ative', -1, 6),
-    new Among('alize', -1, 3),
-    new Among('iciti', -1, 4),
-    new Among('ical', -1, 4),
-    new Among('tional', -1, 1),
-    new Among('ational', 5, 2),
-    new Among('ful', -1, 5),
-    new Among('ness', -1, 5),
-  ];
+  static a_6 = Among.table<SnowballStemmerEn>(`
+    icate,-1,4 ative,-1,6 alize,-1,3 iciti,-1,4 ical,-1,4 tional,-1,1
+    ational,5,2 ful,-1,5 ness,-1,5
+  `);
 
-  static a_7: Among<SnowballStemmerEn>[] = [
-    new Among('ic', -1, 1),
-    new Among('ance', -1, 1),
-    new Among('ence', -1, 1),
-    new Among('able', -1, 1),
-    new Among('ible', -1, 1),
-    new Among('ate', -1, 1),
-    new Among('ive', -1, 1),
-    new Among('ize', -1, 1),
-    new Among('iti', -1, 1),
-    new Among('al', -1, 1),
-    new Among('ism', -1, 1),
-    new Among('ion', -1, 2),
-    new Among('er', -1, 1),
-    new Among('ous', -1, 1),
-    new Among('ant', -1, 1),
-    new Among('ent', -1, 1),
-    new Among('ment', 15, 1),
-    new Among('ement', 16, 1),
-  ];
+  static a_7 = Among.table<SnowballStemmerEn>(`
+    ic,-1,1 ance,-1,1 ence,-1,1 able,-1,1 ible,-1,1 ate,-1,1 ive,-1,1 ize,-1,1
+    iti,-1,1 al,-1,1 ism,-1,1 ion,-1,2 er,-1,1 ous,-1,1 ant,-1,1 ent,-1,1
+    ment,15,1 ement,16,1
+  `);
 
-  static a_8: Among<SnowballStemmerEn>[] = [
-    new Among('e', -1, 1),
-    new Among('l', -1, 2),
-  ];
+  static a_8 = Among.table<SnowballStemmerEn>(`
+    e,-1,1 l,-1,2
+  `);
 
-  static a_9: Among<SnowballStemmerEn>[] = [
-    new Among('succeed', -1, -1),
-    new Among('proceed', -1, -1),
-    new Among('exceed', -1, -1),
-    new Among('canning', -1, -1),
-    new Among('inning', -1, -1),
-    new Among('earring', -1, -1),
-    new Among('herring', -1, -1),
-    new Among('outing', -1, -1),
-  ];
+  static a_9 = Among.table<SnowballStemmerEn>(`
+    succeed,-1,-1 proceed,-1,-1 exceed,-1,-1 canning,-1,-1 inning,-1,-1
+    earring,-1,-1 herring,-1,-1 outing,-1,-1
+  `);
 
-  static a_10: Among<SnowballStemmerEn>[] = [
-    new Among('andes', -1, -1),
-    new Among('atlas', -1, -1),
-    new Among('bias', -1, -1),
-    new Among('cosmos', -1, -1),
-    new Among('dying', -1, 3),
-    new Among('early', -1, 9),
-    new Among('gently', -1, 7),
-    new Among('howe', -1, -1),
-    new Among('idly', -1, 6),
-    new Among('lying', -1, 4),
-    new Among('news', -1, -1),
-    new Among('only', -1, 10),
-    new Among('singly', -1, 11),
-    new Among('skies', -1, 2),
-    new Among('skis', -1, 1),
-    new Among('sky', -1, -1),
-    new Among('tying', -1, 5),
-    new Among('ugly', -1, 8),
-  ];
+  static a_10 = Among.table<SnowballStemmerEn>(`
+    andes,-1,-1 atlas,-1,-1 bias,-1,-1 cosmos,-1,-1 dying,-1,3 early,-1,9
+    gently,-1,7 howe,-1,-1 idly,-1,6 lying,-1,4 news,-1,-1 only,-1,10
+    singly,-1,11 skies,-1,2 skis,-1,1 sky,-1,-1 tying,-1,5 ugly,-1,8
+  `);
 }
 
 export default SnowballStemmerEn;

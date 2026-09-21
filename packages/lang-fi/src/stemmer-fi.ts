@@ -416,63 +416,30 @@ class StemmerFi extends SnowballStemmer {
     17, 97, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32,
   ];
 
-  static a_0: Among<StemmerFi>[] = [
-    new Among('pa', -1, 1),
-    new Among('sti', -1, 2),
-    new Among('kaan', -1, 1),
-    new Among('han', -1, 1),
-    new Among('kin', -1, 1),
-    new Among('h\u00E4n', -1, 1),
-    new Among('k\u00E4\u00E4n', -1, 1),
-    new Among('ko', -1, 1),
-    new Among('p\u00E4', -1, 1),
-    new Among('k\u00F6', -1, 1),
-  ];
+  static a_0 = Among.table<StemmerFi>(`
+    pa,-1,1 sti,-1,2 kaan,-1,1 han,-1,1 kin,-1,1 hän,-1,1 kään,-1,1 ko,-1,1
+    pä,-1,1 kö,-1,1
+  `);
 
-  static a_1: Among<StemmerFi>[] = [
-    new Among('nsa', -1, 3),
-    new Among('mme', -1, 3),
-    new Among('nne', -1, 3),
-    new Among('ni', -1, 2),
-    new Among('si', -1, 1),
-    new Among('an', -1, 4),
-    new Among('en', -1, 6),
-    new Among('\u00E4n', -1, 5),
-    new Among('ns\u00E4', -1, 3),
-  ];
+  static a_1 = Among.table<StemmerFi>(`
+    nsa,-1,3 mme,-1,3 nne,-1,3 ni,-1,2 si,-1,1 an,-1,4 en,-1,6 än,-1,5 nsä,-1,3
+  `);
 
-  static a_2: Among<StemmerFi>[] = [
-    new Among('lla', -1, -1),
-    new Among('na', -1, -1),
-    new Among('ssa', -1, -1),
-    new Among('ta', -1, -1),
-    new Among('lta', 3, -1),
-    new Among('sta', 3, -1),
-  ];
+  static a_2 = Among.table<StemmerFi>(`
+    lla,-1,-1 na,-1,-1 ssa,-1,-1 ta,-1,-1 lta,3,-1 sta,3,-1
+  `);
 
-  static a_3: Among<StemmerFi>[] = [
-    new Among('ll\u00E4', -1, -1),
-    new Among('n\u00E4', -1, -1),
-    new Among('ss\u00E4', -1, -1),
-    new Among('t\u00E4', -1, -1),
-    new Among('lt\u00E4', 3, -1),
-    new Among('st\u00E4', 3, -1),
-  ];
+  static a_3 = Among.table<StemmerFi>(`
+    llä,-1,-1 nä,-1,-1 ssä,-1,-1 tä,-1,-1 ltä,3,-1 stä,3,-1
+  `);
 
-  static a_4: Among<StemmerFi>[] = [
-    new Among('lle', -1, -1),
-    new Among('ine', -1, -1),
-  ];
+  static a_4 = Among.table<StemmerFi>(`
+    lle,-1,-1 ine,-1,-1
+  `);
 
-  static a_5: Among<StemmerFi>[] = [
-    new Among('aa', -1, -1),
-    new Among('ee', -1, -1),
-    new Among('ii', -1, -1),
-    new Among('oo', -1, -1),
-    new Among('uu', -1, -1),
-    new Among('\u00E4\u00E4', -1, -1),
-    new Among('\u00F6\u00F6', -1, -1),
-  ];
+  static a_5 = Among.table<StemmerFi>(`
+    aa,-1,-1 ee,-1,-1 ii,-1,-1 oo,-1,-1 uu,-1,-1 ää,-1,-1 öö,-1,-1
+  `);
 
   static a_6: Among<StemmerFi>[] = [
     new Among('a', -1, 8),
@@ -507,32 +474,18 @@ class StemmerFi extends SnowballStemmer {
     new Among('tt\u00E4', 26, 2),
   ];
 
-  static a_7: Among<StemmerFi>[] = [
-    new Among('eja', -1, -1),
-    new Among('mma', -1, 1),
-    new Among('imma', 1, -1),
-    new Among('mpa', -1, 1),
-    new Among('impa', 3, -1),
-    new Among('mmi', -1, 1),
-    new Among('immi', 5, -1),
-    new Among('mpi', -1, 1),
-    new Among('impi', 7, -1),
-    new Among('ej\u00E4', -1, -1),
-    new Among('mm\u00E4', -1, 1),
-    new Among('imm\u00E4', 10, -1),
-    new Among('mp\u00E4', -1, 1),
-    new Among('imp\u00E4', 12, -1),
-  ];
+  static a_7 = Among.table<StemmerFi>(`
+    eja,-1,-1 mma,-1,1 imma,1,-1 mpa,-1,1 impa,3,-1 mmi,-1,1 immi,5,-1 mpi,-1,1
+    impi,7,-1 ejä,-1,-1 mmä,-1,1 immä,10,-1 mpä,-1,1 impä,12,-1
+  `);
 
-  static a_8: Among<StemmerFi>[] = [
-    new Among('i', -1, -1),
-    new Among('j', -1, -1),
-  ];
+  static a_8 = Among.table<StemmerFi>(`
+    i,-1,-1 j,-1,-1
+  `);
 
-  static a_9: Among<StemmerFi>[] = [
-    new Among('mma', -1, 1),
-    new Among('imma', 0, -1),
-  ];
+  static a_9 = Among.table<StemmerFi>(`
+    mma,-1,1 imma,0,-1
+  `);
 }
 
 export default StemmerFi;

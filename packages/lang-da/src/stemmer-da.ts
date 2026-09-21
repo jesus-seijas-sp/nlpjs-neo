@@ -170,55 +170,21 @@ class StemmerDa extends SnowballStemmer {
     239, 254, 42, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
   ];
 
-  static a_0: Among<StemmerDa>[] = [
-    new Among('hed', -1, 1),
-    new Among('ethed', 0, 1),
-    new Among('ered', -1, 1),
-    new Among('e', -1, 1),
-    new Among('erede', 3, 1),
-    new Among('ende', 3, 1),
-    new Among('erende', 5, 1),
-    new Among('ene', 3, 1),
-    new Among('erne', 3, 1),
-    new Among('ere', 3, 1),
-    new Among('en', -1, 1),
-    new Among('heden', 10, 1),
-    new Among('eren', 10, 1),
-    new Among('er', -1, 1),
-    new Among('heder', 13, 1),
-    new Among('erer', 13, 1),
-    new Among('s', -1, 2),
-    new Among('heds', 16, 1),
-    new Among('es', 16, 1),
-    new Among('endes', 18, 1),
-    new Among('erendes', 19, 1),
-    new Among('enes', 18, 1),
-    new Among('ernes', 18, 1),
-    new Among('eres', 18, 1),
-    new Among('ens', 16, 1),
-    new Among('hedens', 24, 1),
-    new Among('erens', 24, 1),
-    new Among('ers', 16, 1),
-    new Among('ets', 16, 1),
-    new Among('erets', 28, 1),
-    new Among('et', -1, 1),
-    new Among('eret', 30, 1),
-  ];
+  static a_0 = Among.table<StemmerDa>(`
+    hed,-1,1 ethed,0,1 ered,-1,1 e,-1,1 erede,3,1 ende,3,1 erende,5,1 ene,3,1
+    erne,3,1 ere,3,1 en,-1,1 heden,10,1 eren,10,1 er,-1,1 heder,13,1 erer,13,1
+    s,-1,2 heds,16,1 es,16,1 endes,18,1 erendes,19,1 enes,18,1 ernes,18,1
+    eres,18,1 ens,16,1 hedens,24,1 erens,24,1 ers,16,1 ets,16,1 erets,28,1
+    et,-1,1 eret,30,1
+  `);
 
-  static a_1: Among<StemmerDa>[] = [
-    new Among('gd', -1, -1),
-    new Among('dt', -1, -1),
-    new Among('gt', -1, -1),
-    new Among('kt', -1, -1),
-  ];
+  static a_1 = Among.table<StemmerDa>(`
+    gd,-1,-1 dt,-1,-1 gt,-1,-1 kt,-1,-1
+  `);
 
-  static a_2: Among<StemmerDa>[] = [
-    new Among('ig', -1, 1),
-    new Among('lig', 0, 1),
-    new Among('elig', 1, 1),
-    new Among('els', -1, 1),
-    new Among('l\u00F8st', -1, 2),
-  ];
+  static a_2 = Among.table<StemmerDa>(`
+    ig,-1,1 lig,0,1 elig,1,1 els,-1,1 løst,-1,2
+  `);
 }
 
 export default StemmerDa;

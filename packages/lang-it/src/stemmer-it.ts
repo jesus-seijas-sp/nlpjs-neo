@@ -508,210 +508,53 @@ class StemmerIt extends SnowballStemmer {
     new Among('U', 0, 2),
   ];
 
-  static a_2: Among<StemmerIt>[] = [
-    new Among('ando', -1, 1),
-    new Among('endo', -1, 1),
-    new Among('ar', -1, 2),
-    new Among('er', -1, 2),
-    new Among('ir', -1, 2),
-  ];
+  static a_2 = Among.table<StemmerIt>(`
+    ando,-1,1 endo,-1,1 ar,-1,2 er,-1,2 ir,-1,2
+  `);
 
-  static a_3: Among<StemmerIt>[] = [
-    new Among('la', -1, -1),
-    new Among('cela', 0, -1),
-    new Among('gliela', 0, -1),
-    new Among('mela', 0, -1),
-    new Among('tela', 0, -1),
-    new Among('vela', 0, -1),
-    new Among('le', -1, -1),
-    new Among('cele', 6, -1),
-    new Among('gliele', 6, -1),
-    new Among('mele', 6, -1),
-    new Among('tele', 6, -1),
-    new Among('vele', 6, -1),
-    new Among('ne', -1, -1),
-    new Among('cene', 12, -1),
-    new Among('gliene', 12, -1),
-    new Among('mene', 12, -1),
-    new Among('sene', 12, -1),
-    new Among('tene', 12, -1),
-    new Among('vene', 12, -1),
-    new Among('ci', -1, -1),
-    new Among('li', -1, -1),
-    new Among('celi', 20, -1),
-    new Among('glieli', 20, -1),
-    new Among('meli', 20, -1),
-    new Among('teli', 20, -1),
-    new Among('veli', 20, -1),
-    new Among('gli', 20, -1),
-    new Among('mi', -1, -1),
-    new Among('si', -1, -1),
-    new Among('ti', -1, -1),
-    new Among('vi', -1, -1),
-    new Among('lo', -1, -1),
-    new Among('celo', 31, -1),
-    new Among('glielo', 31, -1),
-    new Among('melo', 31, -1),
-    new Among('telo', 31, -1),
-    new Among('velo', 31, -1),
-  ];
+  static a_3 = Among.table<StemmerIt>(`
+    la,-1,-1 cela,0,-1 gliela,0,-1 mela,0,-1 tela,0,-1 vela,0,-1 le,-1,-1
+    cele,6,-1 gliele,6,-1 mele,6,-1 tele,6,-1 vele,6,-1 ne,-1,-1 cene,12,-1
+    gliene,12,-1 mene,12,-1 sene,12,-1 tene,12,-1 vene,12,-1 ci,-1,-1 li,-1,-1
+    celi,20,-1 glieli,20,-1 meli,20,-1 teli,20,-1 veli,20,-1 gli,20,-1 mi,-1,-1
+    si,-1,-1 ti,-1,-1 vi,-1,-1 lo,-1,-1 celo,31,-1 glielo,31,-1 melo,31,-1
+    telo,31,-1 velo,31,-1
+  `);
 
-  static a_4: Among<StemmerIt>[] = [
-    new Among('ic', -1, -1),
-    new Among('abil', -1, -1),
-    new Among('os', -1, -1),
-    new Among('iv', -1, 1),
-  ];
+  static a_4 = Among.table<StemmerIt>(`
+    ic,-1,-1 abil,-1,-1 os,-1,-1 iv,-1,1
+  `);
 
-  static a_5: Among<StemmerIt>[] = [
-    new Among('ic', -1, 1),
-    new Among('abil', -1, 1),
-    new Among('iv', -1, 1),
-  ];
+  static a_5 = Among.table<StemmerIt>(`
+    ic,-1,1 abil,-1,1 iv,-1,1
+  `);
 
-  static a_6: Among<StemmerIt>[] = [
-    new Among('ica', -1, 1),
-    new Among('logia', -1, 3),
-    new Among('osa', -1, 1),
-    new Among('ista', -1, 1),
-    new Among('iva', -1, 9),
-    new Among('anza', -1, 1),
-    new Among('enza', -1, 5),
-    new Among('ice', -1, 1),
-    new Among('atrice', 7, 1),
-    new Among('iche', -1, 1),
-    new Among('logie', -1, 3),
-    new Among('abile', -1, 1),
-    new Among('ibile', -1, 1),
-    new Among('usione', -1, 4),
-    new Among('azione', -1, 2),
-    new Among('uzione', -1, 4),
-    new Among('atore', -1, 2),
-    new Among('ose', -1, 1),
-    new Among('ante', -1, 1),
-    new Among('mente', -1, 1),
-    new Among('amente', 19, 7),
-    new Among('iste', -1, 1),
-    new Among('ive', -1, 9),
-    new Among('anze', -1, 1),
-    new Among('enze', -1, 5),
-    new Among('ici', -1, 1),
-    new Among('atrici', 25, 1),
-    new Among('ichi', -1, 1),
-    new Among('abili', -1, 1),
-    new Among('ibili', -1, 1),
-    new Among('ismi', -1, 1),
-    new Among('usioni', -1, 4),
-    new Among('azioni', -1, 2),
-    new Among('uzioni', -1, 4),
-    new Among('atori', -1, 2),
-    new Among('osi', -1, 1),
-    new Among('anti', -1, 1),
-    new Among('amenti', -1, 6),
-    new Among('imenti', -1, 6),
-    new Among('isti', -1, 1),
-    new Among('ivi', -1, 9),
-    new Among('ico', -1, 1),
-    new Among('ismo', -1, 1),
-    new Among('oso', -1, 1),
-    new Among('amento', -1, 6),
-    new Among('imento', -1, 6),
-    new Among('ivo', -1, 9),
-    new Among('it\u00E0', -1, 8),
-    new Among('ist\u00E0', -1, 1),
-    new Among('ist\u00E8', -1, 1),
-    new Among('ist\u00EC', -1, 1),
-  ];
+  static a_6 = Among.table<StemmerIt>(`
+    ica,-1,1 logia,-1,3 osa,-1,1 ista,-1,1 iva,-1,9 anza,-1,1 enza,-1,5 ice,-1,1
+    atrice,7,1 iche,-1,1 logie,-1,3 abile,-1,1 ibile,-1,1 usione,-1,4
+    azione,-1,2 uzione,-1,4 atore,-1,2 ose,-1,1 ante,-1,1 mente,-1,1 amente,19,7
+    iste,-1,1 ive,-1,9 anze,-1,1 enze,-1,5 ici,-1,1 atrici,25,1 ichi,-1,1
+    abili,-1,1 ibili,-1,1 ismi,-1,1 usioni,-1,4 azioni,-1,2 uzioni,-1,4
+    atori,-1,2 osi,-1,1 anti,-1,1 amenti,-1,6 imenti,-1,6 isti,-1,1 ivi,-1,9
+    ico,-1,1 ismo,-1,1 oso,-1,1 amento,-1,6 imento,-1,6 ivo,-1,9 ità,-1,8
+    istà,-1,1 istè,-1,1 istì,-1,1
+  `);
 
-  static a_7: Among<StemmerIt>[] = [
-    new Among('isca', -1, 1),
-    new Among('enda', -1, 1),
-    new Among('ata', -1, 1),
-    new Among('ita', -1, 1),
-    new Among('uta', -1, 1),
-    new Among('ava', -1, 1),
-    new Among('eva', -1, 1),
-    new Among('iva', -1, 1),
-    new Among('erebbe', -1, 1),
-    new Among('irebbe', -1, 1),
-    new Among('isce', -1, 1),
-    new Among('ende', -1, 1),
-    new Among('are', -1, 1),
-    new Among('ere', -1, 1),
-    new Among('ire', -1, 1),
-    new Among('asse', -1, 1),
-    new Among('ate', -1, 1),
-    new Among('avate', 16, 1),
-    new Among('evate', 16, 1),
-    new Among('ivate', 16, 1),
-    new Among('ete', -1, 1),
-    new Among('erete', 20, 1),
-    new Among('irete', 20, 1),
-    new Among('ite', -1, 1),
-    new Among('ereste', -1, 1),
-    new Among('ireste', -1, 1),
-    new Among('ute', -1, 1),
-    new Among('erai', -1, 1),
-    new Among('irai', -1, 1),
-    new Among('isci', -1, 1),
-    new Among('endi', -1, 1),
-    new Among('erei', -1, 1),
-    new Among('irei', -1, 1),
-    new Among('assi', -1, 1),
-    new Among('ati', -1, 1),
-    new Among('iti', -1, 1),
-    new Among('eresti', -1, 1),
-    new Among('iresti', -1, 1),
-    new Among('uti', -1, 1),
-    new Among('avi', -1, 1),
-    new Among('evi', -1, 1),
-    new Among('ivi', -1, 1),
-    new Among('isco', -1, 1),
-    new Among('ando', -1, 1),
-    new Among('endo', -1, 1),
-    new Among('Yamo', -1, 1),
-    new Among('iamo', -1, 1),
-    new Among('avamo', -1, 1),
-    new Among('evamo', -1, 1),
-    new Among('ivamo', -1, 1),
-    new Among('eremo', -1, 1),
-    new Among('iremo', -1, 1),
-    new Among('assimo', -1, 1),
-    new Among('ammo', -1, 1),
-    new Among('emmo', -1, 1),
-    new Among('eremmo', 54, 1),
-    new Among('iremmo', 54, 1),
-    new Among('immo', -1, 1),
-    new Among('ano', -1, 1),
-    new Among('iscano', 58, 1),
-    new Among('avano', 58, 1),
-    new Among('evano', 58, 1),
-    new Among('ivano', 58, 1),
-    new Among('eranno', -1, 1),
-    new Among('iranno', -1, 1),
-    new Among('ono', -1, 1),
-    new Among('iscono', 65, 1),
-    new Among('arono', 65, 1),
-    new Among('erono', 65, 1),
-    new Among('irono', 65, 1),
-    new Among('erebbero', -1, 1),
-    new Among('irebbero', -1, 1),
-    new Among('assero', -1, 1),
-    new Among('essero', -1, 1),
-    new Among('issero', -1, 1),
-    new Among('ato', -1, 1),
-    new Among('ito', -1, 1),
-    new Among('uto', -1, 1),
-    new Among('avo', -1, 1),
-    new Among('evo', -1, 1),
-    new Among('ivo', -1, 1),
-    new Among('ar', -1, 1),
-    new Among('ir', -1, 1),
-    new Among('er\u00E0', -1, 1),
-    new Among('ir\u00E0', -1, 1),
-    new Among('er\u00F2', -1, 1),
-    new Among('ir\u00F2', -1, 1),
-  ];
+  static a_7 = Among.table<StemmerIt>(`
+    isca,-1,1 enda,-1,1 ata,-1,1 ita,-1,1 uta,-1,1 ava,-1,1 eva,-1,1 iva,-1,1
+    erebbe,-1,1 irebbe,-1,1 isce,-1,1 ende,-1,1 are,-1,1 ere,-1,1 ire,-1,1
+    asse,-1,1 ate,-1,1 avate,16,1 evate,16,1 ivate,16,1 ete,-1,1 erete,20,1
+    irete,20,1 ite,-1,1 ereste,-1,1 ireste,-1,1 ute,-1,1 erai,-1,1 irai,-1,1
+    isci,-1,1 endi,-1,1 erei,-1,1 irei,-1,1 assi,-1,1 ati,-1,1 iti,-1,1
+    eresti,-1,1 iresti,-1,1 uti,-1,1 avi,-1,1 evi,-1,1 ivi,-1,1 isco,-1,1
+    ando,-1,1 endo,-1,1 Yamo,-1,1 iamo,-1,1 avamo,-1,1 evamo,-1,1 ivamo,-1,1
+    eremo,-1,1 iremo,-1,1 assimo,-1,1 ammo,-1,1 emmo,-1,1 eremmo,54,1
+    iremmo,54,1 immo,-1,1 ano,-1,1 iscano,58,1 avano,58,1 evano,58,1 ivano,58,1
+    eranno,-1,1 iranno,-1,1 ono,-1,1 iscono,65,1 arono,65,1 erono,65,1
+    irono,65,1 erebbero,-1,1 irebbero,-1,1 assero,-1,1 essero,-1,1 issero,-1,1
+    ato,-1,1 ito,-1,1 uto,-1,1 avo,-1,1 evo,-1,1 ivo,-1,1 ar,-1,1 ir,-1,1
+    erà,-1,1 irà,-1,1 erò,-1,1 irò,-1,1
+  `);
 }
 
 export default StemmerIt;
