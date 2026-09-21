@@ -38,7 +38,7 @@ class StemmerRo extends SnowballStemmer {
             lab4: {
               const v_3 = this.cursor;
               lab5: {
-                if (!this.eq_s(1, 'u')) {
+                if (!this.eq_s('u')) {
                   break lab5;
                 }
                 this.ket = this.cursor;
@@ -51,7 +51,7 @@ class StemmerRo extends SnowballStemmer {
                 break lab4;
               }
               this.cursor = v_3;
-              if (!this.eq_s(1, 'i')) {
+              if (!this.eq_s('i')) {
                 break lab3;
               }
               this.ket = this.cursor;
@@ -179,7 +179,7 @@ class StemmerRo extends SnowballStemmer {
       const v_1 = this.cursor;
       lab1: {
         this.bra = this.cursor;
-        const among_var = this.find_among(StemmerRo.a_0, 3);
+        const among_var = this.find_among(StemmerRo.a_0);
         if (among_var === 0) {
           break lab1;
         }
@@ -214,7 +214,7 @@ class StemmerRo extends SnowballStemmer {
 
   r_step_0(): boolean {
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerRo.a_1, 16);
+    const among_var = this.find_among_b(StemmerRo.a_1);
     if (among_var === 0) {
       return false;
     }
@@ -248,7 +248,7 @@ class StemmerRo extends SnowballStemmer {
         {
           const v_1 = this.limit - this.cursor;
           lab0: {
-            if (!this.eq_s_b(2, 'ab')) {
+            if (!this.eq_s_b('ab')) {
               break lab0;
             }
             return false;
@@ -277,7 +277,7 @@ class StemmerRo extends SnowballStemmer {
     // test
     const v_1 = this.limit - this.cursor;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerRo.a_2, 46);
+    const among_var = this.find_among_b(StemmerRo.a_2);
     if (among_var === 0) {
       return false;
     }
@@ -339,7 +339,7 @@ class StemmerRo extends SnowballStemmer {
       break;
     }
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerRo.a_3, 62);
+    const among_var = this.find_among_b(StemmerRo.a_3);
     if (among_var === 0) {
       return false;
     }
@@ -354,7 +354,7 @@ class StemmerRo extends SnowballStemmer {
         }
         break;
       case 2:
-        if (!this.eq_s_b(1, '\u0163')) {
+        if (!this.eq_s_b('\u0163')) {
           return false;
         }
         this.bra = this.cursor;
@@ -383,7 +383,7 @@ class StemmerRo extends SnowballStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerRo.a_4, 94);
+    const among_var = this.find_among_b(StemmerRo.a_4);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -404,7 +404,7 @@ class StemmerRo extends SnowballStemmer {
             break lab0;
           }
           this.cursor = this.limit - v_3;
-          if (!this.eq_s_b(1, 'u')) {
+          if (!this.eq_s_b('u')) {
             this.limit_backward = v_2;
             return false;
           }
@@ -425,7 +425,7 @@ class StemmerRo extends SnowballStemmer {
 
   r_vowel_suffix(): boolean {
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerRo.a_5, 5);
+    const among_var = this.find_among_b(StemmerRo.a_5);
     if (among_var === 0) {
       return false;
     }

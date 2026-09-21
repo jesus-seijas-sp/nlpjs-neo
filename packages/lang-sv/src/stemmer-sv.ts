@@ -60,7 +60,7 @@ class StemmerSv extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerSv.a_0, 37);
+    const among_var = this.find_among_b(StemmerSv.a_0);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -96,7 +96,7 @@ class StemmerSv extends BaseStemmer {
     this.cursor = this.limit - v_1;
     // and
     const v_3 = this.limit - this.cursor;
-    if (this.find_among_b(StemmerSv.a_1, 7) === 0) {
+    if (this.find_among_b(StemmerSv.a_1) === 0) {
       this.limit_backward = v_2;
       return false;
     }
@@ -125,7 +125,7 @@ class StemmerSv extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerSv.a_2, 5);
+    const among_var = this.find_among_b(StemmerSv.a_2);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;

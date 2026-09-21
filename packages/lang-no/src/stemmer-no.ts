@@ -65,7 +65,7 @@ class StemmerNo extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerNo.a_0, 29);
+    const among_var = this.find_among_b(StemmerNo.a_0);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
@@ -89,7 +89,7 @@ class StemmerNo extends BaseStemmer {
             break lab0;
           }
           this.cursor = this.limit - v_3;
-          if (!this.eq_s_b(1, 'k')) {
+          if (!this.eq_s_b('k')) {
             return false;
           }
           if (!this.out_grouping_b(StemmerNo.g_v, 97, 248)) {
@@ -121,7 +121,7 @@ class StemmerNo extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_2;
     this.ket = this.cursor;
-    if (this.find_among_b(StemmerNo.a_1, 2) === 0) {
+    if (this.find_among_b(StemmerNo.a_1) === 0) {
       this.limit_backward = v_3;
       return false;
     }
@@ -149,7 +149,7 @@ class StemmerNo extends BaseStemmer {
     this.limit_backward = this.cursor;
     this.cursor = this.limit - v_1;
     this.ket = this.cursor;
-    const among_var = this.find_among_b(StemmerNo.a_2, 11);
+    const among_var = this.find_among_b(StemmerNo.a_2);
     if (among_var === 0) {
       this.limit_backward = v_2;
       return false;
