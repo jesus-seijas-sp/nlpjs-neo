@@ -112,6 +112,31 @@ describe('Neural Network', () => {
       imported.fromJSON(pinned.toJSON());
       expect(imported.settings.learningRate).toEqual(0.01);
     });
+
+    test('A model exported before `learningRate` existed trains on `auto` once imported', () => {
+      // A model from a release before this one has no `learningRate` in its
+      // settings either: the old `toJSON` stripped it once it equalled the
+      // old default, 0.6, and 0.6 was the only default there was. That is the
+      // same shape `{}` an `auto` export has today (the test above), so it is
+      // what `fromJSON` sees; it cannot tell the two apart.
+      const legacy = new NeuralNetwork();
+      legacy.train(corpus);
+      const json = legacy.toJSON();
+      expect(json.settings.learningRate).toBeUndefined();
+
+      const imported = new NeuralNetwork();
+      imported.fromJSON(json);
+      expect(imported.settings.learningRate).toEqual('auto');
+
+      // Training the imported model resolves the rate from its corpus, same
+      // as a network that was never exported, not the 0.6 it trained with
+      // originally: a model kept training across the version bump learns at
+      // a different pace than it did before, even though its saved weights
+      // are unchanged and score exactly as they did.
+      imported.train(corpus);
+      expect(imported.baseLearningRate).toEqual(1 / Math.sqrt(corpus.length));
+      expect(imported.baseLearningRate).not.toEqual(0.6);
+    });
   });
 
   describe('Inputs', () => {
